@@ -9,9 +9,9 @@ const config: Config = {
     extend: {
       colors: {
         accent: {
-          300: "#fed7aa", // tangerina clara
-          400: "#fb923c", // tangerina média
-          500: "#f97316"  // tangerina principal
+          300: "#fed7aa", // tangerina bem suave
+          400: "#fdba74", // intermediário
+          500: "#fb923c"  // ainda laranja, mas menos agressivo
         }
       }
     }
