@@ -1,3 +1,5 @@
+// app/page.tsx
+
 export default function HomePage() {
   return (
     <main className="min-h-[calc(100vh-5rem)]">
@@ -18,6 +20,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {/* CARD: MENTORIA */}
           <a
             href="/mentoria"
             className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
@@ -37,41 +40,49 @@ export default function HomePage() {
             <span className="mt-4 text-xs text-accent-300">Ver detalhes →</span>
           </a>
 
-          <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm opacity-80">
+          {/* CARD: CONSULTORIA ÁGIL */}
+          <a
+            href="/agile"
+            className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
+          >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
                 Consultoria Ágil
               </p>
               <h2 className="mt-2 text-base font-semibold text-slate-50">
-                Transformação e entregas reais
+                Projetos ágeis sem fantasia
               </h2>
-              <p className="mt-2 text-slate-300">
-                Estruturação de projetos, squads e indicadores para empresas que
+              <p className="mt-2 text-slate-200">
+                Estruturação de projetos, equipas e fluxos para empresas que
                 querem sair do discurso ágil e entrar na prática.
               </p>
             </div>
-            <span className="mt-4 text-xs text-slate-500">
-              Em breve nesta página
+            <span className="mt-4 text-xs text-accent-300">
+              Ver abordagem → 
             </span>
-          </div>
+          </a>
 
-          <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm opacity-80">
+          {/* CARD: APPS & ERPs */}
+          <a
+            href="/apps"
+            className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
+          >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                Apps & Tiny ERPs
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+              Apps & Tiny ERPs
               </p>
               <h2 className="mt-2 text-base font-semibold text-slate-50">
                 Soluções sob medida
               </h2>
-              <p className="mt-2 text-slate-300">
+              <p className="mt-2 text-slate-200">
                 Apps modulares e ERPs leves para PMEs, como o CONFIANCE e outros
-                projetos sob medida.
+                projetos construídos em cima de módulos já testados.
               </p>
             </div>
-            <span className="mt-4 text-xs text-slate-500">
-              Em breve nesta página
+            <span className="mt-4 text-xs text-accent-300">
+              Ver possibilidades →
             </span>
-          </div>
+          </a>
         </div>
       </section>
     </main>
