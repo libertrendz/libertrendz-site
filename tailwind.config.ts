@@ -8,7 +8,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // base já está boa, mas deixo aqui para futuras customizações
+        accent: {
+          300: "#fed7aa", // tangerina clara
+          400: "#fb923c", // tangerina média
+          500: "#f97316"  // tangerina principal
+        }
       }
     }
   },
