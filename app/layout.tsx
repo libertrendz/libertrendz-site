@@ -22,10 +22,10 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
         {/* HEADER */}
         <header className="border-b border-slate-900/80 bg-slate-950/90">
-          <div className="container-page flex items-center justify-between py-4">
+          <div className="container-page flex items-center justify-between py-5">
             {/* Marca principal */}
             <a href="/" className="flex items-center gap-3">
-              <div className="relative h-9 w-9 rounded-lg bg-slate-950">
+              <div className="relative h-10 w-10 rounded-lg bg-slate-950">
                 <Image
                   src={LOGO_SYMBOL_URL}
                   alt="Libertrendz"
@@ -35,17 +35,17 @@ export default function RootLayout({
                 />
               </div>
               <div className="flex flex-col leading-tight">
-                <span className="text-xs font-semibold tracking-[0.26em] text-slate-100">
+                <span className="text-[13px] font-semibold tracking-[0.26em] text-slate-100">
                   LIBERTRENDZ
                 </span>
-                <span className="text-[10px] text-slate-400">
+                <span className="text-[11px] text-slate-400">
                   Mentoria Tech · Projetos Ágeis · Apps
                 </span>
               </div>
             </a>
 
             {/* NAV */}
-            <nav className="hidden items-center gap-5 text-xs font-medium text-slate-300 sm:flex">
+            <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
               <a href="/" className="hover:text-accent-400">
                 Início
               </a>
