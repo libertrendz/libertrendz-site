@@ -3,7 +3,7 @@ export default function HomePage() {
     <main className="min-h-[calc(100vh-5rem)]">
       <section className="container-page py-16">
         <div className="max-w-2xl space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
             Libertrendz
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
@@ -20,10 +20,10 @@ export default function HomePage() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           <a
             href="/mentoria"
-            className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-emerald-500/70 hover:bg-slate-900/70"
+            className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
           >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
                 Mentoria
               </p>
               <h2 className="mt-2 text-base font-semibold text-slate-50">
@@ -34,12 +34,10 @@ export default function HomePage() {
                 começando pelo diagnóstico TechTrailScan.
               </p>
             </div>
-            <span className="mt-4 text-xs text-emerald-300">
-              Ver detalhes →
-            </span>
+            <span className="mt-4 text-xs text-accent-300">Ver detalhes →</span>
           </a>
 
-          <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm opacity-70">
+          <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm opacity-80">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                 Consultoria Ágil
@@ -57,7 +55,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm opacity-70">
+          <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm opacity-80">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                 Apps & Tiny ERPs
