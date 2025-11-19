@@ -23,7 +23,7 @@ export default function RootLayout({
         {/* HEADER */}
         <header className="border-b border-slate-900/80 bg-slate-950/90">
           <div className="container-page flex items-center justify-between py-4">
-            {/* Marca */}
+            {/* Marca principal */}
             <a href="/" className="flex items-center gap-3">
               <div className="relative h-9 w-9 rounded-lg bg-slate-950">
                 <Image
@@ -44,7 +44,7 @@ export default function RootLayout({
               </div>
             </a>
 
-            {/* Navegação */}
+            {/* NAV */}
             <nav className="hidden items-center gap-5 text-xs font-medium text-slate-300 sm:flex">
               <a href="/" className="hover:text-accent-400">
                 Início
@@ -52,15 +52,17 @@ export default function RootLayout({
               <a href="/mentoria" className="hover:text-accent-400">
                 Mentoria Tech Reload
               </a>
-              {/* Futuro:
-              <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-              <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
-              */}
+              <a href="/agile" className="hover:text-accent-400">
+                Consultoria Ágil
+              </a>
+              <a href="/apps" className="hover:text-accent-400">
+                Apps & ERPs
+              </a>
             </nav>
           </div>
         </header>
 
-        {/* CONTEÚDO */}
+        {/* CONTEÚDO PRINCIPAL */}
         <main>{children}</main>
 
         {/* FOOTER */}
@@ -81,8 +83,7 @@ export default function RootLayout({
                 </span>
               </div>
               <div className="text-[10px] text-slate-500">
-                © {new Date().getFullYear()} Libertrendz. Todos os direitos
-                reservados.
+                © {new Date().getFullYear()} Libertrendz. Todos os direitos reservados.
               </div>
             </div>
 
