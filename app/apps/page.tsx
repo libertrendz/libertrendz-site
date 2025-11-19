@@ -11,7 +11,7 @@ export default function AppsPage() {
               Apps & ERPs Libertrendz
             </p>
             <h1 className="mb-4 text-3xl font-bold leading-tight md:text-4xl">
-              Tiny ERPs e apps sob medida,  
+              Tiny ERPs e apps sob medida,{" "}
               <span className="block text-accent-400">
                 construídos em cima de módulos prontos.
               </span>
@@ -142,6 +142,60 @@ export default function AppsPage() {
           </div>
         </div>
 
+        {/* NOVO BLOCO: SITES & LANDING PAGES */}
+        <div className="mt-16 space-y-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+          <h2 className="text-xl font-semibold text-slate-50">
+            Sites & Landing Pages Libertrendz
+          </h2>
+          <p className="text-sm text-slate-200">
+            Além dos apps e ERPs, a mesma base técnica e de design é usada para
+            construir sites institucionais e landing pages profissionais — como
+            este que você está a navegar agora.
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="text-sm text-slate-200">
+              <p className="mb-2 font-semibold text-slate-50">
+                Tipos de entrega:
+              </p>
+              <ul className="space-y-1 text-[13px] text-slate-300">
+                <li>• Site institucional enxuto para empresas.</li>
+                <li>• Landing page para produtos/serviços específicos.</li>
+                <li>• Páginas de captura para mentorias e programas.</li>
+              </ul>
+            </div>
+            <div className="text-sm text-slate-200">
+              <p className="mb-2 font-semibold text-slate-50">
+                Como trabalhamos:
+              </p>
+              <ul className="space-y-1 text-[13px] text-slate-300">
+                <li>• Design minimalista, focado em clareza.</li>
+                <li>• Conteúdo pensado para conversão, não só estética.</li>
+                <li>• Stack moderna (Next.js + Vercel), com boa performance.</li>
+              </ul>
+            </div>
+            <div className="text-sm text-slate-200">
+              <p className="mb-2 font-semibold text-slate-50">
+                Quando faz sentido:
+              </p>
+              <ul className="space-y-1 text-[13px] text-slate-300">
+                <li>• Quando o negócio precisa “ir pro ar” com seriedade.</li>
+                <li>• Quando landing de ferramenta genérica já não basta.</li>
+                <li>• Quando quer um site na mesma linha do seu sistema.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <a
+              href="mailto:contato@libertrendz.eu?subject=Site%20ou%20Landing%20Page%20Libertrendz"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+            >
+              Falar sobre um site ou landing page
+            </a>
+          </div>
+        </div>
+
         {/* BLOCO: COMO É O PROJETO */}
         <div className="mt-16 space-y-6">
           <h2 className="text-xl font-semibold text-slate-50">
@@ -151,19 +205,19 @@ export default function AppsPage() {
             {[
               {
                 titulo: "1. Conversa rápida",
-                desc: "Entendemos em 30–45 minutos o contexto, dores principais e processos críticos.",
+                desc: "Entendemos em 30–45 minutos o contexto, dores principais e processos críticos."
               },
               {
                 titulo: "2. Desenho de solução",
-                desc: "Propomos uma combinação de módulos + customizações pontuais, com fases claras.",
+                desc: "Propomos uma combinação de módulos + customizações pontuais, com fases claras."
               },
               {
                 titulo: "3. Entrega por fases",
-                desc: "Primeira entrega focada no que mais dói (por exemplo, ponto + obras). Depois, o resto.",
+                desc: "Primeira entrega focada no que mais dói (por exemplo, ponto + obras). Depois, o resto."
               },
               {
                 titulo: "4. Evolução controlada",
-                desc: "Com a base pronta, o sistema cresce à medida que a empresa cresce — sem recomeçar do zero.",
+                desc: "Com a base pronta, o sistema cresce à medida que a empresa cresce — sem recomeçar do zero."
               }
             ].map((step) => (
               <div
