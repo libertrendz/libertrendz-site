@@ -2,13 +2,12 @@
 import Link from "next/link";
 
 const TECHTRAILSCAN_FORM_URL =
-  "https://docs.google.com/forms/d/SEU_FORMULARIO_AQUI/viewform"; // troque pelo link real do TechTrailScan (Persona 2)
+  "https://forms.gle/PYwbYjeuUidp9EKVA";
 
 export default function MentoriaPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-50">
-      {/* Container geral */}
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-16 px-4 py-12 lg:py-16">
+    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
+      <div className="container-page flex flex-col gap-16 py-12 lg:py-16">
         {/* HERO */}
         <section className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-center">
           <div>
@@ -56,7 +55,7 @@ export default function MentoriaPage() {
               Como funciona
             </p>
             <h2 className="mb-4 text-lg font-semibold text-slate-50">
-              Diagnóstico, Direção e Execução guiada
+              Diagnóstico, direção e execução guiada
             </h2>
             <ul className="space-y-3 text-sm text-slate-200">
               <li>
@@ -237,20 +236,20 @@ export default function MentoriaPage() {
             {[
               {
                 titulo: "Fase 1 — Scan",
-                desc: "TechTrailScan completo + leitura profissional do seu perfil.",
+                desc: "TechTrailScan completo + leitura profissional do seu perfil."
               },
               {
                 titulo: "Fase 2 — Direction",
-                desc: "Plano de 90 dias ajustado à sua rotina e à trilha escolhida.",
+                desc: "Plano de 90 dias ajustado à sua rotina e à trilha escolhida."
               },
               {
                 titulo: "Fase 3 — Execution",
-                desc: "Execução guiada, checkpoints e ajustes de rota.",
+                desc: "Execução guiada, checkpoints e ajustes de rota."
               },
               {
                 titulo: "Fase 4 — Reload",
-                desc: "Reposicionamento profissional: LinkedIn, narrativa, entrevistas e oportunidades.",
-              },
+                desc: "Reposicionamento profissional: LinkedIn, narrativa, entrevistas e oportunidades."
+              }
             ].map((fase) => (
               <div
                 key={fase.titulo}
@@ -279,7 +278,10 @@ export default function MentoriaPage() {
                 <li>• Já tentou aprender sozinho e travou.</li>
                 <li>• Quer mudar, mas com um plano realista.</li>
                 <li>• Está no Brasil ou em Portugal.</li>
-                <li>• Tem 30+, 40+ ou 50+ e não quer ser tratado como “caso perdido”.</li>
+                <li>
+                  • Tem 30+, 40+ ou 50+ e não quer ser tratado como “caso
+                  perdido”.
+                </li>
               </ul>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
