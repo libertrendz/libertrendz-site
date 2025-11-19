@@ -1,4 +1,3 @@
-// app/mentoria/page.tsx
 import Link from "next/link";
 
 const TECHTRAILSCAN_FORM_URL =
@@ -11,11 +10,11 @@ export default function MentoriaPage() {
         {/* HERO */}
         <section className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-center">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-400">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent-400">
               Mentoria Libertrendz
             </p>
             <h1 className="mb-4 text-3xl font-bold leading-tight text-slate-50 md:text-4xl lg:text-5xl">
-              Libertrendz <span className="text-emerald-400">Tech Reload</span>
+              Libertrendz <span className="text-accent-400">Tech Reload</span>
             </h1>
             <p className="mb-4 text-lg text-slate-200">
               Recarregue a sua carreira. Reconstrua o seu futuro em tecnologia
@@ -31,7 +30,7 @@ export default function MentoriaPage() {
               <Link
                 href={TECHTRAILSCAN_FORM_URL}
                 target="_blank"
-                className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
               >
                 Fazer o TechTrailScan gratuito
               </Link>
@@ -50,8 +49,8 @@ export default function MentoriaPage() {
           </div>
 
           {/* Lado direito - “cartão” visual */}
-          <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/60 via-slate-900/30 to-emerald-900/20 p-6 shadow-xl shadow-black/60">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">
+          <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/60 via-slate-900/30 to-slate-900/10 p-6 shadow-xl shadow-black/60">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
               Como funciona
             </p>
             <h2 className="mb-4 text-lg font-semibold text-slate-50">
@@ -80,7 +79,7 @@ export default function MentoriaPage() {
         <section className="space-y-6">
           <h2 className="text-xl font-semibold text-slate-50">
             O problema não é aprender tecnologia. É saber{" "}
-            <span className="text-emerald-400">para onde faz sentido ir</span>.
+            <span className="text-accent-400">para onde faz sentido ir</span>.
           </h2>
           <p className="text-sm text-slate-200">
             Mudar para tecnologia aos 30, 40 ou 50 não é sobre decorar sintaxe
@@ -136,7 +135,7 @@ export default function MentoriaPage() {
 
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
                 Para quem quer
               </p>
               <ul className="space-y-1 text-slate-200">
@@ -146,7 +145,7 @@ export default function MentoriaPage() {
               </ul>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
                 O que não é
               </p>
               <ul className="space-y-1 text-slate-200">
@@ -156,7 +155,7 @@ export default function MentoriaPage() {
               </ul>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
                 O que é
               </p>
               <ul className="space-y-1 text-slate-200">
@@ -168,7 +167,7 @@ export default function MentoriaPage() {
           </div>
         </section>
 
-        {/* TECHTRAILSCAN DENTRO DA MENTORIA */}
+        {/* TECHTRAILSCAN */}
         <section className="space-y-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
@@ -183,7 +182,7 @@ export default function MentoriaPage() {
             <Link
               href={TECHTRAILSCAN_FORM_URL}
               target="_blank"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 shadow shadow-emerald-500/40 transition hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
             >
               Fazer meu TechTrailScan
             </Link>
@@ -227,7 +226,7 @@ export default function MentoriaPage() {
           </div>
         </section>
 
-        {/* MÉTODO TECH RELOAD */}
+        {/* MÉTODO */}
         <section className="space-y-6">
           <h2 className="text-xl font-semibold text-slate-50">
             O Método Tech Reload em 4 fases
@@ -388,7 +387,7 @@ export default function MentoriaPage() {
             <Link
               href={TECHTRAILSCAN_FORM_URL}
               target="_blank"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
               Fazer meu TechTrailScan agora
             </Link>
