@@ -13,13 +13,14 @@ export default function HomePage() {
             <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
               Estratégia, tecnologia e transição de carreira{" "}
               <span className="block text-accent-400">
-                para adultos e PMEs que não têm tempo a perder.
+                para profissionais e PMEs que não têm tempo a perder.
               </span>
             </h1>
             <p className="mt-4 max-w-xl text-sm text-slate-200">
-              Mentoria tech para adultos, consultoria ágil sem fantasia e
-              apps/ERPs modulares para empresas. Uma casa só para alinhar
-              carreira, projetos e sistemas com o que realmente importa.
+              Mentoria tech para profissionais em transição, consultoria ágil
+              sem teatro e apps/ERPs modulares para empresas. Um ponto único
+              para alinhar carreira, projetos e sistemas ao que o negócio
+              realmente precisa.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -38,17 +39,17 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Bloco “Em poucas linhas” — AJUSTADO PARA BAIXO */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:translate-y-1">
+          {/* Bloco “Em poucas linhas” */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:translate-y-3">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
               Em poucas linhas
             </p>
             <p className="text-sm text-slate-200">
-              A Libertrendz junta experiência de gestão, prática de projetos
-              e tecnologia moderna para oferecer três coisas:
+              A Libertrendz junta gestão, projetos e tecnologia para entregar
+              três coisas muito claras:
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-200">
-              <li>• Direção clara para quem quer migrar para tech.</li>
+              <li>• Direção para profissionais que querem migrar para tech.</li>
               <li>• Estrutura para equipas e projetos ágeis funcionarem.</li>
               <li>• Sistemas sob medida quando o Excel já não chega.</li>
             </ul>
@@ -66,10 +67,10 @@ export default function HomePage() {
                 LiberTrail — o ponto de partida da Tech Reload
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-200">
-                Um diagnóstico pensado para adultos que querem mudar para
+                Um diagnóstico pensado para profissionais que querem migrar para
                 tecnologia com seriedade: duas portas de entrada, leitura
-                profissional do seu perfil e indicação de trilhas possíveis,
-                sem empurrar “dev” como solução única.
+                estruturada do teu perfil e indicação de trilhas possíveis, sem
+                empurrar “dev” como solução única.
               </p>
             </div>
             <div className="flex flex-col gap-2 text-sm text-slate-200 md:text-right">
@@ -77,9 +78,9 @@ export default function HomePage() {
                 Como funciona
               </p>
               <p className="text-[13px] text-slate-300">
-                Você escolhe o perfil que mais se parece com você, responde ao
+                Escolhes o perfil que mais se parece contigo, respondes ao
                 LiberTrail e, a partir daí, a mentoria Tech Reload entra com
-                plano e acompanhamento.
+                plano e acompanhamento — sem promessas vazias.
               </p>
               <div className="mt-1 flex flex-wrap justify-start gap-2 md:justify-end">
                 <a
@@ -107,9 +108,9 @@ export default function HomePage() {
                 O que a Libertrendz faz hoje
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-200">
-                Três eixos que se complementam: pessoas em transição, empresas
-                a organizar projetos e negócios a precisar de sistemas que
-                realmente ajudem o dia a dia.
+                Três eixos que se ligam: profissionais em transição, equipas a
+                organizar projetos e negócios que precisam de sistemas que
+                ajudem o dia a dia em vez de atrapalhar.
               </p>
             </div>
           </div>
@@ -128,9 +129,9 @@ export default function HomePage() {
                   Tech Reload + LiberTrail
                 </h3>
                 <p className="mt-2 text-slate-200">
-                  Mentoria de transição para tecnologia pensada para adultos.
-                  Começa com o diagnóstico LiberTrail e segue com plano de 90
-                  dias e acompanhamento.
+                  Mentoria de transição para tecnologia pensada para
+                  profissionais. Começa com o diagnóstico LiberTrail e segue com
+                  um plano de 90 dias com acompanhamento próximo.
                 </p>
               </div>
               <span className="mt-4 text-xs text-accent-300">
@@ -152,8 +153,8 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-2 text-slate-200">
                   Estruturação de fluxo, rituais e métricas para equipas e
-                  projetos. Menos teatro, mais previsibilidade e entrega real
-                  para PMEs.
+                  projetos. Menos teatro, mais previsibilidade, foco em PMEs que
+                  precisam entregar sem montar um circo à volta da metodologia.
                 </p>
               </div>
               <span className="mt-4 text-xs text-accent-300">
@@ -175,8 +176,8 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-2 text-slate-200">
                   Apps e ERPs leves construídos em cima de módulos já testados,
-                  como o CONFIANCE. Ideal para negócios que cresceram além do
-                  Excel, mas não querem um monstro de ERP.
+                  como o CONFIANCE. Para negócios que cresceram além do Excel,
+                  mas não querem um monstro de ERP nem um projeto eterno.
                 </p>
               </div>
               <span className="mt-4 text-xs text-accent-300">
@@ -194,12 +195,12 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="mb-2 font-semibold text-slate-50">
-                Foco em adultos e PMEs
+                Foco em profissionais e PMEs
               </p>
               <p>
-                A linguagem, os planos e as soluções são pensados para quem já
-                viveu o suficiente para não ter paciência para modinha e
-                promessa vazia.
+                Linguagem, decisões e propostas pensadas para quem já está no
+                mercado e precisa alinhar carreira ou operação sem perder tempo
+                com moda ou buzzword.
               </p>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
@@ -207,8 +208,8 @@ export default function HomePage() {
                 Tecnologia como meio, não fim
               </p>
               <p>
-                Nada de empurrar stack, metodologia ou ferramenta só porque está
-                na moda. A tecnologia entra onde faz sentido para o objetivo.
+                Nenhuma stack ou metodologia é um fim em si. A tecnologia entra
+                onde faz sentido para o objetivo, não o contrário.
               </p>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
@@ -216,8 +217,8 @@ export default function HomePage() {
                 Experiência + método
               </p>
               <p>
-                A combinação de percurso real em gestão, projetos e tech com
-                método claro: diagnóstico, plano, execução e ajuste.
+                Combinação de percurso real em gestão, operações e tech com um
+                método simples: diagnóstico, plano, execução e ajuste contínuo.
               </p>
             </div>
           </div>
@@ -229,9 +230,9 @@ export default function HomePage() {
             Pronto para avançar?
           </h2>
           <p className="text-sm text-slate-200">
-            Pode começar pelo LiberTrail, explorar um serviço específico ou
+            Podes começar pelo LiberTrail, explorar um serviço específico ou
             simplesmente usar a página de contato para contar o teu contexto. A
-            partir daí, a conversa fica séria.
+            partir daí, a conversa fica séria e orientada para decisão.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <a
