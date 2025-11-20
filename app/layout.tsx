@@ -58,6 +58,12 @@ export default function RootLayout({
               <a href="/apps" className="hover:text-accent-400">
                 Apps & ERPs
               </a>
+              <a href="/sobre" className="hover:text-accent-400">
+                Sobre
+              </a>
+              <a href="/contato" className="hover:text-accent-400">
+                Contato
+              </a>
             </nav>
           </div>
         </header>
