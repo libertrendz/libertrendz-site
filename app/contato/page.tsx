@@ -1,78 +1,76 @@
-// app/contato/page.tsx
 "use client";
 
 import { FormEvent, useState } from "react";
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export default function ContatoPage() {
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sending");
+    setStatus("loading");
+    setErrorMsg(null);
 
     const form = e.currentTarget;
-    const data = new FormData(form);
+    const formData = new FormData(form);
 
-    const payload = {
-      nome: data.get("nome"),
-      email: data.get("email"),
-      assunto: data.get("assunto"),
-      mensagem: data.get("mensagem")
-    };
+    const nome = String(formData.get("nome") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const assunto = String(formData.get("assunto") || "").trim();
+    const mensagem = String(formData.get("mensagem") || "").trim();
 
     try {
       const res = await fetch("/api/contato", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, email, assunto, mensagem }),
       });
 
       if (!res.ok) {
-        console.error(await res.json().catch(() => ({})));
+        const data = await res.json().catch(() => null);
+        const detail =
+          data?.error || data?.message || "Algo correu mal ao enviar a mensagem.";
         setStatus("error");
+        setErrorMsg(detail);
         return;
       }
 
       setStatus("success");
       form.reset();
     } catch (err) {
-      console.error(err);
       setStatus("error");
+      setErrorMsg("Não foi possível enviar no momento. Tente novamente em instantes.");
     }
   }
 
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-12 lg:py-16">
-        {/* Cabeçalho */}
-        <div className="max-w-2xl space-y-4">
+      <section className="container-page py-12 lg:py-16 space-y-12">
+        {/* HERO */}
+        <div className="max-w-3xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
             Contato
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Vamos falar sobre a sua situação real.
+            Vamos falar sobre o teu contexto — sem roteiros prontos.
           </h1>
-          <p className="text-sm text-slate-200">
-            Use este formulário para falar sobre mentoria, consultoria ágil ou
-            apps/ERPs. Pode explicar o contexto com calma — a ideia é entender
-            onde você está hoje e o que está a tentar resolver.
+          <p className="text-sm text-slate-200 max-w-2xl">
+            Usa o formulário abaixo para explicar, em poucas linhas, o que estás
+            a viver hoje: transição para tecnologia, projetos ágeis, apps/ERPs ou
+            outro tema relacionado. A resposta é direta, sem copy&paste.
           </p>
         </div>
 
-        {/* Conteúdo */}
-        <div className="mt-10 grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-start">
-          {/* Formulário */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60">
+        <div className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-start">
+          {/* FORMULÁRIO */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/50">
             <form className="space-y-5" onSubmit={handleSubmit}>
-              {/* Nome */}
-              <div className="space-y-1.5 text-sm">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="nome"
-                  className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
                 >
                   Nome
                 </label>
@@ -81,16 +79,15 @@ export default function ContatoPage() {
                   name="nome"
                   type="text"
                   required
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400"
-                  placeholder="Seu nome completo"
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  placeholder="Como devo chamar-te?"
                 />
               </div>
 
-              {/* E-mail */}
-              <div className="space-y-1.5 text-sm">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="email"
-                  className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
                 >
                   E-mail
                 </label>
@@ -99,145 +96,111 @@ export default function ContatoPage() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400"
-                  placeholder="seuemail@exemplo.com"
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  placeholder="contato@exemplo.com"
                 />
               </div>
 
-              {/* Assunto / Interesse */}
-              <div className="space-y-1.5 text-sm">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="assunto"
-                  className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
                 >
-                  Sobre o que quer falar?
+                  Assunto
                 </label>
                 <select
                   id="assunto"
                   name="assunto"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition focus:border-accent-400"
-                  defaultValue=""
                   required
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  defaultValue=""
                 >
                   <option value="" disabled>
-                    Selecione uma opção
+                    Seleciona uma opção
                   </option>
-                  <option value="Mentoria Tech Reload">Mentoria Tech Reload</option>
-                  <option value="LiberTrail">LiberTrail (diagnóstico)</option>
+                  <option value="Mentoria Tech Reload">
+                    Mentoria Tech Reload / LiberTrail
+                  </option>
                   <option value="Consultoria Ágil">Consultoria Ágil</option>
-                  <option value="Apps / Tiny ERPs">Apps / Tiny ERPs</option>
-                  <option value="Outro">Outro assunto</option>
+                  <option value="Apps e Tiny ERPs">Apps & Tiny ERPs</option>
+                  <option value="Outro">Outro tema relacionado</option>
                 </select>
               </div>
 
-              {/* Mensagem */}
-              <div className="space-y-1.5 text-sm">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="mensagem"
-                  className="block text-xs font-semibold uppercase tracking-[0.18em] text-slate-300"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
                 >
-                  Conte-me o contexto
+                  Mensagem
                 </label>
                 <textarea
                   id="mensagem"
                   name="mensagem"
                   required
-                  rows={6}
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400"
-                  placeholder="Fale em poucas linhas sobre onde você está hoje, o que está a tentar resolver e em que posso ajudar."
+                  rows={5}
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  placeholder="Conta-me, em poucas linhas, o que está a acontecer e o que esperas mudar."
                 />
               </div>
 
-              {/* Rodapé form */}
-              <div className="flex flex-col gap-2 pt-2 text-xs text-slate-400">
+              {/* FEEDBACK */}
+              {status === "success" && (
+                <p className="text-xs text-emerald-400">
+                  Mensagem enviada com sucesso. Vou ler com atenção e responder
+                  assim que possível.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-xs text-red-400">
+                  {errorMsg ||
+                    "Algo correu mal ao enviar. Tente novamente em instantes ou envie diretamente para contato@libertrendz.eu."}
+                </p>
+              )}
+
+              <div className="pt-2">
                 <button
                   type="submit"
-                  disabled={status === "sending"}
-                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-70"
+                  disabled={status === "loading"}
+                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+                  {status === "loading" ? "Enviando..." : "Enviar mensagem"}
                 </button>
-
-                {status === "success" && (
-                  <p className="text-[11px] text-emerald-400">
-                    Mensagem enviada com sucesso. Em breve você recebe resposta
-                    em{" "}
-                    <span className="font-semibold">contato@libertrendz.eu</span>.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="text-[11px] text-red-400">
-                    Algo correu mal ao enviar. Tente novamente em instantes ou
-                    envie diretamente para{" "}
-                    <a
-                      href="mailto:contato@libertrendz.eu"
-                      className="underline"
-                    >
-                      contato@libertrendz.eu
-                    </a>
-                    .
-                  </p>
-                )}
-                {status === "idle" && (
-                  <p className="text-[11px] text-slate-500">
-                    Ao enviar, você autoriza contato de resposta para o e-mail
-                    informado. Sem spam, sem partilha com terceiros.
-                  </p>
-                )}
               </div>
             </form>
           </div>
 
-          {/* Lado direito – contexto e alternativa */}
-          <div className="space-y-6 text-sm text-slate-200">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Como uso as suas mensagens
+          {/* LATERAL EXPLICATIVA */}
+          <div className="space-y-5 text-sm text-slate-200">
+            <div>
+              <h2 className="text-base font-semibold text-slate-50">
+                O que ajuda a tornar a resposta mais útil
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Quanto mais contexto objetivo tiver, mais direta e prática será
+                a resposta. Não precisa ser um texto longo, mas alguns pontos
+                ajudam:
               </p>
-              <p className="text-sm text-slate-200">
-                Cada contato é lido com calma. A ideia é entender se faz
-                sentido eu te ajudar via mentoria, consultoria, desenvolvimento
-                de solução — ou se o melhor é recomendar outro caminho.
-              </p>
+              <ul className="mt-2 space-y-1 text-slate-300">
+                <li>• Em que fase estás hoje (carreira, empresa, equipa).</li>
+                <li>• O que já tentaste fazer até aqui.</li>
+                <li>• O que esperas de uma mentoria, consultoria ou app.</li>
+              </ul>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Se preferir, pode falar direto
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-xs text-slate-300">
+              <p className="mb-1 font-semibold text-slate-50">
+                Preferes enviar direto por e-mail?
               </p>
-              <p className="text-sm">
-                E-mail:{" "}
+              <p>
+                Também podes escrever para{" "}
                 <a
                   href="mailto:contato@libertrendz.eu"
                   className="text-accent-400 hover:text-accent-300"
                 >
                   contato@libertrendz.eu
-                </a>
-              </p>
-              <p className="text-sm">
-                Telemóvel (Portugal):{" "}
-                <span className="text-slate-100">+351 939 250 661</span>
-              </p>
-              <p className="text-[11px] text-slate-500">
-                Se enviar mensagem por WhatsApp ou e-mail com contexto direto,
-                mencione que chegou pelo site da Libertrendz. Facilita a leitura.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Dica para mentoria
-              </p>
-              <p className="text-sm text-slate-200">
-                Se o assunto for mentoria Tech Reload, o melhor ponto de partida
-                continua sendo o{" "}
-                <a
-                  href="/mentoria#libertrail-personas"
-                  className="text-accent-400 hover:text-accent-300"
-                >
-                  LiberTrail
-                </a>
-                . Este formulário serve mais para alinhamento e dúvidas gerais.
+                </a>{" "}
+                se preferires não usar o formulário.
               </p>
             </div>
           </div>
