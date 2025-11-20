@@ -3,251 +3,247 @@
 export default function AppsPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-12 lg:py-16">
+      <section className="container-page py-12 lg:py-16 space-y-16">
         {/* HERO */}
-        <div className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-center">
+        <div className="max-w-3xl space-y-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
+            Apps & Tiny ERPs
+          </p>
+          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+            Sistemas sob medida para quando o Excel já não chega — 
+            sem virar refém de um ERP gigante.
+          </h1>
+          <p className="text-sm text-slate-200 max-w-2xl">
+            A frente de Apps & Tiny ERPs da Libertrendz é voltada para 
+            profissionais e PMEs que precisam organizar operações, obras, 
+            finanças ou equipas com sistemas vivos, modulares e feitos 
+            para a realidade do negócio.
+          </p>
+        </div>
+
+        {/* RESUMO EM CARDS */}
+        <div className="grid gap-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 md:grid-cols-4">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent-400">
-              Apps & ERPs Libertrendz
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+              Para quem
             </p>
-            <h1 className="mb-4 text-3xl font-bold leading-tight md:text-4xl">
-              Tiny ERPs e apps sob medida,{" "}
-              <span className="block text-accent-400">
-                construídos em cima de módulos prontos.
-              </span>
-            </h1>
-            <p className="mb-4 text-sm text-slate-200">
-              A Libertrendz desenvolve soluções digitais para PMEs que precisam
-              de algo entre o Excel e um ERP gigante — sem contratos pesados, sem
-              anos de implantação e sem dependência de software genérico.
+            <p className="mt-1 text-sm text-slate-200">
+              PMEs e equipas que cresceram além do Excel e de ferramentas soltas.
             </p>
-            <p className="mb-6 text-sm text-slate-300">
-              Usamos uma base técnica sólida (Next.js + Supabase) e módulos já
-              testados (obras, ponto, fornecedores, financeiro, etc.) para
-              montar o seu sistema como um conjunto de blocos — rápido, estável
-              e sob medida.
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="mailto:contato@libertrendz.eu?subject=Apps%20e%20ERPs%20Libertrendz"
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-              >
-                Falar sobre um app/ERP para minha empresa
-              </a>
-              <a
-                href="#modulos"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Ver módulos disponíveis
-              </a>
-            </div>
           </div>
-
-          {/* Bloco de destaque */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/50">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-              O que diferencia a abordagem
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+              Tipo de solução
             </p>
-            <ul className="space-y-3 text-sm text-slate-200">
-              <li>• Multi-tenant e pronto para crescer.</li>
-              <li>• Base única de dados, módulos ativados conforme necessidade.</li>
-              <li>• Web app responsivo (desktop + mobile), PWA-ready.</li>
-              <li>• Foco em PMEs de serviços, obras, projetos e operações.</li>
-            </ul>
+            <p className="mt-1 text-sm text-slate-200">
+              Apps web, painéis e ERPs leves, focados em fluxo real de trabalho.
+            </p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+              Abordagem
+            </p>
+            <p className="mt-1 text-sm text-slate-200">
+              Descoberta, desenho de fluxo, protótipo funcional e iteração.
+            </p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+              Exemplo
+            </p>
+            <p className="mt-1 text-sm text-slate-200">
+              CONFIANCE — ERP modular para construção, ponto, obras e financeiro.
+            </p>
           </div>
         </div>
 
-        {/* BLOCO: PROBLEMA REAL */}
-        <div className="mt-16 space-y-6">
+        {/* QUANDO FAZ SENTIDO FALAR DE APP / ERP */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            Entre o Excel improvisado e o ERP gigante, há um vazio.
+            Quando faz sentido falar de um app ou ERP leve
           </h2>
-          <p className="text-sm text-slate-200">
-            A maioria das PMEs vive num limbo digital: ou opera em planilhas e
-            WhatsApp, ou é empurrada para ERPs caros, complexos e sobredimensionados.
-          </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Comportamento típico:
+          <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="mb-1 font-semibold text-slate-50">
+                Planilhas demais, controlo de menos
               </p>
-              <ul className="space-y-1">
-                <li>• Dados espalhados em planilhas, e-mails e grupos.</li>
-                <li>• Falta de visão global de obras, clientes ou contratos.</li>
-                <li>• Processos críticos em “arquivos pessoais” de alguém.</li>
-                <li>• Ferramentas prontas que quase servem, mas nunca encaixam.</li>
-              </ul>
+              <p className="text-slate-300">
+                A operação vive em vários ficheiros, versões e pastas. 
+                Ninguém tem certeza do que está atualizado, e erros começam a custar caro.
+              </p>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                O que a Libertrendz propõe:
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="mb-1 font-semibold text-slate-50">
+                Softwares genéricos que atrapalham
               </p>
-              <ul className="space-y-1">
-                <li>• Um núcleo técnico padrão (auth, users, empresas, permissões).</li>
-                <li>• Módulos de negócio ativados conforme a realidade do cliente.</li>
-                <li>• Customizações pontuais em vez de projetos infinitos.</li>
-                <li>• Entrega por fases, com valor percebido em cada etapa.</li>
-              </ul>
+              <p className="text-slate-300">
+                Sistemas “para tudo” que exigem adaptação demais da equipa 
+                e entregam de menos frente ao que o negócio realmente precisa.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="mb-1 font-semibold text-slate-50">
+                Crescimento sem estrutura
+              </p>
+              <p className="text-slate-300">
+                A empresa cresce, os clientes aumentam, mas o controlo 
+                de obras, contratos, faturas, ponto ou equipas não acompanha.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="mb-1 font-semibold text-slate-50">
+                Necessidade de visão consolidada
+              </p>
+              <p className="text-slate-300">
+                Decisão de gestão exige ver tudo num só lugar: financeiro, 
+                operação, equipas e projetos, sem depender de “caça” manual de dados.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* BLOCO: MÓDULOS */}
-        <div id="modulos" className="mt-16 space-y-6">
+        {/* TIPOS DE SOLUÇÃO */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            Módulos que podemos combinar para o seu app/ERP
+            Tipos de soluções que desenvolvo
           </h2>
-          <p className="text-sm text-slate-200">
-            A base técnica é reaproveitada entre projetos, mas cada solução é
-            configurada para a realidade da empresa. Alguns módulos já existentes:
-          </p>
-
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Obras & Projetos
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                ERP leve
               </p>
-              <ul className="space-y-1 text-[13px] text-slate-300">
-                <li>• Cadastro de obras/projetos.</li>
-                <li>• Fases, tarefas e responsáveis.</li>
-                <li>• Registo de horas, materiais e custos.</li>
-                <li>• Painel de status por obra.</li>
-              </ul>
+              <p className="font-semibold text-slate-50">
+                ERPs modulares para PMEs
+              </p>
+              <p className="mt-1 text-slate-300">
+                Sistemas que organizam obras, contratos, faturação, ponto, 
+                equipas e operações sem a complexidade de um ERP gigante.
+              </p>
             </div>
-
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Ponto & Equipa
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Apps internos
               </p>
-              <ul className="space-y-1 text-[13px] text-slate-300">
-                <li>• Registo de ponto com foto e geolocalização.</li>
-                <li>• Horários, escalas e locais de trabalho.</li>
-                <li>• Relatórios de presença por período/obra.</li>
-                <li>• Base para folha de pagamento/ajustes.</li>
-              </ul>
+              <p className="font-semibold text-slate-50">
+                Apps focados em fluxo de trabalho
+              </p>
+              <p className="mt-1 text-slate-300">
+                Aplicações internas para registo de ponto, gestão de tarefas, 
+                requisições, pedidos de cliente ou controlo operacional.
+              </p>
             </div>
-
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Comercial & Financeiro
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Painéis & integrações
               </p>
-              <ul className="space-y-1 text-[13px] text-slate-300">
-                <li>• Clientes, propostas e contratos.</li>
-                <li>• Orçamentos e anexos.</li>
-                <li>• Faturas, recebimentos e pendências.</li>
-                <li>• Relatórios básicos de receita e fluxo.</li>
-              </ul>
+              <p className="font-semibold text-slate-50">
+                Dashboards e colagem entre sistemas
+              </p>
+              <p className="mt-1 text-slate-300">
+                Consolidação de dados de várias fontes e pequenas automações 
+                para que sistemas falem entre si sem malabarismo manual.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* NOVO BLOCO: SITES & LANDING PAGES */}
-        <div className="mt-16 space-y-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+        {/* EXEMPLO: CONFIANCE */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            Sites & Landing Pages Libertrendz
+            CONFIANCE — exemplo de ERP modular em construção civil
           </h2>
-          <p className="text-sm text-slate-200">
-            Além dos apps e ERPs, a mesma base técnica e de design é usada para
-            construir sites institucionais e landing pages profissionais — como
-            este que você está a navegar agora.
-          </p>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Tipos de entrega:
-              </p>
-              <ul className="space-y-1 text-[13px] text-slate-300">
-                <li>• Site institucional enxuto para empresas.</li>
-                <li>• Landing page para produtos/serviços específicos.</li>
-                <li>• Páginas de captura para mentorias e programas.</li>
-              </ul>
-            </div>
-            <div className="text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Como trabalhamos:
-              </p>
-              <ul className="space-y-1 text-[13px] text-slate-300">
-                <li>• Design minimalista, focado em clareza.</li>
-                <li>• Conteúdo pensado para conversão, não só estética.</li>
-                <li>• Stack moderna (Next.js + Vercel), com boa performance.</li>
-              </ul>
-            </div>
-            <div className="text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Quando faz sentido:
-              </p>
-              <ul className="space-y-1 text-[13px] text-slate-300">
-                <li>• Quando o negócio precisa “ir pro ar” com seriedade.</li>
-                <li>• Quando landing de ferramenta genérica já não basta.</li>
-                <li>• Quando quer um site na mesma linha do seu sistema.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <a
-              href="mailto:contato@libertrendz.eu?subject=Site%20ou%20Landing%20Page%20Libertrendz"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-            >
-              Falar sobre um site ou landing page
-            </a>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200 max-w-4xl space-y-3">
+            <p>
+              O CONFIANCE é um ERP leve em desenvolvimento para uma empresa 
+              de construção e remodelação. Nasce modular, com foco em ponto, 
+              colaboradores, fornecedores, obras e financeiro.
+            </p>
+            <p className="text-slate-300">
+              O objetivo não é competir com grandes ERPs, mas oferecer um sistema 
+              que respeita o fluxo real da empresa: obras no terreno, equipas em 
+              movimento, clientes a acompanhar e decisões diárias de gestão.
+            </p>
+            <p className="text-slate-300">
+              A mesma abordagem pode ser aplicada a outras PMEs que precisam 
+              de estrutura, mas não querem ficar presas a software genérico 
+              que exige mais adaptação do que entrega.
+            </p>
           </div>
         </div>
 
-        {/* BLOCO: COMO É O PROJETO */}
-        <div className="mt-16 space-y-6">
+        {/* COMO TRABALHO NESTA FRENTE */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            Como funciona um projeto de app/ERP com a Libertrendz
+            Como funciona um projeto de app / ERP leve
           </h2>
           <div className="grid gap-4 md:grid-cols-4">
-            {[
-              {
-                titulo: "1. Conversa rápida",
-                desc: "Entendemos em 30–45 minutos o contexto, dores principais e processos críticos."
-              },
-              {
-                titulo: "2. Desenho de solução",
-                desc: "Propomos uma combinação de módulos + customizações pontuais, com fases claras."
-              },
-              {
-                titulo: "3. Entrega por fases",
-                desc: "Primeira entrega focada no que mais dói (por exemplo, ponto + obras). Depois, o resto."
-              },
-              {
-                titulo: "4. Evolução controlada",
-                desc: "Com a base pronta, o sistema cresce à medida que a empresa cresce — sem recomeçar do zero."
-              }
-            ].map((step) => (
-              <div
-                key={step.titulo}
-                className="flex flex-col gap-2 rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200"
-              >
-                <p className="font-semibold text-slate-50">{step.titulo}</p>
-                <p>{step.desc}</p>
-              </div>
-            ))}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Fase 1
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Descoberta
+              </p>
+              <p className="mt-1 text-slate-300">
+                Entendimento da operação, dores, dados existentes e restrições 
+                de negócio. Nada de solução pronta antes de ouvir o contexto.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Fase 2
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Desenho e priorização
+              </p>
+              <p className="mt-1 text-slate-300">
+                Desenho dos fluxos principais, definição de módulos prioritários 
+                e corte do supérfluo para chegar a um MVP funcional.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Fase 3
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Construção e validação
+              </p>
+              <p className="mt-1 text-slate-300">
+                Desenvolvimento do app/ERP leve com iterações curtas, testes com 
+                utilizadores reais e ajustes em cima do uso, não da teoria.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Fase 4
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Evolução controlada
+              </p>
+              <p className="mt-1 text-slate-300">
+                Ajustes, novos módulos e integrações à medida que a empresa 
+                cresce e o sistema prova valor no dia a dia.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* CTA FINAL */}
-        <div className="mt-16 space-y-4 border-t border-slate-800 pt-8 text-center">
+        <div className="pt-10 border-t border-slate-800 text-center space-y-4">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Quer sair do Excel e do improviso, sem entrar num ERP gigante?
+            Quer discutir um app ou ERP leve para a tua empresa?
           </h2>
-          <p className="text-sm text-slate-200">
-            Um app/ERP sob medida não precisa começar grande — precisa começar
-            pelo lugar certo. A partir daí, o sistema cresce com a empresa.
+          <p className="max-w-xl mx-auto text-sm text-slate-200">
+            Se a tua PME já passou do ponto de se apoiar só em planilhas e 
+            ferramentas soltas, podemos conversar sobre uma solução à medida, 
+            com escopo claro e foco em resultado real.
           </p>
-          <div className="mt-4 flex justify-center">
-            <a
-              href="mailto:contato@libertrendz.eu?subject=Apps%20e%20ERPs%20Libertrendz"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-            >
-              Conversar sobre um app/ERP para minha empresa
-            </a>
-          </div>
+          <a
+            href="/contato"
+            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+          >
+            Falar sobre um app / ERP para a minha empresa
+          </a>
         </div>
       </section>
     </main>
