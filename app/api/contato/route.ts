@@ -16,7 +16,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Instancia apenas aqui, depois de garantir que a chave existe
     const resend = new Resend(apiKey);
 
     const body = await req.json();
@@ -59,7 +58,7 @@ ${mensagem}
     `.trim();
 
     await resend.emails.send({
-      from: "Libertrendz <contato@libertrendz.eu>",
+      from: "Libertrendz <onboarding@resend.dev>",
       to: ["contato@libertrendz.eu"],
       replyTo: email,
       subject: assuntoEmail,
