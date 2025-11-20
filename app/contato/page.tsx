@@ -4,20 +4,43 @@
 import { FormEvent, useState } from "react";
 
 export default function ContatoPage() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
 
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const payload = {
+      nome: data.get("nome"),
+      email: data.get("email"),
+      assunto: data.get("assunto"),
+      mensagem: data.get("mensagem")
+    };
+
     try {
-      // Aqui futuramente podemos integrar com uma API (Resend, Email via Vercel, etc.)
-      // Por enquanto, apenas simulamos o envio.
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const res = await fetch("/api/contato", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        console.error(await res.json().catch(() => ({})));
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
-    } catch {
+      form.reset();
+    } catch (err) {
+      console.error(err);
       setStatus("error");
     }
   }
@@ -99,11 +122,11 @@ export default function ContatoPage() {
                   <option value="" disabled>
                     Selecione uma opção
                   </option>
-                  <option value="mentoria">Mentoria Tech Reload</option>
-                  <option value="libertrail">LiberTrail (diagnóstico)</option>
-                  <option value="agile">Consultoria Ágil</option>
-                  <option value="apps">Apps / Tiny ERPs</option>
-                  <option value="outro">Outro assunto</option>
+                  <option value="Mentoria Tech Reload">Mentoria Tech Reload</option>
+                  <option value="LiberTrail">LiberTrail (diagnóstico)</option>
+                  <option value="Consultoria Ágil">Consultoria Ágil</option>
+                  <option value="Apps / Tiny ERPs">Apps / Tiny ERPs</option>
+                  <option value="Outro">Outro assunto</option>
                 </select>
               </div>
 
@@ -137,8 +160,9 @@ export default function ContatoPage() {
 
                 {status === "success" && (
                   <p className="text-[11px] text-emerald-400">
-                    Mensagem recebida (simulação). Em produção, este formulário
-                    enviará diretamente para contato@libertrendz.eu.
+                    Mensagem enviada com sucesso. Em breve você recebe resposta
+                    em{" "}
+                    <span className="font-semibold">contato@libertrendz.eu</span>.
                   </p>
                 )}
                 {status === "error" && (
