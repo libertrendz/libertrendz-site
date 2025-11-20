@@ -34,9 +34,7 @@ export default function SobrePage() {
               estratégia e execução em tecnologia para pessoas e PMEs que não
               têm tempo nem paciência para complexidade desnecessária.
             </p>
-            <p>
-              Atuamos em três frentes que se complementam:
-            </p>
+            <p>Atuamos em três frentes que se complementam:</p>
 
             <ul className="space-y-1 text-slate-300">
               <li>
@@ -121,12 +119,12 @@ export default function SobrePage() {
 
           {/* Foto */}
           <div className="flex flex-col items-center gap-4 lg:items-end">
-            <div className="relative h-40 w-40 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow-xl shadow-black/60">
+            <div className="relative h-44 w-44 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow-xl shadow-black/60">
               <Image
                 src={FOTO_GUSTAVO_URL}
                 alt="Retrato de Gustavo Santos"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div className="text-center text-xs text-slate-400 lg:text-right">
