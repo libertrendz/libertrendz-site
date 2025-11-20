@@ -1,472 +1,303 @@
+// app/mentoria/page.tsx
 import Link from "next/link";
 
-// LiberTrail – diagnóstico com 2 portas de entrada
-const LIBERTRAIL_PERFIL1_URL =
-  "https://forms.gle/EXEMPLO_PERSONA1_SUBSTITUIR"; // TODO: trocar quando criar o form P1
-
 const LIBERTRAIL_PERFIL2_URL =
-  "https://forms.gle/PYwbYjeuUidp9EKVA"; // formulário atual (perfil 2)
+  "https://forms.gle/PYwbYjeuUidp9EKVA";
 
 export default function MentoriaPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <div className="container-page flex flex-col gap-16 py-12 lg:py-16">
+      <section className="container-page py-12 lg:py-16 space-y-16">
         {/* HERO */}
-        <section className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-center">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent-400">
-              Mentoria Libertrendz
-            </p>
-            <h1 className="mb-4 text-3xl font-bold leading-tight text-slate-50 md:text-4xl lg:text-5xl">
-              Libertrendz <span className="text-accent-400">Tech Reload</span>
-            </h1>
-            <p className="mb-4 text-lg text-slate-200">
-              Recarregue a sua carreira. Reconstrua o seu futuro em tecnologia
-              com direção, método e clareza.
-            </p>
-            <p className="mb-8 text-sm text-slate-300">
-              Uma mentoria profissional para adultos em transição, baseada em
-              diagnóstico real — o <strong>LiberTrail</strong> — e um plano
-              estruturado para entrar (ou reentrar) no mercado tech com
-              segurança.
-            </p>
+        <header className="max-w-3xl space-y-4">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-400">
+            Mentoria Tech Reload
+          </p>
+          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+            Mentoria de transição para tecnologia
+            <span className="block text-accent-400">
+              para profissionais que não têm tempo a perder.
+            </span>
+          </h1>
+          <p className="text-sm text-slate-200">
+            A Tech Reload é uma mentoria pensada para profissionais em
+            transição que querem entrar em tecnologia com clareza, método e
+            acompanhamento — sem promessas fáceis nem atalhos irreais.
+          </p>
+        </header>
 
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#libertrail"
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-              >
-                Começar pelo LiberTrail
-              </a>
-              <a
-                href="#sobre-mentoria"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Conhecer a Mentoria Tech Reload
-              </a>
-            </div>
-
-            <p className="mt-6 text-xs uppercase tracking-[0.18em] text-slate-400">
-              Público-alvo: adultos em transição para tecnologia (Brasil e
-              Portugal)
-            </p>
-          </div>
-
-          {/* Lado direito - “cartão” visual */}
-          <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/60 via-slate-900/30 to-slate-900/10 p-6 shadow-xl shadow-black/60">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-              Como funciona
-            </p>
-            <h2 className="mb-4 text-lg font-semibold text-slate-50">
-              Diagnóstico, direção e execução guiada
+        {/* RESUMO RÁPIDO */}
+        <section className="grid gap-6 md:grid-cols-[2fr,3fr] md:items-start">
+          <div className="space-y-3 text-sm text-slate-200">
+            <h2 className="text-base font-semibold text-slate-50">
+              Em três linhas
             </h2>
-            <ul className="space-y-3 text-sm text-slate-200">
-              <li>• LiberTrail para identificar a sua rota ideal em tecnologia.</li>
-              <li>• Plano de 90 dias ajustado à sua realidade.</li>
-              <li>• Acompanhamento e ajustes de rota.</li>
-              <li>• Preparação para se posicionar no mercado tech.</li>
+            <ul className="space-y-1 text-slate-200">
+              <li>
+                • <strong>Para quem:</strong> profissionais 30+ em transição ou
+                recomeço, com dúvidas sobre qual rota seguir em tecnologia.
+              </li>
+              <li>
+                • <strong>Ferramenta central:</strong> diagnóstico LiberTrail,
+                com leitura profissional do teu perfil.
+              </li>
+              <li>
+                • <strong>Formato:</strong> diagnóstico + plano de 90 dias +
+                acompanhamento, com foco em decisão e execução.
+              </li>
             </ul>
           </div>
-        </section>
 
-        {/* PROBLEMA REAL */}
-        <section className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-50">
-            O problema não é aprender tecnologia. É saber{" "}
-            <span className="text-accent-400">para onde faz sentido ir</span>.
-          </h2>
-          <p className="text-sm text-slate-200">
-            Mudar para tecnologia aos 30, 40 ou 50 não é sobre decorar sintaxe
-            de linguagem. É sobre clareza, direção e método.
-          </p>
-          <p className="text-sm text-slate-200">
-            O que trava a maioria não é falta de capacidade — é falta de um
-            caminho que faça sentido para o seu perfil, e não apenas para as
-            estatísticas do mercado.
-          </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                O cenário típico:
-              </p>
-              <ul className="space-y-1">
-                <li>• Muito ruído, pouca direção.</li>
-                <li>• Muitos cursos, pouca clareza.</li>
-                <li>• Muito conteúdo, pouca aplicabilidade.</li>
-                <li>• Muito “influenciador tech”, pouca verdade.</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                A proposta do Tech Reload:
-              </p>
-              <ul className="space-y-1">
-                <li>• Menos modinha, mais estratégia.</li>
-                <li>• Menos culpa, mais método.</li>
-                <li>• Menos “começa do zero”, mais aproveitamento de percurso.</li>
-                <li>• Menos promessa vazia, mais plano executável.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* A MENTORIA */}
-        <section id="sobre-mentoria" className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-50">
-            O que é a Libertrendz Tech Reload
-          </h2>
-          <p className="text-sm text-slate-200">
-            A Libertrendz Tech Reload é uma mentoria profissional de transição
-            para tecnologia, desenhada para adultos que querem mudar com
-            maturidade, sem abandonar a sua história e sem cair em promessas
-            vazias.
-          </p>
-          <p className="text-sm text-slate-200">
-            O foco não é empurrar você para “virar dev” a qualquer custo. O
-            foco é encontrar a rota que combina com o seu jeito de pensar, de
-            trabalhar e de aprender — e construir um plano para chegar lá.
-          </p>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Para quem quer
-              </p>
-              <ul className="space-y-1 text-slate-200">
-                <li>• Clareza sobre qual trilha tech seguir.</li>
-                <li>• Plano concreto, não “tentativa e erro”.</li>
-                <li>• Transição alinhada à sua realidade.</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                O que não é
-              </p>
-              <ul className="space-y-1 text-slate-200">
-                <li>• Não é curso gravado genérico.</li>
-                <li>• Não é papo motivacional vazio.</li>
-                <li>• Não é “hack mágico” de vaga.</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                O que é
-              </p>
-              <ul className="space-y-1 text-slate-200">
-                <li>• Estratégia.</li>
-                <li>• Método.</li>
-                <li>• Execução guiada.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* LIBERTRAIL — DIAGNÓSTICO */}
-        <section
-          id="libertrail"
-          className="space-y-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6"
-        >
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-xl font-semibold text-slate-50">
-                O ponto de partida: LiberTrail
-              </h2>
-              <p className="mt-2 text-sm text-slate-200">
-                Toda jornada na Tech Reload começa pelo{" "}
-                <strong>LiberTrail</strong>, o diagnóstico que mapeia a sua rota
-                ideal em tecnologia.
-              </p>
-            </div>
-            <a
-              href="#libertrail-perfis"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
-            >
-              Escolher meu perfil para fazer o LiberTrail
-            </a>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                O que ele analisa:
-              </p>
-              <ul className="space-y-1">
-                <li>• Como você pensa e aprende.</li>
-                <li>• Como gosta de trabalhar.</li>
-                <li>• Que tipo de problema te energiza.</li>
-                <li>• O que o seu histórico profissional agrega.</li>
-              </ul>
-            </div>
-            <div className="text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                O que ele sugere:
-              </p>
-              <ul className="space-y-1">
-                <li>• Uma trilha principal recomendada.</li>
-                <li>• Uma trilha alternativa estratégica.</li>
-                <li>• Alinhamento entre desejo e essência.</li>
-              </ul>
-            </div>
-            <div className="text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Trilhas possíveis:
-              </p>
-              <ul className="space-y-1">
-                <li>• Desenvolvimento (DEV).</li>
-                <li>• Dados / BI.</li>
-                <li>• UX / UI.</li>
-                <li>• QA / Testes.</li>
-                <li>• Customer Success / Suporte.</li>
-                <li>• Gestão (PM / PO / Scrum).</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* ESCOLHA DE PERFIS PARA LIBERTRAIL */}
-          <div
-            id="libertrail-perfis"
-            className="mt-6 space-y-4 rounded-xl border border-slate-800 bg-slate-950/40 p-4"
-          >
-            <h3 className="text-sm font-semibold text-slate-50">
-              Escolha o perfil que mais se aproxima de você para começar o
-              LiberTrail:
-            </h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {/* PERFIL TRAIL 1 */}
-              <div className="flex flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200">
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-300">
-                    Perfil Trail 1
-                  </p>
-                  <p className="font-semibold text-slate-50">
-                    Já tive alguma vivência com tecnologia
-                  </p>
-                  <ul className="space-y-1 text-[13px] text-slate-300">
-                    <li>• Já programei, estudei dados ou mexi com UX/UI.</li>
-                    <li>• Ou trabalho perto de equipas de tecnologia/produto.</li>
-                    <li>• Quero alinhar o que já sei com uma rota clara em tech.</li>
-                  </ul>
-                </div>
-                <div className="mt-4">
-                  <a
-                    href={LIBERTRAIL_PERFIL1_URL}
-                    target="_blank"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/30 transition hover:bg-accent-400"
-                  >
-                    Fazer o LiberTrail — Perfil 1
-                  </a>
-                </div>
-              </div>
-
-              {/* PERFIL TRAIL 2 */}
-              <div className="flex flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200">
-                <div className="space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-300">
-                    Perfil Trail 2
-                  </p>
-                  <p className="font-semibold text-slate-50">
-                    Estou praticamente a começar do zero em tecnologia
-                  </p>
-                  <ul className="space-y-1 text-[13px] text-slate-300">
-                    <li>• Quase zero de prática em tech, mas muita vontade.</li>
-                    <li>• Me sinto perdido(a) entre tantas opções e opiniões.</li>
-                    <li>• Quero entender qual rota faz mais sentido para mim.</li>
-                  </ul>
-                </div>
-                <div className="mt-4">
-                  <a
-                    href={LIBERTRAIL_PERFIL2_URL}
-                    target="_blank"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/30 transition hover:bg-accent-400"
-                  >
-                    Fazer o LiberTrail — Perfil 2
-                  </a>
-                </div>
-              </div>
-            </div>
-            <p className="mt-2 text-[11px] text-slate-400">
-              Se ficar em dúvida entre os dois, escolha o que mais se aproxima
-              do seu momento atual. O objetivo não é encaixar você num rótulo,
-              e sim ter contexto suficiente para ler o seu diagnóstico com mais
-              precisão.
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+              O que esta mentoria NÃO é
+            </p>
+            <ul className="space-y-1 text-slate-300">
+              <li>• Não é “guru de carreira” a empurrar uma rota única.</li>
+              <li>• Não é curso gravado, genérico e sem contexto.</li>
+              <li>• Não é promessa de seis dígitos em poucos meses.</li>
+            </ul>
+            <p className="mt-3 text-[13px] text-slate-300">
+              A proposta é simples: olhar o teu contexto real, mapear rotas
+              viáveis e construir um plano que caiba na tua vida — e não o
+              contrário.
             </p>
           </div>
         </section>
 
-        {/* MÉTODO */}
-        <section className="space-y-6">
+        {/* COMO FUNCIONA A TECH RELOAD */}
+        <section className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            O Método Tech Reload em 4 fases
+            Como funciona a Tech Reload
           </h2>
-          <div className="grid gap-4 md:grid-cols-4">
-            {[
-              {
-                titulo: "Fase 1 — LiberTrail",
-                desc: "Diagnóstico completo + leitura profissional do seu perfil."
-              },
-              {
-                titulo: "Fase 2 — Direction",
-                desc: "Plano de 90 dias ajustado à sua rotina e à trilha escolhida."
-              },
-              {
-                titulo: "Fase 3 — Execution",
-                desc: "Execução guiada, checkpoints e ajustes de rota."
-              },
-              {
-                titulo: "Fase 4 — Reload",
-                desc: "Reposicionamento profissional: LinkedIn, narrativa, entrevistas e oportunidades."
-              }
-            ].map((fase) => (
-              <div
-                key={fase.titulo}
-                className="flex flex-col gap-2 rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200"
-              >
-                <p className="font-semibold text-slate-50">{fase.titulo}</p>
-                <p>{fase.desc}</p>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                1. Diagnóstico
+              </p>
+              <p className="text-slate-200">
+                Começamos pelo <strong>LiberTrail</strong>, um diagnóstico
+                estruturado para entender o teu perfil, motivações, histórico
+                profissional e relação real com tecnologia.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                2. Plano de rota
+              </p>
+              <p className="text-slate-200">
+                A partir do diagnóstico, construímos um plano de{" "}
+                <strong>aprox. 90 dias</strong>, com rotas possíveis, pontos de
+                foco, competências a desenvolver e checkpoints claros.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                3. Acompanhamento
+              </p>
+              <p className="text-slate-200">
+                Ao longo da mentoria, ajustamos o plano com base na tua
+                realidade, ritmo e feedback. A ideia não é quantidade de
+                sessões, é qualidade e direção.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* LIBERTRAIL */}
+        <section id="libertrail" className="space-y-4">
+          <h2 className="text-xl font-semibold text-slate-50">
+            LiberTrail — o diagnóstico que abre a conversa
+          </h2>
+          <div className="grid gap-6 md:grid-cols-[3fr,2fr] md:items-start">
+            <div className="space-y-3 text-sm text-slate-200">
+              <p>
+                O <strong>LiberTrail</strong> é um diagnóstico criado para
+                profissionais em transição que precisam de clareza antes de
+                mergulhar em qualquer formação ou mudança mais agressiva.
+              </p>
+              <p>
+                Em vez de te empurrar para “virar dev” por padrão, o LiberTrail
+                olha para:
+              </p>
+              <ul className="space-y-1 text-slate-300">
+                <li>• O teu histórico profissional e experiências anteriores;</li>
+                <li>• O que realmente te energiza no dia a dia de trabalho;</li>
+                <li>• A tua relação atual com tecnologia e mudança;</li>
+                <li>• Limitações reais (tempo, contexto, responsabilidades);</li>
+                <li>• O nível de risco que faz sentido assumir agora.</li>
+              </ul>
+              <p>
+                A partir daí, o objetivo é mapear{" "}
+                <strong>rotas possíveis</strong>, em vez de criar a ilusão de
+                que só existe um caminho certo.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Em termos práticos
+              </p>
+              <ul className="space-y-1 text-slate-300">
+                <li>• Questionário estruturado (online);</li>
+                <li>• Leitura profissional das respostas;</li>
+                <li>• Indicação de rota principal e alternativa;</li>
+                <li>• Pontos fortes, riscos e alertas;</li>
+                <li>• Próximos passos sugeridos.</li>
+              </ul>
+              <p className="mt-3 text-[13px] text-slate-300">
+                A mentoria Tech Reload usa o LiberTrail como porta de entrada.
+                Mesmo que não continues para o acompanhamento, o diagnóstico já
+                entrega valor real.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* PERFIS LIBERTRAIL */}
+        <section
+          id="libertrail-perfis"
+          className="space-y-4 border-t border-slate-800 pt-10"
+        >
+          <h2 className="text-xl font-semibold text-slate-50">
+            Perfis LiberTrail — por onde faz mais sentido começar
+          </h2>
+          <p className="max-w-3xl text-sm text-slate-200">
+            A entrada no LiberTrail acontece por dois perfis. Não é rótulo
+            definitivo, é apenas o ponto de partida que deixa o diagnóstico mais
+            honesto e útil.
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* PERFIL 1 */}
+            <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <div className="space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                  Perfil 1
+                </p>
+                <h3 className="text-base font-semibold text-slate-50">
+                  Profissional com alguma base ou contacto com tecnologia
+                </h3>
+                <p className="text-slate-200">
+                  Já tiveste contacto com projetos, produtos digitais, dados ou
+                  ferramentas tech no dia a dia. Talvez tenhas estudado algo por
+                  conta própria, participado em iniciativas internas ou lidado
+                  de perto com equipas técnicas.
+                </p>
+                <ul className="mt-2 space-y-1 text-slate-300">
+                  <li>• Sentes que não partes do zero.</li>
+                  <li>• Falta clareza sobre qual rota faz mais sentido.</li>
+                  <li>• Queres alinhar as próximas decisões à tua história.</li>
+                </ul>
               </div>
-            ))}
+              <div className="mt-4 flex flex-col gap-2 text-xs text-slate-300">
+                <p className="text-[11px] text-slate-400">
+                  Para este perfil, o LiberTrail é ajustado ao teu histórico
+                  profissional. Se ainda não tens formulário dedicado, podes
+                  iniciar o processo falando diretamente comigo.
+                </p>
+                <Link
+                  href="/contato"
+                  className="inline-flex items-center justify-center rounded-md border border-slate-700 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-accent-400 hover:bg-slate-900/70"
+                >
+                  Falar sobre o meu caso
+                </Link>
+              </div>
+            </div>
+
+            {/* PERFIL 2 */}
+            <div className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <div className="space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                  Perfil 2
+                </p>
+                <h3 className="text-base font-semibold text-slate-50">
+                  Profissional quase sem experiência em tecnologia
+                </h3>
+                <p className="text-slate-200">
+                  Tens pouca ou nenhuma experiência prática em tecnologia, mas
+                  estás seriamente a considerar uma mudança de rota. Já leste,
+                  ouviste e viste muito conteúdo, mas ainda não consegues ligar
+                  os pontos.
+                </p>
+                <ul className="mt-2 space-y-1 text-slate-300">
+                  <li>• Queres entender se faz sentido mesmo entrar em tech.</li>
+                  <li>• Tens dúvidas sobre por onde começar.</li>
+                  <li>• Não queres cometer um erro caro em tempo e dinheiro.</li>
+                </ul>
+              </div>
+              <div className="mt-4 flex flex-col gap-2 text-xs text-slate-300">
+                <p className="text-[11px] text-slate-400">
+                  Este é o perfil para o qual o LiberTrail já está estruturado
+                  num formulário específico. A partir das tuas respostas, o
+                  próximo passo é uma leitura profissional e, se fizer sentido,
+                  o plano da Tech Reload.
+                </p>
+                <a
+                  href={LIBERTRAIL_PERFIL2_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
+                >
+                  Responder LiberTrail — Perfil 2
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* PARA QUEM É */}
-        <section className="space-y-6">
+        {/* O QUE RECEBE NA PRÁTICA */}
+        <section className="space-y-4 border-t border-slate-800 pt-10">
           <h2 className="text-xl font-semibold text-slate-50">
-            Para quem é a Tech Reload
+            O que a mentoria entrega na prática
           </h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Se você se reconhece em pelo menos 2 itens abaixo:
-              </p>
-              <ul className="space-y-1">
-                <li>• Está perdido entre muitas opções em tecnologia.</li>
-                <li>• Tem medo de escolher errado e desperdiçar tempo.</li>
-                <li>• Já tentou aprender sozinho e travou.</li>
-                <li>• Quer mudar, mas com um plano realista.</li>
-                <li>• Está no Brasil ou em Portugal.</li>
-                <li>
-                  • Tem 30+, 40+ ou 50+ e não quer ser tratado como “caso perdido”.
-                </li>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <ul className="space-y-1 text-slate-300">
+                <li>• Leitura estruturada do teu contexto profissional.</li>
+                <li>• Mapeamento de rotas possíveis em tecnologia.</li>
+                <li>• Indicação de rota principal e alternativa.</li>
+                <li>• Plano de ação de aproximadamente 90 dias.</li>
+                <li>• Critérios objetivos para tomar decisões.</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                A mentoria não é para você se:
-              </p>
-              <ul className="space-y-1">
-                <li>• Procura atalho mágico ou fórmula garantida.</li>
-                <li>• Não está disposto a estudar e praticar com consistência.</li>
-                <li>• Quer apenas um “curso a mais” para acumular certificado.</li>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <ul className="space-y-1 text-slate-300">
+                <li>• Conversas francas sobre riscos, timing e expectativas.</li>
+                <li>• Apoio para alinhar estudo, trabalho e vida pessoal.</li>
+                <li>• Ajustes de rota conforme o que for acontecendo.</li>
+                <li>• Visão de alguém que fez a transição mais tarde.</li>
               </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* O QUE RECEBE */}
-        <section className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-50">
-            O que você recebe na Libertrendz Tech Reload
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">Diagnóstico</p>
-              <ul className="space-y-1">
-                <li>• LiberTrail completo.</li>
-                <li>• Análise profissional do seu perfil.</li>
-                <li>• Trilha principal + alternativa.</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">Plano</p>
-              <ul className="space-y-1">
-                <li>• Plano de 90 dias personalizado.</li>
-                <li>• Roadmap de habilidades.</li>
-                <li>• Sugestão de materiais e práticas.</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">Execução</p>
-              <ul className="space-y-1">
-                <li>• Acompanhamento estruturado.</li>
-                <li>• Revisão de currículo e LinkedIn.</li>
-                <li>• Preparação para entrevistas.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-50">FAQ</h2>
-          <div className="space-y-4 text-sm text-slate-200">
-            <div>
-              <p className="font-semibold text-slate-50">
-                Preciso saber programar?
-              </p>
-              <p>
-                Não. O LiberTrail serve justamente para entender se programação
-                faz sentido para você ou se outra trilha é mais natural.
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold text-slate-50">
-                Serve para pessoas com mais de 40 ou 50 anos?
-              </p>
-              <p>
-                Sim. A Tech Reload foi desenhada exatamente para adultos em
-                transição, que trazem bagagem e responsabilidade para o processo.
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold text-slate-50">
-                Consigo mudar de carreira em 3–6 meses?
-              </p>
-              <p>
-                Depende da sua dedicação e ponto de partida, mas com método,
-                clareza e consistência, 3–6 meses é um horizonte realista para
-                estar apto a disputar vagas iniciais.
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold text-slate-50">
-                E se eu tiver pouco tempo?
-              </p>
-              <p>
-                O plano é construído em cima da sua realidade. Não existe tempo
-                ideal, existe plano honesto e execução consistente.
-              </p>
             </div>
           </div>
         </section>
 
         {/* CTA FINAL */}
-        <section className="space-y-4 border-t border-slate-800 pt-8 text-center">
+        <section className="space-y-4 border-t border-slate-800 pt-10 text-center">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Recarregue a sua carreira. Reconstrua o seu futuro em tecnologia.
+            Próximo passo
           </h2>
-          <p className="text-sm text-slate-200">
-            O primeiro passo é simples: escolher o perfil que mais se parece com
-            você e fazer o LiberTrail. A partir daí, a Tech Reload cuida da
-            estrutura.
+          <p className="text-sm text-slate-200 max-w-2xl mx-auto">
+            Se quiseres começar agora, escolhe o perfil que mais se aproxima de
+            ti e responde ao LiberTrail. Se ainda estás a decidir, podemos
+            começar por uma conversa rápida para alinhar expectativas.
           </p>
-          <div className="mt-4 flex justify-center gap-3">
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
             <a
-              href={LIBERTRAIL_PERFIL1_URL}
-              target="_blank"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-3 text-xs font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+              href="#libertrail-perfis"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
-              LiberTrail — Perfil 1
+              Ver perfis LiberTrail
             </a>
             <a
-              href={LIBERTRAIL_PERFIL2_URL}
-              target="_blank"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-4 py-3 text-xs font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+              href="/contato"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
             >
-              LiberTrail — Perfil 2
+              Falar comigo
             </a>
           </div>
         </section>
-      </div>
+      </section>
     </main>
   );
 }
