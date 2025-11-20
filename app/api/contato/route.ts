@@ -4,17 +4,20 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
       console.error("RESEND_API_KEY não configurada.");
       return NextResponse.json(
         { ok: false, error: "Configuração de e-mail ausente." },
         { status: 500 }
       );
     }
+
+    // Instancia apenas aqui, depois de garantir que a chave existe
+    const resend = new Resend(apiKey);
 
     const body = await req.json();
 
@@ -58,7 +61,7 @@ ${mensagem}
     await resend.emails.send({
       from: "Libertrendz <contato@libertrendz.eu>",
       to: ["contato@libertrendz.eu"],
-      replyTo: email, // <<< AQUI o ajuste
+      replyTo: email,
       subject: assuntoEmail,
       text: texto,
       html
