@@ -82,12 +82,12 @@ export default function SobrePage() {
           {/* Card lateral com foto e “em poucas linhas” */}
           <aside className="space-y-4">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col items-center text-center gap-4">
-              <div className="relative h-28 w-28 overflow-hidden rounded-full border border-slate-700 bg-slate-900">
+              <div className="relative h-32 w-32 overflow-hidden rounded-full border border-slate-700 bg-slate-900">
                 <Image
                   src={FOTO_URL}
                   alt="Foto de Gustavo Santos"
                   fill
-                  className="object-contain object-top"
+                  className="object-cover"
                 />
               </div>
               <div className="space-y-1">
