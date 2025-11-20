@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 const FOTO_GUSTAVO_URL =
-  "https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/eu%20site.jpg";
+  "https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/3x4%20(9).png";
 
 export default function SobrePage() {
   return (
@@ -117,20 +117,18 @@ export default function SobrePage() {
             </div>
           </div>
 
-          {/* Foto */}
+          {/* FOTO REAL DO GUSTAVO */}
           <div className="flex flex-col items-center gap-4 lg:items-end">
             <div className="relative h-44 w-44 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow-xl shadow-black/60">
               <Image
                 src={FOTO_GUSTAVO_URL}
-                alt="Retrato de Gustavo Santos"
+                alt="Gustavo Santos"
                 fill
-                className="object-cover object-top"
+                className="object-cover"
               />
             </div>
             <div className="text-center text-xs text-slate-400 lg:text-right">
-              <p className="font-semibold text-slate-200">
-                Gustavo Santos — Libertrendz
-              </p>
+              <p className="font-semibold text-slate-200">Gustavo Santos</p>
               <p>Gestão, transição para tecnologia e produtos digitais.</p>
             </div>
           </div>
