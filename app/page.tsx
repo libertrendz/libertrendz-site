@@ -67,7 +67,7 @@ export default function HomePage() {
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-200">
                 Um diagnóstico pensado para adultos que querem mudar para
-                tecnologia com seriedade: duas personas de entrada, leitura
+                tecnologia com seriedade: duas portas de entrada, leitura
                 profissional do seu perfil e indicação de trilhas possíveis,
                 sem empurrar “dev” como solução única.
               </p>
@@ -83,7 +83,7 @@ export default function HomePage() {
               </p>
               <div className="mt-1 flex flex-wrap justify-start gap-2 md:justify-end">
                 <a
-                  href="/mentoria#libertrail-personas"
+                  href="/mentoria#libertrail-perfis"
                   className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
                 >
                   Fazer o LiberTrail
@@ -230,12 +230,12 @@ export default function HomePage() {
           </h2>
           <p className="text-sm text-slate-200">
             Pode começar pelo LiberTrail, explorar um serviço específico ou
-            simplesmente mandar um e-mail e contar o teu contexto. A partir
-            daí, a conversa fica séria.
+            simplesmente usar a página de contato para contar o teu contexto. A
+            partir daí, a conversa fica séria.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <a
-              href="/mentoria#libertrail-personas"
+              href="/mentoria#libertrail-perfis"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
               Começar pelo LiberTrail
@@ -247,10 +247,10 @@ export default function HomePage() {
               Saber mais sobre a Libertrendz
             </a>
             <a
-              href="mailto:contato@libertrendz.eu?subject=Contato%20via%20site%20Libertrendz"
+              href="/contato"
               className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
             >
-              Falar comigo
+              Entrar em contato
             </a>
           </div>
         </section>
