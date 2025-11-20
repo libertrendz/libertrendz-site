@@ -1,13 +1,11 @@
 import Link from "next/link";
 
 // LiberTrail – diagnóstico com 2 portas de entrada
-// PERSONA 1: já tem alguma vivência técnica / background
-// PERSONA 2: quase zero de tech, quer entender o caminho
-const LIBERTRAIL_PERSONA1_URL =
+const LIBERTRAIL_PERFIL1_URL =
   "https://forms.gle/EXEMPLO_PERSONA1_SUBSTITUIR"; // TODO: trocar quando criar o form P1
 
-const LIBERTRAIL_PERSONA2_URL =
-  "https://forms.gle/PYwbYjeuUidp9EKVA"; // formulário atual (P2)
+const LIBERTRAIL_PERFIL2_URL =
+  "https://forms.gle/PYwbYjeuUidp9EKVA"; // formulário atual (perfil 2)
 
 export default function MentoriaPage() {
   return (
@@ -180,7 +178,7 @@ export default function MentoriaPage() {
               </p>
             </div>
             <a
-              href="#libertrail-personas"
+              href="#libertrail-perfis"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
             >
               Escolher meu perfil para fazer o LiberTrail
@@ -224,9 +222,9 @@ export default function MentoriaPage() {
             </div>
           </div>
 
-          {/* ESCOLHA DE PERSONA PARA LIBERTRAIL */}
+          {/* ESCOLHA DE PERFIS PARA LIBERTRAIL */}
           <div
-            id="libertrail-personas"
+            id="libertrail-perfis"
             className="mt-6 space-y-4 rounded-xl border border-slate-800 bg-slate-950/40 p-4"
           >
             <h3 className="text-sm font-semibold text-slate-50">
@@ -234,24 +232,24 @@ export default function MentoriaPage() {
               LiberTrail:
             </h3>
             <div className="grid gap-4 md:grid-cols-2">
-              {/* PERSONA 1 */}
+              {/* PERFIL TRAIL 1 */}
               <div className="flex flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200">
                 <div className="space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-300">
-                    Persona 1
+                    Perfil Trail 1
                   </p>
                   <p className="font-semibold text-slate-50">
-                    Já tenho alguma vivência técnica / background
+                    Já tive alguma vivência com tecnologia
                   </p>
                   <ul className="space-y-1 text-[13px] text-slate-300">
-                    <li>• Já tive contacto com programação, dados ou UX.</li>
+                    <li>• Já programei, estudei dados ou mexi com UX/UI.</li>
                     <li>• Ou trabalho perto de equipas de tecnologia/produto.</li>
                     <li>• Quero alinhar o que já sei com uma rota clara em tech.</li>
                   </ul>
                 </div>
                 <div className="mt-4">
                   <a
-                    href={LIBERTRAIL_PERSONA1_URL}
+                    href={LIBERTRAIL_PERFIL1_URL}
                     target="_blank"
                     className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/30 transition hover:bg-accent-400"
                   >
@@ -260,14 +258,14 @@ export default function MentoriaPage() {
                 </div>
               </div>
 
-              {/* PERSONA 2 */}
+              {/* PERFIL TRAIL 2 */}
               <div className="flex flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200">
                 <div className="space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-300">
-                    Persona 2
+                    Perfil Trail 2
                   </p>
                   <p className="font-semibold text-slate-50">
-                    Ainda não tive experiências concretas com tecnologia
+                    Estou praticamente a começar do zero em tecnologia
                   </p>
                   <ul className="space-y-1 text-[13px] text-slate-300">
                     <li>• Quase zero de prática em tech, mas muita vontade.</li>
@@ -277,7 +275,7 @@ export default function MentoriaPage() {
                 </div>
                 <div className="mt-4">
                   <a
-                    href={LIBERTRAIL_PERSONA2_URL}
+                    href={LIBERTRAIL_PERFIL2_URL}
                     target="_blank"
                     className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/30 transition hover:bg-accent-400"
                   >
@@ -453,14 +451,14 @@ export default function MentoriaPage() {
           </p>
           <div className="mt-4 flex justify-center gap-3">
             <a
-              href={LIBERTRAIL_PERSONA1_URL}
+              href={LIBERTRAIL_PERFIL1_URL}
               target="_blank"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-3 text-xs font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
               LiberTrail — Perfil 1
             </a>
             <a
-              href={LIBERTRAIL_PERSONA2_URL}
+              href={LIBERTRAIL_PERFIL2_URL}
               target="_blank"
               className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-4 py-3 text-xs font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
             >
