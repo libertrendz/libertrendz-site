@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MentoriaPage() {
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
+    <main className="min-h[(calc(100vh-5rem))] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-16">
         
         {/* HERO */}
@@ -89,12 +89,12 @@ export default function MentoriaPage() {
               Perfil 1
             </p>
             <h3 className="text-lg font-semibold text-slate-50">
-              Profissionais com alguma vivência técnica ou contato prévio com tecnologia
+              Profissionais com alguma vivência técnica ou contacto prévio com tecnologia
             </h3>
             <p className="text-sm text-slate-200">
               Para quem já teve alguma experiência com sistemas, lógica, dados, 
               suporte, automações, processos digitais ou qualquer contacto real 
-              com tech — ainda que distante do mundo de desenvolvimento.
+              com tech — mesmo que fora de um cargo “oficialmente” de tecnologia.
             </p>
             <ul className="mt-2 space-y-1 text-sm text-slate-300">
               <li>• Possui fundamentos mínimos ou vivência prática.</li>
@@ -142,16 +142,66 @@ export default function MentoriaPage() {
           </div>
         </div>
 
-        {/* COMO FUNCIONA A MENTORIA */}
-        <div className="space-y-6 max-w-3xl">
+        {/* COMO FUNCIONA A MENTORIA — EM CARDS */}
+        <div className="space-y-6">
           <h2 className="text-xl font-semibold text-slate-50">Como funciona a Tech Reload</h2>
-          <ul className="space-y-3 text-sm text-slate-200">
-            <li>• Análise completa do LiberTrail + leitura técnica.</li>
-            <li>• Sessão de alinhamento e definição de rota.</li>
-            <li>• Plano de 90 dias (prioridades + práticas + checkpoints).</li>
-            <li>• Acompanhamento periódico orientado a progresso real.</li>
-            <li>• Ajustes de rota conforme evolução.</li>
-          </ul>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {/* Etapa 1 */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 1
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Análise do LiberTrail
+              </p>
+              <p className="mt-1 text-slate-300">
+                Leitura técnica e comportamental das tuas respostas, identificando
+                pontos fortes, riscos e possíveis rotas.
+              </p>
+            </div>
+
+            {/* Etapa 2 */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 2
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Sessão de alinhamento
+              </p>
+              <p className="mt-1 text-slate-300">
+                Conversa estruturada para alinhar expectativas, contexto de vida,
+                restrições e objetivos reais da transição.
+              </p>
+            </div>
+
+            {/* Etapa 3 */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 3
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Plano de 90 dias
+              </p>
+              <p className="mt-1 text-slate-300">
+                Definição de prioridades, práticas, estudos e ações concretas 
+                distribuídas ao longo de 90 dias.
+              </p>
+            </div>
+
+            {/* Etapa 4 */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 4
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Acompanhamento e ajustes
+              </p>
+              <p className="mt-1 text-slate-300">
+                Checkpoints periódicos, correções de rota e reforço de foco 
+                conforme a tua evolução e a realidade do mercado.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* CTA FINAL */}
