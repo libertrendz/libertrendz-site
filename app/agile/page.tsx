@@ -19,23 +19,57 @@ export default function AgilePage() {
           </p>
         </div>
 
-        {/* PARA QUEM É */}
-        <div className="space-y-4 max-w-3xl">
+        {/* PARA QUEM É — EM CARDS */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">Para quem é</h2>
-          <p className="text-sm text-slate-200">
-            Para empresas e equipas que:
+          <p className="text-sm text-slate-200 max-w-3xl">
+            Para empresas e equipas que se revêem em pelo menos um destes cenários:
           </p>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li>• Têm muitos pedidos, mas pouca visibilidade do que está em curso.</li>
-            <li>• Sofrem com prazos estourados e retrabalho constante.</li>
-            <li>• Usam termos ágeis, mas não sentem impacto real na operação.</li>
-            <li>• Querem organizar projetos sem virar reféns de frameworks da moda.</li>
-          </ul>
+          <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50 mb-1">
+                Muito pedido, pouca visibilidade
+              </p>
+              <p className="text-slate-300">
+                Muitas iniciativas em paralelo, tarefas espalhadas por vários canais
+                e nenhuma visão clara do que está realmente em andamento.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50 mb-1">
+                Prazos estourados e retrabalho
+              </p>
+              <p className="text-slate-300">
+                Entregas atrasadas, escopos a mudar toda hora e sensação constante 
+                de que tudo poderia ter sido combinado melhor.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50 mb-1">
+                “Ágil” só no discurso
+              </p>
+              <p className="text-slate-300">
+                Termos bonitos e rituais rodando, mas pouca ligação com a realidade 
+                do negócio e quase nenhum impacto visível na entrega.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50 mb-1">
+                Falta de critério e métricas
+              </p>
+              <p className="text-slate-300">
+                Tudo parece urgente, nada tem prioridade clara e as decisões 
+                são tomadas sem dados mínimos de fluxo e capacidade.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* PROBLEMAS TIPICOS */}
         <div className="space-y-4 max-w-3xl">
-          <h2 className="text-xl font-semibold text-slate-50">Problemas típicos que eu ajudo a resolver</h2>
+          <h2 className="text-xl font-semibold text-slate-50">
+            Problemas típicos que eu ajudo a resolver
+          </h2>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="font-semibold text-slate-50 mb-1">
@@ -88,7 +122,7 @@ export default function AgilePage() {
                 Diagnóstico rápido
               </p>
               <p className="mt-1 text-slate-300">
-                Leitura da operação atual, principais dores, contextos de equipa 
+                Leitura da operação atual, principais dores, contexto de equipa 
                 e expectativas de negócio.
               </p>
             </div>
@@ -137,7 +171,7 @@ export default function AgilePage() {
           <ul className="space-y-2 text-sm text-slate-300">
             <li>• Fluxo de trabalho claro, visual e compreendido pela equipa.</li>
             <li>• Critérios de priorização objetivos e alinhados com o negócio.</li>
-            <li>• Rituais mínimos, com pauta clara e decisões registradas.</li>
+            <li>• Rituais mínimos, com pauta clara e decisões registadas.</li>
             <li>• Métricas simples para acompanhar capacidade e prazos.</li>
             <li>• Linguagem alinhada entre gestão e equipa sobre “o que é prioridade”.</li>
           </ul>
