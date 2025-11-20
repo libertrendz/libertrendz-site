@@ -58,7 +58,7 @@ ${mensagem}
     await resend.emails.send({
       from: "Libertrendz <contato@libertrendz.eu>",
       to: ["contato@libertrendz.eu"],
-      reply_to: email,
+      replyTo: email, // <<< AQUI o ajuste
       subject: assuntoEmail,
       text: texto,
       html
