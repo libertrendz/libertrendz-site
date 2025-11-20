@@ -38,8 +38,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Bloco “Em poucas linhas” (ajustado para subir) */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:mt-[-12px]">
+          {/* Bloco “Em poucas linhas” com ajuste de alinhamento */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:mt-[-6px]">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
               Em poucas linhas
             </p>
@@ -233,7 +233,7 @@ export default function HomePage() {
             simplesmente usar a página de contato para contar o teu contexto. A
             partir daí, a conversa fica séria.
           </p>
-          <div className="`, gap-3 flex flex-wrap justify-center mt-4">
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
             <a
               href="/mentoria#libertrail-perfis"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
