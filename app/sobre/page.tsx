@@ -117,14 +117,14 @@ export default function SobrePage() {
             </div>
           </div>
 
-          {/* FOTO FINAL – ENQUADRAMENTO CORRETO */}
+          {/* FOTO DO GUSTAVO (SUPABASE) – SEM CORTAR CABEÇA */}
           <div className="flex flex-col items-center gap-4 lg:items-end">
-            <div className="relative h-44 w-44 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow-xl shadow-black/60">
+            <div className="relative h-48 w-48 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow-xl shadow-black/60">
               <Image
                 src={FOTO_GUSTAVO_URL}
                 alt="Gustavo Santos"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="text-center text-xs text-slate-400 lg:text-right">
