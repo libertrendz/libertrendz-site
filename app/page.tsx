@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-16 space-y-16">
         {/* HERO */}
-        <div className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-start">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
               Libertrendz
@@ -38,8 +38,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Bloco de credibilidade */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60">
+          {/* Bloco “Em poucas linhas” (ajustado para subir) */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:mt-[-12px]">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
               Em poucas linhas
             </p>
@@ -152,8 +152,8 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-2 text-slate-200">
                   Estruturação de fluxo, rituais e métricas para equipas e
-                  projetos. Menos teatro, mais previsibilidade e entrega
-                  real para PMEs.
+                  projetos. Menos teatro, mais previsibilidade e entrega real
+                  para PMEs.
                 </p>
               </div>
               <span className="mt-4 text-xs text-accent-300">
@@ -233,7 +233,7 @@ export default function HomePage() {
             simplesmente usar a página de contato para contar o teu contexto. A
             partir daí, a conversa fica séria.
           </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
+          <div className="`, gap-3 flex flex-wrap justify-center mt-4">
             <a
               href="/mentoria#libertrail-perfis"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
