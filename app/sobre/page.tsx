@@ -2,7 +2,7 @@
 import Image from "next/image";
 
 const FOTO_GUSTAVO_URL =
-  "https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/3x4%20(9).png";
+  "https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/GUSTAVO.png";
 
 export default function SobrePage() {
   return (
@@ -117,7 +117,7 @@ export default function SobrePage() {
             </div>
           </div>
 
-          {/* FOTO REAL DO GUSTAVO */}
+          {/* FOTO FINAL – ENQUADRAMENTO CORRETO */}
           <div className="flex flex-col items-center gap-4 lg:items-end">
             <div className="relative h-44 w-44 overflow-hidden rounded-full border border-slate-700 bg-slate-900 shadow-xl shadow-black/60">
               <Image
