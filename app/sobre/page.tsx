@@ -87,7 +87,7 @@ export default function SobrePage() {
                   src={FOTO_URL}
                   alt="Foto de Gustavo Santos"
                   fill
-                  className="object-cover"
+                  className="object-contain object-top"
                 />
               </div>
               <div className="space-y-1">
