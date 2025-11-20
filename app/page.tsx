@@ -39,7 +39,7 @@ export default function HomePage() {
           </div>
 
           {/* Bloco “Em poucas linhas” — AJUSTADO PARA BAIXO */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:translate-y-13">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:translate-y+10">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
               Em poucas linhas
             </p>
