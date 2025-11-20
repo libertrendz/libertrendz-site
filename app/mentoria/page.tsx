@@ -1,7 +1,13 @@
 import Link from "next/link";
 
-const TECHTRAILSCAN_FORM_URL =
-  "https://forms.gle/PYwbYjeuUidp9EKVA";
+// LiberTrail – diagnóstico com 2 portas de entrada
+// PERSONA 1: já tem alguma vivência técnica / background
+// PERSONA 2: quase zero de tech, quer entender o caminho
+const LIBERTRAIL_PERSONA1_URL =
+  "https://forms.gle/EXEMPLO_PERSONA1_SUBSTITUIR"; // TODO: trocar quando criar o form P1
+
+const LIBERTRAIL_PERSONA2_URL =
+  "https://forms.gle/PYwbYjeuUidp9EKVA"; // formulário atual (P2)
 
 export default function MentoriaPage() {
   return (
@@ -22,18 +28,18 @@ export default function MentoriaPage() {
             </p>
             <p className="mb-8 text-sm text-slate-300">
               Uma mentoria profissional para adultos em transição, baseada em
-              diagnóstico real (TechTrailScan) e um plano estruturado para
-              entrar — ou reentrar — no mercado tech com segurança.
+              diagnóstico real — o <strong>LiberTrail</strong> — e um plano
+              estruturado para entrar (ou reentrar) no mercado tech com
+              segurança.
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link
-                href={TECHTRAILSCAN_FORM_URL}
-                target="_blank"
+              <a
+                href="#libertrail"
                 className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
               >
-                Fazer o TechTrailScan gratuito
-              </Link>
+                Começar pelo LiberTrail
+              </a>
               <a
                 href="#sobre-mentoria"
                 className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
@@ -57,20 +63,10 @@ export default function MentoriaPage() {
               Diagnóstico, direção e execução guiada
             </h2>
             <ul className="space-y-3 text-sm text-slate-200">
-              <li>
-                • TechTrailScan para identificar a sua rota ideal em tecnologia.
-              </li>
-              <li>
-                • Plano de 90 dias ajustado à sua realidade, não à moda do
-                mercado.
-              </li>
-              <li>
-                • Acompanhamento e ajustes no percurso, com foco em resultados.
-              </li>
-              <li>
-                • Preparação para se posicionar profissionalmente no mercado
-                tech.
-              </li>
+              <li>• LiberTrail para identificar a sua rota ideal em tecnologia.</li>
+              <li>• Plano de 90 dias ajustado à sua realidade.</li>
+              <li>• Acompanhamento e ajustes de rota.</li>
+              <li>• Preparação para se posicionar no mercado tech.</li>
             </ul>
           </div>
         </section>
@@ -167,25 +163,28 @@ export default function MentoriaPage() {
           </div>
         </section>
 
-        {/* TECHTRAILSCAN */}
-        <section className="space-y-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+        {/* LIBERTRAIL — DIAGNÓSTICO */}
+        <section
+          id="libertrail"
+          className="space-y-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6"
+        >
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-slate-50">
-                O ponto de partida: TechTrailScan
+                O ponto de partida: LiberTrail
               </h2>
               <p className="mt-2 text-sm text-slate-200">
-                Toda jornada na Tech Reload começa com o TechTrailScan, o
-                diagnóstico que mapeia a sua rota ideal em tecnologia.
+                Toda jornada na Tech Reload começa pelo{" "}
+                <strong>LiberTrail</strong>, o diagnóstico que mapeia a sua rota
+                ideal em tecnologia.
               </p>
             </div>
-            <Link
-              href={TECHTRAILSCAN_FORM_URL}
-              target="_blank"
+            <a
+              href="#libertrail-personas"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
             >
-              Fazer meu TechTrailScan
-            </Link>
+              Escolher meu perfil para fazer o LiberTrail
+            </a>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
@@ -224,6 +223,76 @@ export default function MentoriaPage() {
               </ul>
             </div>
           </div>
+
+          {/* ESCOLHA DE PERSONA PARA LIBERTRAIL */}
+          <div
+            id="libertrail-personas"
+            className="mt-6 space-y-4 rounded-xl border border-slate-800 bg-slate-950/40 p-4"
+          >
+            <h3 className="text-sm font-semibold text-slate-50">
+              Escolha o perfil que mais se aproxima de você para começar o
+              LiberTrail:
+            </h3>
+            <div className="grid gap-4 md:grid-cols-2">
+              {/* PERSONA 1 */}
+              <div className="flex flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200">
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-300">
+                    Persona 1
+                  </p>
+                  <p className="font-semibold text-slate-50">
+                    Já tenho alguma vivência técnica / background
+                  </p>
+                  <ul className="space-y-1 text-[13px] text-slate-300">
+                    <li>• Já tive contacto com programação, dados ou UX.</li>
+                    <li>• Ou trabalho perto de equipas de tecnologia/produto.</li>
+                    <li>• Quero alinhar o que já sei com uma rota clara em tech.</li>
+                  </ul>
+                </div>
+                <div className="mt-4">
+                  <a
+                    href={LIBERTRAIL_PERSONA1_URL}
+                    target="_blank"
+                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/30 transition hover:bg-accent-400"
+                  >
+                    Fazer o LiberTrail — Perfil 1
+                  </a>
+                </div>
+              </div>
+
+              {/* PERSONA 2 */}
+              <div className="flex flex-col justify-between rounded-lg border border-slate-800 bg-slate-900/60 p-4 text-sm text-slate-200">
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-300">
+                    Persona 2
+                  </p>
+                  <p className="font-semibold text-slate-50">
+                    Ainda não tive experiências concretas com tecnologia
+                  </p>
+                  <ul className="space-y-1 text-[13px] text-slate-300">
+                    <li>• Quase zero de prática em tech, mas muita vontade.</li>
+                    <li>• Me sinto perdido(a) entre tantas opções e opiniões.</li>
+                    <li>• Quero entender qual rota faz mais sentido para mim.</li>
+                  </ul>
+                </div>
+                <div className="mt-4">
+                  <a
+                    href={LIBERTRAIL_PERSONA2_URL}
+                    target="_blank"
+                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/30 transition hover:bg-accent-400"
+                  >
+                    Fazer o LiberTrail — Perfil 2
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p className="mt-2 text-[11px] text-slate-400">
+              Se ficar em dúvida entre os dois, escolha o que mais se aproxima
+              do seu momento atual. O objetivo não é encaixar você num rótulo,
+              e sim ter contexto suficiente para ler o seu diagnóstico com mais
+              precisão.
+            </p>
+          </div>
         </section>
 
         {/* MÉTODO */}
@@ -234,8 +303,8 @@ export default function MentoriaPage() {
           <div className="grid gap-4 md:grid-cols-4">
             {[
               {
-                titulo: "Fase 1 — Scan",
-                desc: "TechTrailScan completo + leitura profissional do seu perfil."
+                titulo: "Fase 1 — LiberTrail",
+                desc: "Diagnóstico completo + leitura profissional do seu perfil."
               },
               {
                 titulo: "Fase 2 — Direction",
@@ -278,8 +347,7 @@ export default function MentoriaPage() {
                 <li>• Quer mudar, mas com um plano realista.</li>
                 <li>• Está no Brasil ou em Portugal.</li>
                 <li>
-                  • Tem 30+, 40+ ou 50+ e não quer ser tratado como “caso
-                  perdido”.
+                  • Tem 30+, 40+ ou 50+ e não quer ser tratado como “caso perdido”.
                 </li>
               </ul>
             </div>
@@ -305,7 +373,7 @@ export default function MentoriaPage() {
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="mb-2 font-semibold text-slate-50">Diagnóstico</p>
               <ul className="space-y-1">
-                <li>• TechTrailScan completo.</li>
+                <li>• LiberTrail completo.</li>
                 <li>• Análise profissional do seu perfil.</li>
                 <li>• Trilha principal + alternativa.</li>
               </ul>
@@ -338,9 +406,8 @@ export default function MentoriaPage() {
                 Preciso saber programar?
               </p>
               <p>
-                Não. A mentoria parte do diagnóstico para entender se
-                programação faz sentido para você ou se outra trilha é mais
-                natural.
+                Não. O LiberTrail serve justamente para entender se programação
+                faz sentido para você ou se outra trilha é mais natural.
               </p>
             </div>
             <div>
@@ -348,7 +415,7 @@ export default function MentoriaPage() {
                 Serve para pessoas com mais de 40 ou 50 anos?
               </p>
               <p>
-                Sim. A Tech Reload foi desenhada justamente para adultos em
+                Sim. A Tech Reload foi desenhada exatamente para adultos em
                 transição, que trazem bagagem e responsabilidade para o processo.
               </p>
             </div>
@@ -380,17 +447,25 @@ export default function MentoriaPage() {
             Recarregue a sua carreira. Reconstrua o seu futuro em tecnologia.
           </h2>
           <p className="text-sm text-slate-200">
-            O primeiro passo é simples: fazer o TechTrailScan. A partir daí, a
-            Tech Reload cuida da estrutura.
+            O primeiro passo é simples: escolher o perfil que mais se parece com
+            você e fazer o LiberTrail. A partir daí, a Tech Reload cuida da
+            estrutura.
           </p>
-          <div className="mt-4 flex justify-center">
-            <Link
-              href={TECHTRAILSCAN_FORM_URL}
+          <div className="mt-4 flex justify-center gap-3">
+            <a
+              href={LIBERTRAIL_PERSONA1_URL}
               target="_blank"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-3 text-xs font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
-              Fazer meu TechTrailScan agora
-            </Link>
+              LiberTrail — Perfil 1
+            </a>
+            <a
+              href={LIBERTRAIL_PERSONA2_URL}
+              target="_blank"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-4 py-3 text-xs font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+            >
+              LiberTrail — Perfil 2
+            </a>
           </div>
         </section>
       </div>
