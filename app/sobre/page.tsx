@@ -85,4 +85,19 @@ export default function SobrePage() {
           </ul>
         </div>
 
-        {/* CTA FINAL*
+        {/* CTA FINAL */}
+        <div className="pt-8 border-t border-slate-800 text-center space-y-4">
+          <h2 className="text-2xl font-semibold text-slate-50">Quer trazer o teu contexto para a mesa?</h2>
+          <p className="max-w-xl mx-auto text-sm text-slate-200">Podemos começar por uma conversa simples. A partir daí, vemos juntos se faz sentido avançar.</p>
+          <a
+            href="/contato"
+            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+          >
+            Ir para o contato
+          </a>
+        </div>
+
+      </section>
+    </main>
+  );
+}
