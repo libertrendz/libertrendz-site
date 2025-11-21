@@ -22,11 +22,10 @@ export default function AgilePage() {
         {/* PARA QUEM É — EM CARDS */}
         <div className="space-y-4">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
-              Para quem
+            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
+              Para quem é
             </p>
-            <h2 className="text-xl font-semibold text-slate-50">Para quem é</h2>
-          </div>
+           </div>
           <p className="text-sm text-slate-200 max-w-3xl">
             Para empresas e equipas que se revêem em pelo menos um destes cenários:
           </p>
@@ -73,13 +72,10 @@ export default function AgilePage() {
         {/* PROBLEMAS TIPICOS */}
         <div className="space-y-4 max-w-3xl">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
-              Problemas típicos
-            </p>
-            <h2 className="text-xl font-semibold text-slate-50">
+            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Problemas típicos que ajudamos a resolver
-            </h2>
-          </div>
+            </p>
+            </div>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="font-semibold text-slate-50 mb-1">
@@ -123,11 +119,10 @@ export default function AgilePage() {
         {/* COMO TRABALHAMOS */}
         <div className="space-y-4">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
-              Abordagem
+            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
+              Proposta e Abordagem
             </p>
-            <h2 className="text-xl font-semibold text-slate-50">Como trabalhamos</h2>
-          </div>
+           </div>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
@@ -183,13 +178,10 @@ export default function AgilePage() {
         {/* O QUE ENTREGAMOS */}
         <div className="space-y-4 max-w-3xl">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
-              Depois da consultoria
-            </p>
-            <h2 className="text-xl font-semibold text-slate-50">
+            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               O que fica depois da consultoria
-            </h2>
-          </div>
+            </p>
+            </div>
           <ul className="space-y-2 text-sm text-slate-300">
             <li>• Fluxo de trabalho claro, visual e compreendido pela equipa.</li>
             <li>• Critérios de priorização objetivos e alinhados com o negócio.</li>
