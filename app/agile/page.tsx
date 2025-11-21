@@ -67,9 +67,14 @@ export default function AgilePage() {
 
         {/* PROBLEMAS TIPICOS */}
         <div className="space-y-4 max-w-3xl">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Problemas típicos que eu ajudo a resolver
-          </h2>
+          <div className="space-y-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
+              Problemas típicos
+            </p>
+            <h2 className="text-xl font-semibold text-slate-50">
+              Problemas típicos que ajudamos a resolver
+            </h2>
+          </div>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="font-semibold text-slate-50 mb-1">
@@ -110,9 +115,14 @@ export default function AgilePage() {
           </div>
         </div>
 
-        {/* COMO TRABALHO */}
+        {/* COMO TRABALHAMOS */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Como eu trabalho</h2>
+          <div className="space-y-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
+              Como trabalhamos
+            </p>
+            <h2 className="text-xl font-semibold text-slate-50">Como trabalhamos</h2>
+          </div>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
