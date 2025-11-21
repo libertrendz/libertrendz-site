@@ -1,251 +1,153 @@
-// app/apps/page.tsx
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 export default function AppsPage() {
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-12 lg:py-16 space-y-16">
+    <main className="min-h-screen bg-slate-950 text-slate-50">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <header className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Image
+              src="https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/LIBERTRENDZ.png"
+              alt="Libertrendz"
+              width={40}
+              height={40}
+            />
+            <div>
+              <div className="text-xs tracking-widest text-slate-300">APPS & ERPS</div>
+              <div className="text-[11px] text-slate-400">Tiny ERPs, Sites & Landing Pages</div>
+            </div>
+          </div>
+
+          <div>
+            <Link href="/contato" className="px-4 py-2 rounded-2xl bg-amber-500 text-slate-900 font-medium">Solicitar proposta</Link>
+          </div>
+        </header>
+
         {/* HERO */}
-        <div className="max-w-3xl space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
-            Apps & Tiny ERPs
-          </p>
-          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Sistemas sob medida para quando o Excel já não chega — 
-            sem virar refém de um ERP gigante.
-          </h1>
-          <p className="text-sm text-slate-200 max-w-2xl">
-            A frente de Apps & Tiny ERPs da Libertrendz é voltada para 
-            profissionais e PMEs que precisam organizar operações, obras, 
-            finanças ou equipas com sistemas vivos, modulares e feitos 
-            para a realidade do negócio.
-          </p>
-        </div>
-
-        {/* RESUMO EM CARDS */}
-        <div className="grid gap-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 md:grid-cols-4">
+        <section className="mt-8 grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-              Para quem
+            <h1 className="text-2xl md:text-3xl font-semibold leading-snug">Apps pragmáticos. ERPs que resolvem o dia a dia.</h1>
+            <p className="mt-4 text-slate-300 max-w-xl">
+              Desenvolvemos apps modulares para PMEs: ponto, obras, financeiro, fornecedores, orçamentos.
+              Pequeno footprint, regras de negócio sólidas e implantação rápida (Vercel + Supabase).
             </p>
-            <p className="mt-1 text-sm text-slate-200">
-              PMEs e equipas que cresceram além do Excel e de ferramentas soltas.
-            </p>
+
+            <ul className="mt-5 grid gap-3">
+              <li className="flex gap-3 items-start">
+                <div className="mt-1 text-amber-400">●</div>
+                <div>
+                  <div className="font-medium">Módulos modulares</div>
+                  <div className="text-slate-400 text-sm">Instala só o que precisa — sem sobrecarga.</div>
+                </div>
+              </li>
+              <li className="flex gap-3 items-start">
+                <div className="mt-1 text-amber-400">●</div>
+                <div>
+                  <div className="font-medium">Padrões reutilizáveis</div>
+                  <div className="text-slate-400 text-sm">GenesysRef → RLS, RPCs que retornam json/uuid, importação blindada.</div>
+                </div>
+              </li>
+              <li className="flex gap-3 items-start">
+                <div className="mt-1 text-amber-400">●</div>
+                <div>
+                  <div className="font-medium">Rápida entrega</div>
+                  <div className="text-slate-400 text-sm">MVPs funcionais em semanas, com roadmap claro para evolução.</div>
+                </div>
+              </li>
+            </ul>
+
+            <div className="mt-6 flex gap-3">
+              <Link href="/contato" className="px-4 py-2 rounded-2xl bg-amber-500 text-slate-900 font-medium">Ver proposta</Link>
+              <Link href="/contato" className="px-4 py-2 rounded-2xl border border-slate-800">Conversa rápida</Link>
+            </div>
           </div>
+
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-              Tipo de solução
-            </p>
-            <p className="mt-1 text-sm text-slate-200">
-              Apps web, painéis e ERPs leves, focados em fluxo real de trabalho.
-            </p>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-              Abordagem
-            </p>
-            <p className="mt-1 text-sm text-slate-200">
-              Descoberta, desenho de fluxo, protótipo funcional e iteração.
-            </p>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-              Exemplo
-            </p>
-            <p className="mt-1 text-sm text-slate-200">
-              CONFIANCE — ERP modular para construção, ponto, obras e financeiro.
-            </p>
-          </div>
-        </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/30 p-6">
+              <h3 className="text-sm uppercase tracking-[0.16em] text-amber-400">Casos típicos</h3>
+              <div className="mt-4 grid gap-3">
+                <ModuleCard title="Ponto" description="Registo com foto e geolocalização, auditoria e relatórios CSV/PDF." />
+                <ModuleCard title="Obras" description="Obras→Fases→Tarefas→Horas (ligado ao ponto)." />
+                <ModuleCard title="Financeiro" description="Lançamentos, clientes, faturas e recibos — exportáveis." />
+                <ModuleCard title="Orçamentos" description="Numero automático YYYY-####, itens, revisões e PDF." />
+              </div>
+            </div>
 
-        {/* QUANDO FAZ SENTIDO FALAR DE APP / ERP */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Quando faz sentido falar de um app ou ERP leve
-          </h2>
-          <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">
-                Planilhas demais, controlo de menos
-              </p>
-              <p className="text-slate-300">
-                A operação vive em vários ficheiros, versões e pastas. 
-                Ninguém tem certeza do que está atualizado, e erros começam a custar caro.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">
-                Softwares genéricos que atrapalham
-              </p>
-              <p className="text-slate-300">
-                Sistemas “para tudo” que exigem adaptação demais da equipa 
-                e entregam de menos frente ao que o negócio realmente precisa.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">
-                Crescimento sem estrutura
-              </p>
-              <p className="text-slate-300">
-                A empresa cresce, os clientes aumentam, mas o controlo 
-                de obras, contratos, faturas, ponto ou equipas não acompanha.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">
-                Necessidade de visão consolidada
-              </p>
-              <p className="text-slate-300">
-                Decisão de gestão exige ver tudo num só lugar: financeiro, 
-                operação, equipas e projetos, sem depender de “caça” manual de dados.
-              </p>
+            <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/20 p-5">
+              <h4 className="text-sm uppercase tracking-[0.12em] text-amber-400">Sites & Landing Pages</h4>
+              <p className="mt-2 text-slate-300 text-sm">Landing pages com copy focada em conversão, integração com forms e tracking — design minimalista e identidade forte.</p>
+              <div className="mt-4 flex gap-3">
+                <Link href="/contato" className="px-3 py-2 rounded-2xl bg-amber-500 text-slate-900 font-medium">Solicitar site</Link>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* TIPOS DE SOLUÇÃO */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Tipos de soluções que desenvolvo
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                ERP leve
-              </p>
-              <p className="font-semibold text-slate-50">
-                ERPs modulares para PMEs
-              </p>
-              <p className="mt-1 text-slate-300">
-                Sistemas que organizam obras, contratos, faturação, ponto, 
-                equipas e operações sem a complexidade de um ERP gigante.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Apps internos
-              </p>
-              <p className="font-semibold text-slate-50">
-                Apps focados em fluxo de trabalho
-              </p>
-              <p className="mt-1 text-slate-300">
-                Aplicações internas para registo de ponto, gestão de tarefas, 
-                requisições, pedidos de cliente ou controlo operacional.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Painéis & integrações
-              </p>
-              <p className="font-semibold text-slate-50">
-                Dashboards e colagem entre sistemas
-              </p>
-              <p className="mt-1 text-slate-300">
-                Consolidação de dados de várias fontes e pequenas automações 
-                para que sistemas falem entre si sem malabarismo manual.
-              </p>
-            </div>
+        {/* PROCESSO */}
+        <section className="mt-10">
+          <div className="grid md:grid-cols-4 gap-4">
+            <StepCard step="1" title="Diagnóstico" body="Mapeamos processos, personas e gaps." />
+            <StepCard step="2" title="Protótipo" body="Wireframe funcional e validação com utilizadores." />
+            <StepCard step="3" title="MVP" body="Entrega do módulo mínimo viável e deploy." />
+            <StepCard step="4" title="Escala" body="Iterações, integrações e automações." />
           </div>
-        </div>
+        </section>
 
-        {/* EXEMPLO: CONFIANCE */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">
-            CONFIANCE — exemplo de ERP modular em construção civil
-          </h2>
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200 max-w-4xl space-y-3">
-            <p>
-              O CONFIANCE é um ERP leve em desenvolvimento para uma empresa 
-              de construção e remodelação. Nasce modular, com foco em ponto, 
-              colaboradores, fornecedores, obras e financeiro.
+        {/* RADAR / CASES */}
+        <section className="mt-12">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/30 p-6">
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm uppercase tracking-[0.16em] text-amber-400">Radar Libertrendz (opcional)</h3>
+              <small className="text-slate-400 text-xs">posts, cases e insights curtos</small>
+            </div>
+
+            <p className="mt-3 text-slate-300 text-sm max-w-3xl">
+              Proposta: adicionar um bloco dinâmico (feed) para “Radar Libertrendz” — conteúdo curto para LinkedIn (SaaS, gestão, Agile).
+              Se concordar, eu preparo o componente de feed com imagem criada automaticamente para cada post.
             </p>
-            <p className="text-slate-300">
-              O objetivo não é competir com grandes ERPs, mas oferecer um sistema 
-              que respeita o fluxo real da empresa: obras no terreno, equipas em 
-              movimento, clientes a acompanhar e decisões diárias de gestão.
-            </p>
-            <p className="text-slate-300">
-              A mesma abordagem pode ser aplicada a outras PMEs que precisam 
-              de estrutura, mas não querem ficar presas a software genérico 
-              que exige mais adaptação do que entrega.
-            </p>
-          </div>
-        </div>
 
-        {/* COMO TRABALHO NESTA FRENTE */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Como funciona um projeto de app / ERP leve
-          </h2>
-          <div className="grid gap-4 md:grid-cols-4">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Fase 1
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Descoberta
-              </p>
-              <p className="mt-1 text-slate-300">
-                Entendimento da operação, dores, dados existentes e restrições 
-                de negócio. Nada de solução pronta antes de ouvir o contexto.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Fase 2
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Desenho e priorização
-              </p>
-              <p className="mt-1 text-slate-300">
-                Desenho dos fluxos principais, definição de módulos prioritários 
-                e corte do supérfluo para chegar a um MVP funcional.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Fase 3
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Construção e validação
-              </p>
-              <p className="mt-1 text-slate-300">
-                Desenvolvimento do app/ERP leve com iterações curtas, testes com 
-                utilizadores reais e ajustes em cima do uso, não da teoria.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Fase 4
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Evolução controlada
-              </p>
-              <p className="mt-1 text-slate-300">
-                Ajustes, novos módulos e integrações à medida que a empresa 
-                cresce e o sistema prova valor no dia a dia.
-              </p>
+            <div className="mt-4 grid md:grid-cols-3 gap-4">
+              <MiniCase title="Case exemplo — ERP Lite" excerpt="Integração ponto + obras + financeiro — redução de 30% em retrabalho." />
+              <MiniCase title="Radar — Insight" excerpt="Métrica simples que toda PME deve seguir esta semana." />
+              <MiniCase title="Design" excerpt="Landing page para captação de leads em 48h." />
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* CTA FINAL */}
-        <div className="pt-10 border-t border-slate-800 text-center space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-50">
-            Quer discutir um app ou ERP leve para a tua empresa?
-          </h2>
-          <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Se a tua PME já passou do ponto de se apoiar só em planilhas e 
-            ferramentas soltas, podemos conversar sobre uma solução à medida, 
-            com escopo claro e foco em resultado real.
-          </p>
-          <a
-            href="/contato"
-            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-          >
-            Falar sobre um app / ERP para a minha empresa
-          </a>
-        </div>
-      </section>
+        <footer className="mt-12 text-sm text-slate-400">
+          <div>Quer avançar? Peça a proposta inicial — entrego escopo e estimativa por módulo.</div>
+        </footer>
+      </div>
     </main>
+  );
+}
+
+function ModuleCard({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="rounded-2xl p-4 border border-slate-800 bg-slate-900/20">
+      <div className="font-semibold">{title}</div>
+      <div className="mt-1 text-slate-300 text-sm">{description}</div>
+    </div>
+  );
+}
+
+function StepCard({ step, title, body }: { step: string; title: string; body: string }) {
+  return (
+    <div className="rounded-2xl p-4 border border-slate-800 bg-slate-900/10">
+      <div className="text-amber-400 font-mono text-sm">Step {step}</div>
+      <div className="mt-2 font-semibold">{title}</div>
+      <div className="mt-1 text-slate-300 text-sm">{body}</div>
+    </div>
+  );
+}
+
+function MiniCase({ title, excerpt }: { title: string; excerpt: string }) {
+  return (
+    <div className="rounded-2xl p-4 border border-slate-800 bg-slate-900/10">
+      <div className="font-semibold text-sm">{title}</div>
+      <div className="mt-1 text-slate-300 text-sm">{excerpt}</div>
+    </div>
   );
 }
