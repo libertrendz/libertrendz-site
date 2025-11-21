@@ -21,8 +21,8 @@ export default function AgilePage() {
 
         {/* PARA QUEM É — EM CARDS */}
         <div className="space-y-4">
-          <div className="space-y-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Para quem
             </p>
             <h2 className="text-xl font-semibold text-slate-50">Para quem é</h2>
@@ -72,8 +72,8 @@ export default function AgilePage() {
 
         {/* PROBLEMAS TIPICOS */}
         <div className="space-y-4 max-w-3xl">
-          <div className="space-y-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Problemas típicos
             </p>
             <h2 className="text-xl font-semibold text-slate-50">
@@ -122,8 +122,8 @@ export default function AgilePage() {
 
         {/* COMO TRABALHAMOS */}
         <div className="space-y-4">
-          <div className="space-y-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Abordagem
             </p>
             <h2 className="text-xl font-semibold text-slate-50">Como trabalhamos</h2>
@@ -182,8 +182,8 @@ export default function AgilePage() {
 
         {/* O QUE ENTREGAMOS */}
         <div className="space-y-4 max-w-3xl">
-          <div className="space-y-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Depois da consultoria
             </p>
             <h2 className="text-xl font-semibold text-slate-50">
