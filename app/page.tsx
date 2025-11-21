@@ -1,261 +1,145 @@
-// app/page.tsx
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-export default function HomePage() {
+export default function Home() {
+  const year = new Date().getFullYear();
+
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-16 space-y-16">
-        {/* HERO */}
-        <div className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-start">
+    <main className="min-h-screen bg-slate-950 text-slate-50 antialiased">
+      <header className="max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/LIBERTRENDZ.png"
+            alt="Libertrendz"
+            width={44}
+            height={44}
+            priority
+            className="rounded"
+          />
+          <div className="hidden md:block">
+            <div className="text-xs tracking-widest text-slate-300">LIBERTRENDZ</div>
+            <div className="text-[11px] text-slate-400">Mentoria Tech · Projetos Ágeis · Apps</div>
+          </div>
+        </Link>
+
+        <nav className="hidden md:flex gap-6 items-center text-sm">
+          <Link href="/" className="hover:underline">Início</Link>
+          <Link href="/mentoria" className="hover:underline">Mentoria</Link>
+          <Link href="/agile" className="hover:underline">Consultoria</Link>
+          <Link href="/apps" className="hover:underline">Apps & ERPs</Link>
+          <Link href="/sobre" className="hover:underline">Sobre</Link>
+          <Link href="/contato" className="px-4 py-2 rounded-2xl bg-amber-500 text-slate-900 font-semibold">Entrar em contato</Link>
+        </nav>
+
+        <div className="md:hidden">
+          <Link href="/contato" className="px-3 py-2 rounded-2xl bg-amber-500 text-slate-900 text-sm font-semibold">Contato</Link>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-6 py-12 md:py-20">
+        <div className="grid gap-8 md:grid-cols-2 items-center">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
-              Libertrendz
-            </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
-              Estratégia, tecnologia e transição de carreira{" "}
-              <span className="block text-accent-400">
-                para profissionais e PMEs que não têm tempo a perder.
-              </span>
+            <span className="inline-block text-[11px] uppercase tracking-[0.18em] text-amber-400">Estratégia & execução</span>
+            <h1 className="mt-4 text-3xl md:text-4xl leading-tight font-semibold">
+              Estratégia, tecnologia e projetos sob medida — para quem não pode recomeçar do zero.
             </h1>
-            <p className="mt-4 max-w-xl text-sm text-slate-200">
-              Mentoria tech para profissionais em transição, consultoria ágil
-              sem teatro e apps/ERPs modulares para empresas. Um ponto único
-              para alinhar carreira, projetos e sistemas ao que o negócio
-              realmente precisa.
+            <p className="mt-4 max-w-2xl text-slate-300">
+              Mentoria para transição de carreira (30+/40+), consultoria ágil prática e apps/ERPs leves para PMEs.
+              Nada de "teatro ágil": prometemos previsibilidade, critérios e entregas reais.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="/mentoria#libertrail"
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-              >
-                Começar pelo LiberTrail
-              </a>
-              <a
-                href="#servicos"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Ver serviços
-              </a>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/mentoria" className="px-4 py-2 rounded-2xl bg-amber-500 text-slate-900 font-medium">LiberTrail — Diagnóstico</Link>
+              <Link href="/apps" className="px-4 py-2 rounded-2xl border border-slate-800 text-slate-100">Apps & ERPs</Link>
+              <Link href="/contato" className="px-4 py-2 rounded-2xl text-slate-100 border border-amber-600 hover:bg-amber-600">Falar comigo</Link>
             </div>
           </div>
 
-          {/* Bloco “Em poucas linhas” */}
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/60 lg:translate-y-3">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-              Em poucas linhas
-            </p>
-            <p className="text-sm text-slate-200">
-              A Libertrendz junta gestão, projetos e tecnologia para entregar
-              três coisas muito claras:
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-slate-200">
-              <li>• Direção para profissionais que querem migrar para tech.</li>
-              <li>• Estrutura para equipas e projetos ágeis funcionarem.</li>
-              <li>• Sistemas sob medida quando o Excel já não chega.</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* DESTAQUE LIBERTRAIL */}
-        <div className="space-y-4 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-                Diagnóstico de carreira
-              </p>
-              <h2 className="mt-2 text-xl font-semibold text-slate-50">
-                LiberTrail — o ponto de partida da Tech Reload
-              </h2>
-              <p className="mt-2 max-w-2xl text-sm text-slate-200">
-                Um diagnóstico pensado para profissionais que querem migrar para
-                tecnologia com seriedade: duas portas de entrada, leitura
-                estruturada do teu perfil e indicação de trilhas possíveis, sem
-                empurrar “dev” como solução única.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 text-sm text-slate-200 md:text-right">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Como funciona
-              </p>
-              <p className="text-[13px] text-slate-300">
-                Escolhes o perfil que mais se parece contigo, respondes ao
-                LiberTrail e, a partir daí, a mentoria Tech Reload entra com
-                plano e acompanhamento — sem promessas vazias.
-              </p>
-              <div className="mt-1 flex flex-wrap justify-start gap-2 md:justify-end">
-                <a
-                  href="/mentoria#libertrail-perfis"
-                  className="inline-flex items-center justify-center rounded-md bg-accent-500 px-4 py-2 text-xs font-semibold text-slate-950 shadow shadow-accent-500/40 transition hover:bg-accent-400"
-                >
-                  Fazer o LiberTrail
-                </a>
-                <a
+          <div className="order-first md:order-last">
+            <div className="w-full rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+              <h3 className="text-sm uppercase tracking-[0.2em] text-amber-400">Serviços</h3>
+              <div className="mt-4 grid gap-4">
+                <CardCompact
+                  title="Mentoria Tech Reload"
+                  text="Rota prática para profissionais 30+/40+ — diagnóstico, rota e plano de ação."
                   href="/mentoria"
-                  className="inline-flex items-center justify-center rounded-md border border-slate-700 px-4 py-2 text-xs font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-                >
-                  Ver detalhes da mentoria
-                </a>
+                />
+                <CardCompact
+                  title="Consultoria Ágil"
+                  text="Metodologia enxuta, métricas úteis e rituais que geram previsibilidade."
+                  href="/agile"
+                />
+                <CardCompact
+                  title="Apps & ERPs"
+                  text="Tiny ERPs modulares — ponto, obras, financeiro; ou sites e landing pages."
+                  href="/apps"
+                />
               </div>
             </div>
           </div>
         </div>
-
-        {/* SERVIÇOS PRINCIPAIS */}
-        <section id="servicos" className="space-y-6">
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 className="text-xl font-semibold text-slate-50">
-                O que a Libertrendz faz hoje
-              </h2>
-              <p className="mt-2 max-w-2xl text-sm text-slate-200">
-                Três eixos que se ligam: profissionais em transição, equipas a
-                organizar projetos e negócios que precisam de sistemas que
-                ajudem o dia a dia em vez de atrapalhar.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* CARD: MENTORIA */}
-            <a
-              href="/mentoria"
-              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                  Mentoria
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-50">
-                  Tech Reload + LiberTrail
-                </h3>
-                <p className="mt-2 text-slate-200">
-                  Mentoria de transição para tecnologia pensada para
-                  profissionais. Começa com o diagnóstico LiberTrail e segue com
-                  um plano de 90 dias com acompanhamento próximo.
-                </p>
-              </div>
-              <span className="mt-4 text-xs text-accent-300">
-                Ver mentoria →
-              </span>
-            </a>
-
-            {/* CARD: CONSULTORIA ÁGIL */}
-            <a
-              href="/agile"
-              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                  Consultoria Ágil
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-50">
-                  Projetos ágeis sem fantasia
-                </h3>
-                <p className="mt-2 text-slate-200">
-                  Estruturação de fluxo, rituais e métricas para equipas e
-                  projetos. Menos teatro, mais previsibilidade, foco em PMEs que
-                  precisam entregar sem montar um circo à volta da metodologia.
-                </p>
-              </div>
-              <span className="mt-4 text-xs text-accent-300">
-                Ver consultoria →
-              </span>
-            </a>
-
-            {/* CARD: APPS & ERPs */}
-            <a
-              href="/apps"
-              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                  Apps & Tiny ERPs
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-50">
-                  Sistemas sob medida, sem drama
-                </h3>
-                <p className="mt-2 text-slate-200">
-                  Apps e ERPs leves construídos em cima de módulos já testados,
-                  como o CONFIANCE. Para negócios que cresceram além do Excel,
-                  mas não querem um monstro de ERP nem um projeto eterno.
-                </p>
-              </div>
-              <span className="mt-4 text-xs text-accent-300">
-                Ver soluções →
-              </span>
-            </a>
-          </div>
-        </section>
-
-        {/* POR QUE LIBERTRENDZ */}
-        <section className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Por que trabalhar com a Libertrendz
-          </h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Foco em profissionais e PMEs
-              </p>
-              <p>
-                Linguagem, decisões e propostas pensadas para quem já está no
-                mercado e precisa alinhar carreira ou operação sem perder tempo
-                com moda ou buzzword.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Tecnologia como meio, não fim
-              </p>
-              <p>
-                Nenhuma stack ou metodologia é um fim em si. A tecnologia entra
-                onde faz sentido para o objetivo, não o contrário.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Experiência + método
-              </p>
-              <p>
-                Combinação de percurso real em gestão, operações e tech com um
-                método simples: diagnóstico, plano, execução e ajuste contínuo.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA FINAL */}
-        <section className="space-y-4 border-t border-slate-800 pt-8 text-center">
-          <h2 className="text-2xl font-semibold text-slate-50">
-            Pronto para avançar?
-          </h2>
-          <p className="text-sm text-slate-200">
-            Podes começar pelo LiberTrail, explorar um serviço específico ou
-            simplesmente usar a página de contato para contar o teu contexto. A
-            partir daí, a conversa fica séria e orientada para decisão.
-          </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <a
-              href="/mentoria#libertrail-perfis"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-            >
-              Começar pelo LiberTrail
-            </a>
-            <a
-              href="/sobre"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-            >
-              Saber mais sobre a Libertrendz
-            </a>
-            <a
-              href="/contato"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-            >
-              Entrar em contato
-            </a>
-          </div>
-        </section>
       </section>
+
+      {/* TRUST / PROCESS */}
+      <section className="max-w-7xl mx-auto px-6 py-10">
+        <div className="grid md:grid-cols-3 gap-6">
+          <FeatureBlock title="Foco em resultados" body="Priorizamos entregáveis que reduzem incerteza e fricção operacional." />
+          <FeatureBlock title="Metodologia Genesys" body="Padrões reutilizáveis: DB→RPC→UI, RLS multi-tenant, idempotência." />
+          <FeatureBlock title="Entrega pragmática" body="Protótipos rápidos, validação real com utilizadores e rollback seguro." />
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="max-w-5xl mx-auto px-6 py-12 text-center">
+        <h2 className="text-xl font-semibold">Queremos ser o próximo motor da tua transição ou do teu ERP leve?</h2>
+        <p className="mt-3 text-slate-300">Comece pelo LiberTrail — diagnóstico estruturado. Vamos desenhar a rota realista e executável.</p>
+        <div className="mt-6 flex justify-center gap-4">
+          <Link href="/mentoria" className="px-5 py-3 rounded-2xl bg-amber-500 text-slate-900 font-semibold">Fazer o diagnóstico</Link>
+          <Link href="/contato" className="px-5 py-3 rounded-2xl border border-slate-800">Conversar sobre o projeto</Link>
+        </div>
+      </section>
+
+      <footer className="mt-12 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between text-sm text-slate-400">
+          <div className="flex items-center gap-3">
+            <Image
+              src="https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/LIBERTRENDZ.png"
+              alt="logo"
+              width={28}
+              height={28}
+            />
+            <div>© {year} Libertrendz. Todos os direitos reservados.</div>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="hidden sm:block">
+              <div>contato@libertrendz.eu</div>
+              <div className="text-slate-500 text-xs">+351 939 250 661</div>
+            </div>
+            <Link href="/contato" className="px-3 py-1 rounded-2xl bg-amber-500 text-slate-900 text-sm">Entrar em contato</Link>
+          </div>
+        </div>
+      </footer>
     </main>
+  );
+}
+
+function CardCompact({ title, text, href }: { title: string; text: string; href: string }) {
+  return (
+    <Link href={href} className="block rounded-2xl p-4 border border-slate-800 hover:shadow-sm bg-slate-900/30">
+      <div className="text-sm font-semibold">{title}</div>
+      <div className="mt-1 text-slate-300 text-sm">{text}</div>
+    </Link>
+  );
+}
+
+function FeatureBlock({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="rounded-2xl p-5 border border-slate-800 bg-slate-900/30">
+      <div className="text-xs uppercase tracking-[0.16em] text-amber-400">{title}</div>
+      <div className="mt-3 text-slate-300 text-sm">{body}</div>
+    </div>
   );
 }
