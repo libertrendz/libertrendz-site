@@ -96,56 +96,54 @@ export default function MentoriaPage() {
             </h2>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-[1.8fr,1.2fr] lg:items-start">
-            {/* Texto LiberTrail */}
-            <div className="space-y-3 text-sm text-slate-200">
-              <p>
-                O LiberTrail é o diagnóstico oficial da mentoria. Um questionário
-                estruturado que analisa o que fizeste até aqui, como pensas,
-                como lidas com risco, rotina, estudo, equipa, e o que realmente
-                te atrai em tecnologia.
+          {/* Texto principal em largura cheia */}
+          <div className="space-y-3 text-sm text-slate-200 max-w-4xl">
+            <p>
+              O LiberTrail é o diagnóstico oficial da mentoria. Um questionário
+              estruturado que analisa o que fizeste até aqui, como pensas,
+              como lidas com risco, rotina, estudo, equipa, e o que realmente
+              te atrai em tecnologia.
+            </p>
+            <p>
+              A ideia não é encaixar-te numa caixa, mas evitar o erro clássico:
+              escolher uma área de tech só porque está “em alta”, e descobrir
+              depois que o dia a dia não tem nada a ver contigo.
+            </p>
+            <p className="text-slate-300">
+              Com base nas tuas respostas, o LiberTrail gera uma leitura inicial
+              da tua inclinação: mais produto, mais operação, mais delivery,
+              mais técnica, mais liderança, etc. Esta leitura não é sentença,
+              é ponto de partida para a conversa séria.
+            </p>
+          </div>
+
+          {/* Cards Perfil Trail 1 e 2, lado a lado */}
+          <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1.5">
+                Perfil Trail 1
               </p>
-              <p>
-                A ideia não é encaixar-te numa caixa, mas evitar o erro clássico:
-                escolher uma área de tech só porque está “em alta”, e descobrir
-                depois que o dia a dia não tem nada a ver contigo.
+              <p className="font-semibold text-slate-50 mb-1">
+                Já tens alguma vivência com tecnologia
               </p>
               <p className="text-slate-300">
-                Com base nas tuas respostas, o LiberTrail gera uma leitura inicial
-                da tua inclinação: mais produto, mais operação, mais delivery,
-                mais técnica, mais liderança, etc. Esta leitura não é sentença,
-                é ponto de partida para a conversa séria.
+                Para quem já tocou projetos, produtos, suporte, operações ou
+                áreas próximas de tech, mas quer reorganizar a carreira de forma
+                mais intencional.
               </p>
             </div>
-
-            {/* Cards Perfil 1 e 2 */}
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1.5">
-                  Perfil Trail 1
-                </p>
-                <p className="font-semibold text-slate-50 mb-1">
-                  Já tens alguma vivência com tecnologia
-                </p>
-                <p className="text-slate-300">
-                  Para quem já tocou projetos, produtos, suporte, operações ou
-                  áreas próximas de tech, mas quer reorganizar a carreira de forma
-                  mais intencional.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1.5">
-                  Perfil Trail 2
-                </p>
-                <p className="font-semibold text-slate-50 mb-1">
-                  Estás praticamente a começar do zero
-                </p>
-                <p className="text-slate-300">
-                  Para quem está a dar os primeiros passos, vindo de áreas sem
-                  ligação direta com tecnologia, e precisa de clareza sobre por
-                  onde começar sem se perder em excesso de opções.
-                </p>
-              </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1.5">
+                Perfil Trail 2
+              </p>
+              <p className="font-semibold text-slate-50 mb-1">
+                Estás praticamente a começar do zero
+              </p>
+              <p className="text-slate-300">
+                Para quem está a dar os primeiros passos, vindo de áreas sem
+                ligação direta com tecnologia, e precisa de clareza sobre por
+                onde começar sem se perder em excesso de opções.
+              </p>
             </div>
           </div>
         </div>
@@ -180,7 +178,9 @@ export default function MentoriaPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-300">
                 Fase 3
               </p>
-              <p className="mt-2 font-semibold text-slate-50">Plano de ação</p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Plano de ação
+              </p>
               <p className="mt-1 text-slate-300">
                 Conversão da rota em ações concretas: estudo, networking,
                 prática, projetos, posicionamento.
