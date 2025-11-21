@@ -22,7 +22,7 @@ export default function AgilePage() {
         {/* PARA QUEM É — EM CARDS */}
         <div className="space-y-4">
           <div>
-            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Para quem é
             </p>
            </div>
@@ -72,7 +72,7 @@ export default function AgilePage() {
         {/* PROBLEMAS TIPICOS */}
         <div className="space-y-4 max-w-3xl">
           <div>
-            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Problemas típicos que ajudamos a resolver
             </p>
             </div>
@@ -119,7 +119,7 @@ export default function AgilePage() {
         {/* COMO TRABALHAMOS */}
         <div className="space-y-4">
           <div>
-            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               Proposta e Abordagem
             </p>
            </div>
@@ -178,7 +178,7 @@ export default function AgilePage() {
         {/* O QUE ENTREGAMOS */}
         <div className="space-y-4 max-w-3xl">
           <div>
-            <p className="text-[14px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-accent-300 mb-1">
               O que fica depois da consultoria
             </p>
             </div>
