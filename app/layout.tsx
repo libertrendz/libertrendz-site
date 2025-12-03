@@ -56,9 +56,9 @@ export default function RootLayout({
             {/* NAV DESKTOP */}
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
               <a href="/" className="hover:text-accent-400">Início</a>
+              <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
               <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
               <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-              <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
               <a href="/cases" className="hover:text-accent-400">Cases</a>
               <a href="/sobre" className="hover:text-accent-400">Sobre</a>
               <a href="/contato" className="hover:text-accent-400">Contato</a>
