@@ -1,19 +1,14 @@
-// app/sobre/page.tsx
 import Image from "next/image";
 
-const FOTO_URL =
-  "https://ncglfknuaugpkmkbsiyf.supabase.co/storage/v1/object/public/Imagens/GUSTAVO.png";
+const FOTO_URL = "/images/GUSTAVO.png";
 
 export default function SobrePage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-16">
-        
         {/* HERO */}
         <div className="max-w-3xl space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
-            Sobre
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">Sobre</p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
             Uma transição de carreira em fase madura — com visão de negócio, projetos e PMEs.
           </h1>
@@ -24,7 +19,6 @@ export default function SobrePage() {
 
         {/* GRID PRINCIPAL */}
         <div className="grid gap-10 lg:grid-cols-[2.2fr,1.8fr] lg:items-start">
-
           {/* TEXTO PRINCIPAL */}
           <div className="space-y-6 text-sm text-slate-200">
             <div className="space-y-3">
@@ -47,15 +41,9 @@ export default function SobrePage() {
 
           {/* CARD LATERAL */}
           <aside className="space-y-4">
-
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col items-center text-center gap-4">
               <div className="relative h-36 w-36 overflow-hidden rounded-full border border-slate-700 bg-slate-900">
-                <Image
-                  src={FOTO_URL}
-                  alt="Foto de Gustavo Santos"
-                  fill
-                  className="object-cover object-top"
-                />
+                <Image src={FOTO_URL} alt="Foto de Gustavo Santos" fill className="object-cover object-top" />
               </div>
 
               <div className="space-y-1">
@@ -69,7 +57,6 @@ export default function SobrePage() {
               <p>Profissional que realizou uma transição de carreira numa fase madura, transformando a sua experiência prévia em um modelo estruturado para outros profissionais e PMEs.</p>
               <p className="text-slate-300">Diagnóstico primeiro, plano claro depois — em mentoria, consultoria ou apps/ERPs.</p>
             </div>
-
           </aside>
         </div>
 
@@ -96,7 +83,6 @@ export default function SobrePage() {
             Ir para o contato
           </a>
         </div>
-
       </section>
     </main>
   );
