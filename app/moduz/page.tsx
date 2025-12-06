@@ -2,14 +2,14 @@ export default function ModuzPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-16">
-        {/* HERO */}
+        {/* HERO - garantir z-0 para não sobrepor o dropdown */}
         <div className="max-w-3xl space-y-4 relative z-0">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
             Moduz+
           </p>
-          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+          <h1 className="text-3xl font-bold leading-tight md:text-4xl relative z-0">
             Moduz+ — ecossistema modular para PMEs
-            <span className="block text-accent-400">Controla pessoas, operações e finanças sem dor.</span>
+            <span className="block text-cyan-400">Controla pessoas, operações e finanças sem dor.</span>
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
             Plataforma modular pensada para operações que precisam de praticidade: módulos ativáveis conforme crescimento, permissões claras e integração com processos reais.
@@ -18,7 +18,7 @@ export default function ModuzPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/contato"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+              className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
             >
               Agendar demo Moduz+
             </a>
@@ -55,7 +55,7 @@ export default function ModuzPage() {
         <div id="arquitetura" className="space-y-4 max-w-4xl">
           <h2 className="text-xl font-semibold text-slate-50">Arquitetura multi-tenant</h2>
           <p className="text-sm text-slate-200">
-            Moduz+ opera com uma base única por empresa: todas as tabelas essenciais têm `empresa_id`. Roles e RLS garantem isolamento e regras previsíveis por perfil (admin, interno, externo, técnico).
+            Moduz+ opera com uma base única por empresa: todas as tabelas essenciais têm <code className="bg-slate-800/50 rounded px-1 py-0.5">empresa_id</code>. Roles e RLS garantem isolamento e regras previsíveis por perfil (admin, interno, externo, técnico).
           </p>
 
           <ul className="space-y-2 text-sm text-slate-300">
@@ -79,7 +79,7 @@ export default function ModuzPage() {
           <p className="text-sm text-slate-200">Agende uma demo de 15 minutos — mostramos o MVP e o caminho para ativar apenas o que precisa.</p>
           <a
             href="/contato"
-            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+            className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
           >
             Agendar demo
           </a>
