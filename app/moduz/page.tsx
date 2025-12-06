@@ -5,21 +5,62 @@ export default function ModuzPage() {
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="mx-auto max-w-6xl px-4 py-12 lg:py-20 space-y-16">
         {/* HERO */}
-        <header className="space-y-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
-            Libertrendz · Produto principal
-          </p>
-          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
-            MODUZ+
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto">
-            O ERP modular, escalável e moderno para PME.
-          </p>
-          <p className="text-sm md:text-base text-slate-400 max-w-3xl mx-auto">
-            Ative apenas os módulos que a sua empresa precisa hoje. Combine o
-            que fizer sentido amanhã. O Moduz+ evolui com o seu negócio, sem
-            obrigar a recomeçar do zero.
-          </p>
+        <header className="relative">
+          <div className="absolute -inset-x-10 -top-10 -bottom-8 bg-gradient-to-r from-cyan-500/10 via-sky-500/5 to-transparent blur-3xl pointer-events-none" />
+          <div className="relative rounded-3xl border border-slate-800 bg-slate-900/80 px-6 py-10 md:px-10 md:py-12 shadow-[0_0_40px_rgba(15,23,42,0.8)]">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-4 max-w-2xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
+                  Libertrendz · ERP modular
+                </p>
+                <div className="space-y-2">
+                  <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+                    MODUZ+
+                  </h1>
+                  <p className="text-lg md:text-2xl text-slate-200">
+                    O ERP modular, escalável e moderno para PME.
+                  </p>
+                </div>
+                <p className="text-sm md:text-base text-slate-300">
+                  Um ecossistema de módulos independentes que se conectam
+                  quando você precisa. Comece pequeno, ligue novos blocos com o
+                  tempo e mantenha sempre a mesma base tecnológica.
+                </p>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <span className="inline-flex items-center rounded-full border border-cyan-400/60 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-200">
+                    Multi-módulo
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-slate-600 bg-slate-900 px-3 py-1 text-xs font-medium text-slate-200">
+                    Multi-empresa
+                  </span>
+                  <span className="inline-flex items-center rounded-full border border-slate-700 bg-slate-900 px-3 py-1 text-xs font-medium text-slate-300">
+                    Escalável por fases
+                  </span>
+                </div>
+              </div>
+
+              <div className="hidden md:flex flex-col gap-3 min-w-[220px]">
+                <div className="rounded-2xl border border-slate-800 bg-slate-950/70 px-4 py-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Ecossistema Moduz+
+                  </p>
+                  <p className="mt-2 text-sm text-slate-200">
+                    Core · People · Track · Finance · Bizz · Stock · Assets ·
+                    Flow · Docs
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-cyan-500/15 via-sky-500/10 to-slate-900 px-4 py-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
+                    Foco em PME
+                  </p>
+                  <p className="mt-2 text-sm text-slate-100">
+                    Pensado para empresas que precisam de controlo real sem
+                    entrar na complexidade dos ERPs pesados.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </header>
 
         {/* INTRO MÓDULOS */}
