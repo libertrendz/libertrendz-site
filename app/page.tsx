@@ -1,5 +1,3 @@
-// app/page.tsx
-
 export default function HomePage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
@@ -10,32 +8,55 @@ export default function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
               Libertrendz
             </p>
+
             <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
-              Estratégia, tecnologia e transição de carreira{" "}
+              Soluções digitais e mentoria para quem exige resultado — não artifício.
               <span className="block text-accent-400">
-                para profissionais e PMEs que não têm tempo a perder.
+                Moduz+ · Apps & Websites · Mentoria Tech Reload
               </span>
             </h1>
+
             <p className="mt-4 max-w-xl text-sm text-slate-200">
-              Mentoria tech para profissionais em transição, consultoria ágil
-              sem teatro e apps/ERPs modulares para empresas. Um ponto único
-              para alinhar carreira, projetos e sistemas ao que o negócio
-              realmente precisa.
+              Projetos e produtos pensados para PMEs que precisam de controlo operacional e profissionais que querem migrar com estratégia.
+              Entregas práticas, prioridades claras e tecnologia a favor da operação.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="/mentoria#libertrail"
+                href="/moduz"
                 className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
               >
-                Começar pelo LiberTrail
+                Conhecer o Moduz+
               </a>
+
               <a
-                href="#servicos"
+                href="/apps"
                 className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
               >
-                Ver serviços
+                Apps & Websites
               </a>
+
+              <a
+                href="/mentoria"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+              >
+                Mentoria Tech Reload
+              </a>
+            </div>
+
+            <div className="mt-6 flex gap-6 text-sm text-slate-300">
+              <div>
+                <div className="font-semibold text-slate-50">Entrega rápida</div>
+                <div className="text-xs">Protótipos funcionais em poucas semanas.</div>
+              </div>
+              <div>
+                <div className="font-semibold text-slate-50">Foco em resultado</div>
+                <div className="text-xs">Escopo definido, valor mensurável.</div>
+              </div>
+              <div>
+                <div className="font-semibold text-slate-50">Operacional</div>
+                <div className="text-xs">Soluções que se encaixam no dia a dia da equipa.</div>
+              </div>
             </div>
           </div>
 
@@ -45,13 +66,12 @@ export default function HomePage() {
               Em poucas linhas
             </p>
             <p className="text-sm text-slate-200">
-              A Libertrendz junta gestão, projetos e tecnologia para entregar
-              três coisas muito claras:
+              A Libertrendz junta estratégia, tecnologia e execução para três necessidades claras:
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-200">
-              <li>• Direção para profissionais que querem migrar para tech.</li>
-              <li>• Estrutura para equipas e projetos ágeis funcionarem.</li>
-              <li>• Sistemas sob medida quando o Excel já não chega.</li>
+              <li>• Moduz+ — ecossistema modular para PMEs (gestão de pessoas, finance, track, docs e vendas).</li>
+              <li>• Apps & Websites — mini-apps, painéis e landing pages para resolver dores imediatas.</li>
+              <li>• Mentoria Tech Reload — transição de carreira com diagnóstico LiberTrail, plano e acompanhamento.</li>
             </ul>
           </div>
         </div>
@@ -64,23 +84,16 @@ export default function HomePage() {
                 Diagnóstico de carreira
               </p>
               <h2 className="mt-2 text-xl font-semibold text-slate-50">
-                LiberTrail — o ponto de partida da Tech Reload
+                LiberTrail — ponto de partida da Tech Reload
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-200">
-                Um diagnóstico pensado para profissionais que querem migrar para
-                tecnologia com seriedade: duas portas de entrada, leitura
-                estruturada do teu perfil e indicação de trilhas possíveis, sem
-                empurrar “dev” como solução única.
+                Questionário estruturado que orienta a transição realista para tecnologia (perfil, rota e próximos passos).
               </p>
             </div>
             <div className="flex flex-col gap-2 text-sm text-slate-200 md:text-right">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
-                Como funciona
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Como funciona</p>
               <p className="text-[13px] text-slate-300">
-                Escolhes o perfil que mais se parece contigo, respondes ao
-                LiberTrail e, a partir daí, a mentoria Tech Reload entra com
-                plano e acompanhamento — sem promessas vazias.
+                Escolhes um perfil, respondes ao LiberTrail e recebês uma rota prática — sem promessas vazias.
               </p>
               <div className="mt-1 flex flex-wrap justify-start gap-2 md:justify-end">
                 <a
@@ -104,148 +117,98 @@ export default function HomePage() {
         <section id="servicos" className="space-y-6">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-xl font-semibold text-slate-50">
-                O que a Libertrendz faz hoje
-              </h2>
+              <h2 className="text-xl font-semibold text-slate-50">O que a Libertrendz faz hoje</h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-200">
-                Três eixos que se ligam: profissionais em transição, equipas a
-                organizar projetos e negócios que precisam de sistemas que
-                ajudem o dia a dia em vez de atrapalhar.
+                Soluções práticas para PMEs e profissionais: produtos claros, entregas rápidas e foco no que gera resultado.
               </p>
             </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
+            {/* CARD: MODUZ */}
+            <a
+              href="/moduz"
+              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
+            >
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Plataforma</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Moduz+</h3>
+                <p className="mt-2 text-slate-200">
+                  Ecossistema modular para PMEs: People, Track, Finance, Docs e módulos comerciais ativáveis conforme necessidade.
+                </p>
+              </div>
+              <span className="mt-4 text-xs text-accent-300">Ver Moduz+ →</span>
+            </a>
+
+            {/* CARD: APPS & WEBSITES */}
+            <a
+              href="/apps"
+              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
+            >
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Apps & Websites</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Soluções sob medida</h3>
+                <p className="mt-2 text-slate-200">
+                  Mini-apps, painéis, landing pages e websites focados em resolver problemas concretos da operação.
+                </p>
+              </div>
+              <span className="mt-4 text-xs text-accent-300">Ver soluções →</span>
+            </a>
+
             {/* CARD: MENTORIA */}
             <a
               href="/mentoria"
               className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
             >
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                  Mentoria
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-50">
-                  Tech Reload + LiberTrail
-                </h3>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Mentoria</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Tech Reload + LiberTrail</h3>
                 <p className="mt-2 text-slate-200">
-                  Mentoria de transição para tecnologia pensada para
-                  profissionais. Começa com o diagnóstico LiberTrail e segue com
-                  um plano de 90 dias com acompanhamento próximo.
+                  Programa de transição com diagnóstico, plano de 90 dias e acompanhamento prático.
                 </p>
               </div>
-              <span className="mt-4 text-xs text-accent-300">
-                Ver mentoria →
-              </span>
-            </a>
-
-            {/* CARD: CONSULTORIA ÁGIL */}
-            <a
-              href="/agile"
-              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                  Consultoria Ágil
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-50">
-                  Projetos ágeis sem fantasia
-                </h3>
-                <p className="mt-2 text-slate-200">
-                  Estruturação de fluxo, rituais e métricas para equipas e
-                  projetos. Menos teatro, mais previsibilidade, foco em PMEs que
-                  precisam entregar sem montar um circo à volta da metodologia.
-                </p>
-              </div>
-              <span className="mt-4 text-xs text-accent-300">
-                Ver consultoria →
-              </span>
-            </a>
-
-            {/* CARD: APPS & ERPs */}
-            <a
-              href="/apps"
-              className="flex h-full flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm transition hover:border-accent-400 hover:bg-slate-900/70"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                  Apps & Tiny ERPs
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-50">
-                  Sistemas sob medida, sem drama
-                </h3>
-                <p className="mt-2 text-slate-200">
-                  Apps e ERPs leves construídos em cima de módulos já testados,
-                  como o CONFIANCE. Para negócios que cresceram além do Excel,
-                  mas não querem um monstro de ERP nem um projeto eterno.
-                </p>
-              </div>
-              <span className="mt-4 text-xs text-accent-300">
-                Ver soluções →
-              </span>
+              <span className="mt-4 text-xs text-accent-300">Ver mentoria →</span>
             </a>
           </div>
         </section>
 
         {/* POR QUE LIBERTRENDZ */}
         <section className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Por que trabalhar com a Libertrendz
-          </h2>
+          <h2 className="text-xl font-semibold text-slate-50">Por que trabalhar com a Libertrendz</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Foco em profissionais e PMEs
-              </p>
-              <p>
-                Linguagem, decisões e propostas pensadas para quem já está no
-                mercado e precisa alinhar carreira ou operação sem perder tempo
-                com moda ou buzzword.
-              </p>
+              <p className="mb-2 font-semibold text-slate-50">Foco em profissionais e PMEs</p>
+              <p>Linguagem, decisões e propostas pensadas para quem precisa de resultado sem teatro.</p>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Tecnologia como meio, não fim
-              </p>
-              <p>
-                Nenhuma stack ou metodologia é um fim em si. A tecnologia entra
-                onde faz sentido para o objetivo, não o contrário.
-              </p>
+              <p className="mb-2 font-semibold text-slate-50">Tecnologia como meio</p>
+              <p>Ferramentas e processos escolhemos por utilidade e retorno, não por moda.</p>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-2 font-semibold text-slate-50">
-                Experiência + método
-              </p>
-              <p>
-                Combinação de percurso real em gestão, operações e tech com um
-                método simples: diagnóstico, plano, execução e ajuste contínuo.
-              </p>
+              <p className="mb-2 font-semibold text-slate-50">Experiência + método</p>
+              <p>Diagnóstico, plano, execução e ajuste: processo simples e replicável para cada cliente.</p>
             </div>
           </div>
         </section>
 
         {/* CTA FINAL */}
         <section className="space-y-4 border-t border-slate-800 pt-8 text-center">
-          <h2 className="text-2xl font-semibold text-slate-50">
-            Pronto para avançar?
-          </h2>
+          <h2 className="text-2xl font-semibold text-slate-50">Pronto para avançar?</h2>
           <p className="text-sm text-slate-200">
-            Podes começar pelo LiberTrail, explorar um serviço específico ou
-            simplesmente usar a página de contato para contar o teu contexto. A
-            partir daí, a conversa fica séria e orientada para decisão.
+            Começa por conhecer o Moduz+, explorar uma solução rápida ou fazer o LiberTrail — a conversa começa prática.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <a
-              href="/mentoria#libertrail-perfis"
+              href="/moduz"
               className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
-              Começar pelo LiberTrail
+              Conhecer o Moduz+
             </a>
             <a
-              href="/sobre"
+              href="/apps"
               className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
             >
-              Saber mais sobre a Libertrendz
+              Ver Apps & Websites
             </a>
             <a
               href="/contato"
