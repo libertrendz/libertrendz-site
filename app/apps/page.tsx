@@ -4,81 +4,21 @@ export default function AppsPage(): JSX.Element {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-16">
-        {/* HERO (ATUALIZADO) */}
+        {/* HERO (mantido) */}
         <div className="max-w-3xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
             Apps & Soluções
           </p>
-
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
             Soluções digitais que resolvem hoje — e escalam amanhã.
             <span className="block text-accent-400">
               Mini-apps, integrações e plataformas modulares para PMEs.
             </span>
           </h1>
-
           <p className="text-sm text-slate-200 max-w-2xl">
             Entregamos valor desde o primeiro rollout: protótipos funcionais em
             dias, implantação faseada e integração com os teus processos e dados.
-            Menos custo, menos ruído, mais controlo operacional.
           </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a
-              href="/contato"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-            >
-              Solicitar demo
-            </a>
-
-            <a
-              href="#mini-apps"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-            >
-              Ver mini-apps
-            </a>
-
-            <span className="ml-2 hidden text-xs text-slate-400 md:inline">
-              Usado em:{" "}
-              <a href="/cases#confiance" className="text-accent-300 hover:underline">
-                CONFIANCE
-              </a>{" "}
-              ·{" "}
-              <a href="/cases#ekklyn" className="text-accent-300 hover:underline">
-                Ekklyn
-              </a>{" "}
-              ·{" "}
-              <a href="/cases#legistor" className="text-accent-300 hover:underline">
-                Legistor
-              </a>
-            </span>
-          </div>
-
-          <div className="mt-4 flex flex-col gap-2 text-sm text-slate-300 sm:flex-row sm:items-center sm:gap-6">
-            <div className="flex items-start gap-3">
-              <div className="mt-1 h-2 w-2 rounded-full bg-accent-400" />
-              <div>
-                <div className="font-semibold text-slate-50">Rápido</div>
-                <div className="text-xs text-slate-300">Protótipo funcional em dias</div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="mt-1 h-2 w-2 rounded-full bg-accent-400" />
-              <div>
-                <div className="font-semibold text-slate-50">Previsível</div>
-                <div className="text-xs text-slate-300">Escopo e custo definidos desde o início</div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="mt-1 h-2 w-2 rounded-full bg-accent-400" />
-              <div>
-                <div className="font-semibold text-slate-50">Integrado</div>
-                <div className="text-xs text-slate-300">Dados reais, sem duplicação manual</div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* RESUMO EM CARDS */}
@@ -129,9 +69,9 @@ export default function AppsPage(): JSX.Element {
           <h2 className="text-xl font-semibold text-slate-50">O que entregamos (exemplos)</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Plataforma modular</p>
-              <p className="font-semibold text-slate-50">Soluções por módulos</p>
-              <p className="mt-1 text-slate-300">People, Track, Finance, Docs e módulos comerciais — ativáveis conforme necessidade.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Soluções personalizadas</p>
+              <p className="font-semibold text-slate-50">Implementação sob medida</p>
+              <p className="mt-1 text-slate-300">Soluções alinhadas ao teu processo, com entregas práticas e roadmap claro.</p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
