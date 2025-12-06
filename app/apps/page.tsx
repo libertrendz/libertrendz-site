@@ -1,5 +1,3 @@
-// app/apps/page.tsx
-
 import React from 'react';
 
 export default function AppsPage() {
@@ -110,24 +108,37 @@ export default function AppsPage() {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">Alguns apps que já construímos</h2>
           <div className="grid gap-4 md:grid-cols-3">
-            {/* Confiance */}
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
               <p className="text-sm font-semibold text-slate-50">CONFIANCE</p>
               <p className="mt-1 text-sm text-slate-300">App operacional para empresas de obras — ponto, orçamentos, gestão de ativos.</p>
             </article>
 
-            {/* Legistor */}
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
               <p className="text-sm font-semibold text-slate-50">LEGISTOR</p>
               <p className="mt-1 text-sm text-slate-300">Gestão para escritórios de advocacia — processos, pagamentos e controle administrativo.</p>
             </article>
 
-            {/* Ekklyn */}
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
               <p className="text-sm font-semibold text-slate-50">EKKLYN</p>
-              <p className="mt-1 text-sm text-slate-300">Plataforma para congregações — gestão de membros, eventos, finanças e mural comunitário.</p>
+              <p className="mt-1 text-sm text-slate-300">Plataforma para congregações — gestão de membros, events, finanças e mural comunitário.</p>
             </article>
           </div>
         </div>
 
         {/* CTA FINAL */}
+        <div className="pt-10 border-t border-slate-800 text-center space-y-4">
+          <h2 className="text-2xl font-semibold text-slate-50">Quer um app que funcione no dia a dia?</h2>
+          <p className="max-w-xl mx-auto text-sm text-slate-200">
+            Se a tua empresa precisa de organização real, definimos o escopo e entregamos um piloto funcional com prioridades claras.
+          </p>
+          <a
+            href="/contato"
+            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+          >
+            Falar sobre um app
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
