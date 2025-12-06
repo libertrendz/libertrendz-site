@@ -7,14 +7,14 @@ export default function AppsPage(): JSX.Element {
         {/* HERO */}
         <div className="max-w-3xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
-            Apps & Tiny ERPs
+            Apps & Soluções
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Sistemas sob medida para quando o Excel já não chega — sem virar refém de um ERP gigante.
+            Sistemas sob medida — funcionais, modulares e orientados ao resultado.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Desenvolvemos apps e ERPs leves, modulares e orientados ao resultado: controles que funcionam no dia a dia, com
-            implantação faseada e custo previsível.
+            Construímos soluções que resolvem pontos operacionais reais: desde mini-apps rápidos (agendamento, catálogo, loja)
+            até plataformas modulares para gerir pessoas, obras e finanças. Implantação faseada — valor entregue desde a primeira semana.
           </p>
         </div>
 
@@ -22,108 +22,110 @@ export default function AppsPage(): JSX.Element {
         <div className="grid gap-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 md:grid-cols-4">
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Para quem</p>
-            <p className="mt-1 text-sm text-slate-200">PMEs e equipas que cresceram além do Excel e de ferramentas soltas.</p>
+            <p className="mt-1 text-sm text-slate-200">PMEs e equipas que precisam de controlo sem projetos intermináveis.</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Tipo de solução</p>
-            <p className="mt-1 text-sm text-slate-200">Apps web, painéis e ERPs leves, focados em fluxo real de trabalho.</p>
+            <p className="mt-1 text-sm text-slate-200">Sistemas web, painéis e mini-apps integráveis ao fluxo real de trabalho.</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Abordagem</p>
-            <p className="mt-1 text-sm text-slate-200">Descoberta, desenho de fluxo, protótipo funcional e iteração.</p>
+            <p className="mt-1 text-sm text-slate-200">Descoberta objetiva → protótipo funcional → entregas curtas e iterativas.</p>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Exemplo</p>
-            <p className="mt-1 text-sm text-slate-200">CONFIANCE, Ekklyn, Legistor — base modular reutilizável.</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Exemplos</p>
+            <p className="mt-1 text-sm text-slate-200">Confiance, Ekklyn, Legistor — módulos reutilizáveis e prontos para adaptar.</p>
           </div>
         </div>
 
         {/* QUANDO FAZ SENTIDO */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Quando faz sentido falar de um app ou ERP leve</h2>
+          <h2 className="text-xl font-semibold text-slate-50">Quando vale a pena falar de uma solução</h2>
           <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Planilhas demais, controlo de menos</p>
-              <p className="text-slate-300">A operação vive em vários ficheiros e versões. Erros começam a custar tempo e dinheiro.</p>
+              <p className="mb-1 font-semibold text-slate-50">Planilhas e silos</p>
+              <p className="text-slate-300">Dados dispersos, versões e retrabalho. A solução é organizar o processo, não comprar mais ferramentas.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Softwares genéricos que atrapalham</p>
-              <p className="text-slate-300">Soluções “para tudo” exigem adaptação excessiva da equipa e entregam pouco valor real.</p>
+              <p className="mb-1 font-semibold text-slate-50">Softwares que complicam</p>
+              <p className="text-slate-300">Soluções generalistas que pedem adaptação contínua. Preferimos: menos ajustes, mais resultados.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Crescimento sem estrutura</p>
-              <p className="text-slate-300">Clientes e operação crescem, mas o controlo de obras, contratos, faturas e ponto não acompanha.</p>
+              <p className="mb-1 font-semibold text-slate-50">Crescimento sem processo</p>
+              <p className="text-slate-300">Operação cresce mas o controlo não. Organizamos fluxo, não adicionamos complexidade.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Visão consolidada necessária</p>
-              <p className="text-slate-300">Tomar decisões exige ver financeiro, operação e equipa num só lugar sem “caça” manual de dados.</p>
+              <p className="mb-1 font-semibold text-slate-50">Decisão baseada em dados</p>
+              <p className="text-slate-300">Relatórios práticos e painéis que tiram a luta de achar informação manualmente.</p>
             </div>
           </div>
         </div>
 
         {/* TIPOS DE SOLUÇÃO */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Tipos de solução que desenvolvemos</h2>
+          <h2 className="text-xl font-semibold text-slate-50">O que entregamos (exemplos)</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">ERP leve</p>
-              <p className="font-semibold text-slate-50">ERPs modulares para PMEs</p>
-              <p className="mt-1 text-slate-300">Obras, contratos, faturação, ponto e equipas sem a complexidade de um monstro ERP.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Plataforma modular</p>
+              <p className="font-semibold text-slate-50">Soluções por módulos</p>
+              <p className="mt-1 text-slate-300">People, Track, Finance, Docs e módulos comerciais — ativáveis conforme necessidade.</p>
             </div>
+
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Apps internos</p>
-              <p className="font-semibold text-slate-50">Aplicações de fluxo</p>
-              <p className="mt-1 text-slate-300">Registo de ponto, timesheets, requisições e processos operacionais com UX prática.</p>
+              <p className="font-semibold text-slate-50">Fluxos operacionais</p>
+              <p className="mt-1 text-slate-300">Timesheets, requisições, controlo de tarefas e painéis de acompanhamento.</p>
             </div>
+
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Painéis & integrações</p>
-              <p className="font-semibold text-slate-50">Dashboards e automações</p>
-              <p className="mt-1 text-slate-300">Consolidação de dados e pequenas automações para acabar com o trabalho manual.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Dashboards & integrações</p>
+              <p className="font-semibold text-slate-50">Dados consolidados</p>
+              <p className="mt-1 text-slate-300">Conectores e automações que reduzem trabalho manual e entregam visão única.</p>
             </div>
           </div>
         </div>
 
         {/* MINI-APPS & AUTOMAÇÃO */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Mini-apps & automação — soluções rápidas que funcionam</h2>
+          <h2 className="text-xl font-semibold text-slate-50">Mini-apps & automação — exemplos práticos</h2>
           <p className="text-sm text-slate-200 max-w-3xl">
-            Além de ERPs modulares, criamos mini-apps que resolvem pontos críticos imediatos. Implantação rápida, custo baixo e integração com teu sistema.
+            Soluções entregues rapidamente para problemas concretos, integráveis ao sistema principal.
           </p>
 
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="font-semibold text-slate-50">Agendamento de serviços</p>
-              <p className="text-slate-300 mt-1">Calendário, reservas, notificações e gestão de disponibilidade.</p>
+              <p className="text-slate-300 mt-1">Calendário, reservas, notificações e bloqueios de disponibilidade.</p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="font-semibold text-slate-50">Controle de tarefas</p>
-              <p className="text-slate-300 mt-1">Quadros simples, prioridades, checklists e relatórios de conclusão.</p>
+              <p className="text-slate-300 mt-1">Quadros, checklists, prioridades e relatórios de execução.</p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="font-semibold text-slate-50">Loja online / Catálogo</p>
-              <p className="text-slate-300 mt-1">Catálogo de produtos/serviços, carrinho simples e integrações de pagamento.</p>
+              <p className="text-slate-300 mt-1">Catálogo, carrinho simples e integrações de pagamento.</p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Landing pages & campanhas</p>
-              <p className="text-slate-300 mt-1">Landing de conversão, formulários e rastreamento de leads para vendas.</p>
+              <p className="font-semibold text-slate-50">Landing pages</p>
+              <p className="text-slate-300 mt-1">Páginas de conversão com formulários e integração com o CRM/lead flow.</p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Serviços por vertical</p>
-              <p className="text-slate-300 mt-1">Ex.: salão de beleza, pizzaria, oficinas — templates prontos adaptáveis.</p>
+              <p className="font-semibold text-slate-50">Templates por vertical</p>
+              <p className="text-slate-300 mt-1">Ex.: salão de beleza, pizzaria, oficinas — prontas para adaptar.</p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">SaaS leve</p>
-              <p className="text-slate-300 mt-1">MVPs SaaS com cobrança por assinatura e painel administrativo.</p>
+              <p className="font-semibold text-slate-50">MVP SaaS</p>
+              <p className="text-slate-300 mt-1">Produto mínimo viável com subscrição e painel admin.</p>
             </div>
           </div>
 
           <p className="mt-3 text-sm text-slate-300 max-w-3xl">
-            Cada mini-app pode ser entregue isoladamente ou integrado ao ERP principal. O objetivo: resolver o problema operacional hoje, e escalar amanhã.
+            Cada mini-app pode ser entregue isoladamente ou integrado ao sistema central. O objetivo: tirar a dor de hoje com caminho claro para escalar.
           </p>
         </div>
 
@@ -132,36 +134,33 @@ export default function AppsPage(): JSX.Element {
           <h2 className="text-xl font-semibold text-slate-50">Casos práticos</h2>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {/* CONFIANCE */}
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">CONFIANCE</p>
-              <h3 className="mt-2 font-semibold text-slate-50">ERP modular para construção</h3>
+              <h3 className="mt-2 font-semibold text-slate-50">Plataforma para construção</h3>
               <p className="mt-2 text-slate-300">
-                Plataforma orientada a obras: ponto, colaboradores, fornecedores, obras e financeiro. Projeto piloto com foco em entrega incremental.
+                Módulos para ponto, colaboradores, fornecedores, obras e finanças. Entregas iterativas com foco operacional.
               </p>
               <div className="mt-4">
                 <a href="/cases#confiance" className="text-xs font-semibold text-accent-300 hover:underline">Ver case →</a>
               </div>
             </article>
 
-            {/* EKKLYN */}
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Ekklyn</p>
-              <h3 className="mt-2 font-semibold text-slate-50">App comercial / piloto interno</h3>
+              <h3 className="mt-2 font-semibold text-slate-50">Fábrica de apps</h3>
               <p className="mt-2 text-slate-300">
-                Piloto de fábrica de apps: reuso de componentes, templates de fluxo e aceleração no delivery de produtos mínimos viáveis.
+                Reuso de componentes, aceleração do delivery e modelos de protótipo para clientes-piloto.
               </p>
               <div className="mt-4">
                 <a href="/cases#ekklyn" className="text-xs font-semibold text-accent-300 hover:underline">Ver case →</a>
               </div>
             </article>
 
-            {/* LEGISTOR */}
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Legistor</p>
-              <h3 className="mt-2 font-semibold text-slate-50">Gestão documental & workflows</h3>
+              <h3 className="mt-2 font-semibold text-slate-50">Gestão documental</h3>
               <p className="mt-2 text-slate-300">
-                Sistema para gestão de processos e documentos com telas administrativas e integrações de importação de catálogos.
+                Workflows documentais, importação de catálogos e telas administrativas para processos.
               </p>
               <div className="mt-4">
                 <a href="/cases#legistor" className="text-xs font-semibold text-accent-300 hover:underline">Ver case →</a>
@@ -172,7 +171,7 @@ export default function AppsPage(): JSX.Element {
 
         {/* COMO TRABALHAMOS */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Como fazemos (fluxo)</h2>
+          <h2 className="text-xl font-semibold text-slate-50">Fluxo de trabalho</h2>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Fase 1</p>
@@ -181,17 +180,17 @@ export default function AppsPage(): JSX.Element {
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Fase 2</p>
-              <p className="mt-2 font-semibold text-slate-50">Desenho & protótipo</p>
+              <p className="mt-2 font-semibold text-slate-50">Protótipo</p>
               <p className="mt-1 text-slate-300">Protótipo funcional validado com utilizadores-chave.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Fase 3</p>
-              <p className="mt-2 font-semibold text-slate-50">Construção iterativa</p>
-              <p className="mt-1 text-slate-300">Sprints curtos, entregas incrementais e testes de uso.</p>
+              <p className="mt-2 font-semibold text-slate-50">Construção</p>
+              <p className="mt-1 text-slate-300">Sprints curtos, entregas incrementais e testes com utilizadores reais.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Fase 4</p>
-              <p className="mt-2 font-semibold text-slate-50">Evolução & suporte</p>
+              <p className="mt-2 font-semibold text-slate-50">Evolução</p>
               <p className="mt-1 text-slate-300">Ajustes pós-uso, módulos adicionais e roadmap de valor.</p>
             </div>
           </div>
@@ -199,15 +198,15 @@ export default function AppsPage(): JSX.Element {
 
         {/* CTA FINAL */}
         <div className="pt-10 border-t border-slate-800 text-center space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-50">Quer discutir um app ou ERP leve para a tua empresa?</h2>
+          <h2 className="text-2xl font-semibold text-slate-50">Quer discutir uma solução para a tua empresa?</h2>
           <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Se a tua PME já passou do ponto de se apoiar só em planilhas e ferramentas soltas, podemos conversar sobre uma solução à medida, com escopo claro e foco em resultado real.
+            Trabalhamos com objetivos claros: resolver uma dor real, entregar valor e garantir caminho para escalar.
           </p>
           <a
             href="/contato"
             className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
           >
-            Falar sobre um app / ERP para a minha empresa
+            Falar sobre uma solução
           </a>
         </div>
       </section>
