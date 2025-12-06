@@ -4,12 +4,12 @@ export default function ModuzPage() {
       <section className="container-page py-12 lg:py-16 space-y-16">
         {/* HERO */}
         <div className="max-w-3xl space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
             Moduz+
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
             Moduz+ — ecossistema modular para PMEs
-            <span className="block text-cyan-400">Controla pessoas, operações e finanças sem drama.</span>
+            <span className="block text-accent-400">Controla pessoas, operações e finanças sem drama.</span>
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
             Plataforma modular pensada para operações: módulos ativáveis conforme crescimento, permissões claras e integração com processos reais.
@@ -18,7 +18,7 @@ export default function ModuzPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/contato"
-              className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
             >
               Agendar demo Moduz+
             </a>
@@ -31,7 +31,7 @@ export default function ModuzPage() {
           </div>
         </div>
 
-        {/* MÓDULOS (visual mais rico, com badges de cor) */}
+        {/* MÓDULOS — GRID DE CARDS COM BADGES COLORIDAS */}
         <div className="grid gap-6 md:grid-cols-3">
           {/* CORE */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
@@ -105,7 +105,7 @@ export default function ModuzPage() {
             </div>
           </div>
 
-          {/* STOCK (visual curto) */}
+          {/* STOCK */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
             <div className="flex items-start gap-3">
               <span className="inline-block h-3 w-10 rounded-full bg-lime-400 mt-1" />
@@ -116,7 +116,6 @@ export default function ModuzPage() {
               </div>
             </div>
           </div>
-
         </div>
 
         {/* ARQUITETURA (resumo) */}
@@ -133,7 +132,7 @@ export default function ModuzPage() {
           <p className="text-sm text-slate-200">Agende uma demo de 15 minutos — mostramos o MVP e o caminho para ativar apenas o que precisa.</p>
           <a
             href="/contato"
-            className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
           >
             Agendar demo
           </a>
