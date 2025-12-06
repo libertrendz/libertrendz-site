@@ -31,45 +31,98 @@ export default function ModuzPage() {
           </div>
         </div>
 
-        {/* RESUMO RÁPIDO */}
-        <div className="grid gap-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 md:grid-cols-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Core</p>
-            <p className="mt-1 text-sm text-slate-200">Empresas, utilizadores, roles e permissões por módulo.</p>
+        {/* MÓDULOS — GRID DE CARDS COM BADGES COLORIDAS */}
+        <div className="grid gap-6 md:grid-cols-3">
+          {/* CORE */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-cyan-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Core</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Empresa, usuários e permissões</h3>
+                <p className="mt-2 text-sm text-slate-300">Cadastro de empresas, perfis, roles e flags de módulos. Base imutável <code className="bg-slate-800/50 rounded px-1 py-0.5">empresa_id</code>.</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">People</p>
-            <p className="mt-1 text-sm text-slate-200">Colaboradores, contratos e ligação a user_id.</p>
+
+          {/* PEOPLE */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-emerald-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">People</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Colaboradores e contratos</h3>
+                <p className="mt-2 text-sm text-slate-300">Gestão de colaboradores, vínculos, contratos e ligação ao user_id — pivot usado por vários módulos.</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Track</p>
-            <p className="mt-1 text-sm text-slate-200">Ponto, auditoria móvel e regras de jornada.</p>
+
+          {/* TRACK */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-rose-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Track</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Ponto & auditoria móvel</h3>
+                <p className="mt-2 text-sm text-slate-300">Registo de ponto móvel com evidência foto/geo, regras de jornada e auditoria que respeita RLS por empresa.</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Finance</p>
-            <p className="mt-1 text-sm text-slate-200">Contas, lançamentos e relatórios básicos integrados.</p>
+
+          {/* FINANCE */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-amber-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Finance</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Contas, lançamentos, fluxos</h3>
+                <p className="mt-2 text-sm text-slate-300">Contabilidade simplificada: centros de custo, lançamentos e relatórios consolidados por empresa.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* BIZZ */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-violet-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Bizz</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Orçamentos & contratos</h3>
+                <p className="mt-2 text-sm text-slate-300">Fluxo comercial: orçamentos, propostas e contratos integrados com Finance e Docs.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* DOCS */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-sky-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Docs</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Storage & evidências</h3>
+                <p className="mt-2 text-sm text-slate-300">Repositório por empresa, permissões por pasta e integração com Track / Bizz / Finance.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* STOCK */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+            <div className="flex items-start gap-3">
+              <span className="inline-block h-3 w-10 rounded-full bg-lime-400 mt-1" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Stock</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-50">Inventário e movimentos</h3>
+                <p className="mt-2 text-sm text-slate-300">Inventário leve, entradas/saídas e valorização integrada com Finance.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* ARQUITETURA (detalhe básico) */}
+        {/* ARQUITETURA (resumo) */}
         <div id="arquitetura" className="space-y-4 max-w-4xl">
           <h2 className="text-xl font-semibold text-slate-50">Arquitetura multi-tenant</h2>
           <p className="text-sm text-slate-200">
-            Moduz+ opera com uma base única por empresa: todas as tabelas essenciais têm <code className="bg-slate-800/50 rounded px-1 py-0.5">empresa_id</code>. Roles e RLS garantem isolamento e regras previsíveis por perfil (admin, interno, externo, técnico).
-          </p>
-
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li>• Módulos ativáveis por empresa (feature flags).</li>
-            <li>• Integração entre módulos via APIs de contexto — nenhum módulo escreve diretamente dados críticos de outro sem contrato.</li>
-            <li>• Sequência de implementação documentada: Core → People → Track → Docs → Finance → Bizz → Stock → Assets → Flow.</li>
-          </ul>
-        </div>
-
-        {/* MVP E COMERCIAL */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">MVP & modelo comercial</h2>
-          <p className="text-sm text-slate-200">
-            MVP vendável: Core + People + Track + Finance básico + Docs + Bizz (contrato simples) e dashboard geral. Planos modulares com preço por módulo + por utilizador interno.
+            Moduz+ usa um banco único por instância do produto, com <code className="bg-slate-800/50 rounded px-1 py-0.5">empresa_id</code> em todas as tabelas de negócio. Roles (admin, interno, externo, técnico) e flags de módulo ativam permissões e UI. Integração entre módulos via APIs de contexto, sem escrita direta em dados críticos de outro módulo.
           </p>
         </div>
 
