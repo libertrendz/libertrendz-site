@@ -8,7 +8,6 @@ export const metadata: Metadata = {
     "Libertrendz — Mentoria Tech, Projetos Ágeis e Apps sob medida para profissionais e PMEs.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
     ],
@@ -30,7 +29,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
         {/* HEADER */}
-        <header className="z-50 border-b border-slate-900/80 bg-slate-950/90">
+        <header className="border-b border-slate-900/80 bg-slate-950/90">
           <div className="container-page flex items-center justify-between py-5">
             {/* Marca principal */}
             <a href="/" className="flex items-center gap-3">
@@ -55,13 +54,24 @@ export default function RootLayout({
 
             {/* NAV DESKTOP */}
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
-              <a href="/" className="hover:text-accent-400">Início</a>
-              <a href="/apps" className="hover:text-accent-400">Tiny ERPs & Websites</a>
-              <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
-              <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-              <a href="/cases" className="hover:text-accent-400">Cases</a>
-              <a href="/sobre" className="hover:text-accent-400">Sobre</a>
-              <a href="/contato" className="hover:text-accent-400">Contato</a>
+              <a href="/" className="hover:text-accent-400">
+                Início
+              </a>
+              <a href="/mentoria" className="hover:text-accent-400">
+                Mentoria Tech Reload
+              </a>
+              <a href="/agile" className="hover:text-accent-400">
+                Consultoria Ágil
+              </a>
+              <a href="/apps" className="hover:text-accent-400">
+                Apps & ERPs
+              </a>
+              <a href="/sobre" className="hover:text-accent-400">
+                Sobre
+              </a>
+              <a href="/contato" className="hover:text-accent-400">
+                Contato
+              </a>
             </nav>
 
             {/* NAV MOBILE (hambúrguer + dropdown simples) */}
@@ -73,17 +83,26 @@ export default function RootLayout({
                 <span className="mr-2">Menu</span>
                 <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
               </summary>
-
-              {/* dropdown com z-index maior — evita ficar abaixo do hero */}
-              <div className="absolute right-0 mt-2 w-48 z-60 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
+              <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
                 <nav className="flex flex-col gap-2 text-slate-200">
-                  <a href="/" className="hover:text-accent-400">Início</a>
-                  <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
-                  <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-                  <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
-                  <a href="/cases" className="hover:text-accent-400">Cases</a>
-                  <a href="/sobre" className="hover:text-accent-400">Sobre</a>
-                  <a href="/contato" className="hover:text-accent-400">Contato</a>
+                  <a href="/" className="hover:text-accent-400">
+                    Início
+                  </a>
+                  <a href="/mentoria" className="hover:text-accent-400">
+                    Mentoria Tech Reload
+                  </a>
+                  <a href="/agile" className="hover:text-accent-400">
+                    Consultoria Ágil
+                  </a>
+                  <a href="/apps" className="hover:text-accent-400">
+                    Apps & ERPs
+                  </a>
+                  <a href="/sobre" className="hover:text-accent-400">
+                    Sobre
+                  </a>
+                  <a href="/contato" className="hover:text-accent-400">
+                    Contato
+                  </a>
                   <hr className="my-1 border-slate-800" />
                   <a
                     href="/contato"
@@ -98,7 +117,7 @@ export default function RootLayout({
         </header>
 
         {/* CONTEÚDO PRINCIPAL */}
-        <main className="relative z-0">{children}</main>
+        <main>{children}</main>
 
         {/* FOOTER */}
         <footer className="mt-16 border-t border-slate-900/80 bg-slate-950/90">
