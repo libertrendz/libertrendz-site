@@ -78,62 +78,46 @@ export default function AppsPage() {
           </div>
         </div>
 
-        {/* TIPOS DE SOLUÇÃO */}
+        {/* TIPOS DE SOLUÇÕES QUE ENTREGAMOS (união de "tipos" + "exemplos práticos") */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Tipos de apps que construímos</h2>
+          <h2 className="text-xl font-semibold text-slate-50">Tipos de soluções que entregamos</h2>
+          <p className="text-sm text-slate-200 max-w-3xl">Abordagens práticas e entregáveis: cada solução é desenhada para resolver um problema operacional ou comercial específico — sem complexidade desnecessária.</p>
+
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Apps Operacionais</p>
-              <p className="font-semibold text-slate-50">Agendamento, ordens de serviço, checklist</p>
-              <p className="mt-1 text-slate-300">Fluxos que acompanham o dia a dia (ex.: técnicos, turnos, visitas a clientes).</p>
+              <p className="font-semibold text-slate-50">Agendamento & Ordens de Serviço</p>
+              <p className="mt-1 text-slate-300">Reservas, atribuição de tarefas, checklists e histórico de atendimentos para equipas em campo.</p>
             </div>
+
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Comercial</p>
-              <p className="font-semibold text-slate-50">Loja online & Catálogo</p>
-              <p className="mt-1 text-slate-300">Produtos/serviços, carrinho, integrações de pagamento e integrações com Moduz+ quando necessário.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Gestão Comercial</p>
+              <p className="font-semibold text-slate-50">Catálogo & Loja</p>
+              <p className="mt-1 text-slate-300">Catálogo de produtos/serviços, checkout e integrações de pagamento com fluxo simples de vendas.</p>
             </div>
+
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Marketing & Conversão</p>
-              <p className="font-semibold text-slate-50">Sites & Landing Pages</p>
-              <p className="mt-1 text-slate-300">Páginas otimizadas para captar leads e converter visitantes em contactos qualificados.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* EXEMPLOS PRÁTICOS — grid com vida */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Exemplos práticos que já entregámos</h2>
-          <p className="text-sm text-slate-200 max-w-3xl">Casos reais, tamanho reduzido, impacto grande — entregas que resolvem problemas operacionais e de vendas.</p>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Agendamento de serviços</p>
-              <p className="text-slate-300 mt-1">Reservas, horários, confirmações e histórico de atendimentos.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Sites & Landing Pages</p>
+              <p className="font-semibold text-slate-50">Conversão & Captura</p>
+              <p className="mt-1 text-slate-300">Páginas otimizadas para captar e qualificar leads, com formulários, tracking e integração para follow-up.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Controle de tarefas</p>
-              <p className="text-slate-300 mt-1">Quadros simples, atribuição, prazos e notificações.</p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Operações Internas</p>
+              <p className="font-semibold text-slate-50">Controle de Tarefas & Timesheets</p>
+              <p className="mt-1 text-slate-300">Quadros, prazos, horas e notificações para manter a equipa alinhada e produtiva.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Loja online</p>
-              <p className="text-slate-300 mt-1">Catálogo, checkout e integrações de pagamentos simples.</p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Processos Comerciais</p>
+              <p className="font-semibold text-slate-50">Propostas & Orçamentos</p>
+              <p className="mt-1 text-slate-300">Geração de propostas, gestão de versões e export para documentos — integrado ao fluxo comercial.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Landing pages</p>
-              <p className="text-slate-300 mt-1">Campanhas com formulários, tracking e integração para follow-up comercial.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Catálogo de produtos/serviços</p>
-              <p className="text-slate-300 mt-1">Pesquisa, filtros e exportação para propostas.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Setores (exemplos)</p>
-              <p className="text-slate-300 mt-1">Salão de beleza, pizzaria, serviços locais, SaaS com onboarding simplificado.</p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Setores & Casos</p>
+              <p className="font-semibold text-slate-50">Exemplos por sector</p>
+              <p className="mt-1 text-slate-300">Soluções aplicadas a salão de beleza, pizzaria, serviços locais e SaaS com onboarding simplificado.</p>
             </div>
           </div>
         </div>
@@ -143,7 +127,7 @@ export default function AppsPage() {
           <h2 className="text-xl font-semibold text-slate-50">Projetos & referências</h2>
           <p className="text-sm text-slate-200 max-w-3xl">Alguns trabalhos e produtos que inspiram as nossas soluções.</p>
 
-          <div className="grid gap-4 md:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="text-xs uppercase tracking-[0.18em] text-accent-300">CONFIANCE</p>
               <p className="mt-2 font-semibold text-slate-50">App modular para gestão de obras e remodelações</p>
@@ -157,14 +141,8 @@ export default function AppsPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs uppercase tracking-[0.18em] text-accent-300">REGISTER</p>
-              <p className="mt-2 font-semibold text-slate-50">Register — registos e agendamentos</p>
-              <p className="mt-1 text-slate-300">Solução para gestão de inscrições, reservas e contactos — usada como padrão para fluxos de agendamento.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs uppercase tracking-[0.18em] text-accent-300">ECLIN / EKKLYN</p>
-              <p className="mt-2 font-semibold text-slate-50">Ekklyn — fábrica de apps</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-accent-300">EKKLYN</p>
+              <p className="mt-2 font-semibold text-slate-50">Fábrica de apps & acelerador</p>
               <p className="mt-1 text-slate-300">Plataforma piloto que acelera a criação de apps modulares reutilizáveis e reduz o time-to-market para PMEs.</p>
             </div>
           </div>
