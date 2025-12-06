@@ -6,17 +6,17 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — Mentoria Tech, Projetos Ágeis e Apps sob medida para profissionais e PMEs.",
+    "Libertrendz — ERP para PMEs, Apps e Websites sob medida, Mentoria Tech e Projetos Ágeis.",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
     ],
-    apple: "/apple-touch-icon-180x180.png",
+    apple: "/apple-touch-icon-180x180.png"
   },
   openGraph: {
-    images: ["/images/og-image.png"],
-  },
+    images: ["/images/og-image.png"]
+  }
 };
 
 const LOGO_SYMBOL_URL = "/images/LIBERTRENDZ.png";
@@ -55,14 +55,36 @@ export default function RootLayout({
 
             {/* NAV DESKTOP */}
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
-              <a href="/" className="hover:text-accent-400">Início</a>
-              <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
-              <a href="/moduz" className="hover:text-accent-400">Moduz+</a>
-              <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
-              <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-              <a href="/cases" className="hover:text-accent-400">Cases</a>
-              <a href="/sobre" className="hover:text-accent-400">Sobre</a>
-              <a href="/contato" className="hover:text-accent-400">Contato</a>
+              <a href="/" className="hover:text-accent-400">
+                Início
+              </a>
+
+              {/* Moduz+ em destaque */}
+              <a
+                href="/moduz"
+                className="text-cyan-300 font-semibold hover:text-cyan-200"
+              >
+                Moduz+
+              </a>
+
+              <a href="/mentoria" className="hover:text-accent-400">
+                Mentoria Tech Reload
+              </a>
+              <a href="/agile" className="hover:text-accent-400">
+                Consultoria Ágil
+              </a>
+              <a href="/apps" className="hover:text-accent-400">
+                Apps &amp; Websites
+              </a>
+              <a href="/cases" className="hover:text-accent-400">
+                Cases
+              </a>
+              <a href="/sobre" className="hover:text-accent-400">
+                Sobre
+              </a>
+              <a href="/contato" className="hover:text-accent-400">
+                Contato
+              </a>
             </nav>
 
             {/* NAV MOBILE (hambúrguer + dropdown simples) */}
@@ -76,14 +98,36 @@ export default function RootLayout({
               </summary>
               <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
                 <nav className="flex flex-col gap-2 text-slate-200">
-                  <a href="/" className="hover:text-accent-400">Início</a>
-                  <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
-                  <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-                  <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
-                  <a href="/moduz" className="hover:text-accent-400">Moduz+</a>
-                  <a href="/cases" className="hover:text-accent-400">Cases</a>
-                  <a href="/sobre" className="hover:text-accent-400">Sobre</a>
-                  <a href="/contato" className="hover:text-accent-400">Contato</a>
+                  <a href="/" className="hover:text-accent-400">
+                    Início
+                  </a>
+
+                  {/* Moduz+ destacado também no mobile */}
+                  <a
+                    href="/moduz"
+                    className="rounded-md bg-slate-900 px-2 py-1.5 font-semibold text-cyan-300 hover:text-cyan-200"
+                  >
+                    Moduz+
+                  </a>
+
+                  <a href="/mentoria" className="hover:text-accent-400">
+                    Mentoria Tech Reload
+                  </a>
+                  <a href="/agile" className="hover:text-accent-400">
+                    Consultoria Ágil
+                  </a>
+                  <a href="/apps" className="hover:text-accent-400">
+                    Apps &amp; Websites
+                  </a>
+                  <a href="/cases" className="hover:text-accent-400">
+                    Cases
+                  </a>
+                  <a href="/sobre" className="hover:text-accent-400">
+                    Sobre
+                  </a>
+                  <a href="/contato" className="hover:text-accent-400">
+                    Contato
+                  </a>
                   <hr className="my-1 border-slate-800" />
                   <a
                     href="/contato"
@@ -147,8 +191,6 @@ export default function RootLayout({
                   </a>
                 </div>
               </div>
-
-              {/* CTA grande removido para evitar duplicação com o CTA das páginas */}
             </div>
           </div>
         </footer>
