@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
         {/* HEADER */}
-        <header className="border-b border-slate-900/80 bg-slate-950/90">
+        <header className="relative z-30 border-b border-slate-900/80 bg-slate-950/90">
           <div className="container-page flex items-center justify-between py-5">
             {/* Marca principal */}
             <a href="/" className="flex items-center gap-3">
@@ -56,12 +56,8 @@ export default function RootLayout({
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
               <a href="/" className="hover:text-accent-400">Início</a>
 
-              {/* Moduz+ destacado — posicionado logo após Início */}
-              <a
-                href="/moduz"
-                className="text-accent-400 font-semibold hover:text-accent-300"
-                aria-current={typeof window !== "undefined" && window.location?.pathname === "/moduz" ? "page" : undefined}
-              >
+              {/* Moduz+ destacado em cyan (usa cyan, não accent) */}
+              <a href="/moduz" className="text-cyan-400 font-semibold hover:text-cyan-300">
                 Moduz+
               </a>
 
@@ -82,15 +78,14 @@ export default function RootLayout({
                 <span className="mr-2">Menu</span>
                 <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
               </summary>
-              <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
+
+              {/* dropdown com z-50 para ficar acima do hero */}
+              <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60 z-50">
                 <nav className="flex flex-col gap-2 text-slate-200">
                   <a href="/" className="hover:text-accent-400">Início</a>
 
                   {/* Moduz+ destacado no mobile também */}
-                  <a
-                    href="/moduz"
-                    className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-accent-400 font-semibold hover:text-accent-300"
-                  >
+                  <a href="/moduz" className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-cyan-400 font-semibold hover:text-cyan-300">
                     Moduz+
                   </a>
 
