@@ -1,4 +1,6 @@
 // app/moduz/page.tsx
+import React from "react";
+
 export default function ModuzPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
