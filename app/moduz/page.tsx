@@ -60,7 +60,6 @@ export default function ModuzPage() {
         setCompany('');
         setInterest('starter');
       } else {
-        // fallback visual — mantém a UX sem expor erros internos
         setStatus({ ok: false, msg: 'Não foi possível enviar. Usa contato@libertrendz.eu.' });
       }
     } catch (err) {
@@ -75,11 +74,11 @@ export default function ModuzPage() {
       <section className="container-page py-12 lg:py-16 space-y-12">
         {/* HERO */}
         <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
-          {/* cyan overlay (decorative) */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/8 via-cyan-600/6 to-transparent" />
+          {/* cyan overlay (decorative) — reforçado */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-cyan-600/10 to-transparent" />
           <div className="relative z-10 lg:flex lg:items-center lg:justify-between gap-8">
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
                 Moduz+
               </p>
               <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">
@@ -87,7 +86,7 @@ export default function ModuzPage() {
               </h1>
               <p className="mt-4 text-sm text-slate-200">
                 Solução modular pensada para empresas que querem organizar pessoas, operações e finanças sem sacrificar
-                agilidade. Modules independentes, roadmap claro e implementação por fases para entregar valor desde a
+                agilidade. Módulos independentes, roadmap claro e implementação por fases para entregar valor desde a
                 primeira semana.
               </p>
 
@@ -99,8 +98,8 @@ export default function ModuzPage() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href="#lead-form"
-                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+                  href="#planos"
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
                 >
                   Agendar demo
                 </a>
@@ -116,7 +115,7 @@ export default function ModuzPage() {
             {/* Side quick info (small) */}
             <div className="mt-6 lg:mt-0 lg:w-80">
               <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4 text-sm text-slate-200">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Vantagens rápidas</p>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Vantagens rápidas</p>
                 <div className="space-y-2">
                   <div>
                     <p className="font-semibold text-slate-50">Entrega rápida</p>
@@ -146,7 +145,7 @@ export default function ModuzPage() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {MODULES_AVAILABLE.map((m) => (
               <article key={m.key} className="relative rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-                <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-cyan-600 px-2 py-0.5 text-[11px] font-semibold text-slate-950">
+                <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-emerald-300 px-2 py-0.5 text-[11px] font-semibold text-slate-900 shadow-sm ring-1 ring-emerald-200">
                   Pronto
                 </span>
                 <h3 className="text-base font-semibold text-slate-50">{m.title}</h3>
@@ -160,13 +159,13 @@ export default function ModuzPage() {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">Módulos em desenvolvimento</h2>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Roadmap público com prioridades comerciais. Actualizações regulares conforme lançamos novas versões.
+            Roadmap público com prioridades comerciais. Atualizações regulares conforme lançamos novas versões.
           </p>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {MODULES_SOON.map((m) => (
               <article key={m.key} className="relative rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-                <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-slate-800 px-2 py-0.5 text-[11px] font-semibold text-slate-200 border border-slate-700">
+                <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-slate-700/40 px-2 py-0.5 text-[11px] font-semibold text-slate-200 border border-slate-700">
                   Em breve
                 </span>
                 <h3 className="text-base font-semibold text-slate-50">{m.title}</h3>
@@ -186,17 +185,17 @@ export default function ModuzPage() {
 
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-                <p className="text-xs uppercase tracking-[0.18em] text-accent-300">Starter</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">Starter</p>
                 <p className="mt-2 font-semibold text-slate-50">Core + People + Docs</p>
                 <p className="mt-1 text-slate-300 text-[13px]">Implantação rápida — ideal para começar a organizar.</p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-                <p className="text-xs uppercase tracking-[0.18em] text-accent-300">Operacional</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">Operacional</p>
                 <p className="mt-2 font-semibold text-slate-50">Starter + Track + Finance</p>
                 <p className="mt-1 text-slate-300 text-[13px]">Fluxo de operação completo para equipas em campo.</p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
-                <p className="text-xs uppercase tracking-[0.18em] text-accent-300">Comercial</p>
+                <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">Comercial</p>
                 <p className="mt-2 font-semibold text-slate-50">Operacional + Bizz</p>
                 <p className="mt-1 text-slate-300 text-[13px]">Orçamentos e contratos integrados.</p>
               </div>
@@ -205,7 +204,7 @@ export default function ModuzPage() {
 
           {/* LEAD FORM */}
           <aside className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Interesse</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Interesse</p>
             <h3 className="mt-2 text-base font-semibold text-slate-50">Fala connosco sobre Moduz+</h3>
             <p className="mt-2 text-sm text-slate-300">Preenche o formulário e marcamos uma demo rápida.</p>
 
@@ -258,7 +257,7 @@ export default function ModuzPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow shadow-accent-500/30 disabled:opacity-60"
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow shadow-cyan-500/30 disabled:opacity-60"
                 >
                   {loading ? 'A enviar…' : 'Marcar demo'}
                 </button>
@@ -292,8 +291,8 @@ export default function ModuzPage() {
             Agendamos uma demo curta para entender o teu contexto e propor a melhor ativação de módulos.
           </p>
           <a
-            href="#lead-form"
-            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+            href="#planos"
+            className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
           >
             Marcar demo
           </a>
