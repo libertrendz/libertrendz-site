@@ -13,10 +13,9 @@ export default function ModuzPage() {
             complexidade.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Moduz+ é um conjunto de módulos práticos (Ponto, Obras, Financeiro,
-            Fornecedores, Timesheets) desenhados para funcionar desde o primeiro
-            dia — sem processos intermináveis nem customizações que nunca
-            terminam.
+            Moduz+ junta módulos prontos para operações do dia a dia — ponto,
+            obra, financeiro e compras — com implantação rápida e foco em
+            resultados tangíveis. Paga só o que precisa e cresce sem surpresas.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
@@ -41,15 +40,15 @@ export default function ModuzPage() {
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="mb-2 font-semibold text-slate-50">Rápido para usar</p>
-              <p className="text-slate-300">Módulos prioritários prontos para implantação em semanas, não meses.</p>
+              <p className="text-slate-300">Módulos prontos e parametrizáveis que habilitam valor em semanas.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="mb-2 font-semibold text-slate-50">Modular</p>
-              <p className="text-slate-300">Paga e ativa apenas o que precisa: ponto, obras, financeiro, CRM leve.</p>
+              <p className="text-slate-300">Ativas apenas as funcionalidades que a tua empresa precisa — sem custos escondidos.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
               <p className="mb-2 font-semibold text-slate-50">Previsível</p>
-              <p className="text-slate-300">Escopo definido com entregas e critérios de aceite claros — sem surpresas.</p>
+              <p className="text-slate-300">Escopo e entregas definidas com critérios de aceite claros — sem surpresas no custo ou no tempo.</p>
             </div>
           </div>
         </div>
@@ -58,28 +57,52 @@ export default function ModuzPage() {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">Módulos principais</h2>
           <div className="grid gap-4 md:grid-cols-4">
+            {/* PONTO */}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Ponto</p>
-              <p className="mt-2 font-semibold text-slate-50">Registo móvel e desktop</p>
-              <p className="mt-1 text-slate-300">Foto + geolocalização + auditoria e exportes CSV.</p>
+              <p className="mt-2 font-semibold text-slate-50">Registo móvel e desktop, com auditoria.</p>
+              <p className="mt-1 text-slate-300">Regista presença com foto e geolocalização; exportes rápidos e regras de jornada configuráveis.</p>
+              <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                <li>• Foto + geolocalização para validação no terreno.</li>
+                <li>• Regras de jornada e sinopses por período (export CSV).</li>
+                <li>• Auditoria e histórico para conformidade e controlo.</li>
+              </ul>
             </div>
 
+            {/* OBRAS & PROJETOS */}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Obras & Projetos</p>
-              <p className="mt-2 font-semibold text-slate-50">Fases, tarefas, custo por obra</p>
-              <p className="mt-1 text-slate-300">Planeamento simples para equipas de terreno e gestão financeira por obra.</p>
+              <p className="mt-2 font-semibold text-slate-50">Gestão de fases, tarefas e custos por obra.</p>
+              <p className="mt-1 text-slate-300">Planeamento simples para equipas no terreno com mapas de atividades e ligação a custos.</p>
+              <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                <li>• Fases e checklists de obra para controlo operacional.</li>
+                <li>• Associação de recursos e materiais por tarefa.</li>
+                <li>• Visão de custo por obra para decisão financeira rápida.</li>
+              </ul>
             </div>
 
+            {/* FINANCEIRO */}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Financeiro</p>
-              <p className="mt-2 font-semibold text-slate-50">Faturas, recibos e conciliação</p>
-              <p className="mt-1 text-slate-300">Registos simples com exportes e integrações básicas.</p>
+              <p className="mt-2 font-semibold text-slate-50">Lançamentos, contas e faturas básicas integradas com docs.</p>
+              <p className="mt-1 text-slate-300">Controlo financeiro essencial com exportes e integração de comprovativos.</p>
+              <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                <li>• Registo rápido de faturas e recibos com anexos.</li>
+                <li>• Centros de custo básicos e relatórios exportáveis.</li>
+                <li>• Integração com evidências em Docs (anexos PDF/IMG).</li>
+              </ul>
             </div>
 
+            {/* FORNECEDORES & STOCK */}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Fornecedores & Stocks</p>
-              <p className="mt-2 font-semibold text-slate-50">Catálogo e compras</p>
-              <p className="mt-1 text-slate-300">Importação via Excel e upsert idempotente para listas de materiais.</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Fornecedores & Stock</p>
+              <p className="mt-2 font-semibold text-slate-50">Catálogo, compras e movimentos de stock básicos.</p>
+              <p className="mt-1 text-slate-300">Importação via Excel e upsert idempotente para listas de materiais — operação prática e sem ruído.</p>
+              <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                <li>• Importação e deduplicação de catálogo via Excel.</li>
+                <li>• Movimentos simples de entrada/saída com referência de obra.</li>
+                <li>• Pesquisa rápida de SKUs e histórico de consumo.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -90,7 +113,7 @@ export default function ModuzPage() {
           <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="mb-1 font-semibold text-slate-50">Crescimento além do Excel</p>
-              <p className="text-slate-300">Se a operação vive em ficheiros e o erro custa tempo e dinheiro.</p>
+              <p className="text-slate-300">Processos espalhados por ficheiros, versões e erros manuais que custam tempo e dinheiro.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
               <p className="mb-1 font-semibold text-slate-50">Necessidade de visão consolidada</p>
