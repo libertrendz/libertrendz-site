@@ -1,22 +1,19 @@
-import React from "react";
+import Image from "next/image";
 
-export default function AppsPage(): JSX.Element {
+export default function AppsPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-16">
         {/* HERO */}
         <div className="max-w-3xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-400">
-            Apps & Websites
+            Apps & Tiny ERPs
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Soluções digitais que resolvem hoje — e escalam amanhã.
-            <span className="block text-accent-400">
-              Mini-apps, painéis, websites e landing pages orientadas à conversão.
-            </span>
+            Sistemas sob medida para quando o Excel já não chega — sem virar refém de ferramentas pesadas.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Entregamos protótipos funcionais, sites otimizados para conversão e mini-apps integráveis ao teu fluxo operacional.
+            Apps, ERPs leves, sites e landing pages construídos com foco em fluxo real de trabalho e resultado comercial. Projetos rápidos, iterativos e com ROI claro.
           </p>
         </div>
 
@@ -24,19 +21,19 @@ export default function AppsPage(): JSX.Element {
         <div className="grid gap-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 md:grid-cols-4">
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Para quem</p>
-            <p className="mt-1 text-sm text-slate-200">PMEs e equipas que precisam de controlo sem projetos intermináveis.</p>
+            <p className="mt-1 text-sm text-slate-200">PMEs e equipas que cresceram além do Excel e precisam de sistemas práticos.</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Tipo de solução</p>
-            <p className="mt-1 text-sm text-slate-200">Apps internos, websites institucionais e landing pages de conversão.</p>
+            <p className="mt-1 text-sm text-slate-200">Apps web, painéis e ERPs leves, painéis de gestão e websites que convertem.</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Abordagem</p>
-            <p className="mt-1 text-sm text-slate-200">Descoberta objetiva → protótipo funcional → entregas curtas e iterativas.</p>
+            <p className="mt-1 text-sm text-slate-200">Descoberta, protótipo funcional e iteração com utilizadores reais.</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Exemplos</p>
-            <p className="mt-1 text-sm text-slate-200">Sites, landing pages, agendamento, catálogos e painéis operacionais.</p>
+            <p className="mt-1 text-sm text-slate-200">CONFIANCE, Ekklyn, Legistor e outros mini-apps (agendamento, tarefas, loja, catálogo, landing pages).</p>
           </div>
         </div>
 
@@ -45,81 +42,64 @@ export default function AppsPage(): JSX.Element {
           <h2 className="text-xl font-semibold text-slate-50">Quando faz sentido</h2>
           <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Precisa vender online</p>
-              <p className="text-slate-300">Landing pages e lojas simples integradas com checkout e catálogo.</p>
+              <p className="mb-1 font-semibold text-slate-50">Planilhas demais, controlo de menos</p>
+              <p className="text-slate-300">Multiplicidade de ficheiros e versões desencontradas que custam tempo e dinheiro.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Comunicar de forma profissional</p>
-              <p className="text-slate-300">Websites institucionais claros, sem jargão, com velocidade e SEO básico implementado.</p>
+              <p className="mb-1 font-semibold text-slate-50">Websites com objetivo comercial</p>
+              <p className="text-slate-300">Landing pages e websites desenhados para conversão, integração com CRM e captação de leads.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Operação precisa de apoio</p>
-              <p className="text-slate-300">Mini-apps para agendamento, tarefas e requisições que evitam retrabalho manual.</p>
+              <p className="mb-1 font-semibold text-slate-50">Crescimento sem estrutura</p>
+              <p className="text-slate-300">Operações que expandiram e precisam de regras, integrações e visibilidade centralizada.</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Converter tráfego em leads</p>
-              <p className="text-slate-300">Landing pages com formulários integrados ao fluxo de vendas.</p>
+              <p className="mb-1 font-semibold text-slate-50">Soluções comerciais</p>
+              <p className="text-slate-300">Catálogo de serviços/produtos, loja online, agendamento e CRM leve integrado ao fluxo do negócio.</p>
             </div>
           </div>
         </div>
 
         {/* TIPOS DE SOLUÇÃO */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">O que entregamos</h2>
+          <h2 className="text-xl font-semibold text-slate-50">Soluções que entregamos</h2>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Websites</p>
-              <p className="font-semibold text-slate-50">Institucional & velocidade</p>
-              <p className="mt-1 text-slate-300">Sites rápidos, responsivos e com SEO técnico básico implementado.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">ERP leve</p>
+              <p className="font-semibold text-slate-50">ERPs modulares</p>
+              <p className="mt-1 text-slate-300">Foco em obras, ponto, faturação e finanças sem a complexidade de um monstro ERP.</p>
             </div>
-
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Landing pages</p>
-              <p className="font-semibold text-slate-50">Conversão direta</p>
-              <p className="mt-1 text-slate-300">Páginas otimizadas para campanhas e captura de leads integradas ao CRM.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Apps internos</p>
+              <p className="font-semibold text-slate-50">Fluxo de trabalho</p>
+              <p className="mt-1 text-slate-300">Registo de tarefas, requisições, pontos, timesheets e integrações simples.</p>
             </div>
-
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Mini-apps</p>
-              <p className="font-semibold text-slate-50">Fluxos operacionais</p>
-              <p className="mt-1 text-slate-300">Agendamentos, catálogos, pedidos e integrações com pagamentos ou ERPs leves.</p>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Websites & Landing Pages</p>
+              <p className="font-semibold text-slate-50">Sites que convertem</p>
+              <p className="mt-1 text-slate-300">Design estratégico, copy orientada à conversão e integração com ferramentas de captação.</p>
             </div>
           </div>
         </div>
 
-        {/* MINI-APPS & WEBSITES */}
-        <div id="mini-apps" className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Exemplos práticos</h2>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Agendamento de serviços</p>
-              <p className="text-slate-300 mt-1">Calendário, reservas e notificações integradas ao CRM.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Landing page + fluxo de leads</p>
-              <p className="text-slate-300 mt-1">Campanha → landing → formulário → entrega ao time comercial.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">Loja / catálogo</p>
-              <p className="text-slate-300 mt-1">Catálogo, carrinho simples e integrações de pagamento.</p>
-            </div>
+        {/* EXEMPLO: CONFIANCE */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-slate-50">Exemplo: CONFIANCE</h2>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200 max-w-4xl space-y-3">
+            <p>CONFIANCE é um ERP leve em construção para a construção civil — modular, com ponto, colaboradores, fornecedores, obras e financeiro.</p>
+            <p className="text-slate-300">Aplicável a outras PMEs que precisam de estrutura sem virar reféns de solução genérica.</p>
           </div>
         </div>
 
         {/* CTA FINAL */}
         <div className="pt-10 border-t border-slate-800 text-center space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-50">Quer discutir uma solução digital?</h2>
-          <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Alinhamos problema → protótipo → entrega. Websites, landing pages e mini-apps com foco em resultado.
-          </p>
+          <h2 className="text-2xl font-semibold text-slate-50">Quer discutir um app, ERP ou site?</h2>
+          <p className="max-w-xl mx-auto text-sm text-slate-200">Se a tua PME já passou do ponto do Excel, podemos definir um MVP com foco em resultado e retorno claro.</p>
           <a
             href="/contato"
             className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
           >
-            Falar sobre uma solução
+            Falar sobre um projeto
           </a>
         </div>
       </section>
