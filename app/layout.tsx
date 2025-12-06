@@ -8,23 +8,11 @@ export const metadata: Metadata = {
   description:
     "Libertrendz — Mentoria Tech, Projetos Ágeis e Apps sob medida para profissionais e PMEs.",
   icons: {
-    // favicon.ico em primeiro para garantir compatibilidade antiga
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
     ],
-    // múltiplos apple-touch (tem-nos no repo)
-    apple: [
-      { url: "/apple-touch-icon-180x180.png", sizes: "180x180" },
-      { url: "/apple-touch-icon-144x144.png", sizes: "144x144" },
-      { url: "/apple-touch-icon-120x120.png", sizes: "120x120" },
-      { url: "/apple-touch-icon-72x72.png", sizes: "72x72" },
-    ],
-    // manifest / outros (não obrigatório; se não existir, ok)
-    other: [
-      { rel: "manifest", url: "/site.webmanifest" }
-    ]
+    apple: "/apple-touch-icon-180x180.png",
   },
   openGraph: {
     images: ["/images/og-image.png"],
@@ -68,7 +56,8 @@ export default function RootLayout({
             {/* NAV DESKTOP */}
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
               <a href="/" className="hover:text-accent-400">Início</a>
-              <a href="/apps" className="hover:text-accent-400">Tiny ERPs & Websites</a>
+              <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
+              <a href="/moduz" className="hover:text-accent-400">Moduz+</a>
               <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
               <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
               <a href="/cases" className="hover:text-accent-400">Cases</a>
@@ -91,6 +80,7 @@ export default function RootLayout({
                   <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
                   <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
                   <a href="/apps" className="hover:text-accent-400">Apps & ERPs</a>
+                  <a href="/moduz" className="hover:text-accent-400">Moduz+</a>
                   <a href="/cases" className="hover:text-accent-400">Cases</a>
                   <a href="/sobre" className="hover:text-accent-400">Sobre</a>
                   <a href="/contato" className="hover:text-accent-400">Contato</a>
