@@ -55,8 +55,17 @@ export default function RootLayout({
             {/* NAV DESKTOP */}
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
               <a href="/" className="hover:text-accent-400">Início</a>
+
+              {/* Moduz+ destacado — posicionado logo após Início */}
+              <a
+                href="/moduz"
+                className="text-accent-400 font-semibold hover:text-accent-300"
+                aria-current={typeof window !== "undefined" && window.location?.pathname === "/moduz" ? "page" : undefined}
+              >
+                Moduz+
+              </a>
+
               <a href="/apps" className="hover:text-accent-400">Apps & Websites</a>
-              <a href="/moduz" className="hover:text-accent-400">Moduz+</a>
               <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
               <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
               <a href="/cases" className="hover:text-accent-400">Cases</a>
@@ -76,8 +85,16 @@ export default function RootLayout({
               <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
                 <nav className="flex flex-col gap-2 text-slate-200">
                   <a href="/" className="hover:text-accent-400">Início</a>
+
+                  {/* Moduz+ destacado no mobile também */}
+                  <a
+                    href="/moduz"
+                    className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-accent-400 font-semibold hover:text-accent-300"
+                  >
+                    Moduz+
+                  </a>
+
                   <a href="/apps" className="hover:text-accent-400">Apps & Websites</a>
-                  <a href="/moduz" className="hover:text-accent-400">Moduz+</a>
                   <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
                   <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
                   <a href="/cases" className="hover:text-accent-400">Cases</a>
