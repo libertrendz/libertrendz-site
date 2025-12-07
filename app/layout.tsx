@@ -47,7 +47,7 @@ export default function RootLayout({
                   LIBERTRENDZ
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  Mentoria Tech · Projetos Ágeis · Apps
+                  Moduz+ · Apps · Mentoria · Projetos Ágeis 
                 </span>
               </div>
             </a>
