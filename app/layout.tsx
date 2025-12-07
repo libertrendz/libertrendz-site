@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — Mentoria Tech, Projetos Ágeis e Apps sob medida para profissionais e PMEs.",
+    "Libertrendz — ERPs, Apps sob medida para profissionais e PMEs, Websites, Mentoria Tech e Projetos Ágeis.",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
