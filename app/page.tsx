@@ -12,7 +12,7 @@ export default function HomePage() {
             </p>
 
             <h1 className="mt-3 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Moduz+ | Módulos ativáveis para PMEs.
+              Moduz+  Módulos ativáveis para PMEs.
               <span className="block mt-2 text-cyan-400 text-2xl md:text-3xl">
                 Ative só o que precisa. Comece pequeno. Escale rápido.
               </span>
