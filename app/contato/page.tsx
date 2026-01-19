@@ -1,4 +1,4 @@
-// app/contato/page.tsx
+// repo: libertrendz-site/app/contato/page.tsx
 "use client";
 
 import { FormEvent, useState } from "react";
@@ -26,7 +26,7 @@ export default function ContatoPage() {
       const res = await fetch("/api/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, assunto, mensagem }),
+        body: JSON.stringify({ nome, email, assunto, mensagem })
       });
 
       if (!res.ok) {
@@ -40,11 +40,9 @@ export default function ContatoPage() {
 
       setStatus("success");
       form.reset();
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setErrorMsg(
-        "Não foi possível enviar no momento. Tente novamente em instantes."
-      );
+      setErrorMsg("Não foi possível enviar no momento. Tente novamente em instantes.");
     }
   }
 
@@ -57,12 +55,11 @@ export default function ContatoPage() {
             Contato
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Vamos falar sobre o teu contexto — sem roteiro pronto.
+            Vamos falar sobre o teu contexto — direto ao ponto.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Usa o formulário abaixo para explicar, em poucas linhas, o que a tua
-            empresa precisa agora: Moduz+, app customizado, site/landing page ou
-            consultoria ágil. A resposta é direta, sem copy&paste.
+            Diz em poucas linhas o que precisas: Moduz+, app customizado, site/landing page ou consultoria ágil.
+            A resposta é objetiva, sem copy&paste.
           </p>
         </div>
 
@@ -121,9 +118,9 @@ export default function ContatoPage() {
                   <option value="" disabled>
                     Seleciona uma opção
                   </option>
-                  <option value="Moduz+">Moduz+</option>
+                  <option value="Moduz+ (ERP modular)">Moduz+ (ERP modular)</option>
                   <option value="Apps customizados">Apps customizados</option>
-                  <option value="Sites e landing pages">Sites e landing pages</option>
+                  <option value="Sites e Landing Pages">Sites e Landing Pages</option>
                   <option value="Consultoria Ágil">Consultoria Ágil</option>
                   <option value="Outro">Outro tema relacionado</option>
                 </select>
@@ -142,21 +139,20 @@ export default function ContatoPage() {
                   required
                   rows={5}
                   className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
-                  placeholder="Conta-me, em poucas linhas, o que está a acontecer e o que queres resolver."
+                  placeholder="Conta-me o contexto, o objetivo e o que seria um bom resultado."
                 />
               </div>
 
               {/* FEEDBACK */}
               {status === "success" && (
                 <p className="text-xs text-emerald-400">
-                  Mensagem enviada com sucesso. Vou ler com atenção e responder
-                  assim que possível.
+                  Mensagem enviada com sucesso. Vou ler e responder assim que possível.
                 </p>
               )}
               {status === "error" && (
                 <p className="text-xs text-red-400">
                   {errorMsg ||
-                    "Algo correu mal ao enviar. Tente novamente em instantes ou envie diretamente para contato@libertrendz.eu."}
+                    "Algo correu mal ao enviar. Tente novamente em instantes ou envie para contato@libertrendz.eu."}
                 </p>
               )}
 
@@ -172,20 +168,19 @@ export default function ContatoPage() {
             </form>
           </div>
 
-          {/* LATERAL EXPLICATIVA */}
+          {/* LATERAL */}
           <div className="space-y-5 text-sm text-slate-200">
             <div>
               <h2 className="text-base font-semibold text-slate-50">
                 O que ajuda a tornar a resposta mais útil
               </h2>
               <p className="mt-2 text-slate-300">
-                Quanto mais contexto objetivo tiver, mais direta e prática será a
-                resposta. Não precisa ser um texto longo — mas estes pontos ajudam:
+                Não precisa ser longo. Só preciso do essencial:
               </p>
               <ul className="mt-2 space-y-1 text-slate-300">
-                <li>• Qual é o teu tipo de operação (serviços, obras, loja, equipa em campo).</li>
-                <li>• Onde está a dor hoje (processo, vendas, dados, execução).</li>
-                <li>• O que precisas primeiro (módulos, app, site, consultoria).</li>
+                <li>• O que faz a tua empresa e qual é o problema real.</li>
+                <li>• O que já tentaste e por que não funcionou.</li>
+                <li>• O que seria um resultado bom em 30–60 dias.</li>
               </ul>
             </div>
 
@@ -194,14 +189,14 @@ export default function ContatoPage() {
                 Preferes enviar direto por e-mail?
               </p>
               <p>
-                Também podes escrever para{" "}
+                Escreve para{" "}
                 <a
                   href="mailto:contato@libertrendz.eu"
                   className="text-accent-400 hover:text-accent-300"
                 >
                   contato@libertrendz.eu
                 </a>{" "}
-                se preferires não usar o formulário.
+                e seguimos por lá.
               </p>
             </div>
           </div>
