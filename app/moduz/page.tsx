@@ -1,30 +1,30 @@
 // app/moduz/page.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 const MODULES_AVAILABLE = [
-  { key: 'core', title: 'Core', desc: 'Cadastro de empresas, utilizadores e permissões.' },
-  { key: 'people', title: 'People', desc: 'Gestão de colaboradores, contratos e vínculos.' },
-  { key: 'track', title: 'Track', desc: 'Registo de ponto, auditoria e jornada mobile.' },
-  { key: 'docs', title: 'Docs', desc: 'Repositório organizado de documentos por módulo.' },
-  { key: 'finance', title: 'Finance', desc: 'Lançamentos básicos, contas e relatórios simples.' },
-  { key: 'bizz', title: 'Bizz', desc: 'Orçamentos → propostas → contratos básicos.' },
-  { key: 'flow', title: 'Flow', desc: 'Gestão de projetos e tarefas integradas.' },
-  { key: 'assets', title: 'Assets', desc: 'Gestão de ativos, manutenção e custos.' },
+  { key: "core", title: "Core", desc: "Cadastro de empresas, utilizadores e permissões." },
+  { key: "people", title: "People", desc: "Gestão de colaboradores, contratos e vínculos." },
+  { key: "track", title: "Track", desc: "Registo de ponto, auditoria e jornada mobile." },
+  { key: "docs", title: "Docs", desc: "Repositório organizado de documentos por módulo." },
+  { key: "finance", title: "Finance", desc: "Lançamentos básicos, contas e relatórios simples." },
+  { key: "bizz", title: "Bizz", desc: "Orçamentos · propostas · contratos básicos." },
+  { key: "flow", title: "Flow", desc: "Gestão de projetos e tarefas integradas." },
+  { key: "assets", title: "Assets", desc: "Gestão de ativos, manutenção e custos." },
 ];
 
 const MODULES_SOON = [
-  { key: 'stock', title: 'Stock', desc: 'Gestão de inventário e movimentos.' },
-  { key: 'payroll', title: 'Payroll', desc: 'Folha e cálculo de vencimentos (planeado).' },
-  { key: 'crm', title: 'CRM & BI', desc: 'Gestão comercial e painéis analíticos.' },
+  { key: "stock", title: "Stock", desc: "Gestão de inventário e movimentos." },
+  { key: "payroll", title: "Payroll", desc: "Folha e cálculo de vencimentos (planeado)." },
+  { key: "crm", title: "CRM & BI", desc: "Gestão comercial e painéis analíticos." },
 ];
 
 export default function ModuzPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [company, setCompany] = useState('');
-  const [interest, setInterest] = useState('starter');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [interest, setInterest] = useState("starter");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ ok: boolean; msg: string } | null>(null);
 
@@ -33,7 +33,7 @@ export default function ModuzPage() {
     setStatus(null);
 
     if (!email || !name) {
-      setStatus({ ok: false, msg: 'Por favor, preenche o teu nome e e-mail.' });
+      setStatus({ ok: false, msg: "Por favor, preenche o teu nome e e-mail." });
       return;
     }
 
@@ -43,27 +43,27 @@ export default function ModuzPage() {
         nome: name,
         email,
         empresa: company,
-        mensagem: `Interesse Moduz+ — plano: ${interest}`,
-        assunto: 'Interesse Moduz+ — demo / orçamento',
+        mensagem: `Interesse Moduz+ · plano: ${interest}`,
+        assunto: "Interesse Moduz+ · demo / orçamento",
       };
 
-      const res = await fetch('/api/contato', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
       if (res.ok) {
-        setStatus({ ok: true, msg: 'Recebemos — vamos responder em até 2 dias úteis.' });
-        setName('');
-        setEmail('');
-        setCompany('');
-        setInterest('starter');
+        setStatus({ ok: true, msg: "Recebemos · vamos responder em até 2 dias úteis." });
+        setName("");
+        setEmail("");
+        setCompany("");
+        setInterest("starter");
       } else {
-        setStatus({ ok: false, msg: 'Não foi possível enviar. Usa contato@libertrendz.eu.' });
+        setStatus({ ok: false, msg: "Não foi possível enviar. Usa contato@libertrendz.eu." });
       }
-    } catch (err) {
-      setStatus({ ok: false, msg: 'Erro ao enviar. Tenta novamente ou escreve para contato@libertrendz.eu.' });
+    } catch {
+      setStatus({ ok: false, msg: "Erro ao enviar. Tenta novamente ou escreve para contato@libertrendz.eu." });
     } finally {
       setLoading(false);
     }
@@ -74,7 +74,6 @@ export default function ModuzPage() {
       <section className="container-page py-12 lg:py-16 space-y-12">
         {/* HERO */}
         <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
-          {/* cyan overlay (decorative) — reforçado */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-cyan-600/10 to-transparent" />
           <div className="relative z-10 lg:flex lg:items-center lg:justify-between gap-8">
             <div className="max-w-2xl">
@@ -82,18 +81,17 @@ export default function ModuzPage() {
                 Moduz+
               </p>
               <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">
-                Moduz+ — o ecossistema modular para PMEs que trabalham com projetos, equipas e operações.
+                Ecossistema modular para PMEs que precisam de controlo sem travar a operação.
               </h1>
               <p className="mt-4 text-sm text-slate-200">
-                Solução modular pensada para empresas que querem organizar pessoas, operações e finanças sem sacrificar
-                agilidade. Módulos independentes, roadmap claro e implementação por fases para entregar valor desde a
-                primeira semana.
+                Ativa por módulos, implementa por fases e cresce conforme a tua empresa cresce. Sem “big bang”,
+                sem promessa vaga, sem confusão.
               </p>
 
               <ul className="mt-6 space-y-2 text-sm text-slate-200">
-                <li>• Implementação por módulos — só ativa o que precisas.</li>
+                <li>• Implementação por módulos · ativa só o que precisas.</li>
                 <li>• Integração nativa entre People, Track e Finance.</li>
-                <li>• Adapta-se a PMEs de serviços, obras, retalho e organizações com operações em campo.</li>
+                <li>• Serve operações em campo, serviços, obras e equipas distribuídas.</li>
               </ul>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -104,18 +102,19 @@ export default function ModuzPage() {
                   Agendar demo
                 </a>
                 <a
-                  href="/apps"
+                  href="/contato"
                   className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
                 >
-                  Ver apps & websites
+                  Falar sobre a minha empresa
                 </a>
               </div>
             </div>
 
-            {/* Side quick info (small) */}
             <div className="mt-6 lg:mt-0 lg:w-80">
               <div className="rounded-xl border border-slate-800 bg-slate-900/30 p-4 text-sm text-slate-200">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Vantagens rápidas</p>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                  Vantagens rápidas
+                </p>
                 <div className="space-y-2">
                   <div>
                     <p className="font-semibold text-slate-50">Entrega rápida</p>
@@ -123,11 +122,11 @@ export default function ModuzPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-slate-50">Modularidade</p>
-                    <p className="text-slate-300 text-[13px]">Pega só o que precisares e escala quando necessário.</p>
+                    <p className="text-slate-300 text-[13px]">Começa pequeno · escala com segurança.</p>
                   </div>
                   <div>
                     <p className="font-semibold text-slate-50">Custos previsíveis</p>
-                    <p className="text-slate-300 text-[13px]">Planos por módulo e por utilizador interno.</p>
+                    <p className="text-slate-300 text-[13px]">Ativação por módulo e utilizador interno.</p>
                   </div>
                 </div>
               </div>
@@ -135,11 +134,11 @@ export default function ModuzPage() {
           </div>
         </div>
 
-        {/* MODULES — Disponíveis */}
+        {/* MÓDULOS DISPONÍVEIS */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">Módulos Disponíveis</h2>
+          <h2 className="text-xl font-semibold text-slate-50">Módulos disponíveis</h2>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Módulos testados em operações reais — ativação por empresa e permissões granulares.
+            O núcleo está pronto. Escolhes módulos conforme a tua realidade.
           </p>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -155,11 +154,11 @@ export default function ModuzPage() {
           </div>
         </div>
 
-        {/* MODULES — Em construção */}
+        {/* MÓDULOS EM DESENVOLVIMENTO */}
         <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">Módulos em desenvolvimento</h2>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Roadmap público com prioridades comerciais. Atualizações regulares conforme lançamos novas versões.
+            Roadmap em curso · priorizado por valor comercial e operação real.
           </p>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -175,38 +174,37 @@ export default function ModuzPage() {
           </div>
         </div>
 
-        {/* PLANS / LEAD FORM */}
+        {/* PLANOS / FORM */}
         <div id="planos" className="grid gap-6 lg:grid-cols-2">
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-slate-50">Planos e como começamos</h2>
             <p className="text-sm text-slate-200">
-              Oferecemos planos modulares por conjunto de funcionalidades. Começamos por descoberta rápida, prova de conceito (P.O.C.) e depois escalamos por módulos.
+              Começamos com descoberta rápida, prova de conceito e ativação por módulos.
             </p>
 
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
                 <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">Starter</p>
-                <p className="mt-2 font-semibold text-slate-50">Core + People + Docs</p>
-                <p className="mt-1 text-slate-300 text-[13px]">Implantação rápida — ideal para começar a organizar.</p>
+                <p className="mt-2 font-semibold text-slate-50">Core · People · Docs</p>
+                <p className="mt-1 text-slate-300 text-[13px]">Organização rápida do básico.</p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
                 <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">Operacional</p>
-                <p className="mt-2 font-semibold text-slate-50">Starter + Track + Finance</p>
-                <p className="mt-1 text-slate-300 text-[13px]">Fluxo de operação completo para equipas em campo.</p>
+                <p className="mt-2 font-semibold text-slate-50">Starter · Track · Finance</p>
+                <p className="mt-1 text-slate-300 text-[13px]">Operação completa para equipas em campo.</p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm">
                 <p className="text-xs uppercase tracking-[0.18em] text-cyan-300">Comercial</p>
-                <p className="mt-2 font-semibold text-slate-50">Operacional + Bizz</p>
+                <p className="mt-2 font-semibold text-slate-50">Operacional · Bizz</p>
                 <p className="mt-1 text-slate-300 text-[13px]">Orçamentos e contratos integrados.</p>
               </div>
             </div>
           </div>
 
-          {/* LEAD FORM */}
           <aside className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Interesse</p>
             <h3 className="mt-2 text-base font-semibold text-slate-50">Fala connosco sobre Moduz+</h3>
-            <p className="mt-2 text-sm text-slate-300">Preenche o formulário e marcamos uma demo rápida.</p>
+            <p className="mt-2 text-sm text-slate-300">Preenche e marcamos uma demo curta.</p>
 
             <form className="mt-4 space-y-3" onSubmit={handleSubmit}>
               <div>
@@ -247,9 +245,9 @@ export default function ModuzPage() {
                   value={interest}
                   onChange={(e) => setInterest(e.target.value)}
                 >
-                  <option value="starter">Starter — Core + People</option>
-                  <option value="operacional">Operacional — Track + Finance</option>
-                  <option value="comercial">Comercial — Bizz + Finance</option>
+                  <option value="starter">Starter · Core · People</option>
+                  <option value="operacional">Operacional · Track · Finance</option>
+                  <option value="comercial">Comercial · Bizz · Finance</option>
                 </select>
               </div>
 
@@ -259,21 +257,19 @@ export default function ModuzPage() {
                   disabled={loading}
                   className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow shadow-cyan-500/30 disabled:opacity-60"
                 >
-                  {loading ? 'A enviar…' : 'Marcar demo'}
+                  {loading ? "A enviar…" : "Marcar demo"}
                 </button>
                 <a
                   href="mailto:contato@libertrendz.eu?subject=Interesse%20Moduz%20Demo"
                   className="text-sm text-slate-300 underline-offset-2 hover:text-slate-100"
                 >
-                  Ou escreve para nós
+                  Ou escreve por e-mail
                 </a>
               </div>
 
               {status && (
                 <div
-                  className={`mt-2 text-sm ${
-                    status.ok ? 'text-green-400' : 'text-rose-400'
-                  }`}
+                  className={`mt-2 text-sm ${status.ok ? "text-green-400" : "text-rose-400"}`}
                   role="status"
                   aria-live="polite"
                 >
@@ -286,9 +282,11 @@ export default function ModuzPage() {
 
         {/* CTA FINAL */}
         <div className="pt-8 border-t border-slate-800 text-center space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-50">Quer ver como o Moduz+ funciona na tua empresa?</h2>
+          <h2 className="text-2xl font-semibold text-slate-50">
+            Quer ver como o Moduz+ funciona na tua empresa?
+          </h2>
           <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Agendamos uma demo curta para entender o teu contexto e propor a melhor ativação de módulos.
+            Marcamos uma demo curta para entender o teu contexto e sugerir a melhor ativação de módulos.
           </p>
           <a
             href="#planos"
