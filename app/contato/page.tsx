@@ -1,3 +1,4 @@
+// app/contato/page.tsx
 "use client";
 
 import { FormEvent, useState } from "react";
@@ -39,9 +40,11 @@ export default function ContatoPage() {
 
       setStatus("success");
       form.reset();
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setErrorMsg("Não foi possível enviar no momento. Tente novamente em instantes.");
+      setErrorMsg(
+        "Não foi possível enviar no momento. Tente novamente em instantes."
+      );
     }
   }
 
@@ -54,12 +57,12 @@ export default function ContatoPage() {
             Contato
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Vamos falar sobre o teu contexto — sem roteiros prontos.
+            Vamos falar sobre o teu contexto — sem roteiro pronto.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Usa o formulário abaixo para explicar, em poucas linhas, o que estás
-            a viver hoje: transição para tecnologia, projetos ágeis, apps/ERPs ou
-            outro tema relacionado. A resposta é direta, sem copy&paste.
+            Usa o formulário abaixo para explicar, em poucas linhas, o que a tua
+            empresa precisa agora: Moduz+, app customizado, site/landing page ou
+            consultoria ágil. A resposta é direta, sem copy&paste.
           </p>
         </div>
 
@@ -118,11 +121,10 @@ export default function ContatoPage() {
                   <option value="" disabled>
                     Seleciona uma opção
                   </option>
-                  <option value="Mentoria Tech Reload">
-                    Mentoria Tech Reload / LiberTrail
-                  </option>
+                  <option value="Moduz+">Moduz+</option>
+                  <option value="Apps customizados">Apps customizados</option>
+                  <option value="Sites e landing pages">Sites e landing pages</option>
                   <option value="Consultoria Ágil">Consultoria Ágil</option>
-                  <option value="Apps e Tiny ERPs">Apps & Tiny ERPs</option>
                   <option value="Outro">Outro tema relacionado</option>
                 </select>
               </div>
@@ -140,7 +142,7 @@ export default function ContatoPage() {
                   required
                   rows={5}
                   className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
-                  placeholder="Conta-me, em poucas linhas, o que está a acontecer e o que esperas mudar."
+                  placeholder="Conta-me, em poucas linhas, o que está a acontecer e o que queres resolver."
                 />
               </div>
 
@@ -177,14 +179,13 @@ export default function ContatoPage() {
                 O que ajuda a tornar a resposta mais útil
               </h2>
               <p className="mt-2 text-slate-300">
-                Quanto mais contexto objetivo tiver, mais direta e prática será
-                a resposta. Não precisa ser um texto longo, mas alguns pontos
-                ajudam:
+                Quanto mais contexto objetivo tiver, mais direta e prática será a
+                resposta. Não precisa ser um texto longo — mas estes pontos ajudam:
               </p>
               <ul className="mt-2 space-y-1 text-slate-300">
-                <li>• Em que fase estás hoje (carreira, empresa, equipa).</li>
-                <li>• O que já tentaste fazer até aqui.</li>
-                <li>• O que esperas de uma mentoria, consultoria ou app.</li>
+                <li>• Qual é o teu tipo de operação (serviços, obras, loja, equipa em campo).</li>
+                <li>• Onde está a dor hoje (processo, vendas, dados, execução).</li>
+                <li>• O que precisas primeiro (módulos, app, site, consultoria).</li>
               </ul>
             </div>
 
