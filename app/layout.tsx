@@ -1,4 +1,4 @@
-// app/layout.tsx
+// repo: libertrendz-site/app/layout.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
@@ -6,28 +6,29 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — Moduz+ (módulos para PMEs), Apps customizados, Sites e Landing Pages, Consultoria Ágil.",
+    "Libertrendz — Moduz+ (ERP modular), Apps customizados, Sites e Landing Pages, e Consultoria Ágil para PMEs.",
   icons: {
     icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" }
     ],
-    apple: "/apple-touch-icon-180x180.png",
+    apple: "/images/apple-touch-icon-180x180.png"
   },
   openGraph: {
-    images: ["/images/og-image.png"],
-  },
+    images: ["/images/og-image.png"]
+  }
 };
 
 const LOGO_SYMBOL_URL = "/images/LIBERTRENDZ.png";
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-PT">
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
         {/* HEADER */}
         <header className="relative z-30 border-b border-slate-900/80 bg-slate-950/90">
@@ -48,7 +49,7 @@ export default function RootLayout({
                   LIBERTRENDZ
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  Moduz+ · Apps · Sites · Consultoria Ágil
+                  Moduz+ · Apps · Sites & Landing Pages · Consultoria Ágil
                 </span>
               </div>
             </a>
@@ -70,15 +71,19 @@ export default function RootLayout({
               <a href="/apps" className="hover:text-accent-400">
                 Apps & Websites
               </a>
+
               <a href="/agile" className="hover:text-accent-400">
                 Consultoria Ágil
               </a>
+
               <a href="/cases" className="hover:text-accent-400">
                 Cases
               </a>
+
               <a href="/sobre" className="hover:text-accent-400">
                 Sobre
               </a>
+
               <a href="/contato" className="hover:text-accent-400">
                 Contato
               </a>
@@ -94,14 +99,12 @@ export default function RootLayout({
                 <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
               </summary>
 
-              {/* dropdown com z-50 para ficar acima do hero */}
-              <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60 z-50">
+              <div className="absolute right-0 mt-2 w-56 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60 z-50">
                 <nav className="flex flex-col gap-2 text-slate-200">
                   <a href="/" className="hover:text-accent-400">
                     Início
                   </a>
 
-                  {/* Moduz+ destacado no mobile também */}
                   <a
                     href="/moduz"
                     className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-cyan-400 font-semibold hover:text-cyan-300"
@@ -112,15 +115,19 @@ export default function RootLayout({
                   <a href="/apps" className="hover:text-accent-400">
                     Apps & Websites
                   </a>
+
                   <a href="/agile" className="hover:text-accent-400">
                     Consultoria Ágil
                   </a>
+
                   <a href="/cases" className="hover:text-accent-400">
                     Cases
                   </a>
+
                   <a href="/sobre" className="hover:text-accent-400">
                     Sobre
                   </a>
+
                   <a href="/contato" className="hover:text-accent-400">
                     Contato
                   </a>
@@ -131,7 +138,7 @@ export default function RootLayout({
                     href="/contato"
                     className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
                   >
-                    Falar com a Libertrendz
+                    Entrar em contato
                   </a>
                 </nav>
               </div>
@@ -139,7 +146,6 @@ export default function RootLayout({
           </div>
         </header>
 
-        {/* CONTEÚDO PRINCIPAL */}
         <main>{children}</main>
 
         {/* FOOTER */}
@@ -164,7 +170,7 @@ export default function RootLayout({
                 reservados.
               </div>
               <div className="text-[10px] text-slate-500">
-                Moduz+ · Apps · Sites · Consultoria Ágil
+                Moduz+ · Apps · Sites & Landing Pages · Consultoria Ágil
               </div>
             </div>
 
@@ -189,8 +195,6 @@ export default function RootLayout({
                   </a>
                 </div>
               </div>
-
-              {/* CTA grande removido para evitar duplicação com o CTA das páginas */}
             </div>
           </div>
         </footer>
