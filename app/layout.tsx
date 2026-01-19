@@ -1,4 +1,4 @@
-// repo: libertrendz-site/app/layout.tsx
+// app/layout.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
@@ -6,24 +6,24 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — Moduz+ (ERP modular), Apps customizados, Sites e Landing Pages, e Consultoria Ágil para PMEs.",
+    "Libertrendz — Moduz+, Apps customizados, Sites e Landing Pages, Consultoria Ágil para PMEs.",
   icons: {
     icon: [
+      { url: "/favicon.ico" },
       { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" }
     ],
-    apple: "/images/apple-touch-icon-180x180.png"
+    apple: "/images/apple-touch-icon-180x180.png",
   },
   openGraph: {
-    images: ["/images/og-image.png"]
-  }
+    images: ["/images/og-image.png"],
+  },
 };
 
 const LOGO_SYMBOL_URL = "/images/LIBERTRENDZ.png";
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -49,7 +49,7 @@ export default function RootLayout({
                   LIBERTRENDZ
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  Moduz+ · Apps · Sites & Landing Pages · Consultoria Ágil
+                  Moduz+ · Apps customizados · Sites · Consultoria Ágil
                 </span>
               </div>
             </a>
@@ -69,27 +69,26 @@ export default function RootLayout({
               </a>
 
               <a href="/apps" className="hover:text-accent-400">
-                Apps & Websites
+                Apps customizados
               </a>
-
+              <a href="/sites" className="hover:text-accent-400">
+                Sites & Landing Pages
+              </a>
               <a href="/agile" className="hover:text-accent-400">
                 Consultoria Ágil
               </a>
-
               <a href="/cases" className="hover:text-accent-400">
                 Cases
               </a>
-
               <a href="/sobre" className="hover:text-accent-400">
                 Sobre
               </a>
-
               <a href="/contato" className="hover:text-accent-400">
                 Contato
               </a>
             </nav>
 
-            {/* NAV MOBILE */}
+            {/* NAV MOBILE (hambúrguer + dropdown simples) */}
             <details className="relative sm:hidden">
               <summary
                 className="flex cursor-pointer items-center rounded-md border border-slate-700 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-accent-400 hover:text-accent-400"
@@ -99,7 +98,8 @@ export default function RootLayout({
                 <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
               </summary>
 
-              <div className="absolute right-0 mt-2 w-56 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60 z-50">
+              {/* dropdown com z-50 para ficar acima do conteúdo */}
+              <div className="absolute right-0 z-50 mt-2 w-56 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
                 <nav className="flex flex-col gap-2 text-slate-200">
                   <a href="/" className="hover:text-accent-400">
                     Início
@@ -113,21 +113,20 @@ export default function RootLayout({
                   </a>
 
                   <a href="/apps" className="hover:text-accent-400">
-                    Apps & Websites
+                    Apps customizados
                   </a>
-
+                  <a href="/sites" className="hover:text-accent-400">
+                    Sites & Landing Pages
+                  </a>
                   <a href="/agile" className="hover:text-accent-400">
                     Consultoria Ágil
                   </a>
-
                   <a href="/cases" className="hover:text-accent-400">
                     Cases
                   </a>
-
                   <a href="/sobre" className="hover:text-accent-400">
                     Sobre
                   </a>
-
                   <a href="/contato" className="hover:text-accent-400">
                     Contato
                   </a>
@@ -146,6 +145,7 @@ export default function RootLayout({
           </div>
         </header>
 
+        {/* CONTEÚDO PRINCIPAL */}
         <main>{children}</main>
 
         {/* FOOTER */}
@@ -165,12 +165,14 @@ export default function RootLayout({
                   LIBERTRENDZ
                 </span>
               </div>
+
               <div className="text-[10px] text-slate-500">
                 © {new Date().getFullYear()} Libertrendz. Todos os direitos
                 reservados.
               </div>
+
               <div className="text-[10px] text-slate-500">
-                Moduz+ · Apps · Sites & Landing Pages · Consultoria Ágil
+                Moduz+ · Apps customizados · Sites · Consultoria Ágil
               </div>
             </div>
 
