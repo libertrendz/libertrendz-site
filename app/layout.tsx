@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
@@ -5,11 +6,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — ERPs, Apps sob medida para profissionais e PMEs, Websites, Mentoria Tech e Projetos Ágeis.",
+    "Libertrendz — Moduz+ (módulos para PMEs), Apps customizados, Sites e Landing Pages, Consultoria Ágil.",
   icons: {
     icon: [
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
     apple: "/apple-touch-icon-180x180.png",
   },
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 const LOGO_SYMBOL_URL = "/images/LIBERTRENDZ.png";
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -47,29 +48,43 @@ export default function RootLayout({
                   LIBERTRENDZ
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  Moduz+ · Apps · Mentoria · Projetos Ágeis 
+                  Moduz+ · Apps · Sites · Consultoria Ágil
                 </span>
               </div>
             </a>
 
             {/* NAV DESKTOP */}
             <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
-              <a href="/" className="hover:text-accent-400">Início</a>
+              <a href="/" className="hover:text-accent-400">
+                Início
+              </a>
 
-              {/* Moduz+ destacado em cyan (usa cyan, não accent) */}
-              <a href="/moduz" className="text-cyan-400 font-semibold hover:text-cyan-300">
+              {/* Moduz+ destacado em cyan */}
+              <a
+                href="/moduz"
+                className="text-cyan-400 font-semibold hover:text-cyan-300"
+              >
                 Moduz+
               </a>
 
-              <a href="/apps" className="hover:text-accent-400">Apps & Websites</a>
-              <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
-              <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-              <a href="/cases" className="hover:text-accent-400">Cases</a>
-              <a href="/sobre" className="hover:text-accent-400">Sobre</a>
-              <a href="/contato" className="hover:text-accent-400">Contato</a>
+              <a href="/apps" className="hover:text-accent-400">
+                Apps & Websites
+              </a>
+              <a href="/agile" className="hover:text-accent-400">
+                Consultoria Ágil
+              </a>
+              <a href="/cases" className="hover:text-accent-400">
+                Cases
+              </a>
+              <a href="/sobre" className="hover:text-accent-400">
+                Sobre
+              </a>
+              <a href="/contato" className="hover:text-accent-400">
+                Contato
+              </a>
             </nav>
 
-            {/* NAV MOBILE (hambúrguer + dropdown simples) */}
+            {/* NAV MOBILE */}
             <details className="relative sm:hidden">
               <summary
                 className="flex cursor-pointer items-center rounded-md border border-slate-700 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-accent-400 hover:text-accent-400"
@@ -82,25 +97,41 @@ export default function RootLayout({
               {/* dropdown com z-50 para ficar acima do hero */}
               <div className="absolute right-0 mt-2 w-48 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60 z-50">
                 <nav className="flex flex-col gap-2 text-slate-200">
-                  <a href="/" className="hover:text-accent-400">Início</a>
+                  <a href="/" className="hover:text-accent-400">
+                    Início
+                  </a>
 
                   {/* Moduz+ destacado no mobile também */}
-                  <a href="/moduz" className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-cyan-400 font-semibold hover:text-cyan-300">
+                  <a
+                    href="/moduz"
+                    className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-cyan-400 font-semibold hover:text-cyan-300"
+                  >
                     Moduz+
                   </a>
 
-                  <a href="/apps" className="hover:text-accent-400">Apps & Websites</a>
-                  <a href="/mentoria" className="hover:text-accent-400">Mentoria Tech Reload</a>
-                  <a href="/agile" className="hover:text-accent-400">Consultoria Ágil</a>
-                  <a href="/cases" className="hover:text-accent-400">Cases</a>
-                  <a href="/sobre" className="hover:text-accent-400">Sobre</a>
-                  <a href="/contato" className="hover:text-accent-400">Contato</a>
+                  <a href="/apps" className="hover:text-accent-400">
+                    Apps & Websites
+                  </a>
+                  <a href="/agile" className="hover:text-accent-400">
+                    Consultoria Ágil
+                  </a>
+                  <a href="/cases" className="hover:text-accent-400">
+                    Cases
+                  </a>
+                  <a href="/sobre" className="hover:text-accent-400">
+                    Sobre
+                  </a>
+                  <a href="/contato" className="hover:text-accent-400">
+                    Contato
+                  </a>
+
                   <hr className="my-1 border-slate-800" />
+
                   <a
                     href="/contato"
                     className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
                   >
-                    Entrar em contato
+                    Falar com a Libertrendz
                   </a>
                 </nav>
               </div>
@@ -133,7 +164,7 @@ export default function RootLayout({
                 reservados.
               </div>
               <div className="text-[10px] text-slate-500">
-                Mentoria Tech · Projetos Ágeis · Apps
+                Moduz+ · Apps · Sites · Consultoria Ágil
               </div>
             </div>
 
@@ -150,8 +181,12 @@ export default function RootLayout({
                   </a>
                 </div>
                 <div className="space-x-3 text-[11px]">
-                  <a href="/sobre" className="hover:text-accent-400">Sobre a Libertrendz</a>
-                  <a href="/contato" className="hover:text-accent-400">Página de contato</a>
+                  <a href="/sobre" className="hover:text-accent-400">
+                    Sobre a Libertrendz
+                  </a>
+                  <a href="/contato" className="hover:text-accent-400">
+                    Página de contato
+                  </a>
                 </div>
               </div>
 
