@@ -298,7 +298,7 @@ Libertrendz
 <ul>
   <li>link do site (se existir)</li>
   <li>nº de pessoas na operação</li>
-  <li>o que está a doer mais hoje</li>
+  <li>qual a principal queixa e o que quer melhorar</li>
 </ul>
 <p>Obrigado,<br/>Libertrendz</p>
 `.trim();
