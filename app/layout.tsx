@@ -83,6 +83,15 @@ export default function RootLayout({
               <a href="/sobre" className="hover:text-accent-400">
                 Sobre
               </a>
+
+              {/* CTA — Diagnóstico (always visible) */}
+              <a
+                href="/diagnostico?src=header"
+                className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
+              >
+                Diagnóstico
+              </a>
+
               <a href="/contato" className="hover:text-accent-400">
                 Contato
               </a>
@@ -133,9 +142,18 @@ export default function RootLayout({
 
                   <hr className="my-1 border-slate-800" />
 
+                  {/* CTA — Diagnóstico (principal no mobile) */}
+                  <a
+                    href="/diagnostico?src=header_mobile"
+                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
+                  >
+                    Diagnóstico
+                  </a>
+
+                  {/* CTA — Contato (secundário no mobile) */}
                   <a
                     href="/contato"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
+                    className="inline-flex items-center justify-center rounded-md border border-slate-700 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900/60"
                   >
                     Entrar em contato
                   </a>
