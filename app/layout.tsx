@@ -2,11 +2,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
+import HideOnPaths from "@/components/hide-on-paths";
 
 export const metadata: Metadata = {
   title: "Libertrendz",
-  description:
-    "Libertrendz — Moduz+, Apps customizados, Websites, Consultoria Ágil para PMEs.",
+  description: "Libertrendz — Moduz+, Apps customizados, Websites, Consultoria Ágil para PMEs.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -22,60 +22,56 @@ export const metadata: Metadata = {
 
 const LOGO_SYMBOL_URL = "/images/LIBERTRENDZ.png";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-PT">
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
-        {/* HEADER */}
-        <header className="relative z-30 border-b border-slate-900/80 bg-slate-950/90">
-          <div className="container-page flex items-center justify-between py-5">
-            {/* Marca principal */}
-            <a href="/" className="flex items-center gap-3">
-              <div className="relative h-10 w-10 rounded-lg bg-slate-950">
-                <Image
-                  src={LOGO_SYMBOL_URL}
-                  alt="Libertrendz"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-[13px] font-semibold tracking-[0.26em] text-slate-100">
-                  LIBERTRENDZ
-                </span>
-                <span className="text-[11px] text-slate-400">
-                  ERP Moduz+ · Apps customizados · Sites · Consultoria
-                </span>
-              </div>
-            </a>
+        {/* HEADER (oculto em /bio) */}
+        <HideOnPaths hidePrefixes={["/bio"]}>
+          <header className="relative z-30 border-b border-slate-900/80 bg-slate-950/90">
+            <div className="container-page flex items-center justify-between py-5">
+              {/* Marca principal */}
+              <a href="/" className="flex items-center gap-3">
+                <div className="relative h-10 w-10 rounded-lg bg-slate-950">
+                  <Image
+                    src={LOGO_SYMBOL_URL}
+                    alt="Libertrendz"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-[13px] font-semibold tracking-[0.26em] text-slate-100">
+                    LIBERTRENDZ
+                  </span>
+                  <span className="text-[11px] text-slate-400">
+                    ERP Moduz+ · Apps customizados · Sites · Consultoria
+                  </span>
+                </div>
+              </a>
 
-            {/* DESKTOP: links + CTA separado */}
-            <div className="hidden items-center gap-4 sm:flex">
-              <nav className="flex items-center gap-5 text-xs font-medium text-slate-300">
+              {/* NAV DESKTOP */}
+              <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
                 <a href="/" className="hover:text-accent-400">
                   Início
                 </a>
 
                 <a
                   href="/moduz"
-                  className="text-cyan-400 font-semibold hover:text-cyan-300"
+                  className="font-semibold text-cyan-400 hover:text-cyan-300"
                 >
                   Moduz+
                 </a>
 
                 <a href="/apps" className="hover:text-accent-400">
-                  Apps
+                  Apps customizados
                 </a>
                 <a href="/sites" className="hover:text-accent-400">
                   Websites
                 </a>
                 <a href="/agile" className="hover:text-accent-400">
-                  Ágil
+                  Consultoria Ágil
                 </a>
                 <a href="/cases" className="hover:text-accent-400">
                   Cases
@@ -88,135 +84,118 @@ export default function RootLayout({
                 </a>
               </nav>
 
-              <a
-                href="/diagnostico?src=header"
-                className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-2 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
-              >
-                Diagnóstico
-              </a>
+              {/* NAV MOBILE */}
+              <details className="relative sm:hidden">
+                <summary
+                  className="flex cursor-pointer items-center rounded-md border border-slate-700 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-accent-400 hover:text-accent-400"
+                  aria-label="Abrir menu de navegação"
+                >
+                  <span className="mr-2">Menu</span>
+                  <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
+                </summary>
+
+                <div className="absolute right-0 z-50 mt-2 w-56 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
+                  <nav className="flex flex-col gap-2 text-slate-200">
+                    <a href="/" className="hover:text-accent-400">
+                      Início
+                    </a>
+
+                    <a
+                      href="/moduz"
+                      className="inline-flex items-center gap-2 rounded-md px-2 py-1 font-semibold text-cyan-400 hover:text-cyan-300"
+                    >
+                      Moduz+
+                    </a>
+
+                    <a href="/apps" className="hover:text-accent-400">
+                      Apps customizados
+                    </a>
+                    <a href="/sites" className="hover:text-accent-400">
+                      Sites & Landing Pages
+                    </a>
+                    <a href="/agile" className="hover:text-accent-400">
+                      Consultoria Ágil
+                    </a>
+                    <a href="/cases" className="hover:text-accent-400">
+                      Cases
+                    </a>
+                    <a href="/sobre" className="hover:text-accent-400">
+                      Sobre
+                    </a>
+                    <a href="/contato" className="hover:text-accent-400">
+                      Contato
+                    </a>
+
+                    <hr className="my-1 border-slate-800" />
+
+                    <a
+                      href="/contato"
+                      className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
+                    >
+                      Entrar em contato
+                    </a>
+                  </nav>
+                </div>
+              </details>
             </div>
+          </header>
+        </HideOnPaths>
 
-            {/* NAV MOBILE (hambúrguer + dropdown simples) */}
-            <details className="relative sm:hidden">
-              <summary
-                className="flex cursor-pointer items-center rounded-md border border-slate-700 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-accent-400 hover:text-accent-400"
-                aria-label="Abrir menu de navegação"
-              >
-                <span className="mr-2">Menu</span>
-                <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
-              </summary>
-
-              <div className="absolute right-0 z-50 mt-2 w-56 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
-                <nav className="flex flex-col gap-2 text-slate-200">
-                  {/* CTA primeiro */}
-                  <a
-                    href="/diagnostico?src=header_mobile"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
-                  >
-                    Diagnóstico
-                  </a>
-
-                  <hr className="my-1 border-slate-800" />
-
-                  <a href="/" className="hover:text-accent-400">
-                    Início
-                  </a>
-
-                  <a
-                    href="/moduz"
-                    className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-cyan-400 font-semibold hover:text-cyan-300"
-                  >
-                    Moduz+
-                  </a>
-
-                  <a href="/apps" className="hover:text-accent-400">
-                    Apps customizados
-                  </a>
-                  <a href="/sites" className="hover:text-accent-400">
-                    Sites & Landing Pages
-                  </a>
-                  <a href="/agile" className="hover:text-accent-400">
-                    Consultoria Ágil
-                  </a>
-                  <a href="/cases" className="hover:text-accent-400">
-                    Cases
-                  </a>
-                  <a href="/sobre" className="hover:text-accent-400">
-                    Sobre
-                  </a>
-                  <a href="/contato" className="hover:text-accent-400">
-                    Contato
-                  </a>
-
-                  <hr className="my-1 border-slate-800" />
-
-                  <a
-                    href="/contato"
-                    className="inline-flex items-center justify-center rounded-md border border-slate-700 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900/60"
-                  >
-                    Entrar em contato
-                  </a>
-                </nav>
-              </div>
-            </details>
-          </div>
-        </header>
-
-        {/* CONTEÚDO PRINCIPAL */}
         <main>{children}</main>
 
-        {/* FOOTER */}
-        <footer className="mt-16 border-t border-slate-900/80 bg-slate-950/90">
-          <div className="container-page flex flex-col gap-4 py-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <div className="relative h-5 w-5">
-                  <Image
-                    src={LOGO_SYMBOL_URL}
-                    alt="Libertrendz"
-                    fill
-                    className="object-contain"
-                  />
+        {/* FOOTER (oculto em /bio) */}
+        <HideOnPaths hidePrefixes={["/bio"]}>
+          <footer className="mt-16 border-t border-slate-900/80 bg-slate-950/90">
+            <div className="container-page flex flex-col gap-4 py-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <div className="relative h-5 w-5">
+                    <Image
+                      src={LOGO_SYMBOL_URL}
+                      alt="Libertrendz"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="text-[11px] font-semibold tracking-[0.22em] text-slate-300">
+                    LIBERTRENDZ
+                  </span>
                 </div>
-                <span className="text-[11px] font-semibold tracking-[0.22em] text-slate-300">
-                  LIBERTRENDZ
-                </span>
+
+                <div className="text-[10px] text-slate-500">
+                  © {new Date().getFullYear()} Libertrendz. Todos os direitos reservados.
+                </div>
+
+                <div className="text-[10px] text-slate-500">
+                  Moduz+ · Apps customizados · Sites · Consultoria Ágil
+                </div>
               </div>
 
-              <div className="text-[10px] text-slate-500">
-                © {new Date().getFullYear()} Libertrendz. Todos os direitos
-                reservados.
-              </div>
-
-              <div className="text-[10px] text-slate-500">
-                Moduz+ · Apps customizados · Sites · Consultoria Ágil
+              <div className="flex flex-col gap-2 text-xs text-slate-400 md:items-end">
+                <div className="space-y-1 text-right">
+                  <div>Telemóvel: +351 939 250 661</div>
+                  <div>
+                    E-mail:{" "}
+                    <a
+                      href="mailto:contato@libertrendz.eu"
+                      className="text-accent-400 hover:text-accent-300"
+                    >
+                      contato@libertrendz.eu
+                    </a>
+                  </div>
+                  <div className="space-x-3 text-[11px]">
+                    <a href="/sobre" className="hover:text-accent-400">
+                      Sobre a Libertrendz
+                    </a>
+                    <a href="/contato" className="hover:text-accent-400">
+                      Página de contato
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div className="flex flex-col gap-2 text-xs text-slate-400 md:items-end">
-              <div className="space-y-1 text-right">
-                <div>Telemóvel: +351 939 250 661</div>
-                <div>
-                  E-mail:{" "}
-                  <a
-                    href="mailto:contato@libertrendz.eu"
-                    className="text-accent-400 hover:text-accent-300"
-                  >
-                    contato@libertrendz.eu
-                  </a>
-                </div>
-                <div className="space-x-3 text-[11px]">
-                  <a href="/sobre" className="hover:text-accent-400">
-                    Sobre a Libertrendz
-                  </a>
-                  <a href="/contato" className="hover:text-accent-400">
-                    Página de contato
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+          </footer>
+        </HideOnPaths>
       </body>
     </html>
   );
