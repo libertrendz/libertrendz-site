@@ -1,5 +1,4 @@
-///app/diagnostico/page.tsx
-
+// app/diagnostico/page.tsx
 "use client";
 
 import { useMemo, useState } from "react";
@@ -135,17 +134,17 @@ function routeRecommendation(input: {
   const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
   const why: string[] = [];
 
-  // SITES: conversão e caixa imediato
+  // SITES
   if (has("conversao")) score.sites += 7;
   if (context === "trafego_sem_lead") score.sites += 7;
   if (priority === "conversao") score.sites += 8;
 
-  // CONSULTORIA: execução travada / decisões tortas / reduzir retrabalho
+  // CONSULTORIA
   if (has("entrega")) score.agile += 6;
   if (context === "mvp_torto") score.agile += 8;
   if (priority === "execucao") score.agile += 8;
 
-  // MODUZ: estrutura operacional e escala
+  // MODUZ
   if (has("campo")) score.moduz += 8;
   if (has("ruido")) score.moduz += 6;
   if (has("visibilidade")) score.moduz += 6;
@@ -156,7 +155,7 @@ function routeRecommendation(input: {
   if (priority === "margem_campo") score.moduz += 8;
   if (priority === "escala") score.moduz += 7;
 
-  // APPS: piloto rápido para dor específica (quando não precisa ERP agora)
+  // APPS
   if (context === "manual") score.apps += 5;
   if (context === "ferramentas") score.apps += 5;
 
@@ -169,7 +168,6 @@ function routeRecommendation(input: {
   if (priority === "controle" || priority === "escala") score.apps += 1;
   if (priority === "margem_campo") score.apps += 1;
 
-  // Ajuste: se contexto é “mvp torto”, prioriza consultoria antes de produto
   if (context === "mvp_torto") {
     score.agile += 2;
     score.moduz -= 1;
@@ -182,11 +180,8 @@ function routeRecommendation(input: {
   const primary = entries[0][0];
   const secondary = entries[1][0];
 
-  // Explicação curta
   if (primary === "sites") {
-    why.push(
-      "Sinais fortes de conversão: proposta, prova, CTA e rastreio precisam de ajuste imediato."
-    );
+    why.push("Sinais fortes de conversão: proposta, prova, CTA e rastreio precisam de ajuste imediato.");
   }
   if (primary === "moduz") {
     why.push("Dores operacionais de controlo, escala e/ou campo pedem sistema modular e governança.");
@@ -199,14 +194,10 @@ function routeRecommendation(input: {
   }
 
   if (secondary && secondary !== primary) {
-    if (secondary === "moduz")
-      why.push("Alternativa: Moduz+ como próximo passo quando a operação exigir escala e controlo total.");
-    if (secondary === "apps")
-      why.push("Alternativa: app customizado resolve uma parte rapidamente e valida o caminho.");
-    if (secondary === "sites")
-      why.push("Alternativa: melhorar conversão pode destravar caixa e pipeline.");
-    if (secondary === "agile")
-      why.push("Alternativa: consultoria acelera execução e evita retrabalho caro.");
+    if (secondary === "moduz") why.push("Alternativa: Moduz+ como próximo passo quando a operação exigir escala e controlo total.");
+    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente e valida o caminho.");
+    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar caixa e pipeline.");
+    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho caro.");
   }
 
   return { primary, secondary, why };
@@ -234,14 +225,12 @@ function assuntoForPath(p: PathKey) {
 }
 
 export default function DiagnosticoPage() {
-  // 1,2,3 perguntas + 4 captura lead + 5 resultado
   const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
 
   const [symptoms, setSymptoms] = useState<SymptomKey[]>([]);
   const [context, setContext] = useState<ContextKey | null>(null);
   const [priority, setPriority] = useState<PriorityKey | null>(null);
 
-  // Captura lead (antes do resultado)
   const [leadName, setLeadName] = useState("");
   const [leadEmail, setLeadEmail] = useState("");
   const [leadStatus, setLeadStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
@@ -310,16 +299,12 @@ export default function DiagnosticoPage() {
           nome: leadName.trim(),
           email: leadEmail.trim(),
           assunto: `Diagnóstico — ${assuntoForPath(rec.primary)}`,
-
-          // Campos estruturados (para o email interno NÃO vir em branco)
           dores,
           cenario,
           prioridade: prio,
           recomendacaoPrincipal: labelForPath(rec.primary),
           recomendacaoAlternativa: labelForPath(rec.secondary),
           resumo: summaryText,
-
-          // Compatibilidade com validação antiga
           mensagem: summaryText,
         }),
       });
@@ -397,9 +382,7 @@ export default function DiagnosticoPage() {
                         checked={checked}
                         onChange={() => {
                           setSymptoms((prev) =>
-                            prev.includes(s.key)
-                              ? prev.filter((x) => x !== s.key)
-                              : [...prev, s.key]
+                            prev.includes(s.key) ? prev.filter((x) => x !== s.key) : [...prev, s.key]
                           );
                         }}
                       />
@@ -420,7 +403,7 @@ export default function DiagnosticoPage() {
               <button
                 disabled={!canNext1}
                 onClick={() => setStep(2)}
-                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
+                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60 whitespace-nowrap"
               >
                 Continuar
               </button>
@@ -460,16 +443,13 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button
-                onClick={() => setStep(1)}
-                className="text-sm text-slate-300 hover:text-slate-100"
-              >
+              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
                 Voltar
               </button>
               <button
                 disabled={!canNext2}
                 onClick={() => setStep(3)}
-                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
+                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60 whitespace-nowrap"
               >
                 Continuar
               </button>
@@ -509,16 +489,13 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button
-                onClick={() => setStep(2)}
-                className="text-sm text-slate-300 hover:text-slate-100"
-              >
+              <button onClick={() => setStep(2)} className="text-sm text-slate-300 hover:text-slate-100">
                 Voltar
               </button>
               <button
                 disabled={!canNext3}
                 onClick={() => setStep(4)}
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:opacity-60"
+                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:opacity-60 whitespace-nowrap"
               >
                 Continuar
               </button>
@@ -526,7 +503,7 @@ export default function DiagnosticoPage() {
           </div>
         )}
 
-        {/* STEP 4 — CAPTURA LEAD */}
+        {/* STEP 4 — CAPTURA LEAD (sem botão “ir direto ao contato” aqui) */}
         {step === 4 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
@@ -541,7 +518,7 @@ export default function DiagnosticoPage() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
-                    Nome (obrigatório)
+                    Nome
                   </label>
                   <input
                     value={leadName}
@@ -551,13 +528,13 @@ export default function DiagnosticoPage() {
                     required
                   />
                   {!leadNameOk && leadName.length > 0 && (
-                    <p className="mt-2 text-xs text-rose-400">Escreve pelo menos 2 caracteres.</p>
+                    <p className="mt-2 text-xs text-rose-400">Indica um nome válido.</p>
                   )}
                 </div>
 
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
-                    E-mail (obrigatório)
+                    E-mail
                   </label>
                   <input
                     value={leadEmail}
@@ -575,40 +552,28 @@ export default function DiagnosticoPage() {
 
               {leadStatus === "error" && (
                 <p className="text-xs text-rose-400">
-                  Não foi possível registar agora. Podes tentar novamente ou seguir para o contato manual.
+                  Não foi possível enviar agora. Tenta novamente.
                 </p>
               )}
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                <button
-                  onClick={() => setStep(3)}
-                  className="text-sm text-slate-300 hover:text-slate-100"
-                >
+                <button onClick={() => setStep(3)} className="text-sm text-slate-300 hover:text-slate-100">
                   Voltar
                 </button>
 
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href={contatoHref}
-                    className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-                  >
-                    Ir direto ao contato
-                  </a>
-
-                  <button
-                    disabled={!canNext4 || leadStatus === "loading"}
-                    onClick={submitLeadAndContinue}
-                    className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
-                  >
-                    {leadStatus === "loading" ? "A enviar…" : "Ver recomendação"}
-                  </button>
-                </div>
+                <button
+                  disabled={!canNext4 || leadStatus === "loading"}
+                  onClick={submitLeadAndContinue}
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60 whitespace-nowrap"
+                >
+                  {leadStatus === "loading" ? "A enviar…" : "Ver recomendação"}
+                </button>
               </div>
             </div>
           </div>
         )}
 
-        {/* STEP 5 — RESULTADO */}
+        {/* STEP 5 — RESULTADO (aqui sim: botões fazem sentido) */}
         {step === 5 && (
           <div className="space-y-8">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
@@ -646,20 +611,20 @@ export default function DiagnosticoPage() {
                     Próximo passo
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Se quiseres acelerar: agenda um diagnóstico curto. Nós já vamos com contexto (sem conversa genérica).
+                    Se quiseres acelerar: envia-nos contexto. Nós respondemos em até 24 horas.
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-3">
+                  <div className="mt-4 flex flex-col sm:flex-row flex-wrap gap-3">
                     <a
                       href={contatoHref}
-                      className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+                      className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 whitespace-nowrap"
                     >
                       Agendar diagnóstico
                     </a>
 
                     <a
                       href={linkForPath(rec.primary)}
-                      className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+                      className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60 whitespace-nowrap"
                     >
                       Ver detalhes
                     </a>
@@ -676,10 +641,7 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex items-center justify-between gap-3">
-              <button
-                onClick={() => setStep(1)}
-                className="text-sm text-slate-300 hover:text-slate-100"
-              >
+              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
                 Recomeçar
               </button>
               <a href="/" className="text-sm text-slate-300 hover:text-slate-100">
