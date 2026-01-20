@@ -266,7 +266,7 @@ export default function HomePage() {
                   Faz o diagnóstico e recebe uma recomendação clara.
                 </p>
                 <p className="mt-1 text-sm text-slate-300">
-                  3 passos. Sem compromisso. Resposta em até 2 dias úteis.
+                  3 passos. Sem compromisso. Contato em até 24 horas.
                 </p>
               </div>
               <a
