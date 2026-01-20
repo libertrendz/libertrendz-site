@@ -1,4 +1,3 @@
-// app/diagnostico/page.tsx
 "use client";
 
 import { useMemo, useState } from "react";
@@ -63,22 +62,20 @@ function routeRecommendation(input: {
 
   const has = (k: SymptomKey) => symptoms.includes(k);
 
-  // Scores simples e previsíveis (sem IA).
-  // Nota de negócio: Sites/Landing tem caixa imediato, mas só ganha quando há sinais claros de conversão.
   const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
   const why: string[] = [];
 
-  // Sites: conversão / caixa rápido quando o gargalo é funil
-  if (has("conversao")) score.sites += 8;
-  if (context === "trafego_sem_lead") score.sites += 8;
-  if (priority === "conversao") score.sites += 9;
+  // SITES: conversão e caixa imediato
+  if (has("conversao")) score.sites += 7;
+  if (context === "trafego_sem_lead") score.sites += 7;
+  if (priority === "conversao") score.sites += 8;
 
-  // Consultoria/Agile: execução / decisões tortas
-  if (has("entrega")) score.agile += 7;
-  if (context === "mvp_torto") score.agile += 9;
+  // CONSULTORIA: execução travada / decisões tortas / reduzir retrabalho
+  if (has("entrega")) score.agile += 6;
+  if (context === "mvp_torto") score.agile += 8;
   if (priority === "execucao") score.agile += 8;
 
-  // Moduz: estrutura operacional (controlo, escala, campo)
+  // MODUZ: estrutura operacional e escala
   if (has("campo")) score.moduz += 8;
   if (has("ruido")) score.moduz += 6;
   if (has("visibilidade")) score.moduz += 6;
@@ -86,24 +83,22 @@ function routeRecommendation(input: {
   if (has("crescimento")) score.moduz += 7;
   if (context === "erp_ruim") score.moduz += 7;
   if (priority === "controle") score.moduz += 6;
-  if (priority === "margem_campo") score.moduz += 9;
+  if (priority === "margem_campo") score.moduz += 8;
   if (priority === "escala") score.moduz += 7;
 
-  // Apps: dor específica / piloto rápido
-  if (context === "manual") score.apps += 6;
-  if (context === "ferramentas") score.apps += 6;
+  // APPS: piloto rápido para dor específica (quando não precisa ERP agora)
+  if (context === "manual") score.apps += 5;
+  if (context === "ferramentas") score.apps += 5;
 
-  // Se não há sinais fortes de Moduz e não é conversão, apps ganha tração
-  if (
-    !has("campo") &&
-    !has("crescimento") &&
-    !has("gargalo") &&
-    !has("visibilidade") &&
-    !has("ruido") &&
-    !has("conversao")
-  ) {
-    score.apps += 5;
-  }
+  // Se não há sinais fortes de Moduz e também não é conversão, apps ganha tração
+  const sinaisModuz =
+    has("campo") || has("crescimento") || has("gargalo") || has("visibilidade") || has("ruido");
+  const sinaisSites = has("conversao") || context === "trafego_sem_lead" || priority === "conversao";
+
+  if (!sinaisModuz && !sinaisSites) score.apps += 5;
+
+  if (priority === "controle" || priority === "escala") score.apps += 1;
+  if (priority === "margem_campo") score.apps += 1;
 
   // Ajuste: se contexto é “mvp torto”, prioriza consultoria antes de produto
   if (context === "mvp_torto") {
@@ -118,29 +113,25 @@ function routeRecommendation(input: {
   const primary = entries[0][0];
   const secondary = entries[1][0];
 
-  // Explicação curta (por que)
+  // Explicação curta
   if (primary === "sites") {
-    why.push("O gargalo é conversão (mensagem, prova, CTA e rastreio).");
-    why.push("Landing/site bem feito destrava caixa rápido e qualifica leads.");
+    why.push("Sinais fortes de conversão/lead: mensagem, prova, CTA e rastreio precisam de ajuste imediato.");
   }
   if (primary === "moduz") {
-    why.push("Dores operacionais de controlo, escala e/ou campo apontam para sistema modular.");
-    why.push("Objetivo é previsibilidade e margem, sem travar a operação.");
+    why.push("Dores operacionais de controlo, escala e/ou campo pedem sistema modular e governança.");
   }
   if (primary === "apps") {
-    why.push("Dor específica pede piloto rápido, leve e direto (sem big bang).");
-    why.push("Quando a operação exigir escala, Moduz+ pode virar o próximo passo.");
+    why.push("Dor específica com necessidade de piloto rápido e leve, sem entrar num ERP completo agora.");
   }
   if (primary === "agile") {
-    why.push("Problema central é execução/decisão; melhor pôr ordem antes de investir mais.");
-    why.push("Reduce retrabalho, ruído e acelera previsibilidade de entrega.");
+    why.push("O gargalo é execução/decisão: melhor pôr ordem antes de investir mais em tecnologia.");
   }
 
   if (secondary && secondary !== primary) {
-    if (secondary === "moduz") why.push("Alternativa: Moduz+ como base quando a operação exigir governança.");
-    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente.");
-    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar o funil.");
-    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho.");
+    if (secondary === "moduz") why.push("Alternativa: Moduz+ como próximo passo quando a operação exigir escala e controlo total.");
+    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente e valida o caminho.");
+    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar caixa e pipeline.");
+    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho caro.");
   }
 
   return { primary, secondary, why };
@@ -168,22 +159,22 @@ function assuntoForPath(p: PathKey) {
 }
 
 export default function DiagnosticoPage() {
-  // 1-3 = perguntas
-  // 4 = captura de lead
-  // 5 = resultado
+  // 1,2,3 perguntas + 4 captura lead + 5 resultado
   const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
+
   const [symptoms, setSymptoms] = useState<SymptomKey[]>([]);
   const [context, setContext] = useState<ContextKey | null>(null);
   const [priority, setPriority] = useState<PriorityKey | null>(null);
 
+  // Captura lead (antes do resultado)
   const [leadName, setLeadName] = useState("");
   const [leadEmail, setLeadEmail] = useState("");
-  const [leadStatus, setLeadStatus] = useState<{ ok: boolean; msg: string } | null>(null);
-  const [sendingLead, setSendingLead] = useState(false);
+  const [leadStatus, setLeadStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
 
   const canNext1 = symptoms.length >= 1;
   const canNext2 = !!context;
   const canNext3 = !!priority;
+  const canNext4 = !!leadEmail && /^\S+@\S+\.\S+$/.test(leadEmail);
 
   const rec = useMemo(() => {
     return routeRecommendation({ symptoms, context, priority });
@@ -214,51 +205,41 @@ export default function DiagnosticoPage() {
     return `/contato?assunto=${assunto}&mensagem=${msg}`;
   }, [rec.primary, summaryText]);
 
-  async function submitLead() {
-    setLeadStatus(null);
+  async function submitLeadAndContinue() {
+    setLeadStatus("loading");
 
-    const email = leadEmail.trim().toLowerCase();
-    const nome = leadName.trim();
-
-    if (!email) {
-      setLeadStatus({ ok: false, msg: "Preenche o teu e-mail para receber o resumo." });
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setLeadStatus({ ok: false, msg: "E-mail inválido. Confere e tenta novamente." });
-      return;
-    }
-
-    setSendingLead(true);
     try {
+      const dores = symptoms
+        .map((k) => SYMPTOMS.find((x) => x.key === k)?.title)
+        .filter(Boolean) as string[];
+
+      const cenario = CONTEXTS.find((x) => x.key === context)?.title || "-";
+      const prio = PRIORITIES.find((x) => x.key === priority)?.title || "-";
+
       const res = await fetch("/api/wizard", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nome: nome || null,
-          email,
-          symptoms,
-          context,
-          priority,
-          primary: rec.primary,
-          secondary: rec.secondary,
-          summaryText,
+          nome: leadName?.trim() || undefined,
+          email: leadEmail.trim(),
+          dores,
+          cenario,
+          prioridade: prio,
+          recomendacaoPrincipal: labelForPath(rec.primary),
+          recomendacaoAlternativa: labelForPath(rec.secondary),
+          resumo: summaryText,
         }),
       });
 
-      const data = await res.json().catch(() => null);
       if (!res.ok) {
-        const detail = data?.error || "Não foi possível registrar o diagnóstico agora. Tenta novamente.";
-        setLeadStatus({ ok: false, msg: detail });
+        setLeadStatus("error");
         return;
       }
 
-      setLeadStatus({ ok: true, msg: "Perfeito. Vamos responder em até 24 horas." });
+      setLeadStatus("ok");
       setStep(5);
     } catch {
-      setLeadStatus({ ok: false, msg: "Falha de rede. Tenta novamente." });
-    } finally {
-      setSendingLead(false);
+      setLeadStatus("error");
     }
   }
 
@@ -280,7 +261,7 @@ export default function DiagnosticoPage() {
             </h1>
             <p className="text-sm text-slate-200 max-w-2xl">
               3 passos. No final, recebes uma recomendação clara (Moduz+, app, site/landing ou consultoria)
-              e podes agendar a conversa.
+              e podes avançar para uma conversa objetiva.
             </p>
           </div>
         </div>
@@ -399,7 +380,9 @@ export default function DiagnosticoPage() {
           <div className="space-y-6">
             <div className="max-w-3xl">
               <h2 className="text-xl font-semibold text-slate-50">3) O que precisas destravar primeiro?</h2>
-              <p className="mt-2 text-sm text-slate-200">Isto define a prioridade imediata (o que resolve primeiro).</p>
+              <p className="mt-2 text-sm text-slate-200">
+                Isto define a prioridade imediata (o que resolve primeiro).
+              </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -430,7 +413,7 @@ export default function DiagnosticoPage() {
                 onClick={() => setStep(4)}
                 className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:opacity-60"
               >
-                Ver recomendação
+                Continuar
               </button>
             </div>
           </div>
@@ -439,27 +422,24 @@ export default function DiagnosticoPage() {
         {/* STEP 4 — CAPTURA LEVE */}
         {step === 4 && (
           <div className="space-y-6">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
-                Antes do resultado
+            <div className="max-w-3xl">
+              <h2 className="text-xl font-semibold text-slate-50">Antes de ver a recomendação</h2>
+              <p className="mt-2 text-sm text-slate-200">
+                Para onde enviamos o resumo do diagnóstico? Respondemos em até <span className="text-slate-50 font-semibold">24 horas</span>.
               </p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-50">
-                Para onde enviamos o resumo do diagnóstico?
-              </h2>
-              <p className="mt-2 text-sm text-slate-200 max-w-2xl">
-                Sem spam. Resposta em até <span className="text-cyan-300 font-semibold">24 horas</span>.
-              </p>
+            </div>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 rounded-2xl border border-slate-800 bg-slate-900/40 p-6 max-w-2xl">
+              <div className="grid gap-3 sm:grid-cols-2">
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
                     Nome (opcional)
                   </label>
                   <input
-                    className="mt-2 w-full rounded-md border border-slate-800 bg-transparent px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400"
-                    placeholder="Nome"
                     value={leadName}
                     onChange={(e) => setLeadName(e.target.value)}
+                    className="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/30"
+                    placeholder="Como devo chamar-te?"
                   />
                 </div>
 
@@ -468,51 +448,59 @@ export default function DiagnosticoPage() {
                     E-mail (obrigatório)
                   </label>
                   <input
-                    className="mt-2 w-full rounded-md border border-slate-800 bg-transparent px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400"
-                    placeholder="contato@exemplo.com"
-                    type="email"
                     value={leadEmail}
                     onChange={(e) => setLeadEmail(e.target.value)}
+                    type="email"
+                    className="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/30"
+                    placeholder="contato@empresa.com"
+                    required
                   />
+                  {!canNext4 && leadEmail.length > 0 && (
+                    <p className="mt-2 text-xs text-rose-400">Confere o e-mail.</p>
+                  )}
                 </div>
               </div>
 
-              {leadStatus && (
-                <div className={`mt-4 text-sm ${leadStatus.ok ? "text-emerald-400" : "text-rose-400"}`} role="status">
-                  {leadStatus.msg}
-                </div>
+              {leadStatus === "error" && (
+                <p className="text-xs text-rose-400">
+                  Não foi possível registar agora. Podes tentar novamente ou seguir para o contato manual.
+                </p>
               )}
 
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <button onClick={() => setStep(3)} className="text-sm text-slate-300 hover:text-slate-100">
                   Voltar
                 </button>
-                <button
-                  disabled={sendingLead}
-                  onClick={submitLead}
-                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
-                >
-                  {sendingLead ? "A enviar…" : "Continuar e ver recomendação"}
-                </button>
+
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={contatoHref}
+                    className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+                  >
+                    Ir direto ao contato
+                  </a>
+
+                  <button
+                    disabled={!canNext4 || leadStatus === "loading"}
+                    onClick={submitLeadAndContinue}
+                    className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
+                  >
+                    {leadStatus === "loading" ? "A enviar…" : "Ver recomendação"}
+                  </button>
+                </div>
               </div>
             </div>
-
-            <details className="rounded-2xl border border-slate-800 bg-slate-950/25 p-5">
-              <summary className="cursor-pointer text-sm font-semibold text-slate-200 hover:text-slate-50">
-                Ver o resumo que será enviado
-              </summary>
-              <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">{summaryText}</pre>
-            </details>
           </div>
         )}
 
-        {/* STEP 5 — RESULT */}
+        {/* STEP 5 — RESULTADO */}
         {step === 5 && (
           <div className="space-y-8">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
                 Resultado do diagnóstico
               </p>
+
               <h2 className="mt-2 text-2xl font-semibold text-slate-50">
                 Recomendação principal:{" "}
                 <span className={rec.primary === "moduz" ? "text-cyan-300" : "text-accent-300"}>
@@ -529,19 +517,23 @@ export default function DiagnosticoPage() {
 
               <div className="mt-6 grid gap-3 md:grid-cols-2">
                 <div className="rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Alternativa</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Alternativa
+                  </p>
                   <p className="mt-2 text-sm font-semibold text-slate-50">{labelForPath(rec.secondary)}</p>
                   <p className="mt-1 text-sm text-slate-300">
-                    Se aparecer outro gargalo dominante, este pode ser o próximo passo.
+                    Se surgir outro gargalo dominante, este pode ser o próximo passo.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Próximo passo</p>
-                  <p className="mt-2 text-sm text-slate-300">
-                    Agenda o diagnóstico e já vais com contexto pronto. Respondemos em até{" "}
-                    <span className="text-cyan-300 font-semibold">24 horas</span>.
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Próximo passo
                   </p>
+                  <p className="mt-2 text-sm text-slate-300">
+                    Se quiseres acelerar: agenda um diagnóstico curto. Nós já vamos com contexto (sem conversa genérica).
+                  </p>
+
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a
                       href={contatoHref}
@@ -549,10 +541,36 @@ export default function DiagnosticoPage() {
                     >
                       Agendar diagnóstico
                     </a>
+
                     <a
                       href={linkForPath(rec.primary)}
                       className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
                     >
                       Ver detalhes
                     </a>
-                  </div
+                  </div>
+                </div>
+              </div>
+
+              <details className="mt-6 rounded-2xl border border-slate-800 bg-slate-950/25 p-5">
+                <summary className="cursor-pointer text-sm font-semibold text-slate-200 hover:text-slate-50">
+                  Ver resumo enviado
+                </summary>
+                <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">{summaryText}</pre>
+              </details>
+            </div>
+
+            <div className="flex items-center justify-between gap-3">
+              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
+                Recomeçar
+              </button>
+              <a href="/" className="text-sm text-slate-300 hover:text-slate-100">
+                Voltar para a Home
+              </a>
+            </div>
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
