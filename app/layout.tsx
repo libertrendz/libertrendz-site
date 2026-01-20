@@ -49,7 +49,7 @@ export default function RootLayout({
                   LIBERTRENDZ
                 </span>
                 <span className="text-[11px] text-slate-400">
-                  Moduz+ · Apps customizados · Sites · Consultoria Ágil
+                  ERP Moduz+ · Apps customizados · Sites · Consultoria
                 </span>
               </div>
             </a>
