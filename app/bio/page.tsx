@@ -86,30 +86,32 @@ export default function BioPage() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50">
-      <section className="mx-auto w-full max-w-lg px-4 py-8">
-        {/* Cabeçalho curto */}
-        <div className="space-y-1 text-center">
+      <section className="mx-auto w-full max-w-lg px-4 py-6">
+        {/* Cabeçalho compacto */}
+        <div className="text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
             Libertrendz | Moduz+
           </p>
-          <h1 className="text-xl font-bold leading-tight text-slate-50">
-            Escolha como quer avançar.
+          <h1 className="mt-1 text-lg font-bold leading-tight text-slate-50">
+            Escolha um caminho.
           </h1>
-          <p className="text-sm text-slate-300">Rápido. Direto. Sem ruído.</p>
+          <p className="mt-1 text-sm text-slate-300">Sem ruído. Sem promessa vazia.</p>
         </div>
 
-        <div className="mt-5 space-y-3">
+        <div className="mt-4 space-y-3">
           {/* 1) Diagnóstico */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-4">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/10 via-transparent to-transparent" />
             <div className="relative z-10 space-y-3">
               <div className="space-y-1">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-300">
                   Diagnóstico rápido (2 min)
                 </p>
                 <p className="text-sm text-slate-200">
-                  Diga-nos o principal problema. Respondemos em até <span className="font-semibold text-slate-50">24 horas</span>.
+                  Envia o essencial. Resposta por email em{" "}
+                  <span className="font-semibold text-slate-50">até 24 horas úteis</span>.
                 </p>
+                <p className="text-xs text-slate-400">Atendimento em horário comercial.</p>
               </div>
 
               {status !== "ok" ? (
@@ -122,7 +124,7 @@ export default function BioPage() {
                       <input
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
-                        className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
+                        className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                         placeholder="O seu nome"
                         required
                       />
@@ -136,7 +138,7 @@ export default function BioPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         type="email"
-                        className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
+                        className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                         placeholder="contato@empresa.com"
                         required
                       />
@@ -153,7 +155,7 @@ export default function BioPage() {
                     <select
                       value={problema}
                       onChange={(e) => setProblema(e.target.value as ProblemaKey | "")}
-                      className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
+                      className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20"
                       required
                     >
                       <option value="" disabled>
@@ -172,7 +174,7 @@ export default function BioPage() {
                   <button
                     type="submit"
                     disabled={!canSubmit || status === "loading"}
-                    className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400 disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-400 disabled:opacity-60"
                   >
                     {status === "loading" ? "A enviar…" : "Enviar diagnóstico"}
                   </button>
@@ -186,8 +188,9 @@ export default function BioPage() {
                   <div className="rounded-xl border border-slate-800 bg-slate-950/35 p-4">
                     <p className="text-sm font-semibold text-slate-50">Recebido.</p>
                     <p className="mt-1 text-sm text-slate-300">
-                      Respondemos por email em até <span className="font-semibold text-slate-50">24 horas</span>.
+                      Respondemos por email em <span className="font-semibold text-slate-50">até 24 horas úteis</span>.
                     </p>
+                    <p className="mt-1 text-xs text-slate-400">Atendimento em horário comercial.</p>
                   </div>
 
                   <button
@@ -208,32 +211,32 @@ export default function BioPage() {
             </div>
           </div>
 
-          {/* 2) Site — cores suaves */}
+          {/* 2) Site — botão suave (cor nova) */}
           <a
             href="/"
-            className="block rounded-2xl border border-slate-800 bg-accent-500/5 p-4 transition hover:border-accent-500/30 hover:bg-accent-500/8"
+            className="block rounded-2xl border border-slate-800 bg-[#F7C97A]/10 p-3 transition hover:border-[#F7C97A]/35 hover:bg-[#F7C97A]/14"
           >
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
               Ir para o site
             </p>
-            <p className="mt-1 text-sm text-slate-200">Ver soluções, produtos e casos.</p>
+            <p className="mt-0.5 text-sm text-slate-200">Ver soluções e casos.</p>
           </a>
 
-          {/* 3) WhatsApp — cores suaves */}
+          {/* 3) WhatsApp — botão suave (cor nova) */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="block rounded-2xl border border-slate-800 bg-emerald-500/5 p-4 transition hover:border-emerald-500/30 hover:bg-emerald-500/8"
+            className="block rounded-2xl border border-slate-800 bg-[#7CF2C6]/10 p-3 transition hover:border-[#7CF2C6]/35 hover:bg-[#7CF2C6]/14"
           >
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
               WhatsApp direto
             </p>
-            <p className="mt-1 text-sm text-slate-200">Atendimento imediato.</p>
-            <p className="mt-2 text-xs text-slate-400">{`+${WHATSAPP_NUMBER_E164}`}</p>
+            <p className="mt-0.5 text-sm text-slate-200">Mensagem rápida.</p>
+            <p className="mt-1 text-xs text-slate-400">Horário comercial.</p>
           </a>
 
-          <div className="pt-1 text-center">
+          <div className="pt-0.5 text-center">
             <p className="text-xs text-slate-500">Libertrendz | Moduz+</p>
           </div>
         </div>
