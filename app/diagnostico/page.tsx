@@ -29,99 +29,38 @@ type PriorityKey =
   | "execucao";
 
 const SYMPTOMS: { key: SymptomKey; title: string; desc: string }[] = [
-  {
-    key: "visibilidade",
-    title: "Gestão no escuro",
-    desc: "Dados espalhados e pouca visão do todo.",
-  },
-  {
-    key: "gargalo",
-    title: "Dono gargalo",
-    desc: "Tudo passa por uma pessoa, a empresa trava.",
-  },
-  {
-    key: "crescimento",
-    title: "Crescer virou risco",
-    desc: "Mais erros, retrabalho e confusão.",
-  },
-  {
-    key: "campo",
-    title: "Campo sem controlo",
-    desc: "Horas, custos e evidências sem rastreio.",
-  },
-  {
-    key: "ruido",
-    title: "Ferramentas demais",
-    desc: "WhatsApp/Excel/softwares soltos sem sistema.",
-  },
-  {
-    key: "conversao",
-    title: "Leads fracos",
-    desc: "Site não converte, mensagem/CTA/rastreio falham.",
-  },
-  {
-    key: "entrega",
-    title: "Entrega travada",
-    desc: "Projetos emperram, prioridades confusas.",
-  },
+  { key: "visibilidade", title: "Gestão no escuro", desc: "Dados espalhados e pouca visão do todo." },
+  { key: "gargalo", title: "Dono gargalo", desc: "Tudo passa por uma pessoa, a empresa trava." },
+  { key: "crescimento", title: "Crescer virou risco", desc: "Mais erros, retrabalho e confusão." },
+  { key: "campo", title: "Campo sem controlo", desc: "Horas, custos e evidências sem rastreio." },
+  { key: "ruido", title: "Ferramentas demais", desc: "WhatsApp/Excel/softwares soltos sem sistema." },
+  { key: "conversao", title: "Leads fracos", desc: "Site não converte, mensagem/CTA/rastreio falham." },
+  { key: "entrega", title: "Entrega travada", desc: "Projetos emperram, prioridades confusas." },
 ];
 
 const CONTEXTS: { key: ContextKey; title: string; desc: string }[] = [
-  {
-    key: "manual",
-    title: "Manual (Excel/WhatsApp)",
-    desc: "Processos soltos e controlo por planilhas.",
-  },
-  {
-    key: "ferramentas",
-    title: "Ferramentas desconectadas",
-    desc: "Cada uma resolve um pedaço, ninguém resolve o todo.",
-  },
-  {
-    key: "erp_ruim",
-    title: "ERP atrapalha",
-    desc: "Existe sistema, mas não escala ou trava a operação.",
-  },
-  {
-    key: "mvp_torto",
-    title: "Sistema/MVP torto",
-    desc: "Já investiu e agora ficou caro ajustar.",
-  },
-  {
-    key: "trafego_sem_lead",
-    title: "Há tráfego, mas não há lead",
-    desc: "Precisa de conversão e campanha.",
-  },
+  { key: "manual", title: "Manual (Excel/WhatsApp)", desc: "Processos soltos e controlo por planilhas." },
+  { key: "ferramentas", title: "Ferramentas desconectadas", desc: "Cada uma resolve um pedaço, ninguém resolve o todo." },
+  { key: "erp_ruim", title: "ERP atrapalha", desc: "Existe sistema, mas não escala ou trava a operação." },
+  { key: "mvp_torto", title: "Sistema/MVP torto", desc: "Já investiu e agora ficou caro ajustar." },
+  { key: "trafego_sem_lead", title: "Há tráfego, mas não há lead", desc: "Precisa de conversão e campanha." },
 ];
 
 const PRIORITIES: { key: PriorityKey; title: string; desc: string }[] = [
-  {
-    key: "controle",
-    title: "Controlo e previsibilidade",
-    desc: "Saber onde estamos e decidir com clareza.",
-  },
-  {
-    key: "margem_campo",
-    title: "Margem no campo",
-    desc: "Horas, custos, evidências e execução em campo.",
-  },
-  {
-    key: "escala",
-    title: "Escalar sem caos",
-    desc: "Crescer com sistema e governança.",
-  },
-  {
-    key: "conversao",
-    title: "Leads e conversão",
-    desc: "Mensagem, prova, CTA e rastreio.",
-  },
-  {
-    key: "execucao",
-    title: "Destravar execução",
-    desc: "Fluxo, prioridade e entrega sem ruído.",
-  },
+  { key: "controle", title: "Controlo e previsibilidade", desc: "Saber onde estamos e decidir com clareza." },
+  { key: "margem_campo", title: "Margem no campo", desc: "Horas, custos, evidências e execução em campo." },
+  { key: "escala", title: "Escalar sem caos", desc: "Crescer com sistema e governança." },
+  { key: "conversao", title: "Leads e conversão", desc: "Mensagem, prova, CTA e rastreio." },
+  { key: "execucao", title: "Destravar execução", desc: "Fluxo, prioridade e entrega sem ruído." },
 ];
 
+/**
+ * LÓGICA AJUSTADA:
+ * - Sites/Landing recebem peso real de "caixa imediato" quando há sinal de conversão.
+ * - Moduz ganha quando há sinais fortes de operação/escala/margem em campo.
+ * - Apps ganham quando o cenário é manual/desconectado e a dor é mais “cirúrgica”.
+ * - Consultoria ganha quando o problema é execução/decisão (e especialmente quando há MVP torto).
+ */
 function routeRecommendation(input: {
   symptoms: SymptomKey[];
   context: ContextKey | null;
@@ -131,53 +70,51 @@ function routeRecommendation(input: {
 
   const has = (k: SymptomKey) => symptoms.includes(k);
 
-  // Scores simples e previsíveis (sem IA).
   const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
   const why: string[] = [];
 
-  // Sites: conversão
-  if (has("conversao")) score.sites += 6;
-  if (context === "trafego_sem_lead") score.sites += 6;
-  if (priority === "conversao") score.sites += 7;
+  // 1) SITES/LANDING — "CAIXA IMEDIATO"
+  if (has("conversao")) score.sites += 10;
+  if (context === "trafego_sem_lead") score.sites += 10;
+  if (priority === "conversao") score.sites += 12;
 
-  // Consultoria/Agile: execução / decisões tortas
-  if (has("entrega")) score.agile += 6;
-  if (context === "mvp_torto") score.agile += 7;
-  if (priority === "execucao") score.agile += 7;
+  // Se a dor operacional NÃO é dominada por "campo" ou "crescimento", conversão pode (e deve) liderar
+  if (!has("campo") && !has("crescimento")) score.sites += 3;
 
-  // Moduz: estrutura operacional
-  if (has("campo")) score.moduz += 7;
-  if (has("ruido")) score.moduz += 5;
-  if (has("visibilidade")) score.moduz += 5;
-  if (has("gargalo")) score.moduz += 5;
-  if (has("crescimento")) score.moduz += 6;
-  if (context === "erp_ruim") score.moduz += 6;
-  if (priority === "controle") score.moduz += 5;
-  if (priority === "margem_campo") score.moduz += 7;
-  if (priority === "escala") score.moduz += 6;
+  // 2) CONSULTORIA/AGILE — PROTEÇÃO (ordem antes de investir)
+  if (has("entrega")) score.agile += 8;
+  if (context === "mvp_torto") score.agile += 12;
+  if (priority === "execucao") score.agile += 9;
 
-  // Apps: dor específica / piloto
-  if (context === "manual") score.apps += 4;
-  if (context === "ferramentas") score.apps += 4;
-  // Se não há sinais fortes de Moduz e não é conversão, apps ganha tração
-  if (
-    !has("campo") &&
-    !has("crescimento") &&
-    !has("gargalo") &&
-    !has("visibilidade") &&
-    !has("ruido") &&
-    !has("conversao")
-  ) {
-    score.apps += 4;
-  }
-  if (priority === "controle" || priority === "escala") score.apps += 1; // leve
+  // 3) MODUZ — ESTRUTURA OPERACIONAL / ESCALA / MARGEM EM CAMPO
+  if (has("campo")) score.moduz += 11;
+  if (has("crescimento")) score.moduz += 9;
+  if (has("gargalo")) score.moduz += 7;
+  if (has("visibilidade")) score.moduz += 7;
+  if (has("ruido")) score.moduz += 6;
+  if (context === "erp_ruim") score.moduz += 8;
+  if (priority === "margem_campo") score.moduz += 12;
+  if (priority === "escala") score.moduz += 9;
+  if (priority === "controle") score.moduz += 7;
+
+  // 4) APPS — SOLUÇÃO CIRÚRGICA / PILOTO RÁPIDO
+  if (context === "manual") score.apps += 7;
+  if (context === "ferramentas") score.apps += 7;
+
+  // Se não há sinais fortes de Moduz (campo/crescimento) nem de conversão, apps ganha tração
+  if (!has("campo") && !has("crescimento") && !has("conversao")) score.apps += 4;
+
+  // Leves: apps pode ser ponte para controlo/escala quando ainda não é "sistema completo"
+  if (priority === "controle") score.apps += 2;
+  if (priority === "escala") score.apps += 1;
   if (priority === "margem_campo") score.apps += 1;
 
   // Ajuste: se contexto é “mvp torto”, prioriza consultoria antes de produto
   if (context === "mvp_torto") {
-    score.agile += 2;
-    score.moduz -= 1;
-    score.apps -= 1;
+    score.agile += 3;
+    score.moduz -= 2;
+    score.apps -= 2;
+    score.sites -= 1;
   }
 
   const entries = (Object.keys(score) as PathKey[]).map((k) => [k, score[k]] as const);
@@ -186,25 +123,29 @@ function routeRecommendation(input: {
   const primary = entries[0][0];
   const secondary = entries[1][0];
 
-  // Explicação curta (por que)
+  // Explicação curta e "vendedora" (por que)
   if (primary === "sites") {
-    why.push("Sinais fortes de conversão/lead (site e campanha).");
+    why.push("Converter agora destrava receita e reduz a pressão na operação.");
+    why.push("Sites/landing bem construídos pagam a próxima etapa (app ou Moduz+) com caixa real.");
   }
   if (primary === "moduz") {
-    why.push("Dores operacionais de controlo, escala e/ou campo apontam para sistema modular.");
+    why.push("As dores apontam para controlo operacional, margem e/ou escala.");
+    why.push("Um sistema modular faz sentido quando a empresa precisa de base para crescer sem caos.");
   }
   if (primary === "apps") {
-    why.push("Dor específica com necessidade de piloto rápido e leve.");
+    why.push("Há um gargalo específico que pode ser resolvido com um piloto rápido e direto.");
+    why.push("Depois, se a operação pedir escala, a evolução para Moduz+ fica natural.");
   }
   if (primary === "agile") {
-    why.push("Problema central é execução/decisão; melhor pôr ordem antes de investir mais.");
+    why.push("O problema central é execução/decisão; pôr ordem agora evita retrabalho caro.");
+    why.push("Antes de investir em produto/sistema, vale alinhar fluxo, prioridade e governança.");
   }
+
   if (secondary && secondary !== primary) {
-    if (secondary === "moduz")
-      why.push("Alternativa: Moduz+ pode ser o próximo passo quando a operação exigir escala.");
-    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente.");
-    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar o funil.");
-    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho.");
+    if (secondary === "sites") why.push("Alternativa: destravar conversão pode ser o passo 1 para financiar o resto.");
+    if (secondary === "apps") why.push("Alternativa: um app cirúrgico resolve um pedaço rápido.");
+    if (secondary === "moduz") why.push("Alternativa: Moduz+ entra quando a operação exigir escala e governança.");
+    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita decisões tortas.");
   }
 
   return { primary, secondary, why };
@@ -231,68 +172,6 @@ function assuntoForPath(p: PathKey) {
   return "Consultoria Ágil";
 }
 
-// Sub-recomendação: orienta “por onde começar” sem virar catálogo.
-function subRecommendation(input: {
-  primary: PathKey;
-  symptoms: SymptomKey[];
-  priority: PriorityKey | null;
-}): string[] {
-  const { primary, symptoms, priority } = input;
-
-  if (primary === "moduz") {
-    const points: string[] = [];
-
-    if (symptoms.includes("campo") || priority === "margem_campo") {
-      points.push("Controlo de execução e custos no campo (horas, evidências, desvios).");
-    }
-    if (symptoms.includes("visibilidade") || symptoms.includes("ruido") || priority === "controle") {
-      points.push("Visibilidade operacional e organização do dia a dia (menos ruído, mais sistema).");
-    }
-    if (symptoms.includes("gargalo") || symptoms.includes("crescimento") || priority === "escala") {
-      points.push("Base sólida para escalar sem depender do dono (processos e governança).");
-    }
-
-    // fallback se o lead marcou pouco
-    if (points.length === 0) {
-      points.push("Estruturar o núcleo operacional e ativar módulos por fases, sem ‘big bang’.");
-      points.push("Definir o que entra no sistema e o que sai (rotina simples e consistente).");
-    }
-
-    return points.slice(0, 3);
-  }
-
-  if (primary === "apps") {
-    const points: string[] = [];
-    points.push("Resolver uma dor específica com impacto rápido (piloto funcional).");
-    if (symptoms.includes("campo")) points.push("Operação em campo: registo simples + evidências + histórico.");
-    if (symptoms.includes("ruido") || symptoms.includes("visibilidade"))
-      points.push("Centralizar dados críticos e reduzir retrabalho (uma fonte de verdade).");
-
-    if (priority === "controle") points.push("Criar visão do todo com um painel operacional mínimo.");
-    if (priority === "escala") points.push("Deixar a base preparada para evoluir sem recomeçar do zero.");
-    if (priority === "margem_campo") points.push("Proteger margem com controlo de horas/custos e auditoria simples.");
-
-    return Array.from(new Set(points)).slice(0, 3);
-  }
-
-  if (primary === "sites") {
-    const points: string[] = [];
-    points.push("Mensagem e oferta claras focadas em conversão (sem ruído).");
-    points.push("CTA e rastreio (UTM, fonte do lead, evento de envio).");
-    if (symptoms.includes("conversao") || priority === "conversao") {
-      points.push("Página por campanha (landing) para evitar misturar mensagens.");
-    }
-    return Array.from(new Set(points)).slice(0, 3);
-  }
-
-  // agile
-  return [
-    "Clarificar prioridades e gargalos reais (sem teatro).",
-    "Organizar execução antes de investir mais (evita retrabalho caro).",
-    "Criar direção clara e mensurável para os próximos passos.",
-  ];
-}
-
 export default function DiagnosticoPage() {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [symptoms, setSymptoms] = useState<SymptomKey[]>([]);
@@ -306,14 +185,6 @@ export default function DiagnosticoPage() {
   const rec = useMemo(() => {
     return routeRecommendation({ symptoms, context, priority });
   }, [symptoms, context, priority]);
-
-  const subRec = useMemo(() => {
-    return subRecommendation({
-      primary: rec.primary,
-      symptoms,
-      priority,
-    });
-  }, [rec.primary, symptoms, priority]);
 
   const summaryText = useMemo(() => {
     const s = symptoms
@@ -369,7 +240,7 @@ export default function DiagnosticoPage() {
               style={{ width: `${step === 1 ? 33 : step === 2 ? 66 : step >= 3 ? 100 : 33}%` }}
             />
           </div>
-          <span className="hidden sm:inline">Resposta em até 2 dias úteis</span>
+          <span className="hidden sm:inline">Resposta em até 24 horas</span>
         </div>
 
         {/* STEP 1 */}
@@ -529,7 +400,6 @@ export default function DiagnosticoPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
                 Resultado do diagnóstico
               </p>
-
               <h2 className="mt-2 text-2xl font-semibold text-slate-50">
                 Recomendação principal:{" "}
                 <span className={rec.primary === "moduz" ? "text-cyan-300" : "text-accent-300"}>
@@ -537,21 +407,7 @@ export default function DiagnosticoPage() {
                 </span>
               </h2>
 
-              {/* SUB-RECOMENDAÇÃO (cirúrgica, sem catálogo) */}
-              {subRec.length > 0 && (
-                <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    Por onde começar
-                  </p>
-                  <ul className="mt-2 space-y-2 text-sm text-slate-300">
-                    {subRec.map((item, i) => (
-                      <li key={i}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <p className="mt-5 text-sm text-slate-200 max-w-3xl">Por que isto faz sentido:</p>
+              <p className="mt-3 text-sm text-slate-200 max-w-3xl">Por que isto faz sentido:</p>
               <ul className="mt-2 space-y-2 text-sm text-slate-300">
                 {rec.why.map((w, i) => (
                   <li key={i}>• {w}</li>
