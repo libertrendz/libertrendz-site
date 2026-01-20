@@ -38,7 +38,7 @@ const SYMPTOMS: { key: SymptomKey; title: string; desc: string }[] = [
   {
     key: "gargalo",
     title: "Dependência de uma pessoa",
-    desc: "Tudo passa por ti (ou por alguém), e a operação trava quando essa pessoa trava.",
+    desc: "Tudo passa por ti (ou por alguém) e a operação trava quando essa pessoa trava.",
   },
   {
     key: "crescimento",
@@ -86,7 +86,7 @@ const CONTEXTS: { key: ContextKey; title: string; desc: string }[] = [
   {
     key: "mvp_torto",
     title: "Sistema/MVP mal construído",
-    desc: "Já investiu, e agora ficou caro ajustar (retrabalho e decisões tortas).",
+    desc: "Já investiu e agora ficou caro ajustar (retrabalho e decisões tortas).",
   },
   {
     key: "trafego_sem_lead",
@@ -132,12 +132,7 @@ function routeRecommendation(input: {
 
   const has = (k: SymptomKey) => symptoms.includes(k);
 
-  const score: Record<PathKey, number> = {
-    moduz: 0,
-    apps: 0,
-    sites: 0,
-    agile: 0,
-  };
+  const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
   const why: string[] = [];
 
   // SITES: conversão e caixa imediato
@@ -255,14 +250,15 @@ export default function DiagnosticoPage() {
   const canNext2 = !!context;
   const canNext3 = !!priority;
 
-  // Nome obrigatório + email válido
   const leadNameOk = leadName.trim().length >= 2;
   const leadEmailOk = /^\S+@\S+\.\S+$/.test(leadEmail.trim());
   const canNext4 = leadNameOk && leadEmailOk;
 
-  const rec = useMemo(() => {
-    return routeRecommendation({ symptoms, context, priority });
-  }, [symptoms, context, priority]);
+  const rec = useMemo(() => routeRecommendation({ symptoms, context, priority }), [
+    symptoms,
+    context,
+    priority,
+  ]);
 
   const summaryText = useMemo(() => {
     const s = symptoms
@@ -294,14 +290,18 @@ export default function DiagnosticoPage() {
     setLeadStatus("loading");
 
     try {
-      // Reforço de segurança: se por algum motivo Step 4 abriu sem dados
       if (!leadNameOk || !leadEmailOk) {
         setLeadStatus("error");
         return;
       }
 
-      // Envia para o MESMO endpoint já funcional do contato, com tipo wizard.
-      // Backend deve aceitar e usar "mensagem" como resumo do diagnóstico.
+      const dores = symptoms
+        .map((k) => SYMPTOMS.find((x) => x.key === k)?.title)
+        .filter(Boolean) as string[];
+
+      const cenario = CONTEXTS.find((x) => x.key === context)?.title || "-";
+      const prio = PRIORITIES.find((x) => x.key === priority)?.title || "-";
+
       const res = await fetch("/api/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -310,6 +310,16 @@ export default function DiagnosticoPage() {
           nome: leadName.trim(),
           email: leadEmail.trim(),
           assunto: `Diagnóstico — ${assuntoForPath(rec.primary)}`,
+
+          // Campos estruturados (para o email interno NÃO vir em branco)
+          dores,
+          cenario,
+          prioridade: prio,
+          recomendacaoPrincipal: labelForPath(rec.primary),
+          recomendacaoAlternativa: labelForPath(rec.secondary),
+          resumo: summaryText,
+
+          // Compatibilidade com validação antiga
           mensagem: summaryText,
         }),
       });
@@ -522,7 +532,7 @@ export default function DiagnosticoPage() {
             <div className="max-w-3xl">
               <h2 className="text-xl font-semibold text-slate-50">Antes de ver a recomendação</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Para onde enviamos o resumo do diagnóstico? Respondemos em{" "}
+                Enviamos o resumo por e-mail e respondemos em{" "}
                 <span className="text-slate-50 font-semibold">até 24 horas</span>.
               </p>
             </div>
