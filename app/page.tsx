@@ -13,7 +13,7 @@ export default function HomePage() {
               </p>
 
               <h1 className="mt-3 text-3xl font-bold leading-tight md:text-5xl">
-                Quando a empresa cresce sem sistema,
+                Quando a empresa cresce sem sistema, 
                 <span className="block mt-2 text-cyan-300">
                   o caos cobra juros.
                 </span>
