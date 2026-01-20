@@ -132,12 +132,7 @@ function routeRecommendation(input: {
   const has = (k: SymptomKey) => symptoms.includes(k);
 
   // Scores simples e previsíveis (sem IA).
-  const score: Record<PathKey, number> = {
-    moduz: 0,
-    apps: 0,
-    sites: 0,
-    agile: 0,
-  };
+  const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
   const why: string[] = [];
 
   // Sites: conversão
@@ -145,7 +140,7 @@ function routeRecommendation(input: {
   if (context === "trafego_sem_lead") score.sites += 6;
   if (priority === "conversao") score.sites += 7;
 
-  // Consultoria (acelerador): execução / decisões tortas
+  // Consultoria/Agile: execução / decisões tortas
   if (has("entrega")) score.agile += 6;
   if (context === "mvp_torto") score.agile += 7;
   if (priority === "execucao") score.agile += 7;
@@ -164,7 +159,6 @@ function routeRecommendation(input: {
   // Apps: dor específica / piloto
   if (context === "manual") score.apps += 4;
   if (context === "ferramentas") score.apps += 4;
-
   // Se não há sinais fortes de Moduz e não é conversão, apps ganha tração
   if (
     !has("campo") &&
@@ -176,7 +170,6 @@ function routeRecommendation(input: {
   ) {
     score.apps += 4;
   }
-
   if (priority === "controle" || priority === "escala") score.apps += 1; // leve
   if (priority === "margem_campo") score.apps += 1;
 
@@ -187,9 +180,7 @@ function routeRecommendation(input: {
     score.apps -= 1;
   }
 
-  const entries = (Object.keys(score) as PathKey[]).map(
-    (k) => [k, score[k]] as const
-  );
+  const entries = (Object.keys(score) as PathKey[]).map((k) => [k, score[k]] as const);
   entries.sort((a, b) => b[1] - a[1]);
 
   const primary = entries[0][0];
@@ -197,32 +188,23 @@ function routeRecommendation(input: {
 
   // Explicação curta (por que)
   if (primary === "sites") {
-    why.push("Sinais fortes de conversão/lead (site, campanha e rastreio).");
+    why.push("Sinais fortes de conversão/lead (site e campanha).");
   }
   if (primary === "moduz") {
-    why.push(
-      "Dores operacionais de controlo, escala e/ou campo apontam para sistema modular."
-    );
+    why.push("Dores operacionais de controlo, escala e/ou campo apontam para sistema modular.");
   }
   if (primary === "apps") {
     why.push("Dor específica com necessidade de piloto rápido e leve.");
   }
   if (primary === "agile") {
-    why.push(
-      "Problema central é execução/decisão; melhor pôr ordem antes de investir mais."
-    );
+    why.push("Problema central é execução/decisão; melhor pôr ordem antes de investir mais.");
   }
   if (secondary && secondary !== primary) {
     if (secondary === "moduz")
-      why.push(
-        "Alternativa: Moduz+ pode ser o próximo passo quando a operação exigir escala."
-      );
-    if (secondary === "apps")
-      why.push("Alternativa: um app customizado resolve uma parte rapidamente.");
-    if (secondary === "sites")
-      why.push("Alternativa: melhorar conversão pode destravar o funil.");
-    if (secondary === "agile")
-      why.push("Alternativa: consultoria acelera execução e evita retrabalho.");
+      why.push("Alternativa: Moduz+ pode ser o próximo passo quando a operação exigir escala.");
+    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente.");
+    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar o funil.");
+    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho.");
   }
 
   return { primary, secondary, why };
@@ -246,24 +228,69 @@ function assuntoForPath(p: PathKey) {
   if (p === "moduz") return "Moduz+";
   if (p === "apps") return "Apps customizados";
   if (p === "sites") return "Sites & Landing Pages";
-  // Ajuste: não reforçar “áGIL” como “pilar”; manter como acelerador
-  return "Diagnóstico (execução e direção)";
+  return "Consultoria Ágil";
 }
 
-function toContatoLink(params: {
-  assunto: string;
-  mensagem: string;
-  src: string;
-  rec: PathKey;
-  alt: PathKey;
-}) {
-  const qs = new URLSearchParams();
-  qs.set("assunto", params.assunto);
-  qs.set("mensagem", params.mensagem);
-  qs.set("src", params.src);
-  qs.set("rec", params.rec);
-  qs.set("alt", params.alt);
-  return `/contato?${qs.toString()}`;
+// Sub-recomendação: orienta “por onde começar” sem virar catálogo.
+function subRecommendation(input: {
+  primary: PathKey;
+  symptoms: SymptomKey[];
+  priority: PriorityKey | null;
+}): string[] {
+  const { primary, symptoms, priority } = input;
+
+  if (primary === "moduz") {
+    const points: string[] = [];
+
+    if (symptoms.includes("campo") || priority === "margem_campo") {
+      points.push("Controlo de execução e custos no campo (horas, evidências, desvios).");
+    }
+    if (symptoms.includes("visibilidade") || symptoms.includes("ruido") || priority === "controle") {
+      points.push("Visibilidade operacional e organização do dia a dia (menos ruído, mais sistema).");
+    }
+    if (symptoms.includes("gargalo") || symptoms.includes("crescimento") || priority === "escala") {
+      points.push("Base sólida para escalar sem depender do dono (processos e governança).");
+    }
+
+    // fallback se o lead marcou pouco
+    if (points.length === 0) {
+      points.push("Estruturar o núcleo operacional e ativar módulos por fases, sem ‘big bang’.");
+      points.push("Definir o que entra no sistema e o que sai (rotina simples e consistente).");
+    }
+
+    return points.slice(0, 3);
+  }
+
+  if (primary === "apps") {
+    const points: string[] = [];
+    points.push("Resolver uma dor específica com impacto rápido (piloto funcional).");
+    if (symptoms.includes("campo")) points.push("Operação em campo: registo simples + evidências + histórico.");
+    if (symptoms.includes("ruido") || symptoms.includes("visibilidade"))
+      points.push("Centralizar dados críticos e reduzir retrabalho (uma fonte de verdade).");
+
+    if (priority === "controle") points.push("Criar visão do todo com um painel operacional mínimo.");
+    if (priority === "escala") points.push("Deixar a base preparada para evoluir sem recomeçar do zero.");
+    if (priority === "margem_campo") points.push("Proteger margem com controlo de horas/custos e auditoria simples.");
+
+    return Array.from(new Set(points)).slice(0, 3);
+  }
+
+  if (primary === "sites") {
+    const points: string[] = [];
+    points.push("Mensagem e oferta claras focadas em conversão (sem ruído).");
+    points.push("CTA e rastreio (UTM, fonte do lead, evento de envio).");
+    if (symptoms.includes("conversao") || priority === "conversao") {
+      points.push("Página por campanha (landing) para evitar misturar mensagens.");
+    }
+    return Array.from(new Set(points)).slice(0, 3);
+  }
+
+  // agile
+  return [
+    "Clarificar prioridades e gargalos reais (sem teatro).",
+    "Organizar execução antes de investir mais (evita retrabalho caro).",
+    "Criar direção clara e mensurável para os próximos passos.",
+  ];
 }
 
 export default function DiagnosticoPage() {
@@ -280,10 +307,18 @@ export default function DiagnosticoPage() {
     return routeRecommendation({ symptoms, context, priority });
   }, [symptoms, context, priority]);
 
+  const subRec = useMemo(() => {
+    return subRecommendation({
+      primary: rec.primary,
+      symptoms,
+      priority,
+    });
+  }, [rec.primary, symptoms, priority]);
+
   const summaryText = useMemo(() => {
     const s = symptoms
       .map((k) => SYMPTOMS.find((x) => x.key === k)?.title)
-      .filter(Boolean);
+      .filter(Boolean) as string[];
     const c = CONTEXTS.find((x) => x.key === context)?.title;
     const p = PRIORITIES.find((x) => x.key === priority)?.title;
 
@@ -296,20 +331,14 @@ export default function DiagnosticoPage() {
       "",
       `Recomendação principal: ${labelForPath(rec.primary)}`,
       `Alternativa: ${labelForPath(rec.secondary)}`,
-      "",
-      "Quero agendar um diagnóstico. Objetivo: sair com um próximo passo claro (sem proposta genérica).",
     ].join("\n");
   }, [symptoms, context, priority, rec.primary, rec.secondary]);
 
   const contatoHref = useMemo(() => {
-    return toContatoLink({
-      assunto: assuntoForPath(rec.primary),
-      mensagem: summaryText,
-      src: "diagnostico",
-      rec: rec.primary,
-      alt: rec.secondary,
-    });
-  }, [rec.primary, rec.secondary, summaryText]);
+    const assunto = encodeURIComponent(assuntoForPath(rec.primary));
+    const msg = encodeURIComponent(summaryText);
+    return `/contato?assunto=${assunto}&mensagem=${msg}`;
+  }, [rec.primary, summaryText]);
 
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
@@ -325,9 +354,8 @@ export default function DiagnosticoPage() {
               Decide o próximo passo certo — sem chute.
             </h1>
             <p className="text-sm text-slate-200 max-w-2xl">
-              3 passos. No final, recebes uma recomendação clara (Moduz+, app,
-              site/landing ou consultoria) e já podes puxar uma conversa com
-              contexto pronto.
+              3 passos. No final, recebes uma recomendação clara (Moduz+, app, site/landing ou consultoria)
+              e já podes agendar a conversa.
             </p>
           </div>
         </div>
@@ -338,24 +366,19 @@ export default function DiagnosticoPage() {
           <div className="h-2 flex-1 rounded-full bg-slate-900/60 border border-slate-800 overflow-hidden">
             <div
               className="h-full bg-cyan-500/80"
-              style={{
-                width: `${step === 1 ? 33 : step === 2 ? 66 : step >= 3 ? 100 : 33}%`,
-              }}
+              style={{ width: `${step === 1 ? 33 : step === 2 ? 66 : step >= 3 ? 100 : 33}%` }}
             />
           </div>
-          <span className="hidden sm:inline">Triagem rápida</span>
+          <span className="hidden sm:inline">Resposta em até 2 dias úteis</span>
         </div>
 
         {/* STEP 1 */}
         {step === 1 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
-              <h2 className="text-xl font-semibold text-slate-50">
-                1) O que está a travar hoje?
-              </h2>
+              <h2 className="text-xl font-semibold text-slate-50">1) O que está a travar hoje?</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Escolhe tudo o que se aplica. Quanto mais preciso, mais certeiro
-                fica o caminho.
+                Escolhe tudo o que se aplica. Quanto mais preciso, mais certeiro fica o caminho.
               </p>
             </div>
 
@@ -378,16 +401,12 @@ export default function DiagnosticoPage() {
                         checked={checked}
                         onChange={() => {
                           setSymptoms((prev) =>
-                            prev.includes(s.key)
-                              ? prev.filter((x) => x !== s.key)
-                              : [...prev, s.key]
+                            prev.includes(s.key) ? prev.filter((x) => x !== s.key) : [...prev, s.key]
                           );
                         }}
                       />
                       <div>
-                        <p className="text-sm font-semibold text-slate-50">
-                          {s.title}
-                        </p>
+                        <p className="text-sm font-semibold text-slate-50">{s.title}</p>
                         <p className="mt-1 text-sm text-slate-300">{s.desc}</p>
                       </div>
                     </div>
@@ -415,12 +434,9 @@ export default function DiagnosticoPage() {
         {step === 2 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
-              <h2 className="text-xl font-semibold text-slate-50">
-                2) Como é o teu cenário hoje?
-              </h2>
+              <h2 className="text-xl font-semibold text-slate-50">2) Como é o teu cenário hoje?</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Uma escolha. Isto ajuda a distinguir “piloto rápido” de
-                “estrutura”.
+                Uma escolha. Isto ajuda a distinguir “piloto rápido” de “estrutura”.
               </p>
             </div>
 
@@ -438,9 +454,7 @@ export default function DiagnosticoPage() {
                         : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
-                    <p className="text-sm font-semibold text-slate-50">
-                      {c.title}
-                    </p>
+                    <p className="text-sm font-semibold text-slate-50">{c.title}</p>
                     <p className="mt-1 text-sm text-slate-300">{c.desc}</p>
                   </button>
                 );
@@ -448,10 +462,7 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button
-                onClick={() => setStep(1)}
-                className="text-sm text-slate-300 hover:text-slate-100"
-              >
+              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
                 Voltar
               </button>
               <button
@@ -469,9 +480,7 @@ export default function DiagnosticoPage() {
         {step === 3 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
-              <h2 className="text-xl font-semibold text-slate-50">
-                3) O que precisas destravar primeiro?
-              </h2>
+              <h2 className="text-xl font-semibold text-slate-50">3) O que precisas destravar primeiro?</h2>
               <p className="mt-2 text-sm text-slate-200">
                 Isto define a prioridade imediata (o que resolve primeiro).
               </p>
@@ -491,9 +500,7 @@ export default function DiagnosticoPage() {
                         : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
-                    <p className="text-sm font-semibold text-slate-50">
-                      {p.title}
-                    </p>
+                    <p className="text-sm font-semibold text-slate-50">{p.title}</p>
                     <p className="mt-1 text-sm text-slate-300">{p.desc}</p>
                   </button>
                 );
@@ -501,10 +508,7 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button
-                onClick={() => setStep(2)}
-                className="text-sm text-slate-300 hover:text-slate-100"
-              >
+              <button onClick={() => setStep(2)} className="text-sm text-slate-300 hover:text-slate-100">
                 Voltar
               </button>
               <button
@@ -525,20 +529,29 @@ export default function DiagnosticoPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
                 Resultado do diagnóstico
               </p>
+
               <h2 className="mt-2 text-2xl font-semibold text-slate-50">
                 Recomendação principal:{" "}
-                <span
-                  className={
-                    rec.primary === "moduz" ? "text-cyan-300" : "text-accent-300"
-                  }
-                >
+                <span className={rec.primary === "moduz" ? "text-cyan-300" : "text-accent-300"}>
                   {labelForPath(rec.primary)}
                 </span>
               </h2>
 
-              <p className="mt-3 text-sm text-slate-200 max-w-3xl">
-                Por que isto faz sentido:
-              </p>
+              {/* SUB-RECOMENDAÇÃO (cirúrgica, sem catálogo) */}
+              {subRec.length > 0 && (
+                <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Por onde começar
+                  </p>
+                  <ul className="mt-2 space-y-2 text-sm text-slate-300">
+                    {subRec.map((item, i) => (
+                      <li key={i}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <p className="mt-5 text-sm text-slate-200 max-w-3xl">Por que isto faz sentido:</p>
               <ul className="mt-2 space-y-2 text-sm text-slate-300">
                 {rec.why.map((w, i) => (
                   <li key={i}>• {w}</li>
@@ -550,25 +563,19 @@ export default function DiagnosticoPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                     Alternativa
                   </p>
-                  <p className="mt-2 text-sm font-semibold text-slate-50">
-                    {labelForPath(rec.secondary)}
-                  </p>
+                  <p className="mt-2 text-sm font-semibold text-slate-50">{labelForPath(rec.secondary)}</p>
                   <p className="mt-1 text-sm text-slate-300">
-                    Se no diagnóstico aparecer outro gargalo dominante, este pode
-                    ser o próximo passo.
+                    Se no diagnóstico aparecer outro gargalo dominante, este pode ser o próximo passo.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    O que vais receber
+                    Próximo passo
                   </p>
-                  <ul className="mt-2 space-y-2 text-sm text-slate-300">
-                    <li>• Próximo passo recomendado (com justificativa).</li>
-                    <li>• Uma pré-oferta de solução (sem proposta genérica).</li>
-                    <li>• Um plano inicial de execução (curto e direto).</li>
-                  </ul>
-
+                  <p className="mt-2 text-sm text-slate-300">
+                    Agora é simples: agenda o diagnóstico e já vais com contexto pronto (sem conversa genérica).
+                  </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a
                       href={contatoHref}
@@ -583,10 +590,6 @@ export default function DiagnosticoPage() {
                       Ver detalhes
                     </a>
                   </div>
-
-                  <p className="mt-3 text-xs text-slate-400">
-                    Resposta em até <span className="text-slate-200">2 dias úteis</span>.
-                  </p>
                 </div>
               </div>
 
@@ -594,17 +597,12 @@ export default function DiagnosticoPage() {
                 <summary className="cursor-pointer text-sm font-semibold text-slate-200 hover:text-slate-50">
                   Ver resumo que será enviado
                 </summary>
-                <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">
-                  {summaryText}
-                </pre>
+                <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">{summaryText}</pre>
               </details>
             </div>
 
             <div className="flex items-center justify-between gap-3">
-              <button
-                onClick={() => setStep(1)}
-                className="text-sm text-slate-300 hover:text-slate-100"
-              >
+              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
                 Recomeçar
               </button>
               <a href="/" className="text-sm text-slate-300 hover:text-slate-100">
