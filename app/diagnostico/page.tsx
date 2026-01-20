@@ -54,13 +54,6 @@ const PRIORITIES: { key: PriorityKey; title: string; desc: string }[] = [
   { key: "execucao", title: "Destravar execução", desc: "Fluxo, prioridade e entrega sem ruído." },
 ];
 
-/**
- * LÓGICA AJUSTADA:
- * - Sites/Landing recebem peso real de "caixa imediato" quando há sinal de conversão.
- * - Moduz ganha quando há sinais fortes de operação/escala/margem em campo.
- * - Apps ganham quando o cenário é manual/desconectado e a dor é mais “cirúrgica”.
- * - Consultoria ganha quando o problema é execução/decisão (e especialmente quando há MVP torto).
- */
 function routeRecommendation(input: {
   symptoms: SymptomKey[];
   context: ContextKey | null;
@@ -70,51 +63,53 @@ function routeRecommendation(input: {
 
   const has = (k: SymptomKey) => symptoms.includes(k);
 
+  // Scores simples e previsíveis (sem IA).
+  // Nota de negócio: Sites/Landing tem caixa imediato, mas só ganha quando há sinais claros de conversão.
   const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
   const why: string[] = [];
 
-  // 1) SITES/LANDING — "CAIXA IMEDIATO"
-  if (has("conversao")) score.sites += 10;
-  if (context === "trafego_sem_lead") score.sites += 10;
-  if (priority === "conversao") score.sites += 12;
+  // Sites: conversão / caixa rápido quando o gargalo é funil
+  if (has("conversao")) score.sites += 8;
+  if (context === "trafego_sem_lead") score.sites += 8;
+  if (priority === "conversao") score.sites += 9;
 
-  // Se a dor operacional NÃO é dominada por "campo" ou "crescimento", conversão pode (e deve) liderar
-  if (!has("campo") && !has("crescimento")) score.sites += 3;
+  // Consultoria/Agile: execução / decisões tortas
+  if (has("entrega")) score.agile += 7;
+  if (context === "mvp_torto") score.agile += 9;
+  if (priority === "execucao") score.agile += 8;
 
-  // 2) CONSULTORIA/AGILE — PROTEÇÃO (ordem antes de investir)
-  if (has("entrega")) score.agile += 8;
-  if (context === "mvp_torto") score.agile += 12;
-  if (priority === "execucao") score.agile += 9;
-
-  // 3) MODUZ — ESTRUTURA OPERACIONAL / ESCALA / MARGEM EM CAMPO
-  if (has("campo")) score.moduz += 11;
-  if (has("crescimento")) score.moduz += 9;
-  if (has("gargalo")) score.moduz += 7;
-  if (has("visibilidade")) score.moduz += 7;
+  // Moduz: estrutura operacional (controlo, escala, campo)
+  if (has("campo")) score.moduz += 8;
   if (has("ruido")) score.moduz += 6;
-  if (context === "erp_ruim") score.moduz += 8;
-  if (priority === "margem_campo") score.moduz += 12;
-  if (priority === "escala") score.moduz += 9;
-  if (priority === "controle") score.moduz += 7;
+  if (has("visibilidade")) score.moduz += 6;
+  if (has("gargalo")) score.moduz += 6;
+  if (has("crescimento")) score.moduz += 7;
+  if (context === "erp_ruim") score.moduz += 7;
+  if (priority === "controle") score.moduz += 6;
+  if (priority === "margem_campo") score.moduz += 9;
+  if (priority === "escala") score.moduz += 7;
 
-  // 4) APPS — SOLUÇÃO CIRÚRGICA / PILOTO RÁPIDO
-  if (context === "manual") score.apps += 7;
-  if (context === "ferramentas") score.apps += 7;
+  // Apps: dor específica / piloto rápido
+  if (context === "manual") score.apps += 6;
+  if (context === "ferramentas") score.apps += 6;
 
-  // Se não há sinais fortes de Moduz (campo/crescimento) nem de conversão, apps ganha tração
-  if (!has("campo") && !has("crescimento") && !has("conversao")) score.apps += 4;
-
-  // Leves: apps pode ser ponte para controlo/escala quando ainda não é "sistema completo"
-  if (priority === "controle") score.apps += 2;
-  if (priority === "escala") score.apps += 1;
-  if (priority === "margem_campo") score.apps += 1;
+  // Se não há sinais fortes de Moduz e não é conversão, apps ganha tração
+  if (
+    !has("campo") &&
+    !has("crescimento") &&
+    !has("gargalo") &&
+    !has("visibilidade") &&
+    !has("ruido") &&
+    !has("conversao")
+  ) {
+    score.apps += 5;
+  }
 
   // Ajuste: se contexto é “mvp torto”, prioriza consultoria antes de produto
   if (context === "mvp_torto") {
-    score.agile += 3;
-    score.moduz -= 2;
-    score.apps -= 2;
-    score.sites -= 1;
+    score.agile += 2;
+    score.moduz -= 1;
+    score.apps -= 1;
   }
 
   const entries = (Object.keys(score) as PathKey[]).map((k) => [k, score[k]] as const);
@@ -123,29 +118,29 @@ function routeRecommendation(input: {
   const primary = entries[0][0];
   const secondary = entries[1][0];
 
-  // Explicação curta e "vendedora" (por que)
+  // Explicação curta (por que)
   if (primary === "sites") {
-    why.push("Converter agora destrava receita e reduz a pressão na operação.");
-    why.push("Sites/landing bem construídos pagam a próxima etapa (app ou Moduz+) com caixa real.");
+    why.push("O gargalo é conversão (mensagem, prova, CTA e rastreio).");
+    why.push("Landing/site bem feito destrava caixa rápido e qualifica leads.");
   }
   if (primary === "moduz") {
-    why.push("As dores apontam para controlo operacional, margem e/ou escala.");
-    why.push("Um sistema modular faz sentido quando a empresa precisa de base para crescer sem caos.");
+    why.push("Dores operacionais de controlo, escala e/ou campo apontam para sistema modular.");
+    why.push("Objetivo é previsibilidade e margem, sem travar a operação.");
   }
   if (primary === "apps") {
-    why.push("Há um gargalo específico que pode ser resolvido com um piloto rápido e direto.");
-    why.push("Depois, se a operação pedir escala, a evolução para Moduz+ fica natural.");
+    why.push("Dor específica pede piloto rápido, leve e direto (sem big bang).");
+    why.push("Quando a operação exigir escala, Moduz+ pode virar o próximo passo.");
   }
   if (primary === "agile") {
-    why.push("O problema central é execução/decisão; pôr ordem agora evita retrabalho caro.");
-    why.push("Antes de investir em produto/sistema, vale alinhar fluxo, prioridade e governança.");
+    why.push("Problema central é execução/decisão; melhor pôr ordem antes de investir mais.");
+    why.push("Reduce retrabalho, ruído e acelera previsibilidade de entrega.");
   }
 
   if (secondary && secondary !== primary) {
-    if (secondary === "sites") why.push("Alternativa: destravar conversão pode ser o passo 1 para financiar o resto.");
-    if (secondary === "apps") why.push("Alternativa: um app cirúrgico resolve um pedaço rápido.");
-    if (secondary === "moduz") why.push("Alternativa: Moduz+ entra quando a operação exigir escala e governança.");
-    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita decisões tortas.");
+    if (secondary === "moduz") why.push("Alternativa: Moduz+ como base quando a operação exigir governança.");
+    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente.");
+    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar o funil.");
+    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho.");
   }
 
   return { primary, secondary, why };
@@ -173,10 +168,18 @@ function assuntoForPath(p: PathKey) {
 }
 
 export default function DiagnosticoPage() {
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+  // 1-3 = perguntas
+  // 4 = captura de lead
+  // 5 = resultado
+  const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
   const [symptoms, setSymptoms] = useState<SymptomKey[]>([]);
   const [context, setContext] = useState<ContextKey | null>(null);
   const [priority, setPriority] = useState<PriorityKey | null>(null);
+
+  const [leadName, setLeadName] = useState("");
+  const [leadEmail, setLeadEmail] = useState("");
+  const [leadStatus, setLeadStatus] = useState<{ ok: boolean; msg: string } | null>(null);
+  const [sendingLead, setSendingLead] = useState(false);
 
   const canNext1 = symptoms.length >= 1;
   const canNext2 = !!context;
@@ -211,6 +214,57 @@ export default function DiagnosticoPage() {
     return `/contato?assunto=${assunto}&mensagem=${msg}`;
   }, [rec.primary, summaryText]);
 
+  async function submitLead() {
+    setLeadStatus(null);
+
+    const email = leadEmail.trim().toLowerCase();
+    const nome = leadName.trim();
+
+    if (!email) {
+      setLeadStatus({ ok: false, msg: "Preenche o teu e-mail para receber o resumo." });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setLeadStatus({ ok: false, msg: "E-mail inválido. Confere e tenta novamente." });
+      return;
+    }
+
+    setSendingLead(true);
+    try {
+      const res = await fetch("/api/wizard", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: nome || null,
+          email,
+          symptoms,
+          context,
+          priority,
+          primary: rec.primary,
+          secondary: rec.secondary,
+          summaryText,
+        }),
+      });
+
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        const detail = data?.error || "Não foi possível registrar o diagnóstico agora. Tenta novamente.";
+        setLeadStatus({ ok: false, msg: detail });
+        return;
+      }
+
+      setLeadStatus({ ok: true, msg: "Perfeito. Vamos responder em até 24 horas." });
+      setStep(5);
+    } catch {
+      setLeadStatus({ ok: false, msg: "Falha de rede. Tenta novamente." });
+    } finally {
+      setSendingLead(false);
+    }
+  }
+
+  const progressStep = step <= 3 ? step : 3;
+  const progressWidth = progressStep === 1 ? 33 : progressStep === 2 ? 66 : 100;
+
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-10">
@@ -226,19 +280,16 @@ export default function DiagnosticoPage() {
             </h1>
             <p className="text-sm text-slate-200 max-w-2xl">
               3 passos. No final, recebes uma recomendação clara (Moduz+, app, site/landing ou consultoria)
-              e já podes agendar a conversa.
+              e podes agendar a conversa.
             </p>
           </div>
         </div>
 
         {/* PROGRESS */}
         <div className="flex items-center justify-between gap-3 text-xs text-slate-400">
-          <span>Passo {step <= 3 ? step : 3} de 3</span>
+          <span>Passo {progressStep} de 3</span>
           <div className="h-2 flex-1 rounded-full bg-slate-900/60 border border-slate-800 overflow-hidden">
-            <div
-              className="h-full bg-cyan-500/80"
-              style={{ width: `${step === 1 ? 33 : step === 2 ? 66 : step >= 3 ? 100 : 33}%` }}
-            />
+            <div className="h-full bg-cyan-500/80" style={{ width: `${progressWidth}%` }} />
           </div>
           <span className="hidden sm:inline">Resposta em até 24 horas</span>
         </div>
@@ -260,9 +311,7 @@ export default function DiagnosticoPage() {
                   <label
                     key={s.key}
                     className={`cursor-pointer rounded-2xl border bg-slate-900/40 p-5 transition ${
-                      checked
-                        ? "border-cyan-500/60 ring-2 ring-cyan-500/20"
-                        : "border-slate-800 hover:border-slate-700"
+                      checked ? "border-cyan-500/60 ring-2 ring-cyan-500/20" : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <div className="flex items-start gap-3">
@@ -320,9 +369,7 @@ export default function DiagnosticoPage() {
                     key={c.key}
                     onClick={() => setContext(c.key)}
                     className={`text-left rounded-2xl border bg-slate-900/40 p-5 transition ${
-                      selected
-                        ? "border-accent-500/70 ring-2 ring-accent-500/20"
-                        : "border-slate-800 hover:border-slate-700"
+                      selected ? "border-accent-500/70 ring-2 ring-accent-500/20" : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <p className="text-sm font-semibold text-slate-50">{c.title}</p>
@@ -352,9 +399,7 @@ export default function DiagnosticoPage() {
           <div className="space-y-6">
             <div className="max-w-3xl">
               <h2 className="text-xl font-semibold text-slate-50">3) O que precisas destravar primeiro?</h2>
-              <p className="mt-2 text-sm text-slate-200">
-                Isto define a prioridade imediata (o que resolve primeiro).
-              </p>
+              <p className="mt-2 text-sm text-slate-200">Isto define a prioridade imediata (o que resolve primeiro).</p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -366,9 +411,7 @@ export default function DiagnosticoPage() {
                     key={p.key}
                     onClick={() => setPriority(p.key)}
                     className={`text-left rounded-2xl border bg-slate-900/40 p-5 transition ${
-                      selected
-                        ? "border-cyan-500/60 ring-2 ring-cyan-500/20"
-                        : "border-slate-800 hover:border-slate-700"
+                      selected ? "border-cyan-500/60 ring-2 ring-cyan-500/20" : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <p className="text-sm font-semibold text-slate-50">{p.title}</p>
@@ -393,8 +436,78 @@ export default function DiagnosticoPage() {
           </div>
         )}
 
-        {/* RESULT */}
+        {/* STEP 4 — CAPTURA LEVE */}
         {step === 4 && (
+          <div className="space-y-6">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
+                Antes do resultado
+              </p>
+              <h2 className="mt-2 text-2xl font-semibold text-slate-50">
+                Para onde enviamos o resumo do diagnóstico?
+              </h2>
+              <p className="mt-2 text-sm text-slate-200 max-w-2xl">
+                Sem spam. Resposta em até <span className="text-cyan-300 font-semibold">24 horas</span>.
+              </p>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div>
+                  <label className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+                    Nome (opcional)
+                  </label>
+                  <input
+                    className="mt-2 w-full rounded-md border border-slate-800 bg-transparent px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400"
+                    placeholder="Nome"
+                    value={leadName}
+                    onChange={(e) => setLeadName(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+                    E-mail (obrigatório)
+                  </label>
+                  <input
+                    className="mt-2 w-full rounded-md border border-slate-800 bg-transparent px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400"
+                    placeholder="contato@exemplo.com"
+                    type="email"
+                    value={leadEmail}
+                    onChange={(e) => setLeadEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              {leadStatus && (
+                <div className={`mt-4 text-sm ${leadStatus.ok ? "text-emerald-400" : "text-rose-400"}`} role="status">
+                  {leadStatus.msg}
+                </div>
+              )}
+
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+                <button onClick={() => setStep(3)} className="text-sm text-slate-300 hover:text-slate-100">
+                  Voltar
+                </button>
+                <button
+                  disabled={sendingLead}
+                  onClick={submitLead}
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
+                >
+                  {sendingLead ? "A enviar…" : "Continuar e ver recomendação"}
+                </button>
+              </div>
+            </div>
+
+            <details className="rounded-2xl border border-slate-800 bg-slate-950/25 p-5">
+              <summary className="cursor-pointer text-sm font-semibold text-slate-200 hover:text-slate-50">
+                Ver o resumo que será enviado
+              </summary>
+              <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">{summaryText}</pre>
+            </details>
+          </div>
+        )}
+
+        {/* STEP 5 — RESULT */}
+        {step === 5 && (
           <div className="space-y-8">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
@@ -416,21 +529,18 @@ export default function DiagnosticoPage() {
 
               <div className="mt-6 grid gap-3 md:grid-cols-2">
                 <div className="rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    Alternativa
-                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Alternativa</p>
                   <p className="mt-2 text-sm font-semibold text-slate-50">{labelForPath(rec.secondary)}</p>
                   <p className="mt-1 text-sm text-slate-300">
-                    Se no diagnóstico aparecer outro gargalo dominante, este pode ser o próximo passo.
+                    Se aparecer outro gargalo dominante, este pode ser o próximo passo.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-800 bg-slate-950/35 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    Próximo passo
-                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Próximo passo</p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Agora é simples: agenda o diagnóstico e já vais com contexto pronto (sem conversa genérica).
+                    Agenda o diagnóstico e já vais com contexto pronto. Respondemos em até{" "}
+                    <span className="text-cyan-300 font-semibold">24 horas</span>.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <a
@@ -445,29 +555,4 @@ export default function DiagnosticoPage() {
                     >
                       Ver detalhes
                     </a>
-                  </div>
-                </div>
-              </div>
-
-              <details className="mt-6 rounded-2xl border border-slate-800 bg-slate-950/25 p-5">
-                <summary className="cursor-pointer text-sm font-semibold text-slate-200 hover:text-slate-50">
-                  Ver resumo que será enviado
-                </summary>
-                <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-300">{summaryText}</pre>
-              </details>
-            </div>
-
-            <div className="flex items-center justify-between gap-3">
-              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
-                Recomeçar
-              </button>
-              <a href="/" className="text-sm text-slate-300 hover:text-slate-100">
-                Voltar para a Home
-              </a>
-            </div>
-          </div>
-        )}
-      </section>
-    </main>
-  );
-}
+                  </div
