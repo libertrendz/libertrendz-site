@@ -1,12 +1,13 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Image from "next/image";
 import "./globals.css";
 import HideOnPaths from "@/components/hide-on-paths";
 
 export const metadata: Metadata = {
   title: "Libertrendz",
-  description: "Libertrendz — Moduz+, Apps customizados, Websites, Consultoria Ágil para PMEs.",
+  description:
+    "Libertrendz — Moduz+, Apps customizados, Websites, Consultoria Ágil para PMEs.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -18,6 +19,14 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/images/og-image.png"],
   },
+};
+
+// Blindagem para browser in-app do Instagram (tipografia/zoom “inflado”)
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 const LOGO_SYMBOL_URL = "/images/LIBERTRENDZ.png";
@@ -163,7 +172,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
 
                 <div className="text-[10px] text-slate-500">
-                  © {new Date().getFullYear()} Libertrendz. Todos os direitos reservados.
+                  © {new Date().getFullYear()} Libertrendz. Todos os direitos
+                  reservados.
                 </div>
 
                 <div className="text-[10px] text-slate-500">
