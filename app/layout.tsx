@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — Moduz+, Apps customizados, Sites e Landing Pages, Consultoria Ágil para PMEs.",
+    "Libertrendz — Moduz+, Apps customizados, Websites, Consultoria Ágil para PMEs.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
