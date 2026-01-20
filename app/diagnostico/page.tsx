@@ -1,3 +1,5 @@
+///app/diagnostico/page.tsx
+
 "use client";
 
 import { useMemo, useState } from "react";
@@ -28,29 +30,97 @@ type PriorityKey =
   | "execucao";
 
 const SYMPTOMS: { key: SymptomKey; title: string; desc: string }[] = [
-  { key: "visibilidade", title: "Gestão no escuro", desc: "Dados espalhados e pouca visão do todo." },
-  { key: "gargalo", title: "Dono gargalo", desc: "Tudo passa por uma pessoa, a empresa trava." },
-  { key: "crescimento", title: "Crescer virou risco", desc: "Mais erros, retrabalho e confusão." },
-  { key: "campo", title: "Campo sem controlo", desc: "Horas, custos e evidências sem rastreio." },
-  { key: "ruido", title: "Ferramentas demais", desc: "WhatsApp/Excel/softwares soltos sem sistema." },
-  { key: "conversao", title: "Leads fracos", desc: "Site não converte, mensagem/CTA/rastreio falham." },
-  { key: "entrega", title: "Entrega travada", desc: "Projetos emperram, prioridades confusas." },
+  {
+    key: "visibilidade",
+    title: "Pouca visibilidade do negócio",
+    desc: "Dados espalhados, relatórios atrasados e decisões no “achismo”.",
+  },
+  {
+    key: "gargalo",
+    title: "Dependência de uma pessoa",
+    desc: "Tudo passa por ti (ou por alguém), e a operação trava quando essa pessoa trava.",
+  },
+  {
+    key: "crescimento",
+    title: "Crescimento desorganizado",
+    desc: "Mais clientes e equipa, mas também mais erros, retrabalho e ruído.",
+  },
+  {
+    key: "campo",
+    title: "Campo sem controlo",
+    desc: "Horas, custos e evidências sem rastreio; margem a desaparecer.",
+  },
+  {
+    key: "ruido",
+    title: "Ferramentas demais, sistema de menos",
+    desc: "WhatsApp + Excel + softwares soltos: muito ruído, pouca organização.",
+  },
+  {
+    key: "conversao",
+    title: "Marketing não vira lead",
+    desc: "Há visitas, mas não há conversão (mensagem, prova, CTA e rastreio falham).",
+  },
+  {
+    key: "entrega",
+    title: "Execução travada",
+    desc: "Projetos emperram, prioridades mudam e tudo anda devagar.",
+  },
 ];
 
 const CONTEXTS: { key: ContextKey; title: string; desc: string }[] = [
-  { key: "manual", title: "Manual (Excel/WhatsApp)", desc: "Processos soltos e controlo por planilhas." },
-  { key: "ferramentas", title: "Ferramentas desconectadas", desc: "Cada uma resolve um pedaço, ninguém resolve o todo." },
-  { key: "erp_ruim", title: "ERP atrapalha", desc: "Existe sistema, mas não escala ou trava a operação." },
-  { key: "mvp_torto", title: "Sistema/MVP torto", desc: "Já investiu e agora ficou caro ajustar." },
-  { key: "trafego_sem_lead", title: "Há tráfego, mas não há lead", desc: "Precisa de conversão e campanha." },
+  {
+    key: "manual",
+    title: "Manual (Excel/WhatsApp)",
+    desc: "Processos soltos e controlo na base da disciplina e planilhas.",
+  },
+  {
+    key: "ferramentas",
+    title: "Ferramentas desconectadas",
+    desc: "Cada uma resolve um pedaço; ninguém resolve o todo.",
+  },
+  {
+    key: "erp_ruim",
+    title: "Já existe ERP, mas atrapalha",
+    desc: "É pesado, não encaixa na operação ou não escala com o crescimento.",
+  },
+  {
+    key: "mvp_torto",
+    title: "Sistema/MVP mal construído",
+    desc: "Já investiu, e agora ficou caro ajustar (retrabalho e decisões tortas).",
+  },
+  {
+    key: "trafego_sem_lead",
+    title: "Há tráfego, mas não há lead",
+    desc: "Precisa de conversão e campanha com rastreio e proposta clara.",
+  },
 ];
 
 const PRIORITIES: { key: PriorityKey; title: string; desc: string }[] = [
-  { key: "controle", title: "Controlo e previsibilidade", desc: "Saber onde estamos e decidir com clareza." },
-  { key: "margem_campo", title: "Margem no campo", desc: "Horas, custos, evidências e execução em campo." },
-  { key: "escala", title: "Escalar sem caos", desc: "Crescer com sistema e governança." },
-  { key: "conversao", title: "Leads e conversão", desc: "Mensagem, prova, CTA e rastreio." },
-  { key: "execucao", title: "Destravar execução", desc: "Fluxo, prioridade e entrega sem ruído." },
+  {
+    key: "controle",
+    title: "Controlo e previsibilidade",
+    desc: "Saber onde estamos e decidir com clareza, sem ruído.",
+  },
+  {
+    key: "margem_campo",
+    title: "Margem no campo",
+    desc: "Horas, custos, evidências e execução em campo sob controlo.",
+  },
+  {
+    key: "escala",
+    title: "Escalar sem caos",
+    desc: "Crescer com sistema e governança — sem virar bombeiro.",
+  },
+  {
+    key: "conversao",
+    title: "Leads e conversão",
+    desc: "Mensagem, prova, CTA e rastreio para gerar caixa.",
+  },
+  {
+    key: "execucao",
+    title: "Destravar execução",
+    desc: "Fluxo, prioridade e entrega — com menos retrabalho.",
+  },
 ];
 
 function routeRecommendation(input: {
@@ -62,7 +132,12 @@ function routeRecommendation(input: {
 
   const has = (k: SymptomKey) => symptoms.includes(k);
 
-  const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
+  const score: Record<PathKey, number> = {
+    moduz: 0,
+    apps: 0,
+    sites: 0,
+    agile: 0,
+  };
   const why: string[] = [];
 
   // SITES: conversão e caixa imediato
@@ -90,7 +165,6 @@ function routeRecommendation(input: {
   if (context === "manual") score.apps += 5;
   if (context === "ferramentas") score.apps += 5;
 
-  // Se não há sinais fortes de Moduz e também não é conversão, apps ganha tração
   const sinaisModuz =
     has("campo") || has("crescimento") || has("gargalo") || has("visibilidade") || has("ruido");
   const sinaisSites = has("conversao") || context === "trafego_sem_lead" || priority === "conversao";
@@ -115,7 +189,9 @@ function routeRecommendation(input: {
 
   // Explicação curta
   if (primary === "sites") {
-    why.push("Sinais fortes de conversão/lead: mensagem, prova, CTA e rastreio precisam de ajuste imediato.");
+    why.push(
+      "Sinais fortes de conversão: proposta, prova, CTA e rastreio precisam de ajuste imediato."
+    );
   }
   if (primary === "moduz") {
     why.push("Dores operacionais de controlo, escala e/ou campo pedem sistema modular e governança.");
@@ -128,10 +204,14 @@ function routeRecommendation(input: {
   }
 
   if (secondary && secondary !== primary) {
-    if (secondary === "moduz") why.push("Alternativa: Moduz+ como próximo passo quando a operação exigir escala e controlo total.");
-    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente e valida o caminho.");
-    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar caixa e pipeline.");
-    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho caro.");
+    if (secondary === "moduz")
+      why.push("Alternativa: Moduz+ como próximo passo quando a operação exigir escala e controlo total.");
+    if (secondary === "apps")
+      why.push("Alternativa: app customizado resolve uma parte rapidamente e valida o caminho.");
+    if (secondary === "sites")
+      why.push("Alternativa: melhorar conversão pode destravar caixa e pipeline.");
+    if (secondary === "agile")
+      why.push("Alternativa: consultoria acelera execução e evita retrabalho caro.");
   }
 
   return { primary, secondary, why };
@@ -174,7 +254,11 @@ export default function DiagnosticoPage() {
   const canNext1 = symptoms.length >= 1;
   const canNext2 = !!context;
   const canNext3 = !!priority;
-  const canNext4 = !!leadEmail && /^\S+@\S+\.\S+$/.test(leadEmail);
+
+  // Nome obrigatório + email válido
+  const leadNameOk = leadName.trim().length >= 2;
+  const leadEmailOk = /^\S+@\S+\.\S+$/.test(leadEmail.trim());
+  const canNext4 = leadNameOk && leadEmailOk;
 
   const rec = useMemo(() => {
     return routeRecommendation({ symptoms, context, priority });
@@ -184,6 +268,7 @@ export default function DiagnosticoPage() {
     const s = symptoms
       .map((k) => SYMPTOMS.find((x) => x.key === k)?.title)
       .filter(Boolean) as string[];
+
     const c = CONTEXTS.find((x) => x.key === context)?.title;
     const p = PRIORITIES.find((x) => x.key === priority)?.title;
 
@@ -209,25 +294,23 @@ export default function DiagnosticoPage() {
     setLeadStatus("loading");
 
     try {
-      const dores = symptoms
-        .map((k) => SYMPTOMS.find((x) => x.key === k)?.title)
-        .filter(Boolean) as string[];
+      // Reforço de segurança: se por algum motivo Step 4 abriu sem dados
+      if (!leadNameOk || !leadEmailOk) {
+        setLeadStatus("error");
+        return;
+      }
 
-      const cenario = CONTEXTS.find((x) => x.key === context)?.title || "-";
-      const prio = PRIORITIES.find((x) => x.key === priority)?.title || "-";
-
-      const res = await fetch("/api/wizard", {
+      // Envia para o MESMO endpoint já funcional do contato, com tipo wizard.
+      // Backend deve aceitar e usar "mensagem" como resumo do diagnóstico.
+      const res = await fetch("/api/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nome: leadName?.trim() || undefined,
+          tipo: "wizard",
+          nome: leadName.trim(),
           email: leadEmail.trim(),
-          dores,
-          cenario,
-          prioridade: prio,
-          recomendacaoPrincipal: labelForPath(rec.primary),
-          recomendacaoAlternativa: labelForPath(rec.secondary),
-          resumo: summaryText,
+          assunto: `Diagnóstico — ${assuntoForPath(rec.primary)}`,
+          mensagem: summaryText,
         }),
       });
 
@@ -292,7 +375,9 @@ export default function DiagnosticoPage() {
                   <label
                     key={s.key}
                     className={`cursor-pointer rounded-2xl border bg-slate-900/40 p-5 transition ${
-                      checked ? "border-cyan-500/60 ring-2 ring-cyan-500/20" : "border-slate-800 hover:border-slate-700"
+                      checked
+                        ? "border-cyan-500/60 ring-2 ring-cyan-500/20"
+                        : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <div className="flex items-start gap-3">
@@ -302,7 +387,9 @@ export default function DiagnosticoPage() {
                         checked={checked}
                         onChange={() => {
                           setSymptoms((prev) =>
-                            prev.includes(s.key) ? prev.filter((x) => x !== s.key) : [...prev, s.key]
+                            prev.includes(s.key)
+                              ? prev.filter((x) => x !== s.key)
+                              : [...prev, s.key]
                           );
                         }}
                       />
@@ -350,7 +437,9 @@ export default function DiagnosticoPage() {
                     key={c.key}
                     onClick={() => setContext(c.key)}
                     className={`text-left rounded-2xl border bg-slate-900/40 p-5 transition ${
-                      selected ? "border-accent-500/70 ring-2 ring-accent-500/20" : "border-slate-800 hover:border-slate-700"
+                      selected
+                        ? "border-accent-500/70 ring-2 ring-accent-500/20"
+                        : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <p className="text-sm font-semibold text-slate-50">{c.title}</p>
@@ -361,7 +450,10 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
+              <button
+                onClick={() => setStep(1)}
+                className="text-sm text-slate-300 hover:text-slate-100"
+              >
                 Voltar
               </button>
               <button
@@ -394,7 +486,9 @@ export default function DiagnosticoPage() {
                     key={p.key}
                     onClick={() => setPriority(p.key)}
                     className={`text-left rounded-2xl border bg-slate-900/40 p-5 transition ${
-                      selected ? "border-cyan-500/60 ring-2 ring-cyan-500/20" : "border-slate-800 hover:border-slate-700"
+                      selected
+                        ? "border-cyan-500/60 ring-2 ring-cyan-500/20"
+                        : "border-slate-800 hover:border-slate-700"
                     }`}
                   >
                     <p className="text-sm font-semibold text-slate-50">{p.title}</p>
@@ -405,7 +499,10 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button onClick={() => setStep(2)} className="text-sm text-slate-300 hover:text-slate-100">
+              <button
+                onClick={() => setStep(2)}
+                className="text-sm text-slate-300 hover:text-slate-100"
+              >
                 Voltar
               </button>
               <button
@@ -419,13 +516,14 @@ export default function DiagnosticoPage() {
           </div>
         )}
 
-        {/* STEP 4 — CAPTURA LEVE */}
+        {/* STEP 4 — CAPTURA LEAD */}
         {step === 4 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
               <h2 className="text-xl font-semibold text-slate-50">Antes de ver a recomendação</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Para onde enviamos o resumo do diagnóstico? Respondemos em até <span className="text-slate-50 font-semibold">24 horas</span>.
+                Para onde enviamos o resumo do diagnóstico? Respondemos em{" "}
+                <span className="text-slate-50 font-semibold">até 24 horas</span>.
               </p>
             </div>
 
@@ -433,14 +531,18 @@ export default function DiagnosticoPage() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
-                    Nome (opcional)
+                    Nome (obrigatório)
                   </label>
                   <input
                     value={leadName}
                     onChange={(e) => setLeadName(e.target.value)}
                     className="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/30"
-                    placeholder="Como devo chamar-te?"
+                    placeholder="Ex.: Gustavo"
+                    required
                   />
+                  {!leadNameOk && leadName.length > 0 && (
+                    <p className="mt-2 text-xs text-rose-400">Escreve pelo menos 2 caracteres.</p>
+                  )}
                 </div>
 
                 <div>
@@ -455,7 +557,7 @@ export default function DiagnosticoPage() {
                     placeholder="contato@empresa.com"
                     required
                   />
-                  {!canNext4 && leadEmail.length > 0 && (
+                  {!leadEmailOk && leadEmail.length > 0 && (
                     <p className="mt-2 text-xs text-rose-400">Confere o e-mail.</p>
                   )}
                 </div>
@@ -468,7 +570,10 @@ export default function DiagnosticoPage() {
               )}
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                <button onClick={() => setStep(3)} className="text-sm text-slate-300 hover:text-slate-100">
+                <button
+                  onClick={() => setStep(3)}
+                  className="text-sm text-slate-300 hover:text-slate-100"
+                >
                   Voltar
                 </button>
 
@@ -561,7 +666,10 @@ export default function DiagnosticoPage() {
             </div>
 
             <div className="flex items-center justify-between gap-3">
-              <button onClick={() => setStep(1)} className="text-sm text-slate-300 hover:text-slate-100">
+              <button
+                onClick={() => setStep(1)}
+                className="text-sm text-slate-300 hover:text-slate-100"
+              >
                 Recomeçar
               </button>
               <a href="/" className="text-sm text-slate-300 hover:text-slate-100">
