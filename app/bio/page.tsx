@@ -55,13 +55,14 @@ export default function BioPage() {
         email: email.trim(),
         problema_principal: problemaLabel,
         origem: "instagram_bio",
+
         // Compatibilidade com o endpoint atual (se ele esperar assunto/mensagem)
         assunto: "Diagnóstico Instagram",
         mensagem: [
           "Diagnóstico curto (Instagram /bio)",
           "",
           `Problema principal: ${problemaLabel || "-"}`,
-          `Origem: instagram_bio`,
+          "Origem: instagram_bio",
         ].join("\n"),
       };
 
@@ -166,9 +167,7 @@ export default function BioPage() {
                     </select>
                   </div>
 
-                  {status === "error" && (
-                    <p className="text-xs text-rose-400">{errorMsg}</p>
-                  )}
+                  {status === "error" && <p className="text-xs text-rose-400">{errorMsg}</p>}
 
                   <button
                     type="submit"
@@ -244,4 +243,3 @@ export default function BioPage() {
     </main>
   );
 }
-```0
