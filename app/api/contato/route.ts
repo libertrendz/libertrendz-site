@@ -4,30 +4,18 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
-function isValidEmail(email: string) {
-  return /^\S+@\S+\.\S+$/.test(email);
-}
+type Tipo = "contato" | "wizard";
 
-function clamp(s: string, max: number) {
-  const v = String(s || "");
-  return v.length > max ? v.slice(0, max) : v;
-}
-
-// Escape simples para evitar quebrar HTML
-function escapeHtml(input: string) {
-  return String(input || "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-type WizardPayload = {
-  tipo: "wizard";
+type ContatoPayload = {
+  tipo?: Tipo;
   nome?: string;
-  email: string;
-  dores?: string[];
+  email?: string;
+  assunto?: string;
+  mensagem?: string;
+};
+
+type WizardPayload = ContatoPayload & {
+  dores?: string[]; // títulos
   cenario?: string;
   prioridade?: string;
   recomendacaoPrincipal?: string;
@@ -35,19 +23,28 @@ type WizardPayload = {
   resumo?: string;
 };
 
-type ContatoPayload = {
-  tipo?: "contato";
-  nome: string;
-  email: string;
-  assunto?: string;
-  mensagem: string;
-};
+function clamp(s: string, max: number) {
+  const v = String(s || "");
+  return v.length > max ? v.slice(0, max) : v;
+}
 
-type AnyBody = Partial<WizardPayload> & Partial<ContatoPayload> & Record<string, unknown>;
+function escapeHtml(input: string) {
+  return input
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
 export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
+    const toInternal = process.env.CONTACT_TO || "contato@libertrendz.eu";
+
+    // Importante: quando o domínio já está verificado, usa remetente do teu domínio.
+    // Ex.: "Libertrendz <contato@libertrendz.eu>" (ou "no-reply@libertrendz.eu").
+    const from = process.env.RESEND_FROM || "Libertrendz <contato@libertrendz.eu>";
 
     if (!apiKey) {
       console.error("RESEND_API_KEY não configurada.");
@@ -58,123 +55,76 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(apiKey);
+    const body = (await req.json()) as WizardPayload;
 
-    // IMPORTANT: parse como unknown e depois normaliza
-    const raw = (await req.json()) as unknown;
-    const body: AnyBody = (raw && typeof raw === "object" ? (raw as AnyBody) : {}) as AnyBody;
-
-    const tipo = (String(body.tipo || "contato") as "contato" | "wizard");
+    const tipo: Tipo = (body.tipo || "contato") as Tipo;
 
     const nome = clamp(String(body.nome || "").trim(), 120);
-    const email = clamp(String(body.email || "").trim(), 160);
+    const email = clamp(String(body.email || "").trim(), 200);
+    const assunto = clamp(String(body.assunto || "").trim(), 140);
 
-    if (!email || !isValidEmail(email)) {
-      return NextResponse.json({ ok: false, error: "E-mail inválido." }, { status: 400 });
-    }
+    // Wizard pode mandar "resumo" ou "mensagem". Para contato normal é "mensagem".
+    const mensagemRaw = String(body.mensagem || body.resumo || "").trim();
+    const mensagem = clamp(mensagemRaw, 20000);
 
-    // Ideal: RESEND_FROM = "Libertrendz <contato@libertrendz.eu>" (após domínio verificado)
-    const from = (process.env.RESEND_FROM?.trim() || "Libertrendz <contato@libertrendz.eu>");
+    const emailOk = /^\S+@\S+\.\S+$/.test(email);
 
-    // ====== MODO WIZARD ======
-    if (tipo === "wizard") {
-      const dores = Array.isArray(body.dores)
-        ? body.dores.map((d) => clamp(String(d), 120))
-        : [];
-
-      const cenario = clamp(String(body.cenario || "-"), 160);
-      const prioridade = clamp(String(body.prioridade || "-"), 160);
-      const recomendacaoPrincipal = clamp(String(body.recomendacaoPrincipal || "-"), 160);
-      const recomendacaoAlternativa = clamp(String(body.recomendacaoAlternativa || "-"), 160);
-      const resumo = clamp(String(body.resumo || "").trim(), 6000);
-
-      const subject = `[Wizard] Novo lead — ${
-        recomendacaoPrincipal !== "-" ? recomendacaoPrincipal : "Diagnóstico"
-      }`;
-
-      const text = `
-Novo diagnóstico preenchido no site Libertrendz.
-
-Nome: ${nome || "Não informado"}
-E-mail: ${email}
-
-Dores:
-- ${dores.length ? dores.join("\n- ") : "(não informado)"}
-
-Cenário atual:
-- ${cenario}
-
-Prioridade:
-- ${prioridade}
-
-Recomendação principal:
-- ${recomendacaoPrincipal}
-
-Alternativa:
-- ${recomendacaoAlternativa}
-
-Resumo completo:
-${resumo || "(sem resumo)"}
-
-Status:
-- Lead capturado
-- Diagnóstico NÃO agendado ainda
-
-SLA prometido ao prospect: até 24 horas.
-`.trim();
-
-      const html = `
-<h2>Novo lead (Wizard) — Libertrendz</h2>
-<p><strong>Nome:</strong> ${escapeHtml(nome || "Não informado")}</p>
-<p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
-
-<p><strong>Dores:</strong></p>
-<ul>
-  ${dores.length ? dores.map((d) => `<li>${escapeHtml(d)}</li>`).join("") : "<li>(não informado)</li>"}
-</ul>
-
-<p><strong>Cenário atual:</strong> ${escapeHtml(cenario)}</p>
-<p><strong>Prioridade:</strong> ${escapeHtml(prioridade)}</p>
-<p><strong>Recomendação principal:</strong> ${escapeHtml(recomendacaoPrincipal)}</p>
-<p><strong>Alternativa:</strong> ${escapeHtml(recomendacaoAlternativa)}</p>
-
-<p><strong>Resumo completo:</strong></p>
-<pre style="white-space:pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; background:#0b1220; color:#e5e7eb; padding:12px; border-radius:10px;">${escapeHtml(
-        resumo || "(sem resumo)"
-      )}</pre>
-
-<p><strong>Status:</strong> Lead capturado; diagnóstico não agendado ainda.</p>
-<p><strong>SLA prometido ao prospect:</strong> até 24 horas.</p>
-`.trim();
-
-      await resend.emails.send({
-        from,
-        to: ["contato@libertrendz.eu"],
-        replyTo: email,
-        subject,
-        text,
-        html,
-      });
-
-      return NextResponse.json({ ok: true });
-    }
-
-    // ====== MODO CONTATO (padrão) ======
-    const assunto = clamp(String(body.assunto || "").trim(), 160);
-    const mensagem = clamp(String(body.mensagem || "").trim(), 6000);
-
-    if (!nome || !mensagem) {
+    // Regras:
+    // - Contato: nome + email + mensagem obrigatórios
+    // - Wizard: nome + email obrigatórios e pelo menos um conteúdo (resumo/mensagem ou campos)
+    if (!nome || !emailOk) {
       return NextResponse.json(
-        { ok: false, error: "Campos obrigatórios em falta." },
+        { ok: false, error: "Nome e e-mail válidos são obrigatórios." },
         { status: 400 }
       );
     }
 
-    const subject =
-      assunto && assunto !== ""
-        ? `[Libertrendz] ${assunto}`
-        : "[Libertrendz] Novo contato pelo site";
+    if (tipo === "contato" && !mensagem) {
+      return NextResponse.json(
+        { ok: false, error: "Mensagem obrigatória." },
+        { status: 400 }
+      );
+    }
 
-    const text = `
+    const isWizard = tipo === "wizard";
+
+    // Campos do wizard (podem vir vazios se frontend não mandar — mas agora vamos mandar)
+    const doresArr = Array.isArray(body.dores) ? body.dores.filter(Boolean) : [];
+    const doresText = doresArr.length ? doresArr.join(" · ") : "(não informado)";
+    const cenario = clamp(String(body.cenario || "-").trim(), 180) || "-";
+    const prioridade = clamp(String(body.prioridade || "-").trim(), 180) || "-";
+    const recP = clamp(String(body.recomendacaoPrincipal || "-").trim(), 220) || "-";
+    const recA = clamp(String(body.recomendacaoAlternativa || "-").trim(), 220) || "-";
+    const resumo = String(body.resumo || mensagem || "").trim();
+
+    // Assunto interno
+    const assuntoEmail = (() => {
+      if (isWizard) {
+        const a = assunto || "Diagnóstico (Wizard)";
+        return `[Libertrendz] ${a}`;
+      }
+      return assunto ? `[Libertrendz] ${assunto}` : "[Libertrendz] Novo contato pelo site";
+    })();
+
+    // Texto interno
+    const textoInterno = isWizard
+      ? `
+Novo lead via Wizard (Diagnóstico Libertrendz)
+
+Nome: ${nome}
+E-mail: ${email}
+
+Dores: ${doresText}
+Cenário atual: ${cenario}
+Prioridade: ${prioridade}
+
+Recomendação principal: ${recP}
+Alternativa: ${recA}
+
+Resumo completo:
+${resumo || "(vazio)"}
+`.trim()
+      : `
 Novo contato pelo site Libertrendz:
 
 Nome: ${nome}
@@ -185,7 +135,24 @@ Mensagem:
 ${mensagem}
 `.trim();
 
-    const html = `
+    // HTML interno
+    const htmlInterno = isWizard
+      ? `
+<h2>Novo lead via Wizard (Diagnóstico Libertrendz)</h2>
+<p><strong>Nome:</strong> ${escapeHtml(nome)}</p>
+<p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
+
+<p><strong>Dores:</strong> ${escapeHtml(doresText)}</p>
+<p><strong>Cenário atual:</strong> ${escapeHtml(cenario)}</p>
+<p><strong>Prioridade:</strong> ${escapeHtml(prioridade)}</p>
+
+<p><strong>Recomendação principal:</strong> ${escapeHtml(recP)}</p>
+<p><strong>Alternativa:</strong> ${escapeHtml(recA)}</p>
+
+<p><strong>Resumo completo:</strong></p>
+<p style="white-space:pre-line;">${escapeHtml(resumo || "(vazio)")}</p>
+`.trim()
+      : `
 <h2>Novo contato pelo site Libertrendz</h2>
 <p><strong>Nome:</strong> ${escapeHtml(nome)}</p>
 <p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
@@ -194,14 +161,56 @@ ${mensagem}
 <p style="white-space:pre-line;">${escapeHtml(mensagem)}</p>
 `.trim();
 
+    // 1) Email interno (para Libertrendz)
     await resend.emails.send({
       from,
-      to: ["contato@libertrendz.eu"],
-      replyTo: email,
-      subject,
-      text,
-      html,
+      to: [toInternal],
+      replyTo: email, // responder direto ao lead
+      subject: assuntoEmail,
+      text: textoInterno,
+      html: htmlInterno,
     });
+
+    // 2) Auto-resposta (só para wizard — e opcionalmente para contato também, se quiser)
+    if (isWizard) {
+      const assuntoProspect = "Recebemos o teu diagnóstico — Libertrendz";
+      const textoProspect = `
+Olá ${nome},
+
+Recebemos o teu diagnóstico.
+A equipa Libertrendz vai analisar e responder em até 24 horas.
+
+Se quiseres acelerar, podes responder este e-mail com:
+- link do site (se existir)
+- nº de pessoas na operação
+- o que está a doer mais hoje
+
+Obrigado,
+Libertrendz
+`.trim();
+
+      const htmlProspect = `
+<h2>Recebemos o teu diagnóstico</h2>
+<p>Olá ${escapeHtml(nome)},</p>
+<p>Recebemos o teu diagnóstico. A equipa Libertrendz vai analisar e responder em <strong>até 24 horas</strong>.</p>
+<p>Se quiseres acelerar, responde este e-mail com:</p>
+<ul>
+  <li>link do site (se existir)</li>
+  <li>nº de pessoas na operação</li>
+  <li>o que está a doer mais hoje</li>
+</ul>
+<p>Obrigado,<br/>Libertrendz</p>
+`.trim();
+
+      await resend.emails.send({
+        from,
+        to: [email],
+        replyTo: toInternal, // resposta volta para vocês
+        subject: assuntoProspect,
+        text: textoProspect,
+        html: htmlProspect,
+      });
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
