@@ -183,7 +183,7 @@ A equipa Libertrendz vai analisar e responder em até 24 horas.
 Se quiseres acelerar, podes responder este e-mail com:
 - link do site (se existir)
 - nº de pessoas na operação
-- o que está a doer mais hoje
+- o que está a "doer" mais hoje no teu negócio
 
 Obrigado,
 Libertrendz
