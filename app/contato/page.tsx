@@ -106,4 +106,112 @@ export default function ContatoPage() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-acc
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  placeholder="contato@exemplo.com"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="assunto"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
+                >
+                  Assunto
+                </label>
+                <select
+                  id="assunto"
+                  name="assunto"
+                  required
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  defaultValue={prefill.assunto || ""}
+                >
+                  <option value="" disabled>
+                    Seleciona uma opção
+                  </option>
+                  <option value="Moduz+">Moduz+</option>
+                  <option value="Apps customizados">Apps customizados</option>
+                  <option value="Sites & Landing Pages">Sites & Landing Pages</option>
+                  <option value="Consultoria Ágil">Consultoria Ágil</option>
+                  <option value="Outro">Outro tema relacionado</option>
+                </select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="mensagem"
+                  className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300"
+                >
+                  Mensagem
+                </label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  required
+                  rows={6}
+                  defaultValue={prefill.mensagem || ""}
+                  className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
+                  placeholder="Conta-me em poucas linhas: o cenário atual, a dor principal e o resultado esperado."
+                />
+              </div>
+
+              {status === "success" && (
+                <p className="text-xs text-emerald-400">
+                  Mensagem enviada com sucesso. Vou ler com atenção e responder assim que possível.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-xs text-red-400">
+                  {errorMsg ||
+                    "Algo correu mal ao enviar. Tente novamente em instantes ou envie diretamente para contato@libertrendz.eu."}
+                </p>
+              )}
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {status === "loading" ? "Enviando..." : "Enviar mensagem"}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* LATERAL */}
+          <div className="space-y-5 text-sm text-slate-200">
+            <div>
+              <h2 className="text-base font-semibold text-slate-50">
+                O que ajuda a tornar a resposta mais útil
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Quanto mais contexto objetivo, mais direta e prática será a resposta:
+              </p>
+              <ul className="mt-2 space-y-1 text-slate-300">
+                <li>• Em que fase estás e qual o objetivo imediato.</li>
+                <li>• O que já tentaste e onde travou.</li>
+                <li>• Prazo desejado e nível de urgência.</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-xs text-slate-300">
+              <p className="mb-1 font-semibold text-slate-50">
+                Preferes enviar direto por e-mail?
+              </p>
+              <p>
+                Também podes escrever para{" "}
+                <a
+                  href="mailto:contato@libertrendz.eu"
+                  className="text-accent-400 hover:text-accent-300"
+                >
+                  contato@libertrendz.eu
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
