@@ -55,8 +55,6 @@ export default function BioPage() {
         email: email.trim(),
         problema_principal: problemaLabel,
         origem: "instagram_bio",
-
-        // Compatibilidade com o endpoint atual (se ele esperar assunto/mensagem)
         assunto: "Diagnóstico Instagram",
         mensagem: [
           "Diagnóstico curto (Instagram /bio)",
@@ -88,72 +86,74 @@ export default function BioPage() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50">
-      <section className="mx-auto w-full max-w-lg px-5 py-10">
-        {/* Header minimalista */}
-        <div className="space-y-2 text-center">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
+      <section className="mx-auto w-full max-w-lg px-4 py-8">
+        {/* Cabeçalho curto */}
+        <div className="space-y-1 text-center">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
             Libertrendz | Moduz+
           </p>
-          <h1 className="text-2xl font-bold leading-tight text-slate-50">
+          <h1 className="text-xl font-bold leading-tight text-slate-50">
             Escolha como quer avançar.
           </h1>
-          <p className="text-sm text-slate-300">Sem compromisso. Sem conversa fiada.</p>
+          <p className="text-sm text-slate-300">Rápido. Direto. Sem ruído.</p>
         </div>
 
-        <div className="mt-8 space-y-4">
-          {/* Opção 1 — Diagnóstico curto */}
-          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-5">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/14 via-transparent to-transparent" />
+        <div className="mt-5 space-y-3">
+          {/* 1) Diagnóstico */}
+          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-4">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-transparent to-transparent" />
             <div className="relative z-10 space-y-3">
               <div className="space-y-1">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-300">
                   Diagnóstico rápido (2 min)
                 </p>
                 <p className="text-sm text-slate-200">
-                  Identifique o principal problema da sua empresa.
+                  Diga-nos o principal problema. Respondemos em até <span className="font-semibold text-slate-50">24 horas</span>.
                 </p>
               </div>
 
               {status !== "ok" ? (
-                <form onSubmit={onSubmit} className="space-y-3">
-                  <div>
-                    <label className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-300">
-                      Nome (obrigatório)
-                    </label>
-                    <input
-                      value={nome}
-                      onChange={(e) => setNome(e.target.value)}
-                      className="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
-                      placeholder="O seu nome"
-                      required
-                    />
+                <form onSubmit={onSubmit} className="space-y-2.5">
+                  <div className="grid gap-2.5 sm:grid-cols-2">
+                    <div>
+                      <label className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
+                        Nome
+                      </label>
+                      <input
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
+                        className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
+                        placeholder="O seu nome"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
+                        Email
+                      </label>
+                      <input
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
+                        placeholder="contato@empresa.com"
+                        required
+                      />
+                      {email.length > 0 && !isEmailValid(email) && (
+                        <p className="mt-1.5 text-xs text-rose-400">Confira o email.</p>
+                      )}
+                    </div>
                   </div>
 
                   <div>
-                    <label className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-300">
-                      Email (obrigatório)
-                    </label>
-                    <input
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      type="email"
-                      className="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
-                      placeholder="contato@empresa.com"
-                      required
-                    />
-                    {email.length > 0 && !isEmailValid(email) && (
-                      <p className="mt-2 text-xs text-rose-400">Confira o email.</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-300">
-                      Qual é o principal problema hoje? (obrigatório)
+                    <label className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
+                      Qual é o principal problema hoje?
                     </label>
                     <select
                       value={problema}
                       onChange={(e) => setProblema(e.target.value as ProblemaKey | "")}
-                      className="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
+                      className="mt-1.5 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/25"
                       required
                     >
                       <option value="" disabled>
@@ -172,23 +172,21 @@ export default function BioPage() {
                   <button
                     type="submit"
                     disabled={!canSubmit || status === "loading"}
-                    className="mt-1 inline-flex w-full items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400 disabled:opacity-60"
                   >
                     {status === "loading" ? "A enviar…" : "Enviar diagnóstico"}
                   </button>
 
                   <p className="text-center text-xs text-slate-400">
-                    Diagnóstico gratuito · Sem compromisso · Resposta por email em até{" "}
-                    <span className="text-slate-200 font-semibold">24 horas</span>
+                    Gratuito · Sem compromisso · Resposta por email
                   </p>
                 </form>
               ) : (
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   <div className="rounded-xl border border-slate-800 bg-slate-950/35 p-4">
                     <p className="text-sm font-semibold text-slate-50">Recebido.</p>
                     <p className="mt-1 text-sm text-slate-300">
-                      Vamos analisar e responder por email em até{" "}
-                      <span className="text-slate-100 font-semibold">24 horas</span>.
+                      Respondemos por email em até <span className="font-semibold text-slate-50">24 horas</span>.
                     </p>
                   </div>
 
@@ -201,41 +199,41 @@ export default function BioPage() {
                       setEmail("");
                       setProblema("");
                     }}
-                    className="inline-flex w-full items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+                    className="inline-flex w-full items-center justify-center rounded-lg border border-slate-700 bg-slate-950/20 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/40"
                   >
-                    Enviar outro diagnóstico
+                    Enviar outro
                   </button>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Opção 2 — Site Libertrendz */}
+          {/* 2) Site — cores suaves */}
           <a
             href="/"
-            className="block rounded-2xl border border-slate-800 bg-slate-900/25 p-5 transition hover:border-slate-700 hover:bg-slate-900/35"
+            className="block rounded-2xl border border-slate-800 bg-accent-500/5 p-4 transition hover:border-accent-500/30 hover:bg-accent-500/8"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
-              Conhecer a Libertrendz
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
+              Ir para o site
             </p>
             <p className="mt-1 text-sm text-slate-200">Ver soluções, produtos e casos.</p>
           </a>
 
-          {/* Opção 3 — WhatsApp direto */}
+          {/* 3) WhatsApp — cores suaves */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="block rounded-2xl border border-slate-800 bg-slate-900/15 p-5 transition hover:border-slate-700 hover:bg-slate-900/25"
+            className="block rounded-2xl border border-slate-800 bg-emerald-500/5 p-4 transition hover:border-emerald-500/30 hover:bg-emerald-500/8"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
-              Falar agora no WhatsApp
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
+              WhatsApp direto
             </p>
-            <p className="mt-1 text-sm text-slate-200">Atendimento direto.</p>
+            <p className="mt-1 text-sm text-slate-200">Atendimento imediato.</p>
             <p className="mt-2 text-xs text-slate-400">{`+${WHATSAPP_NUMBER_E164}`}</p>
           </a>
 
-          <div className="pt-2 text-center">
+          <div className="pt-1 text-center">
             <p className="text-xs text-slate-500">Libertrendz | Moduz+</p>
           </div>
         </div>
