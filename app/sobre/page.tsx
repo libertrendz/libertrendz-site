@@ -14,7 +14,7 @@ export default function SobrePage() {
             Sobre
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Libertrendz — produto + execução para PMEs.
+            Libertrendz: produto + execução para PMEs.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
             A Libertrendz une quatro frentes que se complementam: Moduz+ (módulos ativáveis),
