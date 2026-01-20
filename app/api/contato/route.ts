@@ -73,7 +73,7 @@ export async function POST(req: Request) {
     }
 
     // Ideal: RESEND_FROM = "Libertrendz <contato@libertrendz.eu>" (após domínio verificado)
-    const from = (process.env.RESEND_FROM?.trim() || "Libertrendz <onboarding@resend.dev>");
+    const from = (process.env.RESEND_FROM?.trim() || "Libertrendz <contato@libertrendz.eu>");
 
     // ====== MODO WIZARD ======
     if (tipo === "wizard") {
@@ -148,7 +148,7 @@ SLA prometido ao prospect: até 24 horas.
 
       await resend.emails.send({
         from,
-        to: ["onboarding@resend.dev"],
+        to: ["contato@libertrendz.eu"],
         replyTo: email,
         subject,
         text,
