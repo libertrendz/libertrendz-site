@@ -148,7 +148,7 @@ SLA prometido ao prospect: até 24 horas.
 
       await resend.emails.send({
         from,
-        to: ["contato@libertrendz.eu"],
+        to: ["onboarding@resend.dev"],
         replyTo: email,
         subject,
         text,
