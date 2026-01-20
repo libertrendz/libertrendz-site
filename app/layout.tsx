@@ -72,7 +72,7 @@ export default function RootLayout({
                 Apps customizados
               </a>
               <a href="/sites" className="hover:text-accent-400">
-                Sites & Landing Pages
+                Websites
               </a>
               <a href="/agile" className="hover:text-accent-400">
                 Consultoria Ágil
