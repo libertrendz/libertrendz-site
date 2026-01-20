@@ -54,48 +54,47 @@ export default function RootLayout({
               </div>
             </a>
 
-            {/* NAV DESKTOP */}
-            <nav className="hidden items-center gap-6 text-xs font-medium text-slate-300 sm:flex">
-              <a href="/" className="hover:text-accent-400">
-                Início
-              </a>
+            {/* DESKTOP: links + CTA separado */}
+            <div className="hidden items-center gap-4 sm:flex">
+              <nav className="flex items-center gap-5 text-xs font-medium text-slate-300">
+                <a href="/" className="hover:text-accent-400">
+                  Início
+                </a>
 
-              {/* Moduz+ destacado em cyan */}
-              <a
-                href="/moduz"
-                className="text-cyan-400 font-semibold hover:text-cyan-300"
-              >
-                Moduz+
-              </a>
+                <a
+                  href="/moduz"
+                  className="text-cyan-400 font-semibold hover:text-cyan-300"
+                >
+                  Moduz+
+                </a>
 
-              <a href="/apps" className="hover:text-accent-400">
-                Apps customizados
-              </a>
-              <a href="/sites" className="hover:text-accent-400">
-                Websites
-              </a>
-              <a href="/agile" className="hover:text-accent-400">
-                Consultoria Ágil
-              </a>
-              <a href="/cases" className="hover:text-accent-400">
-                Cases
-              </a>
-              <a href="/sobre" className="hover:text-accent-400">
-                Sobre
-              </a>
+                <a href="/apps" className="hover:text-accent-400">
+                  Apps
+                </a>
+                <a href="/sites" className="hover:text-accent-400">
+                  Websites
+                </a>
+                <a href="/agile" className="hover:text-accent-400">
+                  Ágil
+                </a>
+                <a href="/cases" className="hover:text-accent-400">
+                  Cases
+                </a>
+                <a href="/sobre" className="hover:text-accent-400">
+                  Sobre
+                </a>
+                <a href="/contato" className="hover:text-accent-400">
+                  Contato
+                </a>
+              </nav>
 
-              {/* CTA — Diagnóstico (always visible) */}
               <a
                 href="/diagnostico?src=header"
-                className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
+                className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-2 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
               >
                 Diagnóstico
               </a>
-
-              <a href="/contato" className="hover:text-accent-400">
-                Contato
-              </a>
-            </nav>
+            </div>
 
             {/* NAV MOBILE (hambúrguer + dropdown simples) */}
             <details className="relative sm:hidden">
@@ -107,9 +106,18 @@ export default function RootLayout({
                 <span className="inline-block h-[1px] w-3 bg-slate-300 shadow-[0_4px_0_0_rgba(148,163,184,1),0_8px_0_0_rgba(148,163,184,1)]" />
               </summary>
 
-              {/* dropdown com z-50 para ficar acima do conteúdo */}
               <div className="absolute right-0 z-50 mt-2 w-56 rounded-lg border border-slate-800 bg-slate-950/95 p-3 text-xs shadow-xl shadow-black/60">
                 <nav className="flex flex-col gap-2 text-slate-200">
+                  {/* CTA primeiro */}
+                  <a
+                    href="/diagnostico?src=header_mobile"
+                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
+                  >
+                    Diagnóstico
+                  </a>
+
+                  <hr className="my-1 border-slate-800" />
+
                   <a href="/" className="hover:text-accent-400">
                     Início
                   </a>
@@ -142,15 +150,6 @@ export default function RootLayout({
 
                   <hr className="my-1 border-slate-800" />
 
-                  {/* CTA — Diagnóstico (principal no mobile) */}
-                  <a
-                    href="/diagnostico?src=header_mobile"
-                    className="inline-flex items-center justify-center rounded-md bg-accent-500 px-3 py-1.5 text-[11px] font-semibold text-slate-950 shadow shadow-accent-500/40 hover:bg-accent-400"
-                  >
-                    Diagnóstico
-                  </a>
-
-                  {/* CTA — Contato (secundário no mobile) */}
                   <a
                     href="/contato"
                     className="inline-flex items-center justify-center rounded-md border border-slate-700 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:border-slate-500 hover:bg-slate-900/60"
