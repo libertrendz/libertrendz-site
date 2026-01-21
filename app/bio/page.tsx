@@ -64,7 +64,7 @@ export default function BioPage() {
         <div className="relative text-center rounded-2xl border border-slate-800 bg-slate-900/35 px-4 py-5 overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-cyan-600/8 to-transparent" />
           <div className="relative z-10 space-y-1">
-            <h1 className="text-2xl font-bold leading-tight">
+            <h1 className="text-1xl font-bold leading-tight">
               Cresceu e perdeu controlo?
             </h1>
             <p className="text-sm text-slate-300">
