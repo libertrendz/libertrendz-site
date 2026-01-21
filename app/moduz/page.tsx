@@ -34,13 +34,17 @@ const MODULES_SOON = [
   { key: "crm", title: "CRM & BI", desc: "Gestão comercial e painéis analíticos." },
 ];
 
-function ModuleTitle({
-  moduleKey,
-  title,
-}: {
-  moduleKey: string;
-  title: string;
-}) {
+const CONTACT_CONTEXTS = [
+  "Quero organizar operação e equipa",
+  "Quero controlo de ponto e campo",
+  "Quero visibilidade financeira e previsibilidade",
+  "Quero orçamentos e contratos integrados",
+  "Ainda não sei, preciso de orientação",
+] as const;
+
+type ContactContext = (typeof CONTACT_CONTEXTS)[number] | "";
+
+function ModuleTitle({ moduleKey, title }: { moduleKey: string; title: string }) {
   const dot = MODULE_COLORS[moduleKey] || "bg-slate-400";
   return (
     <div className="flex items-center gap-2">
@@ -54,7 +58,7 @@ export default function ModuzPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
-  const [interest, setInterest] = useState("starter");
+  const [context, setContext] = useState<ContactContext>("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<{ ok: boolean; msg: string } | null>(null);
 
@@ -73,8 +77,8 @@ export default function ModuzPage() {
         nome: name,
         email,
         empresa: company,
-        mensagem: `Interesse Moduz+ · plano: ${interest}`,
-        assunto: "Interesse Moduz+ · demo / orçamento",
+        mensagem: `Interesse Moduz+ · contexto: ${context || "Não especificado"}`,
+        assunto: "Interesse Moduz+ · demo / conversa",
       };
 
       const res = await fetch("/api/contato", {
@@ -84,11 +88,11 @@ export default function ModuzPage() {
       });
 
       if (res.ok) {
-        setStatus({ ok: true, msg: "Recebemos · vamos responder em até 2 dias úteis." });
+        setStatus({ ok: true, msg: "Recebido. Vamos responder em breve." });
         setName("");
         setEmail("");
         setCompany("");
-        setInterest("starter");
+        setContext("");
       } else {
         setStatus({ ok: false, msg: "Não foi possível enviar. Usa contato@libertrendz.eu." });
       }
@@ -124,12 +128,13 @@ export default function ModuzPage() {
                 <li>• Serve operações em campo, serviços, obras e equipas distribuídas.</li>
               </ul>
 
+              {/* AQUI FOI O AJUSTE: tiramos o CTA repetido de demo. */}
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
                   href="#planos"
                   className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
                 >
-                  Agendar demo
+                  Ver como começamos
                 </a>
                 <a
                   href="/contato"
@@ -206,7 +211,7 @@ export default function ModuzPage() {
 
         {/* PLANOS / FORM — AJUSTE DE PROPORÇÃO */}
         <div id="planos" className="grid gap-6 lg:grid-cols-2 lg:items-stretch">
-          {/* ESQUERDA AGORA É CARD (mesmo peso do form) */}
+          {/* ESQUERDA: informativo, sem CTA repetido */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 h-full flex flex-col">
             <div>
               <h2 className="text-xl font-semibold text-slate-50">Planos e como começamos</h2>
@@ -244,29 +249,17 @@ export default function ModuzPage() {
               </ul>
             </div>
 
-            {/* empurra para baixo para equilibrar altura */}
-            <div className="mt-auto pt-6 flex flex-wrap gap-3">
-              <a
-                href="#planos"
-                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow shadow-cyan-500/30 transition hover:bg-cyan-400"
-              >
-                Marcar demo
-              </a>
-              <a
-                href="/contato"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Falar do meu cenário
-              </a>
-            </div>
+            {/* SEM CTA AQUI: reduz repetição e “desespero” */}
           </div>
 
-          {/* DIREITA — FORM (igual altura, botões no fundo) */}
+          {/* DIREITA — FORM (único CTA real da página) */}
           <aside className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 h-full flex flex-col">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Interesse</p>
-              <h3 className="mt-2 text-base font-semibold text-slate-50">Fala connosco sobre Moduz+</h3>
-              <p className="mt-2 text-sm text-slate-300">Preenche e marcamos uma demo curta.</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Conversa</p>
+              <h3 className="mt-2 text-base font-semibold text-slate-50">Marca uma demo curta</h3>
+              <p className="mt-2 text-sm text-slate-300">
+                Diz o teu contexto e eu proponho a ativação mais lógica.
+              </p>
             </div>
 
             <form className="mt-4 space-y-3 flex-1" onSubmit={handleSubmit}>
@@ -301,20 +294,25 @@ export default function ModuzPage() {
                 />
               </div>
 
+              {/* AQUI FOI A CORREÇÃO: não é “plano”, é “contexto da conversa” */}
               <div>
-                <label className="sr-only">Interesse</label>
+                <label className="sr-only">Contexto</label>
                 <select
                   className="w-full rounded-md border border-slate-800 bg-transparent px-3 py-2 text-sm text-slate-100"
-                  value={interest}
-                  onChange={(e) => setInterest(e.target.value)}
+                  value={context}
+                  onChange={(e) => setContext(e.target.value as ContactContext)}
                 >
-                  <option value="starter">Starter · Core · People</option>
-                  <option value="operacional">Operacional · Track · Finance</option>
-                  <option value="comercial">Comercial · Bizz · Finance</option>
+                  <option value="" disabled>
+                    Qual o teu contexto inicial?
+                  </option>
+                  {CONTACT_CONTEXTS.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
                 </select>
               </div>
 
-              {/* BOTÕES NO FUNDO */}
               <div className="pt-2 flex items-center justify-between gap-3">
                 <button
                   type="submit"
@@ -344,19 +342,19 @@ export default function ModuzPage() {
           </aside>
         </div>
 
-        {/* CTA FINAL */}
-        <div className="pt-8 border-t border-slate-800 text-center space-y-4">
+        {/* CTA FINAL — vira link secundário, sem repetir botão */}
+        <div className="pt-8 border-t border-slate-800 text-center space-y-3">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Quer ver como o Moduz+ funciona na tua empresa?
+            Queres validar a ativação certa?
           </h2>
           <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Marcamos uma demo curta para entender o teu contexto e sugerir a melhor ativação de módulos.
+            Faz sentido quando já sabes que precisa de sistema e queres evitar escolha errada de módulos.
           </p>
           <a
             href="#planos"
-            className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+            className="text-sm font-semibold text-cyan-300 hover:text-cyan-200"
           >
-            Marcar demo
+            Ir para a demo →
           </a>
         </div>
       </section>
