@@ -65,11 +65,11 @@ export default function ContatoClient() {
             Contato
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Vamos falar sobre o teu contexto. Direto ao ponto.
+            Vamos fechar um ponto de situação — direto ao ponto.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Moduz+, Apps customizados, Sites & Landing Pages ou Consultoria.
-            Escreve o que está a acontecer e o que precisas destravar.
+            Moduz+, Apps customizados, Sites & Landing Pages ou Consultoria. Diz o cenário,
+            a dor principal e o resultado que precisas destravar.
           </p>
         </div>
 
@@ -150,13 +150,13 @@ export default function ContatoClient() {
                   rows={6}
                   defaultValue={prefill.mensagem || ""}
                   className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
-                  placeholder="Conta-me em poucas linhas: o cenário atual, a dor principal e o resultado esperado."
+                  placeholder="Em poucas linhas: cenário atual, dor principal e resultado esperado."
                 />
               </div>
 
               {status === "success" && (
                 <p className="text-xs text-emerald-400">
-                  Mensagem enviada com sucesso. Vou ler com atenção e responder assim que possível.
+                  Recebido. Vamos analisar e responder por e-mail em até 24 horas.
                 </p>
               )}
               {status === "error" && (
@@ -172,7 +172,7 @@ export default function ContatoClient() {
                   disabled={status === "loading"}
                   className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {status === "loading" ? "Enviando..." : "Enviar mensagem"}
+                  {status === "loading" ? "A enviar…" : "Enviar"}
                 </button>
               </div>
             </form>
@@ -208,6 +208,28 @@ export default function ContatoClient() {
                 </a>
                 .
               </p>
+            </div>
+
+            {/* NOVO: ATALHO PARA "PONTO DE SITUAÇÃO" */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Ponto de situação (2 min)
+              </p>
+              <p className="mt-2 text-sm font-semibold text-slate-50">
+                Queres uma sugestão clara do próximo passo?
+              </p>
+              <p className="mt-1 text-xs text-slate-300">
+                3 perguntas rápidas. No fim, recebes uma recomendação (Moduz+, app, site/landing ou consultoria).
+              </p>
+
+              <div className="mt-3">
+                <a
+                  href="/diagnostico"
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400"
+                >
+                  Continuar
+                </a>
+              </div>
             </div>
           </div>
         </div>
