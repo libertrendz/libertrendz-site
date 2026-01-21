@@ -1,92 +1,158 @@
-// app/solucoes/gestao-de-equipas-em-campo/page.tsx
-
-export default function GestaoEquipasCampoPage() {
+export default function ControloPontoObrasPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
       <section className="container-page py-12 lg:py-16 space-y-14">
+
         {/* HERO */}
-        <div className="max-w-3xl space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-            Soluções
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+            Operação em campo
           </p>
-          <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Gestão de equipas em campo sem perda de controlo
+          <h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">
+            Software de controlo de ponto em obras
           </h1>
-          <p className="text-sm text-slate-200 max-w-2xl">
-            Quando a equipa sai do escritório, a informação costuma ficar para trás.
-            Gestão em campo exige estrutura, não improviso.
+          <p className="mt-4 max-w-2xl text-sm text-slate-200">
+            Registo em campo, auditoria clara e impacto direto no custo real da obra.
+            Sem planilhas, sem ruído, sem discussão no fim do mês.
           </p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/moduz"
+              className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+            >
+              Ver como funciona no Moduz+
+            </a>
+            <a
+              href="/contato"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+            >
+              Falar do meu cenário
+            </a>
+          </div>
         </div>
 
-        {/* PROBLEMA */}
-        <div className="space-y-4 max-w-3xl">
+        {/* PROBLEMAS — CARDS */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            O problema real
+            Problemas comuns em obras e equipas externas
           </h2>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li>• Atividades reportadas tarde demais.</li>
-            <li>• Falta de evidência do que foi feito.</li>
-            <li>• Dificuldade em alinhar prioridades e execução.</li>
-            <li>• Decisões baseadas em versões diferentes da realidade.</li>
-          </ul>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              Equipa marca ponto fora do local ou horário real
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              Divergências de horas no fecho do mês
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              Falta de evidência para auditoria e clientes
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
+              Gestão depende de WhatsApp e confiança cega
+            </div>
+          </div>
         </div>
 
-        {/* CONTEXTO */}
-        <div className="space-y-4 max-w-3xl">
+        {/* SOLUÇÃO — LIGADA AO MODUZ */}
+        <div className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-50">
-            Quando isto começa a falhar
+            Como resolvemos isto na prática
           </h2>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                Track
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Ponto mobile com controlo real
+              </p>
+              <p className="mt-2 text-sm text-slate-300">
+                Registo em campo, horário validado e histórico confiável.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                People
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Pessoas ligadas à obra certa
+              </p>
+              <p className="mt-2 text-sm text-slate-300">
+                Quem trabalhou, onde trabalhou e com que vínculo.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                Finance
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Impacto direto no custo da obra
+              </p>
+              <p className="mt-2 text-sm text-slate-300">
+                Horas viram custo real, sem estimativa no escuro.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* QUANDO FAZ SENTIDO */}
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+            <p className="text-sm font-semibold text-slate-50 mb-2">
+              Faz sentido se:
+            </p>
+            <ul className="space-y-1 text-sm text-slate-300">
+              <li>• Tens equipas em campo ou obras simultâneas</li>
+              <li>• Já tiveste conflitos por horas trabalhadas</li>
+              <li>• Precisas de controlo sem travar a operação</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+            <p className="text-sm font-semibold text-slate-50 mb-2">
+              Não faz sentido se:
+            </p>
+            <ul className="space-y-1 text-sm text-slate-300">
+              <li>• A operação é muito pequena e informal</li>
+              <li>• Não existe rotina nem equipa fixa</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* PROVA LEVE */}
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/35 p-6">
           <p className="text-sm text-slate-200">
-            Funciona com poucas pessoas. Quebra quando a equipa cresce, se espalha
-            e o controlo continua dependente de mensagens, chamadas e memória.
+            Usado em operações reais de obras, serviços e equipas distribuídas.
+            O foco é previsibilidade operacional, não software pelo software.
           </p>
+          <a
+            href="/cases"
+            className="mt-3 inline-block text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+          >
+            Ver casos reais →
+          </a>
         </div>
 
-        {/* ABORDAGEM */}
-        <div className="space-y-4 max-w-3xl">
-          <h2 className="text-xl font-semibold text-slate-50">
-            A abordagem Libertrendz
-          </h2>
-          <p className="text-sm text-slate-200">
-            O foco é operação real. Sem teatro, sem sistemas pesados, sem
-            complexidade desnecessária.
-          </p>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li>• Fluxo claro entre campo e gestão.</li>
-            <li>• Registos simples do que realmente importa.</li>
-            <li>• Estrutura que cresce sem ser refeita.</li>
-            <li>• Tecnologia aplicada só onde resolve.</li>
-          </ul>
-        </div>
-
-        {/* RESULTADO */}
-        <div className="space-y-4 max-w-3xl">
-          <h2 className="text-xl font-semibold text-slate-50">
-            O que muda na prática
-          </h2>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li>• Visibilidade real da operação.</li>
-            <li>• Menos retrabalho e menos discussões.</li>
-            <li>• Equipa mais autónoma e alinhada.</li>
-            <li>• Decisões baseadas em factos.</li>
-          </ul>
-        </div>
-
-        {/* CTA */}
-        <div className="pt-10 border-t border-slate-800 space-y-4 max-w-3xl">
+        {/* CTA FINAL — ÚNICO */}
+        <div className="pt-8 border-t border-slate-800 text-center space-y-4">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Queres alinhar isto com a tua realidade?
+            Quer controlo real do ponto em obra?
           </h2>
-          <p className="text-sm text-slate-200">
-            Falamos do teu cenário e vemos qual é o caminho mais lógico.
+          <p className="max-w-xl mx-auto text-sm text-slate-200">
+            Falamos do teu cenário e mostramos como o Moduz+ se adapta à tua operação.
           </p>
           <a
             href="/contato"
             className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
           >
-            Falar sobre a minha operação
+            Falar do meu cenário
           </a>
         </div>
+
       </section>
     </main>
   );
