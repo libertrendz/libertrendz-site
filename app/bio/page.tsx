@@ -63,7 +63,7 @@ export default function BioPage() {
         {/* HEADLINE */}
         <div className="space-y-1 text-center">
           <h1 className="text-2xl font-bold leading-tight">
-            Cresceu — e perdeu controlo?
+            Cresceu e perdeu controlo?
           </h1>
           <p className="text-sm text-slate-300">
             Identifica o problema principal da tua operação em 30 segundos.
