@@ -60,14 +60,17 @@ export default function BioPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50 flex items-center justify-center px-4 py-8">
       <section className="w-full max-w-md space-y-4">
-        {/* HEADLINE */}
-        <div className="space-y-1 text-center">
-          <h1 className="text-2xl font-bold leading-tight">
-            Cresceu e perdeu controlo?
-          </h1>
-          <p className="text-sm text-slate-300">
-            Identifica o problema principal da tua operação em 30 segundos.
-          </p>
+        {/* HEADLINE (com leve glow igual ao site) */}
+        <div className="relative text-center rounded-2xl border border-slate-800 bg-slate-900/35 px-4 py-5 overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-cyan-600/8 to-transparent" />
+          <div className="relative z-10 space-y-1">
+            <h1 className="text-2xl font-bold leading-tight">
+              Cresceu e perdeu controlo?
+            </h1>
+            <p className="text-sm text-slate-300">
+              Em 30 segundos, eu devolvo um caminho claro.
+            </p>
+          </div>
         </div>
 
         {/* FORM */}
@@ -110,7 +113,7 @@ export default function BioPage() {
 
           <div className="space-y-1">
             <label className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-300">
-              Qual a situação atual?
+              Ponto de situação
             </label>
             <select
               value={situacao}
@@ -134,17 +137,17 @@ export default function BioPage() {
             disabled={!canSubmit}
             className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400 disabled:opacity-60"
           >
-            Ver diagnóstico
+            Descobrir o caminho certo (2 min)
           </button>
 
           <p className="text-center text-[11px] text-slate-500">
-            Diagnóstico gratuito · Resposta por email
+            Resposta por email
           </p>
         </form>
 
-        {/* LINKS — MESMA LINGUAGEM VISUAL (sem colcha de retalhos) */}
+        {/* LINKS — MESMA LINGUAGEM VISUAL */}
         <div className="grid gap-3">
-          {/* SITE (ciano suave, consistente) */}
+          {/* SITE */}
           <a
             href="/"
             className="block rounded-2xl border border-slate-800 bg-slate-900/40 p-3 transition hover:border-slate-700 hover:bg-slate-900/55"
@@ -157,7 +160,7 @@ export default function BioPage() {
             </p>
           </a>
 
-          {/* WHATSAPP (verde presente, mas no MESMO SISTEMA: fundo escuro + destaque no título) */}
+          {/* WHATSAPP (2 linhas) */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
