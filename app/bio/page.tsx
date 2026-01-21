@@ -68,7 +68,7 @@ export default function BioPage() {
               CRESCEU E PERDEU O CONTROLO?
             </h1>
             <p className="text-sm text-slate-300">
-              Partilhe os seus desafios, nós mostramos-lhe o caminho.
+              Partilhe os seus desafios, nós te mostramos o caminho.
             </p>
           </div>
         </div>
