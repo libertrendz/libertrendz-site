@@ -1,4 +1,4 @@
-// libertrendz-site/app/sobre/page.tsx
+// app/sobre/page.tsx
 import Image from "next/image";
 
 const FOTO_URL = "/images/GUSTAVO.png";
@@ -14,60 +14,104 @@ export default function SobrePage() {
             Sobre
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Libertrendz: produto + execução para PMEs.
+            Produto e execução para PMEs que precisam de controlo.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            A Libertrendz une quatro frentes que se complementam: Moduz+ (módulos ativáveis),
-            Apps customizados, Sites & Landing Pages e Consultoria Ágil.
+            A Libertrendz atua quando a operação começa a doer. Crescimento sem
+            estrutura gera ruído, retrabalho e decisões no escuro. O foco aqui é
+            clareza, previsibilidade e execução prática.
           </p>
         </div>
 
         {/* GRID PRINCIPAL */}
         <div className="grid gap-10 lg:grid-cols-[2.2fr,1.8fr] lg:items-start">
-          {/* TEXTO */}
-          <div className="space-y-6 text-sm text-slate-200">
-            <div className="space-y-3">
+          {/* TEXTO PRINCIPAL */}
+          <div className="space-y-8 text-sm text-slate-200">
+            <section className="space-y-3">
               <h2 className="text-xl font-semibold text-slate-50">
                 Quem é o Gustavo Santos
               </h2>
               <p>
-                Trago experiência prática de gestão e contexto corporativo para um objetivo simples:
-                transformar operação em clareza, previsibilidade e resultado.
+                Trago quase três décadas de experiência em gestão, operações e
+                projetos, em contextos onde erro custa caro, atraso gera impacto
+                real e decisões precisam de critério.
               </p>
               <p>
-                O meu trabalho é pragmático: entender o cenário real, cortar ruído e construir o que sustenta
-                o crescimento (processo, tecnologia e execução).
+                Atuei em ambientes exigentes como administração pública, banca,
+                indústria, retalho e operações de campo, sempre com o mesmo
+                objetivo: transformar complexidade em decisões claras e
+                executáveis.
               </p>
               <p>
-                Hoje atuo em quatro frentes:{" "}
-                <strong className="text-slate-100">Moduz+</strong>,{" "}
-                <strong className="text-slate-100">Apps customizados</strong>,{" "}
-                <strong className="text-slate-100">Sites & Landing Pages</strong> e{" "}
-                <strong className="text-slate-100">Consultoria Ágil</strong>.
+                O meu trabalho começa onde normalmente se falha: entender o
+                cenário real, cortar ruído e construir estrutura suficiente para
+                sustentar crescimento sem burocracia.
               </p>
-            </div>
+              <p className="text-slate-300">
+                Não vendo atalhos. Organizo caminhos.
+              </p>
+            </section>
 
-            <div className="space-y-3">
-              <h2 className="text-xl font-semibold text-slate-50">Como penso e trabalho</h2>
+            <section className="space-y-3">
+              <h2 className="text-xl font-semibold text-slate-50">
+                Como penso e trabalho
+              </h2>
               <ul className="space-y-2 text-slate-300">
                 <li>
-                  • <span className="font-semibold text-slate-100">Zero teatro:</span> método é meio, não fim.
+                  • <span className="font-semibold text-slate-100">Zero teatro:</span>{" "}
+                  método é meio, não fim.
                 </li>
                 <li>
-                  • <span className="font-semibold text-slate-100">Contexto primeiro:</span> antes da solução, entendimento real da operação.
+                  • <span className="font-semibold text-slate-100">Contexto primeiro:</span>{" "}
+                  leitura honesta da operação antes da solução.
                 </li>
                 <li>
-                  • <span className="font-semibold text-slate-100">Clareza e empatia:</span> comunicação direta sem desumanizar o processo.
+                  • <span className="font-semibold text-slate-100">Decisão com critério:</span>{" "}
+                  KPIs simples, fluxo visível e prioridades claras.
                 </li>
                 <li>
-                  • <span className="font-semibold text-slate-100">Caminho claro:</span> tudo vira próximos passos mensuráveis.
+                  • <span className="font-semibold text-slate-100">Próximo passo explícito:</span>{" "}
+                  tudo termina em ação concreta.
                 </li>
               </ul>
-            </div>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="text-xl font-semibold text-slate-50">
+                O que é a Libertrendz, na prática
+              </h2>
+              <p>
+                A Libertrendz é um guarda-chuva operacional que integra produto e
+                execução conforme a maturidade e o problema de cada cliente.
+              </p>
+              <ul className="space-y-2 text-slate-300">
+                <li>
+                  • <strong className="text-slate-100">Moduz+:</strong> quando a
+                  operação cresceu e precisa de controlo e escala.
+                </li>
+                <li>
+                  • <strong className="text-slate-100">Apps customizados:</strong>{" "}
+                  quando existe uma dor específica que precisa ser resolvida
+                  rápido.
+                </li>
+                <li>
+                  • <strong className="text-slate-100">Sites & Landing Pages:</strong>{" "}
+                  quando o problema é mensagem, aquisição e conversão.
+                </li>
+                <li>
+                  • <strong className="text-slate-100">Consultoria Ágil:</strong>{" "}
+                  quando o bloqueio está na decisão e na execução.
+                </li>
+              </ul>
+              <p className="text-slate-300">
+                Não existe solução padrão. Existe o caminho certo para cada
+                cenário.
+              </p>
+            </section>
           </div>
 
           {/* CARD LATERAL */}
-          <aside className="space-y-4">
+          <aside className="space-y-5">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 flex flex-col items-center text-center gap-4">
               <div className="relative h-36 w-36 overflow-hidden rounded-full border border-slate-700 bg-slate-900">
                 <Image
@@ -78,8 +122,12 @@ export default function SobrePage() {
                 />
               </div>
               <div className="space-y-1">
-                <p className="text-sm font-semibold text-slate-50">Gustavo Santos</p>
-                <p className="text-xs text-slate-400">Gestor de Projetos · Consultor Ágil</p>
+                <p className="text-sm font-semibold text-slate-50">
+                  Gustavo Santos
+                </p>
+                <p className="text-xs text-slate-400">
+                  Gestor de Projetos · Consultor Operacional
+                </p>
               </div>
             </div>
 
@@ -88,40 +136,21 @@ export default function SobrePage() {
                 Em poucas linhas
               </p>
               <p>
-                Produto e execução para PMEs: o site atrai, o app organiza, o Moduz+ escala e a consultoria
-                mantém previsibilidade.
+                Produto e execução para PMEs. O site atrai, o app organiza, o
+                Moduz+ escala e a consultoria mantém previsibilidade.
               </p>
-              <div className="mt-2 text-sm text-slate-300 space-y-1">
-                <div>• <strong>Moduz+:</strong> módulos ativáveis para escalar.</div>
-                <div>• <strong>Apps customizados:</strong> soluções sob medida.</div>
-                <div>• <strong>Sites & Landing Pages:</strong> conversão e presença.</div>
-                <div>• <strong>Consultoria Ágil:</strong> fluxo, prioridade e entrega.</div>
-              </div>
             </div>
           </aside>
         </div>
 
-        {/* SOBRE A LIBERTRENDZ */}
-        <div className="space-y-4 max-w-3xl">
-          <h2 className="text-xl font-semibold text-slate-50">Sobre a Libertrendz</h2>
-          <p className="text-sm text-slate-200">
-            A Libertrendz é o guarda-chuva que integra produto e execução: Moduz+, Apps customizados,
-            Sites & Landing Pages e Consultoria Ágil — tudo pensado para reduzir ruído e aumentar controlo.
-          </p>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li>• Foco em operações reais de pequenas e médias empresas.</li>
-            <li>• Entrega incremental, com valor desde o início.</li>
-            <li>• Linguagem direta, sem “venda de fumaça”.</li>
-            <li>• Tecnologia aplicada para resolver rotina, não para impressionar.</li>
-          </ul>
-        </div>
-
-        {/* MISSÃO • VISÃO • VALORES */}
-        <section id="missao-visao-valores" className="space-y-6 max-w-4xl">
+        {/* MISSÃO · VISÃO · VALORES */}
+        <section className="space-y-6 max-w-4xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
             Identidade
           </p>
-          <h2 className="text-xl font-semibold text-slate-50">Missão, visão e valores</h2>
+          <h2 className="text-xl font-semibold text-slate-50">
+            Missão, visão e valores
+          </h2>
 
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
@@ -129,10 +158,10 @@ export default function SobrePage() {
                 Missão
               </p>
               <p className="mt-2 text-slate-100 font-semibold">
-                Tornar PMEs mais produtivas e previsíveis com soluções digitais práticas.
+                Tornar PMEs mais produtivas e previsíveis com soluções práticas.
               </p>
-              <p className="mt-2 text-slate-300 text-sm">
-                Produto + execução com métricas simples e foco em valor.
+              <p className="mt-2 text-slate-300">
+                Produto e execução com foco em valor real.
               </p>
             </div>
 
@@ -141,9 +170,9 @@ export default function SobrePage() {
                 Visão
               </p>
               <p className="mt-2 text-slate-100 font-semibold">
-                Ser referência em soluções operacionais que escalam sem virar burocracia.
+                Ser referência em soluções que escalam sem virar burocracia.
               </p>
-              <p className="mt-2 text-slate-300 text-sm">
+              <p className="mt-2 text-slate-300">
                 Crescer com clientes reais e casos comprovados.
               </p>
             </div>
@@ -155,15 +184,15 @@ export default function SobrePage() {
               <ul className="mt-3 space-y-2 text-sm text-slate-300">
                 <li>
                   <span className="font-semibold text-slate-100">Praticidade:</span>{" "}
-                  soluções que funcionam no dia a dia.
+                  funciona no dia a dia.
                 </li>
                 <li>
                   <span className="font-semibold text-slate-100">Clareza:</span>{" "}
                   comunicação direta e decisões mensuráveis.
                 </li>
                 <li>
-                  <span className="font-semibold text-slate-100">Propósito com empatia:</span>{" "}
-                  resolver o real sem esquecer pessoas.
+                  <span className="font-semibold text-slate-100">Empatia com rigor:</span>{" "}
+                  resolver o real sem ignorar pessoas.
                 </li>
               </ul>
             </div>
@@ -174,7 +203,7 @@ export default function SobrePage() {
               href="/cases"
               className="font-semibold text-accent-400 hover:text-accent-300"
             >
-              Ver casos → 
+              Ver casos →
             </a>
           </div>
         </section>
