@@ -65,7 +65,7 @@ export default function ContatoClient() {
             Contato
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Vamos falar sobre o teu contexto — direto ao ponto.
+            Vamos falar sobre o teu contexto. Direto ao ponto.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
             Moduz+, Apps customizados, Sites & Landing Pages ou Consultoria.
