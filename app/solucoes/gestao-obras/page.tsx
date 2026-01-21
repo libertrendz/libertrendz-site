@@ -1,3 +1,5 @@
+///app/solucoes/gestao-obras/
+
 export default function GestaoObrasPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
