@@ -65,10 +65,10 @@ export default function BioPage() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-cyan-600/8 to-transparent" />
           <div className="relative z-10 space-y-1">
             <h1 className="text-1xl font-bold leading-tight">
-              Cresceu e perdeu controlo?
+              CRESCEU E PERDEU O CONTROLO?
             </h1>
             <p className="text-sm text-slate-300">
-              Em 30 segundos, eu devolvo um caminho claro.
+              Em 30 segundos, devolvemos um caminho claro.
             </p>
           </div>
         </div>
