@@ -110,7 +110,7 @@ export default function BioPage() {
 
           <div className="space-y-1">
             <label className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-300">
-              O que descreve melhor a tua empresa?
+              Qual a situação atual?
             </label>
             <select
               value={situacao}
