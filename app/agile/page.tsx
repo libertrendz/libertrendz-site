@@ -10,7 +10,7 @@ export default function AgilePage() {
             Consultoria Ágil
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Projetos ágeis sem teatro — foco em previsibilidade, entrega e clareza.
+            Projetos ágeis sem teatro: foco em previsibilidade, entrega e clareza.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
             A consultoria ágil da Libertrendz é pensada para profissionais e PMEs
