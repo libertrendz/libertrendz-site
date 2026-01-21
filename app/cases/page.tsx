@@ -12,7 +12,7 @@ export default function CasesPage() {
             Cases
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Provas de valor — o que já entregámos
+            Provas de valor: o que já entregámos
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
             Projetos reais, com foco em operação: dor clara, solução objetiva e
