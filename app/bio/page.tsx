@@ -137,11 +137,11 @@ export default function BioPage() {
             disabled={!canSubmit}
             className="inline-flex w-full items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400 disabled:opacity-60"
           >
-            Descobrir o caminho certo (2 min)
+            Descobrir o caminho certo
           </button>
 
           <p className="text-center text-[11px] text-slate-500">
-            Resposta por email
+            Resposta por email e proposta de solução
           </p>
         </form>
 
