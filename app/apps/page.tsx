@@ -161,14 +161,14 @@ export default function AppsPage() {
             </article>
 
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-sm font-semibold text-slate-50">LEGISTOR</p>
+              <p className="text-sm font-semibold text-slate-50">LTZ-JUS</p>
               <p className="mt-1 text-sm text-slate-300">
                 Gestão para escritórios de advocacia · processos, prazos e financeiro.
               </p>
             </article>
 
             <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-sm font-semibold text-slate-50">EKKLYN</p>
+              <p className="text-sm font-semibold text-slate-50">LTZ-CHURCH</p>
               <p className="mt-1 text-sm text-slate-300">
                 Gestão de congregações · membros, atividades, finanças e mural comunitário.
               </p>
