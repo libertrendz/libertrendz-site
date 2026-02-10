@@ -40,13 +40,13 @@ export default function CasesPage() {
             </p>
           </article>
 
-          {/* LEGISTOR */}
+          {/* LTZ-JUS */}
           <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
             <p className="text-xs uppercase tracking-[0.18em] text-accent-300">
-              LEGISTOR — Escritórios
+              LTZ-JUS — Escritórios
             </p>
             <h3 className="mt-2 text-base font-semibold text-slate-50">
-              Fluxo de processos e finanças para escritórios
+              Fluxo de processos e finanças para escritórios de advocacia
             </h3>
             <p className="mt-2 text-slate-300">
               <strong>Desafio:</strong> prazos, pagamentos e acompanhamento dispersos. Tudo demora mais do que devia.
@@ -59,10 +59,10 @@ export default function CasesPage() {
             </p>
           </article>
 
-          {/* EKKLYN */}
+          {/* LTZ-CHURCH */}
           <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
             <p className="text-xs uppercase tracking-[0.18em] text-accent-300">
-              EKKLYN — Comunidades
+              LTZ-CHURCH — Comunidades
             </p>
             <h3 className="mt-2 text-base font-semibold text-slate-50">
               Gestão de membros e atividades comunitárias
