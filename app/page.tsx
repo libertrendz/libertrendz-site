@@ -178,8 +178,9 @@ export default function HomePage() {
   Onde isto começa a fazer diferença
 </p>
 
-<h2 className="max-w-2xl text-2xl font-semibold text-slate-50">
-  Três caminhos com o mesmo objetivo: fazer o negócio avançar com mais clareza.
+<h2 className="max-w-xl text-2xl font-semibold text-slate-50">
+  Três caminhos com o mesmo objetivo:
+  <span className="block">fazer o negócio avançar com mais clareza.</span>
 </h2>
           </div>
 
