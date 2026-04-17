@@ -1,152 +1,134 @@
 // app/sites/page.tsx
+
 export default function SitesPage() {
-  const CTA_TEXT = "Descobrir o caminho certo (2 min)";
-
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-12 lg:py-16 space-y-14">
-        {/* HERO */}
-        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-8">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent-500/14 via-accent-400/8 to-transparent" />
-          <div className="relative z-10 max-w-3xl space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-              Sites e Landing Pages
-            </p>
+    <main className="flex flex-col">
 
-            <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-              Sites que vendem. Landing pages que convertem.
-            </h1>
+      {/* HERO */}
+      <section className="px-6 py-20 max-w-5xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          Um site não deve ser bonito. <br /> Deve gerar negócio.
+        </h1>
 
-            <p className="text-sm text-slate-200 max-w-2xl">
-              Se o teu site está bonito e não traz negócio, falta estrutura de conversão.
-              Aqui o foco é simples: mensagem clara, prova, CTA e rastreio.
-            </p>
+        <p className="mt-6 text-lg text-neutral-400 max-w-2xl mx-auto">
+          Se o teu site não está a trazer contactos ou clientes, ele não está a cumprir o papel.
+        </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="/diagnostico"
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-              >
-                {CTA_TEXT}
-              </a>
+        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+          <a
+            href="/diagnostico"
+            className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+          >
+            Ver o que está errado
+          </a>
 
-              <a
-                href="/cases"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Ver casos
-              </a>
-            </div>
-          </div>
+          <a
+            href="https://wa.me/351910287128?text=Olá,%20quero%20melhorar%20o%20meu%20site."
+            target="_blank"
+            className="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition"
+          >
+            Falar no WhatsApp
+          </a>
         </div>
+      </section>
 
-        {/* O QUE ENTREGAMOS */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">O que entregamos</h2>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Landing pages
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Campanhas com CTA e rastreio
-              </p>
-              <p className="mt-2 text-slate-300">
-                Formulário, UTM, WhatsApp e estrutura para medir conversão.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Sites institucionais
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Presença forte e objetiva
-              </p>
-              <p className="mt-2 text-slate-300">
-                Clareza de oferta, prova, SEO básico e navegação limpa.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Funil de entrada
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Site como porta para a operação
-              </p>
-              <p className="mt-2 text-slate-300">
-                Quando o projeto cresce, o site vira entrada para processos, apps e produto.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* QUANDO FAZ SENTIDO */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-slate-50">
-            Quando faz sentido investir nisto
+      {/* PROBLEMAS */}
+      <section className="px-6 py-16 bg-neutral-900">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            Se isto acontece contigo, o problema não é só o design
           </h2>
 
-          <div className="grid gap-4 md:grid-cols-2 max-w-4xl">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Tráfego existe, mas lead não</p>
-              <p className="text-slate-300">
-                Normalmente é mensagem, prova e CTA. Resolve-se com estrutura e rastreio.
-              </p>
+          <div className="mt-10 grid md:grid-cols-3 gap-6 text-left">
+            <div className="p-6 border border-neutral-800 rounded-lg">
+              <p>Ninguém entra em contacto</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Oferta confusa</p>
-              <p className="text-slate-300">
-                Um bom site explica o que fazes e para quem é, em segundos.
-              </p>
+            <div className="p-6 border border-neutral-800 rounded-lg">
+              <p>O site não explica bem o que fazes</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Precisas de campanhas</p>
-              <p className="text-slate-300">
-                Uma landing por campanha evita misturar mensagens e melhora conversão.
-              </p>
+            <div className="p-6 border border-neutral-800 rounded-lg">
+              <p>Recebes visitas, mas não clientes</p>
             </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-sm text-slate-200">
-              <p className="mb-1 font-semibold text-slate-50">Queres preparar escala</p>
-              <p className="text-slate-300">
-                O site vira a porta de entrada para processos, equipa e crescimento com controlo.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA FINAL */}
-        <div className="pt-10 border-t border-slate-800 text-center space-y-4">
-          <h2 className="text-2xl font-semibold text-slate-50">
-            Queres um site que traga negócio?
-          </h2>
-
-          <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Primeiro entendemos o ponto de situação. Depois definimos a página certa para converter.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href="/diagnostico"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-            >
-              {CTA_TEXT}
-            </a>
-
-            <a
-              href="/contato"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-            >
-              Falar por mensagem
-            </a>
           </div>
         </div>
       </section>
+
+      {/* SOLUÇÃO */}
+      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          O foco não é o site. É o resultado.
+        </h2>
+
+        <p className="mt-6 text-neutral-400 max-w-2xl mx-auto">
+          Eu estruturo a mensagem, o fluxo e o posicionamento antes de construir.
+          O site é consequência disso.
+        </p>
+      </section>
+
+      {/* PRAZO */}
+      <section className="px-6 py-16 bg-neutral-900 text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Rápido, sem enrolação
+        </h2>
+
+        <p className="mt-6 text-neutral-400">
+          Landing pages a partir de 7 dias <br />
+          Sites completos a partir de 14 dias
+        </p>
+      </section>
+
+      {/* NICHO */}
+      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Funciona em diferentes negócios
+        </h2>
+
+        <p className="mt-6 text-neutral-400">
+          Remodelações, serviços, advocacia, vendas e organizações.
+        </p>
+      </section>
+
+      {/* DIFERENCIAL */}
+      <section className="px-6 py-20 bg-neutral-900">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            Não é template. Não é genérico.
+          </h2>
+
+          <p className="mt-6 text-neutral-400">
+            Cada projeto é estruturado de acordo com o negócio.
+            O objetivo não é “ter um site”.
+            É fazer o site funcionar.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="px-6 py-20 text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Se quiseres resolver isto, o próximo passo é simples
+        </h2>
+
+        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+          <a
+            href="/diagnostico"
+            className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+          >
+            Fazer diagnóstico
+          </a>
+
+          <a
+            href="https://wa.me/351910287128?text=Olá,%20quero%20resolver%20o%20meu%20site."
+            target="_blank"
+            className="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition"
+          >
+            Falar no WhatsApp
+          </a>
+        </div>
+      </section>
+
     </main>
   );
 }
