@@ -1,10 +1,14 @@
 // app/contato/ContatoClient.tsx
+
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 type Status = "idle" | "loading" | "success" | "error";
+
+const WHATSAPP_URL =
+  "https://wa.me/351910287128?text=Olá,%20quero%20entender%20qual%20o%20caminho%20mais%20certo%20para%20o%20meu%20caso.";
 
 export default function ContatoClient() {
   const [status, setStatus] = useState<Status>("idle");
@@ -51,7 +55,7 @@ export default function ContatoClient() {
       form.reset();
     } catch {
       setStatus("error");
-      setErrorMsg("Não foi possível enviar no momento. Tente novamente em instantes.");
+      setErrorMsg("Não foi possível enviar no momento. Tenta novamente em instantes.");
     }
   }
 
@@ -65,17 +69,29 @@ export default function ContatoClient() {
             Contato
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Vamos fechar um ponto de situação. Direto ao que interessa.
+            Se quiseres avançar, começamos por perceber o teu cenário.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            Moduz+, Apps customizados, Sites & Landing Pages ou Consultoria. Diz o cenário,
-            a dor principal e o resultado que precisas destravar.
+            Podes enviar contexto pelo formulário ou falar diretamente no WhatsApp.
+            O objetivo aqui não é complicar. É chegar mais depressa ao que faz sentido para o teu caso.
           </p>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[3fr,2fr] lg:items-start">
           {/* FORMULÁRIO */}
           <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 shadow-xl shadow-black/50">
+            <div className="mb-6 space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Formulário
+              </p>
+              <h2 className="text-lg font-semibold text-slate-50">
+                Envia o contexto com calma
+              </h2>
+              <p className="text-sm text-slate-300">
+                Ideal para quando queres explicar melhor o cenário, o objetivo e o que está a travar.
+              </p>
+            </div>
+
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="space-y-1.5">
                 <label
@@ -128,10 +144,9 @@ export default function ContatoClient() {
                   <option value="" disabled>
                     Seleciona uma opção
                   </option>
-                  <option value="Moduz+">Moduz+</option>
+                  <option value="Websites">Websites</option>
                   <option value="Apps customizados">Apps customizados</option>
-                  <option value="Sites & Landing Pages">Sites & Landing Pages</option>
-                  <option value="Consultoria Ágil">Consultoria Ágil</option>
+                  <option value="Produto & Execução">Produto &amp; Execução</option>
                   <option value="Outro">Outro tema relacionado</option>
                 </select>
               </div>
@@ -150,7 +165,7 @@ export default function ContatoClient() {
                   rows={6}
                   defaultValue={prefill.mensagem || ""}
                   className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-accent-400 focus:ring-2 focus:ring-accent-500/40"
-                  placeholder="Em poucas linhas: cenário atual, dor principal e resultado esperado."
+                  placeholder="Em poucas linhas: cenário atual, principal dificuldade e resultado que queres alcançar."
                 />
               </div>
 
@@ -159,10 +174,11 @@ export default function ContatoClient() {
                   Recebido. Vamos analisar e responder por e-mail em até 24 horas.
                 </p>
               )}
+
               {status === "error" && (
                 <p className="text-xs text-red-400">
                   {errorMsg ||
-                    "Algo correu mal ao enviar. Tente novamente em instantes ou envie diretamente para contato@libertrendz.eu."}
+                    "Algo correu mal ao enviar. Tenta novamente em instantes ou escreve diretamente para contato@libertrendz.eu."}
                 </p>
               )}
 
@@ -172,7 +188,7 @@ export default function ContatoClient() {
                   disabled={status === "loading"}
                   className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {status === "loading" ? "A enviar…" : "Enviar"}
+                  {status === "loading" ? "A enviar…" : "Enviar mensagem"}
                 </button>
               </div>
             </form>
@@ -180,17 +196,40 @@ export default function ContatoClient() {
 
           {/* LATERAL */}
           <div className="space-y-5 text-sm text-slate-200">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Caminho mais rápido
+              </p>
+              <h2 className="mt-2 text-base font-semibold text-slate-50">
+                Queres falar diretamente?
+              </h2>
+              <p className="mt-2 text-slate-300">
+                Se preferires ir direto ao ponto, o WhatsApp é o caminho mais rápido para começarmos.
+              </p>
+
+              <div className="mt-4">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400"
+                >
+                  Falar no WhatsApp
+                </a>
+              </div>
+            </div>
+
             <div>
               <h2 className="text-base font-semibold text-slate-50">
                 O que ajuda a tornar a resposta mais útil
               </h2>
               <p className="mt-2 text-slate-300">
-                Quanto mais contexto objetivo, mais direta e prática será a resposta:
+                Quanto mais contexto objetivo, mais direta e mais útil será a resposta.
               </p>
-              <ul className="mt-2 space-y-1 text-slate-300">
-                <li>• Em que fase estás e qual o objetivo imediato.</li>
-                <li>• O que já tentaste e onde travou.</li>
-                <li>• Prazo desejado e nível de urgência.</li>
+              <ul className="mt-3 space-y-1 text-slate-300">
+                <li>• Em que fase estás e o que queres destravar</li>
+                <li>• O que já tentaste e onde travou</li>
+                <li>• Se precisas de um site, landing page, app ou ainda estás a decidir</li>
               </ul>
             </div>
 
@@ -210,16 +249,15 @@ export default function ContatoClient() {
               </p>
             </div>
 
-            {/* NOVO: ATALHO PARA "PONTO DE SITUAÇÃO" */}
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                Ponto de situação (2 min)
+                Diagnóstico (2 min)
               </p>
               <p className="mt-2 text-sm font-semibold text-slate-50">
-                Queres uma sugestão clara do próximo passo?
+                Ainda não sabes qual é o caminho certo?
               </p>
               <p className="mt-1 text-xs text-slate-300">
-                3 perguntas rápidas. No fim, recebes uma recomendação (Moduz+, app, site/landing ou consultoria).
+                Responde a algumas perguntas rápidas e recebe uma recomendação mais clara.
               </p>
 
               <div className="mt-3">
@@ -227,7 +265,7 @@ export default function ContatoClient() {
                   href="/diagnostico"
                   className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/25 transition hover:bg-cyan-400"
                 >
-                  Continuar
+                  Fazer diagnóstico
                 </a>
               </div>
             </div>
