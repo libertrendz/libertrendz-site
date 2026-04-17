@@ -1,281 +1,179 @@
 // app/page.tsx
-export default function HomePage() {
-  const CTA_TEXT = "Descobrir o caminho certo (2 min)";
-
+export default function Home() {
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-16 md:py-20 space-y-16">
-        {/* HERO — impacto + decisão */}
-        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-8 md:p-10">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cyan-700/12 via-accent-500/8 to-transparent" />
-          <div className="relative z-10 grid gap-10 lg:grid-cols-[1.35fr,1fr] lg:items-center">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
-                Libertrendz · produto + execução para PMEs
-              </p>
+    <main className="flex flex-col">
 
-              <h1 className="mt-3 text-3xl font-bold leading-tight md:text-5xl">
-                Quando a empresa cresce sem sistema,
-                <span className="block mt-2 text-cyan-300">o caos cobra juros.</span>
-              </h1>
+      {/* HERO */}
+      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          Um site sem estrutura não gera negócio. <br /> Só ocupa espaço.
+        </h1>
 
-              <p className="mt-5 max-w-2xl text-base md:text-lg text-slate-200">
-                Falta de visibilidade, retrabalho, decisões no escuro e margem a desaparecer.
-                A Libertrendz organiza a operação antes que isso vire prejuízo estrutural.
-              </p>
+        <p className="mt-6 text-lg text-neutral-400 max-w-2xl mx-auto">
+          Eu organizo o teu site e o teu processo para transformar visitas em clientes — 
+          com implementação rápida e foco no que realmente funciona.
+        </p>
 
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href="/diagnostico"
-                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm md:text-base font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
-                >
-                  {CTA_TEXT}
-                </a>
+        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+          <a
+            href="/diagnostico"
+            className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+          >
+            Descobrir o que está a travar (2 min)
+          </a>
 
-                <a
-                  href="/cases"
-                  className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm md:text-base font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-                >
-                  Ver casos
-                </a>
-              </div>
+          <a
+            href="https://wa.me/351910287128?text=Olá,%20vi%20o%20site%20da%20Libertrendz%20e%20quero%20melhorar%20o%20meu."
+            target="_blank"
+            className="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition"
+          >
+            Falar no WhatsApp
+          </a>
+        </div>
+      </section>
 
-              <div className="mt-6 flex flex-wrap gap-3 text-xs text-slate-300">
-                <span className="rounded-full border border-slate-800 bg-slate-950/40 px-3 py-1">
-                  Clareza e previsibilidade
-                </span>
-                <span className="rounded-full border border-slate-800 bg-slate-950/40 px-3 py-1">
-                  Menos ruído, mais controlo
-                </span>
-                <span className="rounded-full border border-slate-800 bg-slate-950/40 px-3 py-1">
-                  Execução sem teatro
-                </span>
-              </div>
+      {/* PROBLEMA */}
+      <section className="px-6 py-16 bg-neutral-900">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            O problema raramente é o site.
+          </h2>
+
+          <p className="mt-4 text-neutral-400">
+            É a falta de estrutura por trás dele.
+          </p>
+
+          <div className="mt-10 grid md:grid-cols-3 gap-6 text-left">
+            <div className="p-6 border border-neutral-800 rounded-lg">
+              <p>Site bonito, mas não gera contactos</p>
             </div>
 
-            {/* Card lateral — identificação + prova (sem competir com o CTA principal) */}
-            <aside className="rounded-2xl border border-slate-800 bg-slate-950/35 p-6 shadow-xl shadow-black/60">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Se isto parece contigo…
-              </p>
+            <div className="p-6 border border-neutral-800 rounded-lg">
+              <p>Processos manuais e desorganizados</p>
+            </div>
 
-              <div className="mt-4 space-y-3 text-sm text-slate-200">
-                <p className="rounded-xl border border-slate-800 bg-slate-900/30 px-4 py-3">
-                  “Trabalhamos muito, mas não sabemos onde estamos.”
-                </p>
-                <p className="rounded-xl border border-slate-800 bg-slate-900/30 px-4 py-3">
-                  “Tudo passa por mim. Se eu paro, a empresa trava.”
-                </p>
-                <p className="rounded-xl border border-slate-800 bg-slate-900/30 px-4 py-3">
-                  “Crescemos, mas o sistema não acompanhou.”
-                </p>
-                <p className="text-xs text-slate-400">Não é falta de esforço. É falta de estrutura.</p>
-              </div>
-
-              <div className="mt-5">
-                <a
-                  href="/cases"
-                  className="inline-flex w-full items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-                >
-                  Ver casos
-                </a>
-              </div>
-            </aside>
+            <div className="p-6 border border-neutral-800 rounded-lg">
+              <p>Tudo depende de ti para funcionar</p>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* DORES — identificação rápida */}
-        <section className="space-y-6">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold text-slate-50">
-              Se alguma destas dores é tua, o próximo passo é decidir com método.
-            </h2>
-            <p className="mt-2 text-sm text-slate-200">
-              A maioria das empresas não precisa de mais ferramentas. Precisa de direção, estrutura e execução consistente.
+      {/* COMO RESOLVO */}
+      <section className="px-6 py-20 max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center">
+          Como resolvemos isso
+        </h2>
+
+        <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
+          <div>
+            <p className="font-semibold">1. Entender</p>
+            <p className="text-sm text-neutral-400 mt-2">
+              O negócio, a oferta e o objetivo
             </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Visibilidade</p>
-              <p className="mt-2 font-semibold text-slate-50">Gestão no escuro</p>
-              <p className="mt-2 text-slate-300">Dados espalhados, relatórios atrasados e decisões sem visão do todo.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Gargalo</p>
-              <p className="mt-2 font-semibold text-slate-50">Tudo passa pelo dono</p>
-              <p className="mt-2 text-slate-300">A empresa não escala porque falta sistema e autonomia para a equipa.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Crescimento</p>
-              <p className="mt-2 font-semibold text-slate-50">Crescer virou risco</p>
-              <p className="mt-2 text-slate-300">Mais clientes, mais erros, mais retrabalho. O “crescer” começa a doer.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Campo</p>
-              <p className="mt-2 font-semibold text-slate-50">Margem a desaparecer</p>
-              <p className="mt-2 text-slate-300">Obras/serviços sem controlo: horas infladas, custos invisíveis e discussões com clientes.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Ruído</p>
-              <p className="mt-2 font-semibold text-slate-50">Ferramentas a mais, sistema a menos</p>
-              <p className="mt-2 text-slate-300">WhatsApp, Excel e softwares desconectados: muito movimento, pouca organização.</p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Conversão</p>
-              <p className="mt-2 font-semibold text-slate-50">O site não traz negócio</p>
-              <p className="mt-2 text-slate-300">Tráfego existe, mas lead não. Falta mensagem, prova, CTA e rastreio.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* CAMINHOS — clareza */}
-        <section className="space-y-6">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold text-slate-50">
-              Não existe solução única. Existe o caminho certo para o teu cenário.
-            </h2>
-            <p className="mt-2 text-sm text-slate-200">
-              O erro é escolher antes de entender. Esta avaliação rápida define se o próximo passo é produto, build rápido,
-              conversão ou execução.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Conversão</p>
-              <p className="mt-2 text-base font-semibold text-slate-50">Sites & Landing Pages</p>
-              <p className="mt-2 text-sm text-slate-300">
-                Quando o problema é mensagem, aquisição e lead. Site bonito não paga contas. Conversão sim.
-              </p>
-              <a href="/sites" className="mt-4 inline-flex text-sm font-semibold text-accent-300 hover:text-accent-200">
-                Ver Sites →
-              </a>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Piloto</p>
-              <p className="mt-2 text-base font-semibold text-slate-50">Apps customizados</p>
-              <p className="mt-2 text-sm text-slate-300">
-                Quando existe uma dor específica que precisa ser resolvida rápido — sem reinventar a empresa.
-              </p>
-              <a href="/apps" className="mt-4 inline-flex text-sm font-semibold text-accent-300 hover:text-accent-200">
-                Ver Apps →
-              </a>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Estrutura</p>
-              <p className="mt-2 text-base font-semibold text-slate-50">Moduz+</p>
-              <p className="mt-2 text-sm text-slate-300">
-                Quando a operação cresceu e precisa de controlo, integração e escala sem burocracia.
-              </p>
-              <a href="/moduz" className="mt-4 inline-flex text-sm font-semibold text-cyan-300 hover:text-cyan-200">
-                Ver Moduz+ →
-              </a>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">Acelerador</p>
-              <p className="mt-2 text-base font-semibold text-slate-50">Consultoria (sem teatro)</p>
-              <p className="mt-2 text-sm text-slate-300">
-                Quando o problema não é ferramenta, é decisão e execução. Põe ordem no fluxo antes de gastar de novo.
-              </p>
-              <a href="/agile" className="mt-4 inline-flex text-sm font-semibold text-accent-300 hover:text-accent-200">
-                Ver Consultoria →
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/35 p-6">
-            <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                  Ponto de situação (2 min)
-                </p>
-                <p className="mt-1 text-lg font-semibold text-slate-50">
-                  Responde a 3 perguntas e recebe uma sugestão clara do próximo passo.
-                </p>
-                <p className="mt-1 text-sm text-slate-300">
-                  Sem compromisso. Respondemos por e-mail em até 24 horas.
-                </p>
-              </div>
-
-              <a
-                href="/diagnostico"
-                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
-              >
-                {CTA_TEXT}
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* PROVA */}
-        <section className="space-y-6">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-semibold text-slate-50">Provas de valor — o que já entregámos</h2>
-            <p className="mt-2 text-sm text-slate-200">
-              Projetos com foco em operação real: menos ruído, mais controlo e decisões melhores.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">CONFIANCE</p>
-              <p className="mt-2 text-sm font-semibold text-slate-50">Obras e equipas em campo</p>
-              <p className="mt-2 text-sm text-slate-300">Ponto, operação e gestão com visão do todo.</p>
-            </article>
-
-            <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">LEGISTOR</p>
-              <p className="mt-2 text-sm font-semibold text-slate-50">Escritórios e processos</p>
-              <p className="mt-2 text-sm text-slate-300">Prazos, financeiro e centralização de informação.</p>
-            </article>
-
-            <article className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">EKKLYN</p>
-              <p className="mt-2 text-sm font-semibold text-slate-50">Comunidades e gestão</p>
-              <p className="mt-2 text-sm text-slate-300">Membros, atividades, finanças e mural.</p>
-            </article>
           </div>
 
           <div>
-            <a href="/cases" className="text-sm font-semibold text-accent-300 hover:text-accent-200">
-              Ver casos →
-            </a>
+            <p className="font-semibold">2. Estruturar</p>
+            <p className="text-sm text-neutral-400 mt-2">
+              O fluxo que gera clientes
+            </p>
           </div>
-        </section>
 
-        {/* CTA FINAL */}
-        <section className="space-y-6 border-t border-slate-800 pt-10 text-center">
-          <h2 className="text-3xl font-semibold text-slate-50">
-            Queres clareza antes de tomar a próxima decisão?
-          </h2>
-          <p className="text-lg text-slate-200 max-w-2xl mx-auto">
-            Primeiro entendemos o contexto. Depois indicamos o melhor caminho — Moduz+, app, site/landing ou consultoria.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <a
-              href="/diagnostico"
-              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-            >
-              {CTA_TEXT}
-            </a>
-            <a
-              href="/cases"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-base font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-            >
-              Ver casos
-            </a>
+          <div>
+            <p className="font-semibold">3. Construir</p>
+            <p className="text-sm text-neutral-400 mt-2">
+              O site ou sistema necessário
+            </p>
           </div>
-        </section>
+
+          <div>
+            <p className="font-semibold">4. Entregar</p>
+            <p className="text-sm text-neutral-400 mt-2">
+              Pronto para funcionar
+            </p>
+          </div>
+        </div>
       </section>
+
+      {/* PRAZO */}
+      <section className="px-6 py-16 bg-neutral-900 text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Sem projetos intermináveis
+        </h2>
+
+        <p className="mt-6 text-neutral-400">
+          Landing pages a partir de 7 dias <br />
+          Sites completos a partir de 14 dias
+        </p>
+      </section>
+
+      {/* NICHOS */}
+      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Aplicado em diferentes contextos
+        </h2>
+
+        <p className="mt-6 text-neutral-400">
+          Remodelações, serviços, advocacia, vendas e organizações.
+        </p>
+      </section>
+
+      {/* AUTORIDADE */}
+      <section className="px-6 py-20 bg-neutral-900">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold">
+            Experiência que sustenta o que faço
+          </h2>
+
+          <div className="mt-10 grid md:grid-cols-4 gap-6 text-sm">
+            <div>
+              <p className="font-semibold">Financeiro</p>
+              <p className="text-neutral-400 mt-2">BNP Paribas</p>
+            </div>
+
+            <div>
+              <p className="font-semibold">Setor Público</p>
+              <p className="text-neutral-400 mt-2">Transformação digital</p>
+            </div>
+
+            <div>
+              <p className="font-semibold">Projetos</p>
+              <p className="text-neutral-400 mt-2">PMO & Agile</p>
+            </div>
+
+            <div>
+              <p className="font-semibold">Decisão</p>
+              <p className="text-neutral-400 mt-2">BI & KPIs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="px-6 py-20 text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Se o teu site não está a trazer clientes, dá para resolver.
+        </h2>
+
+        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
+          <a
+            href="/diagnostico"
+            className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+          >
+            Fazer diagnóstico rápido
+          </a>
+
+          <a
+            href="https://wa.me/351910287128?text=Olá,%20quero%20resolver%20o%20meu%20site."
+            target="_blank"
+            className="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition"
+          >
+            Falar agora no WhatsApp
+          </a>
+        </div>
+      </section>
+
     </main>
   );
 }
