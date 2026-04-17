@@ -7,70 +7,72 @@ export default function HomePage() {
   const whatsappHref = buildWhatsAppLink(WHATSAPP_MESSAGES.general);
 
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-10 md:py-14 space-y-16">
-        {/* HERO */}
-        <section className="grid gap-8 lg:grid-cols-[1.08fr,0.92fr] lg:items-center">
-          <div className="space-y-6">
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent-300">
-                Websites · Apps customizados · Produto &amp; Execução
-              </p>
-
-              <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-                O teu negócio não precisa de mais ferramentas.
-                <span className="mt-2 block text-cyan-300">
-                  Precisa de funcionar melhor.
-                </span>
-              </h1>
-
-              <p className="max-w-2xl text-base text-slate-200 md:text-lg">
-                Websites, apps e organização pensados para trazer mais clareza,
-                mais controlo e mais resultado ao que realmente importa.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
-              >
-                Falar no WhatsApp
-              </a>
-
-              <a
-                href="#como-funciona"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Ver como funciona
-              </a>
-            </div>
-
-            <div className="flex flex-wrap gap-3 text-xs text-slate-300">
-              <span className="rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1">
-                Landing pages a partir de 7 dias
-              </span>
-              <span className="rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1">
-                Sites completos a partir de 14 dias
-              </span>
-              <span className="rounded-full border border-slate-800 bg-slate-900/50 px-3 py-1">
-                Menos improviso, mais direção
-              </span>
-            </div>
+    <main className="bg-slate-950 text-slate-50">
+      <section className="container-page py-8 md:py-10 space-y-20">
+        {/* HERO PREMIUM */}
+        <section className="relative overflow-hidden rounded-[28px] border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/home-hero-transformacao.png"
+              alt="Transformação de caos operacional em clareza, controlo e resultado"
+              fill
+              priority
+              className="object-cover object-center"
+            />
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 shadow-xl shadow-black/50">
-            <div className="relative aspect-[16/9]">
-              <Image
-                src="/images/home-hero-transformacao.png"
-                alt="Transição de caos operacional para clareza, controlo e resultado"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/35 via-transparent to-slate-950/10" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.92)_0%,rgba(2,6,23,0.76)_34%,rgba(2,6,23,0.36)_62%,rgba(2,6,23,0.18)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_34%)]" />
+
+          <div className="relative z-10 min-h-[560px] px-6 py-12 md:px-10 md:py-14 lg:min-h-[620px] lg:px-14 lg:py-16 flex items-end">
+            <div className="max-w-3xl space-y-6">
+              <div className="space-y-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-300/90">
+                  Websites · Apps customizados · Produto &amp; Execução
+                </p>
+
+                <h1 className="max-w-2xl text-3xl font-bold leading-tight md:text-5xl xl:text-6xl">
+                  O teu negócio não precisa de mais ferramentas.
+                  <span className="mt-2 block text-cyan-300">
+                    Precisa de funcionar melhor.
+                  </span>
+                </h1>
+
+                <p className="max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
+                  A Libertrendz ajuda a transformar confusão em estrutura, presença digital
+                  fraca em clareza e operação solta em algo mais simples, mais controlado e mais útil.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-1">
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
+                >
+                  Falar no WhatsApp
+                </a>
+
+                <a
+                  href="#como-funciona"
+                  className="inline-flex items-center justify-center rounded-lg border border-slate-600/80 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-slate-100 backdrop-blur-sm transition hover:border-slate-400 hover:bg-slate-900/50"
+                >
+                  Ver como funciona
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-2 text-xs text-slate-200">
+                <span className="rounded-full border border-slate-700/80 bg-slate-950/35 px-3 py-1.5 backdrop-blur-sm">
+                  Landing pages a partir de 7 dias
+                </span>
+                <span className="rounded-full border border-slate-700/80 bg-slate-950/35 px-3 py-1.5 backdrop-blur-sm">
+                  Sites completos a partir de 14 dias
+                </span>
+                <span className="rounded-full border border-slate-700/80 bg-slate-950/35 px-3 py-1.5 backdrop-blur-sm">
+                  Menos improviso, mais direção
+                </span>
+              </div>
             </div>
           </div>
         </section>
@@ -82,7 +84,7 @@ export default function HomePage() {
               Quando isto começa a pesar
             </p>
 
-            <h2 className="text-2xl font-semibold text-slate-50">
+            <h2 className="text-2xl font-semibold leading-snug text-slate-50">
               Se hoje tens pedidos perdidos, processos manuais ou um site que não traz resultado,
               o problema não é falta de esforço.
             </h2>
@@ -93,58 +95,76 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* COMO FUNCIONA */}
+        {/* COMO FUNCIONA PREMIUM */}
         <section
           id="como-funciona"
-          className="grid gap-8 lg:grid-cols-[0.95fr,1.05fr] lg:items-center"
+          className="relative overflow-hidden rounded-[28px] border border-slate-800 bg-slate-900 shadow-2xl shadow-black/40"
         >
-          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 shadow-xl shadow-black/50">
-            <div className="relative aspect-[3/2]">
-              <Image
-                src="/images/home-como-funciona.png"
-                alt="Fluxo visual de organização e estruturação de informações para gerar clareza e resultado"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/20 via-transparent to-slate-950/5" />
-            </div>
+          <div className="absolute inset-0">
+            <Image
+              src="/images/home-como-funciona.png"
+              alt="Estrutura visual de organização, clareza e fluxo"
+              fill
+              className="object-cover object-center opacity-95"
+            />
           </div>
 
-          <div className="space-y-5">
-            <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.82)_0%,rgba(2,6,23,0.62)_32%,rgba(2,6,23,0.86)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_28%)]" />
+
+          <div className="relative z-10 px-6 py-10 md:px-10 md:py-12 lg:px-12 lg:py-14 space-y-8">
+            <div className="max-w-3xl space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
                 Como funciona
               </p>
 
-              <h2 className="text-2xl font-semibold text-slate-50">
+              <h2 className="text-2xl font-semibold text-slate-50 md:text-3xl">
                 Não é sobre criar mais uma ferramenta.
               </h2>
 
-              <p className="text-base text-slate-200">
-                É sobre organizar o que já existe e transformar isso num sistema
-                mais simples, mais claro e mais útil para o teu momento.
+              <p className="max-w-2xl text-base text-slate-200">
+                É sobre organizar o que já existe e aplicar a solução certa no momento certo,
+                sem excesso, sem ruído e sem inventar complexidade.
               </p>
             </div>
 
-            <div className="grid gap-3">
-              <div className="rounded-xl border border-slate-800 bg-slate-900/35 p-4">
-                <p className="text-sm font-semibold text-slate-50">1. Entender o teu cenário</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  O ponto de partida é perceber o que está a travar e o que realmente precisa de mudar.
+            <div className="grid gap-4 lg:grid-cols-3">
+              <div className="rounded-2xl border border-slate-700/80 bg-slate-950/35 p-5 backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                  1. Entender
+                </p>
+                <p className="mt-3 text-lg font-semibold text-slate-50">
+                  Ler o teu cenário com honestidade
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Antes de propor qualquer coisa, é preciso perceber o que está realmente a travar,
+                  o que já existe e o que precisa de mudar.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-slate-800 bg-slate-900/35 p-4">
-                <p className="text-sm font-semibold text-slate-50">2. Organizar o processo</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  A solução certa vem depois de ganhar clareza, não antes.
+              <div className="rounded-2xl border border-slate-700/80 bg-slate-950/35 p-5 backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                  2. Organizar
+                </p>
+                <p className="mt-3 text-lg font-semibold text-slate-50">
+                  Dar estrutura ao processo
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  O foco não é tecnologia pela tecnologia. É reduzir ruído, clarificar o caminho
+                  e preparar uma solução que sirva o negócio de verdade.
                 </p>
               </div>
 
-              <div className="rounded-xl border border-slate-800 bg-slate-900/35 p-4">
-                <p className="text-sm font-semibold text-slate-50">3. Aplicar a solução certa</p>
-                <p className="mt-1 text-sm text-slate-300">
-                  Pode ser website, app ou uma combinação dos dois. O foco é o que faz sentido para ti.
+              <div className="rounded-2xl border border-slate-700/80 bg-slate-950/35 p-5 backdrop-blur-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                  3. Aplicar
+                </p>
+                <p className="mt-3 text-lg font-semibold text-slate-50">
+                  Escolher o formato certo
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Pode ser website, app ou ambos. O ponto é fazer sentido para o teu momento,
+                  não empurrar uma solução errada só porque parece bonita.
                 </p>
               </div>
             </div>
@@ -173,7 +193,7 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
               </div>
 
               <div className="space-y-3 p-5">
@@ -181,11 +201,11 @@ export default function HomePage() {
                   Websites
                 </p>
 
-                <h3 className="text-lg font-semibold text-slate-50">
+                <h3 className="text-lg font-semibold leading-snug text-slate-50">
                   Um site que não só apresenta, mas gera contacto.
                 </h3>
 
-                <p className="text-sm text-slate-300">
+                <p className="text-sm leading-6 text-slate-300">
                   Para quando o problema está na comunicação, na credibilidade e na captação.
                 </p>
 
@@ -207,7 +227,7 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
               </div>
 
               <div className="space-y-3 p-5">
@@ -215,11 +235,11 @@ export default function HomePage() {
                   Apps customizados
                 </p>
 
-                <h3 className="text-lg font-semibold text-slate-50">
+                <h3 className="text-lg font-semibold leading-snug text-slate-50">
                   Sistemas simples para organizar operação e ganhar controlo.
                 </h3>
 
-                <p className="text-sm text-slate-300">
+                <p className="text-sm leading-6 text-slate-300">
                   Para quando a rotina pesa, o processo está solto e a visibilidade está fraca.
                 </p>
 
@@ -241,7 +261,7 @@ export default function HomePage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
               </div>
 
               <div className="space-y-3 p-5">
@@ -249,11 +269,11 @@ export default function HomePage() {
                   Produto &amp; Execução
                 </p>
 
-                <h3 className="text-lg font-semibold text-slate-50">
+                <h3 className="text-lg font-semibold leading-snug text-slate-50">
                   Clareza no que fazer e consistência na execução.
                 </h3>
 
-                <p className="text-sm text-slate-300">
+                <p className="text-sm leading-6 text-slate-300">
                   Para quando ainda é preciso decidir melhor antes de sair a construir.
                 </p>
 
@@ -269,13 +289,13 @@ export default function HomePage() {
         </section>
 
         {/* CTA FINAL */}
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/35 p-8 text-center md:p-10">
+        <section className="rounded-[28px] border border-slate-800 bg-slate-900/35 p-8 text-center md:p-10">
           <div className="mx-auto max-w-3xl space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
               Próximo passo
             </p>
 
-            <h2 className="text-3xl font-semibold text-slate-50">
+            <h2 className="text-3xl font-semibold leading-tight text-slate-50">
               Se queres perceber o que faz sentido no teu caso, fala comigo direto.
             </h2>
 
