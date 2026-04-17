@@ -1,5 +1,6 @@
 // app/layout.tsx
 
+import WhatsAppFloat from "@/components/whatsapp-float";
 import type { Metadata, Viewport } from "next";
 import Image from "next/image";
 import "./globals.css";
@@ -202,6 +203,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </footer>
         </HideOnPaths>
+        <WhatsAppFloat />
       </body>
     </html>
   );
