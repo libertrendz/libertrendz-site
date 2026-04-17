@@ -38,10 +38,10 @@ export default function HomePage() {
                   </span>
                 </h1>
 
-                <p className="max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
-                  A Libertrendz ajuda a transformar confusão em estrutura, presença digital
-                  fraca em clareza e operação solta em algo mais simples, mais controlado e mais útil.
-                </p>
+               <p className="max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
+  Transformamos confusão em estrutura, presença digital fraca em clareza
+  e operação solta em algo que funciona de forma simples e controlada.
+</p>
               </div>
 
               <div className="flex flex-wrap gap-3 pt-1">
