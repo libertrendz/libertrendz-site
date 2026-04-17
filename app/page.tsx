@@ -174,13 +174,13 @@ export default function HomePage() {
         {/* SERVIÇOS */}
         <section className="space-y-6">
           <div className="max-w-3xl space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-              Onde isto se aplica
-            </p>
+           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+  Onde isto começa a fazer diferença
+</p>
 
-            <h2 className="text-2xl font-semibold text-slate-50">
-              Três caminhos. O mesmo objetivo: fazer o negócio avançar com mais clareza.
-            </h2>
+<h2 className="text-2xl font-semibold text-slate-50">
+  Três caminhos com o mesmo objetivo: fazer o negócio avançar com mais clareza.
+</h2>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-3">
