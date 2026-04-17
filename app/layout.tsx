@@ -1,4 +1,5 @@
 // app/layout.tsx
+
 import type { Metadata, Viewport } from "next";
 import Image from "next/image";
 import "./globals.css";
@@ -7,7 +8,7 @@ import HideOnPaths from "@/components/hide-on-paths";
 export const metadata: Metadata = {
   title: "Libertrendz",
   description:
-    "Libertrendz — Moduz+, Apps customizados, Websites, Consultoria Ágil para PMEs.",
+    "Libertrendz — Websites, Apps customizados e desenvolvimento de produto para negócios que precisam de mais clareza e resultado.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Blindagem para browser in-app do Instagram (tipografia/zoom “inflado”)
+// Blindagem para browser in-app do Instagram
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     LIBERTRENDZ
                   </span>
                   <span className="text-[11px] text-slate-400">
-                    ERP Moduz+ · Apps customizados · Sites · Consultoria
+                    Websites · Apps customizados · Produto &amp; Execução
                   </span>
                 </div>
               </a>
@@ -66,28 +67,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Início
                 </a>
 
-                <a
-                  href="/moduz"
-                  className="font-semibold text-cyan-400 hover:text-cyan-300"
-                >
-                  Moduz+
+                <a href="/sites" className="hover:text-accent-400">
+                  Websites
                 </a>
 
                 <a href="/apps" className="hover:text-accent-400">
                   Apps customizados
                 </a>
-                <a href="/sites" className="hover:text-accent-400">
-                  Websites
-                </a>
+
                 <a href="/agile" className="hover:text-accent-400">
-                  Consultoria Ágil
+                  Produto &amp; Execução
                 </a>
+
                 <a href="/cases" className="hover:text-accent-400">
                   Cases
                 </a>
+
                 <a href="/sobre" className="hover:text-accent-400">
                   Sobre
                 </a>
+
                 <a href="/contato" className="hover:text-accent-400">
                   Contato
                 </a>
@@ -109,28 +108,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       Início
                     </a>
 
-                    <a
-                      href="/moduz"
-                      className="inline-flex items-center gap-2 rounded-md px-2 py-1 font-semibold text-cyan-400 hover:text-cyan-300"
-                    >
-                      Moduz+
+                    <a href="/sites" className="hover:text-accent-400">
+                      Websites
                     </a>
 
                     <a href="/apps" className="hover:text-accent-400">
                       Apps customizados
                     </a>
-                    <a href="/sites" className="hover:text-accent-400">
-                      Sites & Landing Pages
-                    </a>
+
                     <a href="/agile" className="hover:text-accent-400">
-                      Consultoria Ágil
+                      Produto &amp; Execução
                     </a>
+
                     <a href="/cases" className="hover:text-accent-400">
                       Cases
                     </a>
+
                     <a href="/sobre" className="hover:text-accent-400">
                       Sobre
                     </a>
+
                     <a href="/contato" className="hover:text-accent-400">
                       Contato
                     </a>
@@ -172,12 +169,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
 
                 <div className="text-[10px] text-slate-500">
-                  © {new Date().getFullYear()} Libertrendz. Todos os direitos
-                  reservados.
+                  © {new Date().getFullYear()} Libertrendz. Todos os direitos reservados.
                 </div>
 
                 <div className="text-[10px] text-slate-500">
-                  Moduz+ · Apps customizados · Sites · Consultoria Ágil
+                  Websites · Apps customizados · Produto &amp; Execução
                 </div>
               </div>
 
