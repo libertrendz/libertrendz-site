@@ -1,10 +1,10 @@
 // app/layout.tsx
 
-import WhatsAppFloat from "@/components/whatsapp-float";
 import type { Metadata, Viewport } from "next";
 import Image from "next/image";
 import "./globals.css";
 import HideOnPaths from "@/components/hide-on-paths";
+import WhatsAppFloat from "@/components/whatsapp-float";
 
 export const metadata: Metadata = {
   title: "Libertrendz",
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Blindagem para browser in-app do Instagram
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -41,7 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <HideOnPaths hidePrefixes={["/bio"]}>
           <header className="relative z-30 border-b border-slate-900/80 bg-slate-950/90">
             <div className="container-page flex items-center justify-between py-5">
-              {/* Marca principal */}
               <a href="/" className="flex items-center gap-3">
                 <div className="relative h-10 w-10 rounded-lg bg-slate-950">
                   <Image
@@ -150,6 +148,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main>{children}</main>
 
+        {/* BOTÃO FLUTUANTE */}
+        <HideOnPaths hidePrefixes={["/bio"]}>
+          <WhatsAppFloat />
+        </HideOnPaths>
+
         {/* FOOTER (oculto em /bio) */}
         <HideOnPaths hidePrefixes={["/bio"]}>
           <footer className="mt-16 border-t border-slate-900/80 bg-slate-950/90">
@@ -203,7 +206,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </footer>
         </HideOnPaths>
-        <WhatsAppFloat />
       </body>
     </html>
   );
