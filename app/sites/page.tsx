@@ -2,133 +2,285 @@
 
 export default function SitesPage() {
   return (
-    <main className="flex flex-col">
+    <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
+      <section className="container-page py-12 lg:py-16 space-y-14">
+        {/* HERO */}
+        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-8">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent-500/14 via-accent-400/8 to-transparent" />
+          <div className="relative z-10 max-w-3xl space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+              Sites e Landing Pages
+            </p>
 
-      {/* HERO */}
-      <section className="px-6 py-20 max-w-5xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-          Um site não deve ser bonito. <br /> Deve gerar negócio.
-        </h1>
+            <h1 className="text-3xl font-bold leading-tight md:text-4xl">
+              Um site não deve só existir. Deve ajudar o negócio a avançar.
+            </h1>
 
-        <p className="mt-6 text-lg text-neutral-400 max-w-2xl mx-auto">
-          Se o teu site não está a trazer contactos ou clientes, ele não está a cumprir o papel.
-        </p>
+            <p className="text-sm text-slate-200 max-w-2xl">
+              Um site sem estrutura não gera negócio. Só ocupa espaço. Aqui o foco é
+              simples: clareza na oferta, mensagem certa, prova, CTA e um caminho
+              direto para o contacto.
+            </p>
 
-        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-          <a
-            href="/diagnostico"
-            className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
-          >
-            Ver o que está errado
-          </a>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="/diagnostico"
+                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+              >
+                Ver o que está a travar
+              </a>
 
-          <a
-            href="https://wa.me/351910287128?text=Olá,%20quero%20melhorar%20o%20meu%20site."
-            target="_blank"
-            className="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition"
-          >
-            Falar no WhatsApp
-          </a>
-        </div>
-      </section>
-
-      {/* PROBLEMAS */}
-      <section className="px-6 py-16 bg-neutral-900">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Se isto acontece contigo, o problema não é só o design
-          </h2>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6 text-left">
-            <div className="p-6 border border-neutral-800 rounded-lg">
-              <p>Ninguém entra em contacto</p>
-            </div>
-
-            <div className="p-6 border border-neutral-800 rounded-lg">
-              <p>O site não explica bem o que fazes</p>
-            </div>
-
-            <div className="p-6 border border-neutral-800 rounded-lg">
-              <p>Recebes visitas, mas não clientes</p>
+              <a
+                href="https://wa.me/351910287128?text=Olá,%20quero%20melhorar%20o%20meu%20site."
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+              >
+                Falar no WhatsApp
+              </a>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* SOLUÇÃO */}
-      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          O foco não é o site. É o resultado.
-        </h2>
+        {/* PROBLEMAS */}
+        <div className="space-y-4">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-semibold text-slate-50">
+              Se isto acontece, o problema não é só o design
+            </h2>
+            <p className="mt-2 text-sm text-slate-200">
+              Na maioria dos casos, o site falha porque não explica bem, não conduz a
+              ação e não está alinhado com a necessidade real do negócio.
+            </p>
+          </div>
 
-        <p className="mt-6 text-neutral-400 max-w-2xl mx-auto">
-          Eu estruturo a mensagem, o fluxo e o posicionamento antes de construir.
-          O site é consequência disso.
-        </p>
-      </section>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50">Recebes visitas, mas não contactos</p>
+              <p className="mt-2 text-slate-300">
+                O visitante entra, olha e sai. Falta direção, prova e um CTA claro.
+              </p>
+            </div>
 
-      {/* PRAZO */}
-      <section className="px-6 py-16 bg-neutral-900 text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Rápido, sem enrolação
-        </h2>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50">O site não explica bem o que fazes</p>
+              <p className="mt-2 text-slate-300">
+                A oferta fica difusa e a pessoa não percebe rapidamente se aquilo é para ela.
+              </p>
+            </div>
 
-        <p className="mt-6 text-neutral-400">
-          Landing pages a partir de 7 dias <br />
-          Sites completos a partir de 14 dias
-        </p>
-      </section>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="font-semibold text-slate-50">O teu negócio evoluiu, mas o site não</p>
+              <p className="mt-2 text-slate-300">
+                A empresa mudou, o serviço amadureceu, mas o site continua preso a uma fase antiga.
+              </p>
+            </div>
+          </div>
+        </div>
 
-      {/* NICHO */}
-      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Funciona em diferentes negócios
-        </h2>
+        {/* COMO RESOLVEMOS */}
+        <div className="space-y-4">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-semibold text-slate-50">
+              O foco não é fazer “mais um site”
+            </h2>
+            <p className="mt-2 text-sm text-slate-200">
+              O foco é estruturar a mensagem e o caminho de decisão. O site entra como
+              ferramenta para tornar o negócio mais claro, mais confiável e mais fácil de contactar.
+            </p>
+          </div>
 
-        <p className="mt-6 text-neutral-400">
-          Remodelações, serviços, advocacia, vendas e organizações.
-        </p>
-      </section>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 1
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">Entender</p>
+              <p className="mt-1 text-slate-300">
+                O negócio, a oferta e o objetivo real da página.
+              </p>
+            </div>
 
-      {/* DIFERENCIAL */}
-      <section className="px-6 py-20 bg-neutral-900">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Não é template. Não é genérico.
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 2
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">Estruturar</p>
+              <p className="mt-1 text-slate-300">
+                A mensagem, a prova e o fluxo que conduz ao contacto.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 3
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">Construir</p>
+              <p className="mt-1 text-slate-300">
+                A landing page ou o site de acordo com a necessidade.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Etapa 4
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">Entregar</p>
+              <p className="mt-1 text-slate-300">
+                Pronto para comunicar melhor e gerar mais ação.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* COMPARAÇÃO */}
+        <div className="space-y-4">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-semibold text-slate-50">
+              Landing page ou site completo?
+            </h2>
+            <p className="mt-2 text-sm text-slate-200">
+              Nem todo negócio precisa da mesma solução. Aqui está a forma mais simples
+              de perceber o que faz mais sentido no teu caso.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Landing page
+              </p>
+              <p className="mt-2 text-lg font-semibold text-slate-50">
+                Melhor quando o objetivo é ação rápida
+              </p>
+
+              <ul className="mt-4 space-y-2 text-slate-300">
+                <li>• Tens uma oferta específica para promover</li>
+                <li>• Queres campanhas, tráfego pago ou captação direta</li>
+                <li>• Precisas validar uma mensagem ou serviço</li>
+                <li>• Queres uma página mais enxuta e focada em conversão</li>
+              </ul>
+
+              <div className="mt-5 rounded-xl border border-slate-800 bg-slate-950/30 p-4 text-xs text-slate-300">
+                Normalmente faz mais sentido quando o foco é captar leads, testar uma
+                proposta ou acelerar contacto.
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                Site completo
+              </p>
+              <p className="mt-2 text-lg font-semibold text-slate-50">
+                Melhor quando o negócio precisa de presença mais sólida
+              </p>
+
+              <ul className="mt-4 space-y-2 text-slate-300">
+                <li>• Tens vários serviços ou áreas de atuação</li>
+                <li>• Precisas gerar confiança e explicar melhor o negócio</li>
+                <li>• Queres páginas institucionais, cases e estrutura mais completa</li>
+                <li>• O objetivo é ter presença forte e base para crescer</li>
+              </ul>
+
+              <div className="mt-5 rounded-xl border border-slate-800 bg-slate-950/30 p-4 text-xs text-slate-300">
+                Normalmente faz mais sentido quando já existe operação real e o site
+                precisa representar melhor a empresa.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* PRAZO */}
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+              Rapidez com critério
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-50">
+              Sem projetos arrastados sem fim
+            </h2>
+            <p className="mt-3 text-sm text-slate-200">
+              Landing pages a partir de 7 dias.
+              <br />
+              Sites completos a partir de 14 dias.
+            </p>
+          </div>
+        </div>
+
+        {/* CONTEXTO DE APLICAÇÃO */}
+        <div className="space-y-4">
+          <div className="max-w-3xl">
+            <h2 className="text-xl font-semibold text-slate-50">
+              Isto não é teoria
+            </h2>
+            <p className="mt-2 text-sm text-slate-200">
+              Este tipo de trabalho já foi pensado para contextos diferentes, com dores e
+              rotinas reais.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-5">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Remodelações
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Serviços
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Advocacia
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Vendas
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Organizações
+            </div>
+          </div>
+        </div>
+
+        {/* DIFERENCIAL */}
+        <div className="space-y-4">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
+            <h2 className="text-xl font-semibold text-slate-50">
+              Não é template. Não é abordagem genérica.
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm text-slate-200">
+              A diferença está em perceber a real necessidade do negócio e traduzir isso
+              numa solução mais certeira. O objetivo não é “ter um site”. É fazer a página
+              funcionar melhor para a realidade da empresa.
+            </p>
+          </div>
+        </div>
+
+        {/* CTA FINAL */}
+        <div className="pt-10 border-t border-slate-800 text-center space-y-4">
+          <h2 className="text-2xl font-semibold text-slate-50">
+            Se o teu site não está a ajudar o negócio, isso dá para corrigir
           </h2>
 
-          <p className="mt-6 text-neutral-400">
-            Cada projeto é estruturado de acordo com o negócio.
-            O objetivo não é “ter um site”.
-            É fazer o site funcionar.
+          <p className="max-w-xl mx-auto text-sm text-slate-200">
+            Primeiro vemos o que está desalinhado. Depois definimos a solução mais lógica.
           </p>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href="/diagnostico"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+            >
+              Fazer diagnóstico
+            </a>
+
+            <a
+              href="https://wa.me/351910287128?text=Olá,%20quero%20resolver%20o%20meu%20site."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
         </div>
       </section>
-
-      {/* CTA FINAL */}
-      <section className="px-6 py-20 text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold">
-          Se quiseres resolver isto, o próximo passo é simples
-        </h2>
-
-        <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-          <a
-            href="/diagnostico"
-            className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
-          >
-            Fazer diagnóstico
-          </a>
-
-          <a
-            href="https://wa.me/351910287128?text=Olá,%20quero%20resolver%20o%20meu%20site."
-            target="_blank"
-            className="border border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition"
-          >
-            Falar no WhatsApp
-          </a>
-        </div>
-      </section>
-
     </main>
   );
 }
