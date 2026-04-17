@@ -1,4 +1,5 @@
 // app/sobre/page.tsx
+
 import Image from "next/image";
 
 const FOTO_URL = "/images/GUSTAVO.png";
@@ -14,84 +15,92 @@ export default function SobrePage() {
             Sobre
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-            Produto e execução para PMEs que precisam de controlo.
+            Estratégia, produto e execução para negócios que precisam de clareza.
           </h1>
           <p className="text-sm text-slate-200 max-w-2xl">
-            A Libertrendz atua quando a operação começa a doer. Crescimento sem
-            estrutura gera ruído, retrabalho e decisões no escuro. O foco aqui é
-            clareza, previsibilidade e execução prática.
+            A Libertrendz existe para ajudar empresas e organizações a sair do ruído,
+            estruturar melhor a presença digital e resolver necessidades reais com mais
+            critério, mais lógica e mais resultado.
           </p>
         </div>
 
-        {/* CARD 1 — GUSTAVO + CREDIBILIDADE */}
+        {/* BLOCO PRINCIPAL */}
         <section className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent-500/12 via-cyan-700/8 to-transparent" />
-          <div className="relative z-10 grid gap-10 p-8 lg:grid-cols-[2.1fr,1fr] lg:items-start">
+
+          <div className="relative z-10 grid gap-10 p-8 lg:grid-cols-[2.2fr,1fr] lg:items-start">
             {/* TEXTO */}
             <div className="space-y-8 text-sm text-slate-200">
               <div className="space-y-3">
                 <h2 className="text-xl font-semibold text-slate-50">
-                  Quem é o Gustavo Santos
+                  Quem está por trás da Libertrendz
                 </h2>
+
                 <p>
-                  Trago quase três décadas de experiência em gestão, operações e
-                  projetos, em contextos onde erro custa caro, atraso gera impacto
-                  real e decisões precisam de critério.
+                  Sou Gustavo Santos. Trabalho na interseção entre negócio, produto,
+                  operação e transformação digital.
                 </p>
+
                 <p>
-                  Trabalhei em ambientes exigentes, sempre com o mesmo objetivo:
-                  transformar complexidade em decisões claras e executáveis.
+                  Ao longo da minha trajetória, atuei em contextos exigentes, com pressão
+                  real por entrega, previsibilidade, alinhamento entre áreas e tomada de
+                  decisão mais estruturada.
                 </p>
+
                 <p>
-                  O meu trabalho começa onde normalmente se falha: entender o
-                  cenário real, cortar ruído e criar estrutura suficiente para
-                  sustentar crescimento sem burocracia.
+                  O ponto em comum sempre foi o mesmo: perceber o cenário com honestidade,
+                  cortar ruído e transformar complexidade em algo mais claro, executável e útil.
                 </p>
               </div>
 
               <div className="space-y-3">
                 <h3 className="text-base font-semibold text-slate-50">
-                  Como penso e trabalho
+                  O que isso significa na prática
                 </h3>
+
+                <p>
+                  Hoje, isso traduz-se em sites, landing pages, soluções digitais e apps
+                  customizados desenhados a partir da necessidade real do negócio — e não de modas,
+                  templates genéricos ou soluções excessivas.
+                </p>
+
+                <p>
+                  O objetivo não é entregar “mais uma peça digital”. É criar algo que faça
+                  sentido para o momento da empresa e ajude o negócio a comunicar melhor,
+                  organizar melhor e avançar com mais consistência.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="text-base font-semibold text-slate-50">
+                  Como penso e como trabalho
+                </h3>
+
                 <ul className="space-y-2 text-slate-300">
                   <li>
-                    •{" "}
-                    <span className="font-semibold text-slate-100">
-                      Zero teatro:
-                    </span>{" "}
-                    método é meio, não fim.
+                    • <span className="font-semibold text-slate-100">Leitura real do cenário:</span>{" "}
+                    antes de propor qualquer coisa, é preciso perceber o que realmente está a doer.
                   </li>
                   <li>
-                    •{" "}
-                    <span className="font-semibold text-slate-100">
-                      Contexto primeiro:
-                    </span>{" "}
-                    leitura honesta da operação antes da solução.
+                    • <span className="font-semibold text-slate-100">Solução ajustada:</span>{" "}
+                    nem tudo pede um site grande, um app complexo ou uma estrutura pesada.
                   </li>
                   <li>
-                    •{" "}
-                    <span className="font-semibold text-slate-100">
-                      Decisão com critério:
-                    </span>{" "}
-                    fluxo visível, prioridades claras e métricas simples.
+                    • <span className="font-semibold text-slate-100">Clareza de decisão:</span>{" "}
+                    menos confusão, menos excesso, mais direção.
                   </li>
                   <li>
-                    •{" "}
-                    <span className="font-semibold text-slate-100">
-                      Próximo passo explícito:
-                    </span>{" "}
-                    tudo termina em ação concreta.
+                    • <span className="font-semibold text-slate-100">Execução com propósito:</span>{" "}
+                    aquilo que se entrega precisa servir o negócio de verdade.
                   </li>
                 </ul>
               </div>
 
               <div className="rounded-xl border border-slate-800 bg-slate-950/30 px-4 py-3 text-slate-200">
                 <p className="text-sm">
-                  <span className="font-semibold text-slate-50">
-                    Promessa simples:
-                  </span>{" "}
-                  menos ruído, mais controlo. E um caminho claro para o teu próximo
-                  passo.
+                  <span className="font-semibold text-slate-50">Em resumo:</span>{" "}
+                  experiência para perceber a real necessidade do negócio e traduzir isso
+                  numa solução mais útil, mais clara e mais ajustada ao resultado.
                 </p>
               </div>
             </div>
@@ -107,12 +116,13 @@ export default function SobrePage() {
                     className="object-cover object-top"
                   />
                 </div>
+
                 <div className="space-y-1">
                   <p className="text-sm font-semibold text-slate-50">
                     Gustavo Santos
                   </p>
                   <p className="text-xs text-slate-400">
-                    Gestor de Projetos · Consultor Operacional
+                    Gestão de Projetos · Produto · Transformação Digital
                   </p>
                 </div>
               </div>
@@ -122,40 +132,105 @@ export default function SobrePage() {
                   Em poucas linhas
                 </p>
                 <p>
-                  Produto e execução para PMEs. O site atrai, o app organiza, o
-                  Moduz+ escala e a consultoria mantém previsibilidade.
+                  Estruturo presença digital, páginas de conversão e soluções mais práticas
+                  para empresas que precisam de mais clareza e menos improviso.
                 </p>
               </div>
             </aside>
           </div>
         </section>
 
-        {/* CARD 2 — LIBERTRENDZ NA PRÁTICA */}
+        {/* EXPERIÊNCIA */}
+        <section className="rounded-2xl border border-slate-800 bg-slate-900/35 p-8 space-y-6">
+          <div className="max-w-3xl space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+              Experiência que sustenta o trabalho
+            </p>
+            <h2 className="text-2xl font-semibold text-slate-50">
+              Autoridade construída em ambientes que exigem estrutura e resultado
+            </h2>
+            <p className="text-sm text-slate-200">
+              A experiência acumulada não vem de teoria. Vem de atuação em contextos onde
+              clareza, coordenação, decisão e execução fazem diferença real.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+                Financeiro
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Banca e produtos digitais
+              </p>
+              <p className="mt-2 text-slate-300">
+                Projetos, produto, reporting e alinhamento entre negócio e tecnologia.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Setor Público
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Transformação digital
+              </p>
+              <p className="mt-2 text-slate-300">
+                Contextos mais exigentes, com necessidade de previsibilidade, coordenação e entrega.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Projetos
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                PMO, Agile e gestão
+              </p>
+              <p className="mt-2 text-slate-300">
+                Organização de iniciativas, prioridades, backlogs, fluxos e execução.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                BI e decisão
+              </p>
+              <p className="mt-2 font-semibold text-slate-50">
+                Dados com utilidade
+              </p>
+              <p className="mt-2 text-slate-300">
+                Indicadores e leitura mais clara para apoiar decisões e reduzir achismo.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* LIBERTRENDZ NA PRÁTICA */}
         <section className="rounded-2xl border border-slate-800 bg-slate-900/35 p-8 space-y-6">
           <div className="max-w-3xl space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
               Libertrendz na prática
             </p>
             <h2 className="text-2xl font-semibold text-slate-50">
-              Não existe solução padrão. Existe o caminho certo para cada cenário.
+              O que a Libertrendz entrega hoje
             </h2>
             <p className="text-sm text-slate-200">
-              A Libertrendz integra produto e execução conforme a maturidade e o
-              problema do cliente. Sem empurrar ferramenta errada para dor errada.
+              A solução certa depende do momento do negócio. O papel da Libertrendz é
+              ajudar a perceber isso e propor algo mais coerente.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
-                Moduz+
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
+                Websites
               </p>
               <p className="mt-2 font-semibold text-slate-50">
-                Controlo e escala operacional
+                Presença mais clara e mais forte
               </p>
               <p className="mt-2 text-slate-300">
-                Quando a operação cresceu e precisas de governança, visão do todo
-                e rotina previsível.
+                Sites e landing pages pensados para comunicar melhor e gerar ação.
               </p>
             </div>
 
@@ -164,136 +239,80 @@ export default function SobrePage() {
                 Apps customizados
               </p>
               <p className="mt-2 font-semibold text-slate-50">
-                Piloto rápido para dor real
+                Solução para dores operacionais específicas
               </p>
               <p className="mt-2 text-slate-300">
-                Quando existe uma dor específica que precisa ser resolvida rápido,
-                sem entrar num ERP completo.
+                Apps desenhados para rotina, controlo, execução e menos retrabalho.
               </p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Sites & Landing Pages
+                Desenvolvimento de produto
               </p>
               <p className="mt-2 font-semibold text-slate-50">
-                Mensagem, prova e conversão
+                Ideia, estrutura e caminho
               </p>
               <p className="mt-2 text-slate-300">
-                Quando o problema é aquisição, proposta confusa e lead que não
-                acontece.
+                Quando o negócio precisa de clareza antes de investir mais tempo ou dinheiro.
               </p>
             </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Consultoria
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Execução sem ruído
-              </p>
-              <p className="mt-2 text-slate-300">
-                Quando o bloqueio é decisão, fluxo e prioridade. Organiza antes de
-                gastar de novo.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 pt-1">
-            <a
-              href="/cases"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-            >
-              Ver casos
-            </a>
-            <a
-              href="/diagnostico"
-              className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400"
-            >
-              Descobrir o caminho certo (2 min)
-            </a>
           </div>
         </section>
 
-        {/* MISSÃO · VISÃO · VALORES — MANTÉM */}
-        <section id="missao-visao-valores" className="space-y-6 max-w-4xl">
+        {/* CONTEXTOS */}
+        <section className="space-y-6 max-w-4xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-            Identidade
+            Contextos onde isto já faz sentido
           </p>
           <h2 className="text-xl font-semibold text-slate-50">
-            Missão, visão e valores
+            Diferentes negócios, a mesma lógica: resolver com mais critério
           </h2>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Missão
-              </p>
-              <p className="mt-2 text-slate-100 font-semibold">
-                Tornar PMEs mais produtivas e previsíveis com soluções práticas.
-              </p>
-              <p className="mt-2 text-slate-300 text-sm">
-                Produto e execução com foco em valor real.
-              </p>
+          <div className="grid gap-4 md:grid-cols-5">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Remodelações
             </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Visão
-              </p>
-              <p className="mt-2 text-slate-100 font-semibold">
-                Ser referência em soluções que escalam sem virar burocracia.
-              </p>
-              <p className="mt-2 text-slate-300 text-sm">
-                Crescer com clientes reais e casos comprovados.
-              </p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Serviços
             </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Valores
-              </p>
-              <ul className="mt-3 space-y-2 text-sm text-slate-300">
-                <li>
-                  <span className="font-semibold text-slate-100">Praticidade:</span>{" "}
-                  funciona no dia a dia.
-                </li>
-                <li>
-                  <span className="font-semibold text-slate-100">Clareza:</span>{" "}
-                  comunicação direta e decisões mensuráveis.
-                </li>
-                <li>
-                  <span className="font-semibold text-slate-100">Empatia com rigor:</span>{" "}
-                  resolver o real sem ignorar pessoas.
-                </li>
-              </ul>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Advocacia
             </div>
-          </div>
-
-          <div className="mt-3 text-sm text-slate-300">
-            <a
-              href="/cases"
-              className="font-semibold text-accent-400 hover:text-accent-300"
-            >
-              Ver casos →
-            </a>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Vendas
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
+              Organizações
+            </div>
           </div>
         </section>
 
         {/* CTA FINAL */}
         <div className="pt-8 border-t border-slate-800 text-center space-y-4">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Quer trazer o teu contexto para a mesa?
+            Se quiseres trazer o teu contexto para a mesa, começamos por aí
           </h2>
           <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Começamos com uma conversa simples e saímos com um caminho prático.
+            Primeiro entendemos melhor o cenário. Depois definimos o caminho mais lógico.
           </p>
-          <a
-            href="/contato"
-            className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-          >
-            Ir para o contato
-          </a>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href="/diagnostico"
+              className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+            >
+              Fazer diagnóstico
+            </a>
+
+            <a
+              href="https://wa.me/351910287128?text=Olá,%20quero%20entender%20qual%20o%20caminho%20mais%20certo%20para%20o%20meu%20caso."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
         </div>
       </section>
     </main>
