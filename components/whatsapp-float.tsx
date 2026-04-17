@@ -2,7 +2,7 @@
 
 export default function WhatsAppFloat() {
   const href =
-    "https://wa.me/351910287128?text=Olá,%20vim%20pelo%20site%20da%20Libertrendz%20e%20quero%20entender%20o%20que%20faz%20mais%20sentido%20para%20o%20meu%20caso.";
+    "https://wa.me/351939250661?text=Olá,%20vim%20pelo%20site%20da%20Libertrendz%20e%20quero%20entender%20o%20que%20faz%20mais%20sentido%20para%20o%20meu%20caso.";
 
   return (
     <a
