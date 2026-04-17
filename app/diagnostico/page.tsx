@@ -1,124 +1,119 @@
 // app/diagnostico/page.tsx
+
 "use client";
 
 import { useMemo, useState } from "react";
 
-type PathKey = "moduz" | "apps" | "sites" | "agile";
+type PathKey = "sites" | "apps" | "agile";
 
 type SymptomKey =
-  | "visibilidade"
-  | "gargalo"
-  | "crescimento"
-  | "campo"
-  | "ruido"
   | "conversao"
-  | "entrega";
+  | "clareza"
+  | "presenca"
+  | "manual"
+  | "controle"
+  | "decisao";
 
 type ContextKey =
-  | "manual"
-  | "ferramentas"
-  | "erp_ruim"
-  | "mvp_torto"
-  | "trafego_sem_lead";
+  | "site_fraco"
+  | "negocio_mudou"
+  | "operacao_solta"
+  | "ideia_em_duvida"
+  | "ja_tentou_e_nao_resultou";
 
 type PriorityKey =
-  | "controle"
-  | "margem_campo"
-  | "escala"
-  | "conversao"
-  | "execucao";
+  | "gerar_contato"
+  | "explicar_melhor"
+  | "organizar_rotina"
+  | "definir_caminho"
+  | "resolver_rapido";
 
 const SYMPTOMS: { key: SymptomKey; title: string; desc: string }[] = [
   {
-    key: "visibilidade",
-    title: "Pouca visibilidade do negócio",
-    desc: "Dados espalhados, relatórios atrasados e decisões no “achismo”.",
-  },
-  {
-    key: "gargalo",
-    title: "Dependência de uma pessoa",
-    desc: "Tudo passa por ti (ou por alguém) e a operação trava quando essa pessoa trava.",
-  },
-  {
-    key: "crescimento",
-    title: "Crescimento desorganizado",
-    desc: "Mais clientes e equipa, mas também mais erros, retrabalho e ruído.",
-  },
-  {
-    key: "campo",
-    title: "Campo sem controlo",
-    desc: "Horas, custos e evidências sem rastreio; margem a desaparecer.",
-  },
-  {
-    key: "ruido",
-    title: "Ferramentas demais, sistema de menos",
-    desc: "WhatsApp + Excel + softwares soltos: muito ruído, pouca organização.",
-  },
-  {
     key: "conversao",
-    title: "Marketing não vira lead",
-    desc: "Há visitas, mas não há conversão (mensagem, prova, CTA e rastreio falham).",
+    title: "O site não gera contacto",
+    desc: "Existe presença, mas ela não está a trazer conversas nem oportunidades.",
   },
   {
-    key: "entrega",
-    title: "Execução travada",
-    desc: "Projetos emperram, prioridades mudam e tudo anda devagar.",
+    key: "clareza",
+    title: "O negócio não está bem explicado",
+    desc: "Quem entra não percebe rapidamente o que fazes, para quem é ou porque deve confiar.",
+  },
+  {
+    key: "presenca",
+    title: "A presença digital ficou para trás",
+    desc: "O negócio evoluiu, mas a comunicação e as páginas não acompanharam.",
+  },
+  {
+    key: "manual",
+    title: "Há demasiado processo manual",
+    desc: "WhatsApp, Excel, notas soltas e demasiado esforço para fazer a rotina andar.",
+  },
+  {
+    key: "controle",
+    title: "Falta controlo da operação",
+    desc: "A equipa executa, mas falta visibilidade, rastreio e uma forma mais clara de acompanhar.",
+  },
+  {
+    key: "decisao",
+    title: "Ainda não está claro o que fazer primeiro",
+    desc: "Existe vontade de melhorar, mas ainda há dúvida sobre qual é o próximo passo certo.",
   },
 ];
 
 const CONTEXTS: { key: ContextKey; title: string; desc: string }[] = [
   {
-    key: "manual",
-    title: "Manual (Excel/WhatsApp)",
-    desc: "Processos soltos e controlo na base da disciplina e planilhas.",
+    key: "site_fraco",
+    title: "Já tenho site, mas ele não está a ajudar",
+    desc: "A base existe, mas não está a comunicar nem a converter como devia.",
   },
   {
-    key: "ferramentas",
-    title: "Ferramentas desconectadas",
-    desc: "Cada uma resolve um pedaço; ninguém resolve o todo.",
+    key: "negocio_mudou",
+    title: "O negócio mudou e a presença ficou para trás",
+    desc: "Hoje a empresa é outra, mas o site e a comunicação ainda parecem de outra fase.",
   },
   {
-    key: "erp_ruim",
-    title: "Já existe ERP, mas atrapalha",
-    desc: "É pesado, não encaixa na operação ou não escala com o crescimento.",
+    key: "operacao_solta",
+    title: "A rotina está demasiado solta",
+    desc: "Há trabalho, mas também há demasiada fricção, dispersão e falta de estrutura.",
   },
   {
-    key: "mvp_torto",
-    title: "Sistema/MVP mal construído",
-    desc: "Já investiu e agora ficou caro ajustar (retrabalho e decisões tortas).",
+    key: "ideia_em_duvida",
+    title: "Tenho uma ideia, mas ainda não sei o melhor formato",
+    desc: "Antes de construir, preciso perceber melhor o que realmente faz sentido.",
   },
   {
-    key: "trafego_sem_lead",
-    title: "Há tráfego, mas não há lead",
-    desc: "Precisa de conversão e campanha com rastreio e proposta clara.",
+    key: "ja_tentou_e_nao_resultou",
+    title: "Já tentámos algo, mas não resultou bem",
+    desc: "Já houve investimento ou tentativa anterior, mas o resultado ficou aquém.",
   },
 ];
 
 const PRIORITIES: { key: PriorityKey; title: string; desc: string }[] = [
   {
-    key: "controle",
-    title: "Controlo e previsibilidade",
-    desc: "Saber onde estamos e decidir com clareza, sem ruído.",
+    key: "gerar_contato",
+    title: "Gerar mais contacto",
+    desc: "Quero transformar melhor presença em conversas e oportunidades.",
   },
   {
-    key: "margem_campo",
-    title: "Margem no campo",
-    desc: "Horas, custos, evidências e execução em campo sob controlo.",
+    key: "explicar_melhor",
+    title: "Explicar melhor o negócio",
+    desc: "Quero uma comunicação mais clara, mais forte e mais confiável.",
   },
   {
-    key: "escala",
-    title: "Escalar sem caos",
-    desc: "Crescer com sistema e governança — sem virar bombeiro.",
+    key: "organizar_rotina",
+    title: "Organizar melhor a rotina",
+    desc: "Quero reduzir fricção, improviso e excesso de processo manual.",
   },
   {
-    key: "conversao",
-    title: "Leads e conversão",
-    desc: "Mensagem, prova, CTA e rastreio para gerar caixa.",
+    key: "definir_caminho",
+    title: "Perceber o que deve vir primeiro",
+    desc: "Antes de investir mais, quero escolher com mais lógica.",
   },
   {
-    key: "execucao",
-    title: "Destravar execução",
-    desc: "Fluxo, prioridade e entrega — com menos retrabalho.",
+    key: "resolver_rapido",
+    title: "Resolver rápido um ponto importante",
+    desc: "Quero atacar primeiro o que mais está a travar neste momento.",
   },
 ];
 
@@ -130,48 +125,35 @@ function routeRecommendation(input: {
   const { symptoms, context, priority } = input;
 
   const has = (k: SymptomKey) => symptoms.includes(k);
-
-  const score: Record<PathKey, number> = { moduz: 0, apps: 0, sites: 0, agile: 0 };
+  const score: Record<PathKey, number> = { sites: 0, apps: 0, agile: 0 };
   const why: string[] = [];
 
-  // SITES
-  if (has("conversao")) score.sites += 7;
-  if (context === "trafego_sem_lead") score.sites += 7;
-  if (priority === "conversao") score.sites += 8;
+  // Websites
+  if (has("conversao")) score.sites += 8;
+  if (has("clareza")) score.sites += 7;
+  if (has("presenca")) score.sites += 6;
+  if (context === "site_fraco") score.sites += 8;
+  if (context === "negocio_mudou") score.sites += 6;
+  if (priority === "gerar_contato") score.sites += 8;
+  if (priority === "explicar_melhor") score.sites += 7;
 
-  // CONSULTORIA
-  if (has("entrega")) score.agile += 6;
-  if (context === "mvp_torto") score.agile += 8;
-  if (priority === "execucao") score.agile += 8;
+  // Apps
+  if (has("manual")) score.apps += 7;
+  if (has("controle")) score.apps += 8;
+  if (context === "operacao_solta") score.apps += 8;
+  if (priority === "organizar_rotina") score.apps += 8;
+  if (priority === "resolver_rapido") score.apps += 4;
 
-  // MODUZ
-  if (has("campo")) score.moduz += 8;
-  if (has("ruido")) score.moduz += 6;
-  if (has("visibilidade")) score.moduz += 6;
-  if (has("gargalo")) score.moduz += 6;
-  if (has("crescimento")) score.moduz += 7;
-  if (context === "erp_ruim") score.moduz += 7;
-  if (priority === "controle") score.moduz += 6;
-  if (priority === "margem_campo") score.moduz += 8;
-  if (priority === "escala") score.moduz += 7;
+  // Produto & Execução
+  if (has("decisao")) score.agile += 8;
+  if (context === "ideia_em_duvida") score.agile += 8;
+  if (context === "ja_tentou_e_nao_resultou") score.agile += 6;
+  if (priority === "definir_caminho") score.agile += 8;
+  if (priority === "resolver_rapido") score.agile += 2;
 
-  // APPS
-  if (context === "manual") score.apps += 5;
-  if (context === "ferramentas") score.apps += 5;
-
-  const sinaisModuz =
-    has("campo") || has("crescimento") || has("gargalo") || has("visibilidade") || has("ruido");
-  const sinaisSites = has("conversao") || context === "trafego_sem_lead" || priority === "conversao";
-
-  if (!sinaisModuz && !sinaisSites) score.apps += 5;
-
-  if (priority === "controle" || priority === "escala") score.apps += 1;
-  if (priority === "margem_campo") score.apps += 1;
-
-  if (context === "mvp_torto") {
+  // Ajustes finos
+  if ((has("conversao") || has("clareza")) && (has("manual") || has("controle"))) {
     score.agile += 2;
-    score.moduz -= 1;
-    score.apps -= 1;
   }
 
   const entries = (Object.keys(score) as PathKey[]).map((k) => [k, score[k]] as const);
@@ -181,47 +163,50 @@ function routeRecommendation(input: {
   const secondary = entries[1][0];
 
   if (primary === "sites") {
-    why.push("Sinais fortes de conversão: proposta, prova, CTA e rastreio precisam de ajuste imediato.");
-  }
-  if (primary === "moduz") {
-    why.push("Dores operacionais de controlo, escala e/ou campo pedem sistema modular e governança.");
+    why.push("Os sinais apontam mais para comunicação, presença digital e conversão.");
   }
   if (primary === "apps") {
-    why.push("Dor específica com necessidade de piloto rápido e leve, sem entrar num ERP completo agora.");
+    why.push("Os sinais apontam mais para rotina, controlo e necessidade de resolver um ponto operacional.");
   }
   if (primary === "agile") {
-    why.push("O gargalo é execução/decisão: melhor pôr ordem antes de investir mais em tecnologia.");
+    why.push("Os sinais apontam mais para necessidade de clareza, leitura de cenário e definição do próximo passo.");
   }
 
-  if (secondary && secondary !== primary) {
-    if (secondary === "moduz") why.push("Alternativa: Moduz+ como próximo passo quando a operação exigir escala e controlo total.");
-    if (secondary === "apps") why.push("Alternativa: app customizado resolve uma parte rapidamente e valida o caminho.");
-    if (secondary === "sites") why.push("Alternativa: melhorar conversão pode destravar caixa e pipeline.");
-    if (secondary === "agile") why.push("Alternativa: consultoria acelera execução e evita retrabalho caro.");
+  if (secondary === "sites") {
+    why.push("Como alternativa, uma página mais bem estruturada pode ajudar a comunicar melhor e abrir mais contacto.");
+  }
+  if (secondary === "apps") {
+    why.push("Como alternativa, um app mais direto pode atacar uma dor específica sem criar peso excessivo.");
+  }
+  if (secondary === "agile") {
+    why.push("Como alternativa, faz sentido ganhar clareza antes de construir qualquer solução.");
   }
 
   return { primary, secondary, why };
 }
 
 function labelForPath(p: PathKey) {
-  if (p === "moduz") return "Moduz+ (ERP modular)";
-  if (p === "apps") return "Apps customizados (piloto rápido)";
-  if (p === "sites") return "Sites & Landing Pages (conversão)";
-  return "Consultoria (acelerador de execução)";
+  if (p === "sites") return "Websites";
+  if (p === "apps") return "Apps customizados";
+  return "Produto & Execução";
 }
 
 function linkForPath(p: PathKey) {
-  if (p === "moduz") return "/moduz";
-  if (p === "apps") return "/apps";
   if (p === "sites") return "/sites";
+  if (p === "apps") return "/apps";
   return "/agile";
 }
 
 function assuntoForPath(p: PathKey) {
-  if (p === "moduz") return "Moduz+";
+  if (p === "sites") return "Websites";
   if (p === "apps") return "Apps customizados";
-  if (p === "sites") return "Sites & Landing Pages";
-  return "Consultoria Ágil";
+  return "Produto & Execução";
+}
+
+function whatsappText(summaryText: string) {
+  return `https://wa.me/351910287128?text=${encodeURIComponent(
+    `Olá, fiz o diagnóstico no site da Libertrendz e quero falar sobre isto.\n\n${summaryText}`
+  )}`;
 }
 
 export default function DiagnosticoPage() {
@@ -260,8 +245,8 @@ export default function DiagnosticoPage() {
     return [
       "Diagnóstico Libertrendz",
       "",
-      `Dores: ${s.join(" · ") || "-"}`,
-      `Cenário atual: ${c || "-"}`,
+      `Sinais principais: ${s.join(" · ") || "-"}`,
+      `Contexto: ${c || "-"}`,
       `Prioridade: ${p || "-"}`,
       "",
       `Recomendação principal: ${labelForPath(rec.primary)}`,
@@ -274,6 +259,8 @@ export default function DiagnosticoPage() {
     const msg = encodeURIComponent(summaryText);
     return `/contato?assunto=${assunto}&mensagem=${msg}`;
   }, [rec.primary, summaryText]);
+
+  const whatsappHref = useMemo(() => whatsappText(summaryText), [summaryText]);
 
   async function submitLeadAndContinue() {
     setLeadStatus("loading");
@@ -335,11 +322,11 @@ export default function DiagnosticoPage() {
               Diagnóstico (2 minutos)
             </p>
             <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-              Decide o próximo passo certo — sem chute.
+              Responde a algumas perguntas e recebe um caminho mais claro.
             </h1>
             <p className="text-sm text-slate-200 max-w-2xl">
-              3 passos. No final, recebes uma recomendação clara (Moduz+, app, site/landing ou consultoria)
-              e podes avançar para uma conversa objetiva.
+              O objetivo aqui não é complicar. É perceber se o teu caso pede Websites,
+              Apps customizados ou primeiro mais clareza para decidir melhor.
             </p>
           </div>
         </div>
@@ -357,9 +344,9 @@ export default function DiagnosticoPage() {
         {step === 1 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
-              <h2 className="text-xl font-semibold text-slate-50">1) O que está a travar hoje?</h2>
+              <h2 className="text-xl font-semibold text-slate-50">1) O que está mais a travar hoje?</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Escolhe tudo o que se aplica. Quanto mais preciso, mais certeiro fica o caminho.
+                Escolhe tudo o que se aplica. Quanto mais certeiro, melhor fica a recomendação.
               </p>
             </div>
 
@@ -415,9 +402,9 @@ export default function DiagnosticoPage() {
         {step === 2 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
-              <h2 className="text-xl font-semibold text-slate-50">2) Como é o teu cenário hoje?</h2>
+              <h2 className="text-xl font-semibold text-slate-50">2) Em que cenário te revês mais?</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Uma escolha. Isto ajuda a distinguir “piloto rápido” de “estrutura”.
+                Uma escolha. Isto ajuda a perceber melhor o ponto em que estás.
               </p>
             </div>
 
@@ -461,9 +448,9 @@ export default function DiagnosticoPage() {
         {step === 3 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
-              <h2 className="text-xl font-semibold text-slate-50">3) O que precisas destravar primeiro?</h2>
+              <h2 className="text-xl font-semibold text-slate-50">3) O que queres destravar primeiro?</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Isto define a prioridade imediata (o que resolve primeiro).
+                Isto ajuda a definir o tipo de caminho que faz mais sentido agora.
               </p>
             </div>
 
@@ -503,14 +490,13 @@ export default function DiagnosticoPage() {
           </div>
         )}
 
-        {/* STEP 4 — CAPTURA LEAD (sem botão “ir direto ao contato” aqui) */}
+        {/* STEP 4 */}
         {step === 4 && (
           <div className="space-y-6">
             <div className="max-w-3xl">
               <h2 className="text-xl font-semibold text-slate-50">Antes de ver a recomendação</h2>
               <p className="mt-2 text-sm text-slate-200">
-                Enviamos o resumo por e-mail e respondemos em{" "}
-                <span className="text-slate-50 font-semibold">até 24 horas</span>.
+                Deixa o teu nome e email. Assim enviamos o resumo e podemos responder com contexto.
               </p>
             </div>
 
@@ -573,7 +559,7 @@ export default function DiagnosticoPage() {
           </div>
         )}
 
-        {/* STEP 5 — RESULTADO (aqui sim: botões fazem sentido) */}
+        {/* STEP 5 */}
         {step === 5 && (
           <div className="space-y-8">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
@@ -583,13 +569,16 @@ export default function DiagnosticoPage() {
 
               <h2 className="mt-2 text-2xl font-semibold text-slate-50">
                 Recomendação principal:{" "}
-                <span className={rec.primary === "moduz" ? "text-cyan-300" : "text-accent-300"}>
+                <span className={rec.primary === "sites" ? "text-cyan-300" : "text-accent-300"}>
                   {labelForPath(rec.primary)}
                 </span>
               </h2>
 
-              <p className="mt-3 text-sm text-slate-200 max-w-3xl">Por que isto faz sentido:</p>
-              <ul className="mt-2 space-y-2 text-sm text-slate-300">
+              <p className="mt-3 text-sm text-slate-200 max-w-3xl">
+                Pelo que respondeste, este parece ser o caminho mais lógico neste momento:
+              </p>
+
+              <ul className="mt-3 space-y-2 text-sm text-slate-300">
                 {rec.why.map((w, i) => (
                   <li key={i}>• {w}</li>
                 ))}
@@ -602,7 +591,7 @@ export default function DiagnosticoPage() {
                   </p>
                   <p className="mt-2 text-sm font-semibold text-slate-50">{labelForPath(rec.secondary)}</p>
                   <p className="mt-1 text-sm text-slate-300">
-                    Se surgir outro gargalo dominante, este pode ser o próximo passo.
+                    Se o contexto mudar ou surgir outra prioridade, este pode ser o próximo passo.
                   </p>
                 </div>
 
@@ -611,15 +600,17 @@ export default function DiagnosticoPage() {
                     Próximo passo
                   </p>
                   <p className="mt-2 text-sm text-slate-300">
-                    Se quiseres acelerar: envia-nos contexto. Nós respondemos em até 24 horas.
+                    Podes seguir para a página correspondente ou falar comigo já com este diagnóstico.
                   </p>
 
                   <div className="mt-4 flex flex-col sm:flex-row flex-wrap gap-3">
                     <a
-                      href={contatoHref}
+                      href={whatsappHref}
+                      target="_blank"
+                      rel="noreferrer"
                       className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-cyan-500/30 transition hover:bg-cyan-400 whitespace-nowrap"
                     >
-                      Agendar diagnóstico
+                      Falar comigo agora
                     </a>
 
                     <a
@@ -627,6 +618,13 @@ export default function DiagnosticoPage() {
                       className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60 whitespace-nowrap"
                     >
                       Ver detalhes
+                    </a>
+
+                    <a
+                      href={contatoHref}
+                      className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60 whitespace-nowrap"
+                    >
+                      Enviar por formulário
                     </a>
                   </div>
                 </div>
