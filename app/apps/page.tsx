@@ -1,300 +1,186 @@
 // app/apps/page.tsx
 
+import Image from "next/image";
+
 export default function AppsPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-12 lg:py-16 space-y-14">
+      <section className="container-page py-12 lg:py-16 space-y-16">
+
         {/* HERO */}
-        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-8">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent-500/14 via-accent-400/8 to-transparent" />
-          <div className="relative z-10 max-w-3xl space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-              Apps customizados
-            </p>
+        <section className="relative overflow-hidden rounded-[28px] border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/apps-hero.png"
+              alt="Profissional a utilizar tablet com app de gestão em contexto de obra"
+              fill
+              priority
+              className="object-cover object-[65%_center]"
+            />
+          </div>
 
-            <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-              Quando a operação começa a travar, um app certo pode destravar o negócio.
-            </h1>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.94)_0%,rgba(2,6,23,0.80)_34%,rgba(2,6,23,0.38)_68%,rgba(2,6,23,0.18)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.10),transparent_28%)]" />
 
-            <p className="text-sm text-slate-200 max-w-2xl">
-              Nem toda empresa precisa de um sistema grande. Muitas vezes, o que resolve
-              é um app mais direto, desenhado para a dor certa, com foco em rotina,
-              controlo e menos retrabalho.
-            </p>
+          <div className="relative z-10 min-h-[520px] px-6 py-10 md:px-10 md:py-12 lg:min-h-[580px] lg:px-12 lg:py-14 flex items-end">
+            <div className="max-w-3xl space-y-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+                Apps customizados
+              </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="/diagnostico"
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-              >
-                Ver o que faz sentido
-              </a>
+              <h1 className="max-w-2xl text-3xl font-bold leading-tight md:text-5xl">
+                Não precisas de mais software.
+                <span className="mt-2 block text-cyan-300">
+                  Precisas de controlo sobre o que acontece no terreno.
+                </span>
+              </h1>
 
-              <a
-                href="https://wa.me/351910287128?text=Olá,%20quero%20entender%20se%20um%20app%20faz%20sentido%20para%20o%20meu%20negócio."
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Falar no WhatsApp
-              </a>
+              <p className="max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
+                Criamos apps simples para organizar tarefas, registos, equipas e operações,
+                sem complexidade desnecessária e sem depender de ferramentas genéricas.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="/diagnostico"
+                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+                >
+                  Ver o que está a travar
+                </a>
+
+                <a
+                  href="https://wa.me/351939250661?text=Olá,%20quero%20entender%20se%20um%20app%20faz%20sentido%20para%20o%20meu%20negócio."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg border border-slate-600/80 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-slate-100 backdrop-blur-sm transition hover:border-slate-400 hover:bg-slate-900/50"
+                >
+                  Falar no WhatsApp
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* QUANDO FAZ SENTIDO */}
-        <div className="space-y-4">
+        {/* PROBLEMAS */}
+        <section className="space-y-4">
           <div className="max-w-3xl">
             <h2 className="text-xl font-semibold text-slate-50">
-              Quando faz sentido investir num app customizado
+              Quando a operação não está organizada, tudo pesa mais
             </h2>
             <p className="mt-2 text-sm text-slate-200">
-              O app certo entra quando o problema está na rotina, no controlo e na
-              execução do dia a dia.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">
-                Tens processos manuais demais
-              </p>
-              <p className="mt-2 text-slate-300">
-                Excel, WhatsApp, notas soltas e dependência excessiva de pessoas tornam
-                a operação lenta e frágil.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">
-                A equipa precisa de simplicidade
-              </p>
-              <p className="mt-2 text-slate-300">
-                Em vez de dezenas de ferramentas, faz mais sentido ter um fluxo claro e
-                objetivo para a tarefa certa.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">
-                Falta visibilidade da operação
-              </p>
-              <p className="mt-2 text-slate-300">
-                O problema não é só executar. É saber o que aconteceu, quem fez, em que
-                ponto está e o que precisa de atenção.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="font-semibold text-slate-50">
-                Precisas resolver uma dor específica
-              </p>
-              <p className="mt-2 text-slate-300">
-                Nem sempre o caminho é um sistema completo. Às vezes o melhor é atacar
-                primeiro o ponto que mais está a travar o negócio.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* QUANDO NÃO FAZ SENTIDO */}
-        <div className="space-y-4">
-          <div className="max-w-3xl">
-            <h2 className="text-xl font-semibold text-slate-50">
-              Quando um app não é o melhor primeiro passo
-            </h2>
-            <p className="mt-2 text-sm text-slate-200">
-              Nem sempre a resposta é construir. Em alguns casos, antes disso, é preciso
-              clareza sobre o problema real.
+              Não é falta de esforço. É falta de visibilidade, controlo e estrutura
+              no dia a dia.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
               <p className="font-semibold text-slate-50">
-                Quando o problema ainda está mal definido
+                Informação espalhada
               </p>
               <p className="mt-2 text-slate-300">
-                Se nem a dor principal está clara, construir rápido pode gerar retrabalho.
+                Notas, mensagens, folhas e memória. Nada centralizado.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
               <p className="font-semibold text-slate-50">
-                Quando o bloqueio é mais de decisão do que de ferramenta
+                Falta de controlo
               </p>
               <p className="mt-2 text-slate-300">
-                Às vezes o negócio precisa primeiro de organizar fluxo, prioridade e processo.
+                Não sabes exatamente o que foi feito, por quem e quando.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
               <p className="font-semibold text-slate-50">
-                Quando querem “um app” sem saber para quê
+                Processos manuais
               </p>
               <p className="mt-2 text-slate-300">
-                Tecnologia sem direção só cria mais uma camada de confusão.
+                Tempo perdido em tarefas repetitivas e sem valor.
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* COMO TRABALHAMOS */}
-        <div className="space-y-4">
+        {/* O QUE FAZEMOS */}
+        <section className="space-y-4">
           <div className="max-w-3xl">
             <h2 className="text-xl font-semibold text-slate-50">
-              Como o trabalho acontece
+              Apps simples, pensados para a realidade do teu negócio
             </h2>
             <p className="mt-2 text-sm text-slate-200">
-              O caminho começa pelo entendimento da rotina e termina numa solução mais
-              prática para o teu cenário.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-4">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Etapa 1
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">Ler o cenário</p>
-              <p className="mt-1 text-slate-300">
-                Entender a dor, a rotina e o que realmente está a falhar.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Etapa 2
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">Definir o foco</p>
-              <p className="mt-1 text-slate-300">
-                Escolher o que o app precisa resolver primeiro, sem exagero nem excesso.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Etapa 3
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">Construir</p>
-              <p className="mt-1 text-slate-300">
-                Criar a solução com base no uso real e não numa ideia genérica.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Etapa 4
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">Ajustar</p>
-              <p className="mt-1 text-slate-300">
-                Refinar o que for necessário para o app encaixar melhor na rotina.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* EXEMPLOS */}
-        <div className="space-y-4">
-          <div className="max-w-3xl">
-            <h2 className="text-xl font-semibold text-slate-50">
-              Tipos de apps que fazem sentido
-            </h2>
-            <p className="mt-2 text-sm text-slate-200">
-              Não se trata de tecnologia pela tecnologia. Trata-se de resolver pontos concretos.
+              Nada genérico. Cada app nasce da forma como o teu negócio realmente funciona.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Operação
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Registo e controlo de rotina
-              </p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
+              <p className="font-semibold text-slate-50">Registos no terreno</p>
               <p className="mt-2 text-slate-300">
-                Checklists, ordens de serviço, etapas de execução, histórico e acompanhamento.
+                Apontamentos, fotos, checklists e tarefas diretamente no local.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Gestão
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Painéis e organização interna
-              </p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
+              <p className="font-semibold text-slate-50">Centralização</p>
               <p className="mt-2 text-slate-300">
-                Visão do que está a acontecer, prioridades, estados e informação num só lugar.
+                Tudo num só lugar, acessível e organizado.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-300">
-                Comercial
-              </p>
-              <p className="mt-2 font-semibold text-slate-50">
-                Proposta, catálogo e resposta mais rápida
-              </p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
+              <p className="font-semibold text-slate-50">Visibilidade</p>
               <p className="mt-2 text-slate-300">
-                Fluxos que ajudam a vender melhor e a responder com mais consistência.
+                Saber o que está a acontecer sem depender de mensagens ou chamadas.
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* CONTEXTOS */}
-        <div className="space-y-4">
+        {/* COMO FUNCIONA */}
+        <section className="space-y-4">
           <div className="max-w-3xl">
             <h2 className="text-xl font-semibold text-slate-50">
-              Aplicado em contextos diferentes
+              Não começamos pelo app. Começamos pelo problema.
             </h2>
             <p className="mt-2 text-sm text-slate-200">
-              A lógica muda conforme o negócio, mas a base é a mesma: resolver a necessidade real.
+              O app é só a ferramenta. O foco é resolver o que está desalinhado.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-5">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
-              Remodelações
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
+              <p className="font-semibold text-slate-50">Entender</p>
+              <p className="mt-2 text-slate-300">
+                Como a operação funciona hoje.
+              </p>
             </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
-              Serviços
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
-              Advocacia
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
-              Vendas
-            </div>
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 text-center text-sm text-slate-200">
-              Organizações
-            </div>
-          </div>
-        </div>
 
-        {/* DIFERENCIAL */}
-        <div className="space-y-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
-            <h2 className="text-xl font-semibold text-slate-50">
-              O diferencial não é só construir
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm text-slate-200">
-              O diferencial está em perceber a real necessidade do negócio, cortar excesso
-              e trazer uma solução mais ajustada ao que realmente vai gerar resultado.
-            </p>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
+              <p className="font-semibold text-slate-50">Organizar</p>
+              <p className="mt-2 text-slate-300">
+                Estruturar o processo de forma simples.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm">
+              <p className="font-semibold text-slate-50">Aplicar</p>
+              <p className="mt-2 text-slate-300">
+                Criar a app certa para aquele cenário.
+              </p>
+            </div>
           </div>
-        </div>
+        </section>
 
         {/* CTA FINAL */}
-        <div className="pt-10 border-t border-slate-800 text-center space-y-4">
+        <section className="pt-10 border-t border-slate-800 text-center space-y-4">
           <h2 className="text-2xl font-semibold text-slate-50">
-            Se a tua operação precisa de mais controlo, isso pode começar por um app certo
+            Se a tua operação depende de improviso, dá para melhorar
           </h2>
 
           <p className="max-w-xl mx-auto text-sm text-slate-200">
-            Primeiro entendemos o cenário. Depois decidimos se um app é mesmo o melhor caminho.
+            Em poucos minutos conseguimos perceber se um app faz sentido para o teu caso.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -306,7 +192,7 @@ export default function AppsPage() {
             </a>
 
             <a
-              href="https://wa.me/351910287128?text=Olá,%20quero%20entender%20se%20um%20app%20faz%20sentido%20para%20o%20meu%20negócio."
+              href="https://wa.me/351939250661?text=Olá,%20quero%20organizar%20a%20minha%20operação."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
@@ -314,7 +200,8 @@ export default function AppsPage() {
               Falar no WhatsApp
             </a>
           </div>
-        </div>
+        </section>
+
       </section>
     </main>
   );
