@@ -34,7 +34,7 @@ export default function HomePage() {
                 <h1 className="max-w-2xl text-3xl font-bold leading-tight md:text-5xl xl:text-6xl">
                   O teu negócio não precisa de mais ferramentas.
                   <span className="mt-2 block text-cyan-300">
-                    Precisa de funcionar melhor.
+                    Precisa funcionar melhor.
                   </span>
                 </h1>
 
