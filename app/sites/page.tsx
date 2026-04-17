@@ -1,46 +1,65 @@
 // app/sites/page.tsx
 
+import Image from "next/image";
+
 export default function SitesPage() {
   return (
     <main className="min-h-[calc(100vh-5rem)] bg-slate-950 text-slate-50">
-      <section className="container-page py-12 lg:py-16 space-y-14">
+      <section className="container-page py-12 lg:py-16 space-y-16">
         {/* HERO */}
-        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/35 p-8">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-accent-500/14 via-accent-400/8 to-transparent" />
-          <div className="relative z-10 max-w-3xl space-y-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
-              Sites e Landing Pages
-            </p>
+        <section className="relative overflow-hidden rounded-[28px] border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/sites-hero.png"
+              alt="Profissional a trabalhar num portátil com website moderno em ambiente de escritório com parede verde oliva"
+              fill
+              priority
+              className="object-cover object-[70%_center]"
+            />
+          </div>
 
-            <h1 className="text-3xl font-bold leading-tight md:text-4xl">
-              Um site não deve só existir. Deve ajudar o negócio a avançar.
-            </h1>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.94)_0%,rgba(2,6,23,0.80)_34%,rgba(2,6,23,0.38)_68%,rgba(2,6,23,0.18)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.10),transparent_28%)]" />
 
-            <p className="text-sm text-slate-200 max-w-2xl">
-              Um site sem estrutura não gera negócio. Só ocupa espaço. Aqui o foco é
-              simples: clareza na oferta, mensagem certa, prova, CTA e um caminho
-              direto para o contacto.
-            </p>
+          <div className="relative z-10 min-h-[520px] px-6 py-10 md:px-10 md:py-12 lg:min-h-[580px] lg:px-12 lg:py-14 flex items-end">
+            <div className="max-w-3xl space-y-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-300">
+                Sites e Landing Pages
+              </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="/diagnostico"
-                className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
-              >
-                Ver o que está a travar
-              </a>
+              <h1 className="max-w-2xl text-3xl font-bold leading-tight md:text-5xl">
+                Um site não deve só existir.
+                <span className="mt-2 block text-cyan-300">
+                  Deve ajudar o negócio a avançar.
+                </span>
+              </h1>
 
-              <a
-                href="https://wa.me/351910287128?text=Olá,%20quero%20melhorar%20o%20meu%20site."
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
-              >
-                Falar no WhatsApp
-              </a>
+              <p className="max-w-2xl text-base leading-7 text-slate-200 md:text-lg">
+                Um site sem estrutura não gera negócio. Só ocupa espaço.
+                O foco aqui é simples: clareza na oferta, mensagem certa, prova,
+                CTA e um caminho direto para o contacto.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="/diagnostico"
+                  className="inline-flex items-center justify-center rounded-lg bg-accent-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-accent-500/30 transition hover:bg-accent-400"
+                >
+                  Ver o que está a travar
+                </a>
+
+                <a
+                  href="https://wa.me/351939250661?text=Olá,%20quero%20melhorar%20o%20meu%20site."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg border border-slate-600/80 bg-slate-950/20 px-6 py-3 text-sm font-semibold text-slate-100 backdrop-blur-sm transition hover:border-slate-400 hover:bg-slate-900/50"
+                >
+                  Falar no WhatsApp
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* PROBLEMAS */}
         <div className="space-y-4">
@@ -271,7 +290,7 @@ export default function SitesPage() {
             </a>
 
             <a
-              href="https://wa.me/351910287128?text=Olá,%20quero%20resolver%20o%20meu%20site."
+              href="https://wa.me/351939250661?text=Olá,%20quero%20resolver%20o%20meu%20site."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/60"
